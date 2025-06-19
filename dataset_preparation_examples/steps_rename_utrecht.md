@@ -99,7 +99,7 @@ $ #+ Repeats give similar, but with '_p1-', '_p2-', etc.
 $ find . -type f | wc -l
 $ find . -type f -iname "*.png" | wc -l  # all files are PNG, for now
 ```
-`$ find . -type f -iname "*.png" | `${{\color{BrickRed}\small{\texttt{ \quad grep \quad \color{DarkOrange} "\}}} {\color{DarkOrange}\textunderscore} {\color{DarkOrange}\small{\texttt{p0-" \quad \}}}}$` | wc -l`<br/>
+`$ find . -type f -iname "*.png" | `${{\color{BrickRed}\texttt{ \quad grep \quad\}} {\color{DarkOrange} " \textunderscore} {\color{DarkOrange}\texttt{p0 \large{-} " \quad \}}}$` | wc -l`<br/>
 `$   #  Matches the count from the image extraction`<br/>
 `$ find . -type f -iname "*.png" | `grep -v "_p0-"` | wc -l`
 `$   #  That's the number of duplicates. Double checking`
