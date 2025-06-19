@@ -1,5 +1,7 @@
 # Illustrating my usual regex usage<br/>(`sed`, `grep`, ...)<br/>as well as my `awk` usage in this <br/>ML CV Manuscript Reuse project
 
+## There's also some nice usage of `find` and some good file handling.
+
 The specific usage examples will be colored &ndash; for which I need to use MathJax (LaTeX)
 and thus won't have a <code>code</code> font. (Solutions people had tried, such as
 `<code style="color:red">whatever code</code>` hadn't worked.)
@@ -55,7 +57,7 @@ checksituation is aliased to `echo; echo " Current date/time is"; trpdate; echo;
 
 ```bash
 $ type trpdate
-trpdate is aliased to `tripled  ate'
+trpdate is aliased to `tripledate'
 $ type tripledate
 tripledate is aliased to `date && date +'%s' && date +'%s_%Y-%m-%dT%H%M%S%z''
 $ find ./new_to_convert_PDF/ -type f | wc -l # Making sure not tons of output
@@ -83,9 +85,9 @@ EOF
 $ checksituation
 
 $ cat >/dev/null <<EOF
-After a [Ctrl]+[c] in Anaconda Prompt, after I can see
-that we're downloading repeat/duplicate images with
-the script.
+After a [Ctrl]+[c] in Anaconda Prompt, which is done
+when I can see that we're downloading repeat/duplicate
+images with the Python script.
 
 path>:: blah
 
@@ -96,19 +98,24 @@ $ #+ Repeats give similar, but with '_p1-', '_p2-', etc.
 
 $ find . -type f | wc -l
 $ find . -type f -iname "*.png" | wc -l  # all files are PNG, for now
-$ find . -type f -iname "*.png" | grep "_p0-" | wc -l
-$   #  Matches the count from the image extraction
-$ find . -type f -iname "*.png" | grep -v "_p0-" | wc -l
-$   #  That's the number of duplicates. Double checking
-$ find . -type f -iname "*.png" | grep "_p1-" | wc -l
+```
+`$ find . -type f -iname "*.png" | `${{\color{BrickRed}\small{\texttt{ \quad grep \quad \color{DarkOrange} "\}}} {\color{DarkOrange}\textunderscore} {\color{DarkOrange}\small{\texttt{p0-" \quad \}}}}$` | wc -l`<br/>
+`$   #  Matches the count from the image extraction`<br/>
+`$ find . -type f -iname "*.png" | `grep -v "_p0-"` | wc -l`
+`$   #  That's the number of duplicates. Double checking`
+`$ find . -type f -iname "*.png" | `grep "_p1-"` | wc -l`
 $ find . -type f -iname "*.png" | grep "_p2-" | wc -l
 $ find . -type f -iname "*.png" | grep "_p2-" | wc -l
-cat >/dev/null <<EOF
+
+```bash
+$ cat >/dev/null <<EOF
 Let's delete the duplicates. 
 Null separating filenames in case there are any spaces, etc.
 in any filenames. (There aren't, but I want it portable for
 when I'm using filenames created by others.
 EOF
+```
+
 $ find . -type f -iname "*.png" | grep -v "_p0-" | \
     tr '\n' '\0' | xargs -I'{}' -0 rm "{}"
 $ find . -type f -iname "*.png" | grep -v "_p0-" | wc -l
@@ -124,7 +131,8 @@ $   # probably more compute with regex engine, less robust
 $ find . -type f -iname "*.png" | awk -F'/' '{print $NF}' | sort | wc -l
 $ find . -type f -iname "*.png" | \
     awk -F'/' '{print $NF}' | sort > rename_utrecht_foct39dl1_pre.sh
-rename_utrecht_foct39dl1_pre.sh
+
+```bash
 $ head rename_utrecht_foct39dl1_pre.sh
 $ cat >/dev/null <<EOF
   Metaprogramming (running something that will output a script)
@@ -142,11 +150,10 @@ $ cat >/dev/null <<EOF
 #+ time to manually make changes.
 ```
 
-```bash
-curr_idx=1; ofn="rename_utrecht_eoct416dl1.sh"; >"${ofn}"; while read -r line; do orig_fname="${line}"; ofn="rename_utrecht_eoct416dl1.sh"; new_fname_pre=$(echo "${orig_fname}" | sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'); new_fname="${new_fname_pre}_$(printf '%05d' ${curr_idx}).png"; echo "echo" | tee -a "${ofn}"; echo "echo \"  Moving\"" | tee -a "${ofn}"; echo "echo \"${orig_fname}\"" | tee -a "${ofn}"; echo "echo \"  TO\"" | tee -a "${ofn}"; echo "echo \"${new_fname}\"" | tee -a "${ofn}"; echo "echo \"      ...\"" | tee -a "${ofn}"; echo "mv \"${orig_fname}\" \"${new_fname}\" && echo \"          ... success\" || echo \"          ... FAILURE\"" | tee -a "${ofn}"; curr_idx=$(echo "${curr_idx}+1" | bc); done < rename_utrecht_eoct416dl1_pre.sh
 
-curr_idx=1; ofn="rename_utrecht_eoct416dl1.sh"; >"${ofn}"; while read -r line; do orig_fname="${line}"; ofn="rename_utrecht_eoct416dl1.sh"; new_fname_pre=$(echo "${orig_fname}" | sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'); new_fname="${new_fname_pre}_$(printf '%05d' ${curr_idx}).png"; echo "echo" >> "${ofn}"; echo "echo \"  Moving\"" >> "${ofn}"; echo "echo \"${orig_fname}\"" >> "${ofn}"; echo "echo \"  TO\"" >> "${ofn}"; echo "echo \"${new_fname}\"" >> "${ofn}"; echo "echo \"      ...\"" >> "${ofn}"; echo "mv \"${orig_fname}\" \"${new_fname}\" && echo \"          ... success\" || echo \"          ... FAILURE\"" >> "${ofn}"; curr_idx=$(echo "${curr_idx}+1" | bc); done < rename_utrecht_eoct416dl1_pre.sh
-```
+`curr_idx=1; ofn="rename_utrecht_eoct416dl1.sh"; >"${ofn}"; while read -r line; do orig_fname="${line}"; ofn="rename_utrecht_eoct416dl1.sh"; new_fname_pre=$(echo "${orig_fname}" | sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'); new_fname="${new_fname_pre}_$(printf '%05d' ${curr_idx}).png"; echo "echo" | tee -a "${ofn}"; echo "echo \"  Moving\"" | tee -a "${ofn}"; echo "echo \"${orig_fname}\"" | tee -a "${ofn}"; echo "echo \"  TO\"" | tee -a "${ofn}"; echo "echo \"${new_fname}\"" | tee -a "${ofn}"; echo "echo \"      ...\"" | tee -a "${ofn}"; echo "mv \"${orig_fname}\" \"${new_fname}\" && echo \"          ... success\" || echo \"          ... FAILURE\"" | tee -a "${ofn}"; curr_idx=$(echo "${curr_idx}+1" | bc); done < rename_utrecht_eoct416dl1_pre.sh`
+
+`curr_idx=1; ofn="rename_utrecht_eoct416dl1.sh"; >"${ofn}"; while read -r line; do orig_fname="${line}"; ofn="rename_utrecht_eoct416dl1.sh"; new_fname_pre=$(echo "${orig_fname}" | sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'); new_fname="${new_fname_pre}_$(printf '%05d' ${curr_idx}).png"; echo "echo" >> "${ofn}"; echo "echo \"  Moving\"" >> "${ofn}"; echo "echo \"${orig_fname}\"" >> "${ofn}"; echo "echo \"  TO\"" >> "${ofn}"; echo "echo \"${new_fname}\"" >> "${ofn}"; echo "echo \"      ...\"" >> "${ofn}"; echo "mv \"${orig_fname}\" \"${new_fname}\" && echo \"          ... success\" || echo \"          ... FAILURE\"" >> "${ofn}"; curr_idx=$(echo "${curr_idx}+1" | bc); done < rename_utrecht_eoct416dl1_pre.sh`
 
 ```bash
 #  this time: rename_utrecht_foct39dl1_pre.sh, rename_utrecht_foct39dl1.sh
@@ -160,8 +167,10 @@ curr_idx=1; ofn="rename_utrecht_foct39dl1.sh"; >"${ofn}"; \
 while read -r line; do \
   orig_fname="${line}"; \
   ofn="rename_utrecht_foct39dl1.sh"; \
-  new_fname_pre=$(echo "${orig_fname}" | \
-        sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'); \
+```
+`  new_fname_pre=$(echo "${orig_fname}" | \`
+`        `sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'`); \`
+```bash
   new_fname="${new_fname_pre}_$(printf '%05d' ${curr_idx}).png"; \
   echo "echo"; \
   echo "echo \"  Moving\""; \
@@ -181,8 +190,10 @@ curr_idx=1; ofn="rename_utrecht_eoct416dl1.sh"; >"${ofn}"; \
 while read -r line; do \
   orig_fname="${line}"; \
   ofn="rename_utrecht_eoct416dl1.sh"; \
-  new_fname_pre=$(echo "${orig_fname}" | \
-        sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'); \
+```
+`  new_fname_pre=$(echo "${orig_fname}" | \`
+`        sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'); \`
+```bash
   new_fname="${new_fname_pre}_$(printf '%05d' ${curr_idx}).png"; \
   echo "echo" >> "${ofn}"; \
   echo "echo \"  Moving\"" >> "${ofn}"; \
@@ -197,12 +208,14 @@ while read -r line; do \
 done < rename_utrecht_foct39dl1_pre.sh
 
 EOF
-
+```
+<!--
 ## {
 $ type ttdate
 $ type ttdatechk
 ## }
-
+-->
+```bash
 $ #  Check 50 lines 
 $ curr_idx=1; ofn="rename_utrecht_foct39dl1.sh"; >"${ofn}"; \
 while read -r line; do \
