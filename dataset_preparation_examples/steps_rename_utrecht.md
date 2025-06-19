@@ -99,14 +99,13 @@ $ #+ Repeats give similar, but with '_p1-', '_p2-', etc.
 $ find . -type f | wc -l
 $ find . -type f -iname "*.png" | wc -l  # all files are PNG, for now
 ```
-`$ find . -type f -iname "*.png" | `${{\color{BrickRed}\texttt{ \quad grep \quad\}} {\color{DarkOrange} " \textunderscore} {\color{DarkOrange}\texttt{p0 \large{-} " \quad \}}}$` | wc -l`<br/>
+`$ find . -type f -iname "*.png" | `${{\color{BrickRed}\texttt{ \quad grep \quad\}} {\color{DarkOrange} " \large{\textunderscore}} {\color{DarkOrange}\texttt{p0 \large{-} " \quad \}}}$` | wc -l`<br/>
 `$   #  Matches the count from the image extraction`<br/>
-`$ find . -type f -iname "*.png" | `grep -v "_p0-"` | wc -l`
-`$   #  That's the number of duplicates. Double checking`
-`$ find . -type f -iname "*.png" | `grep "_p1-"` | wc -l`
-$ find . -type f -iname "*.png" | grep "_p2-" | wc -l
-$ find . -type f -iname "*.png" | grep "_p2-" | wc -l
-
+`$ find . -type f -iname "*.png" | `${{\color{BrickRed}\texttt{ \quad grep \quad -v \quad\}} {\color{DarkOrange} " \large{\textunderscore}} {\color{DarkOrange}\texttt{p0 \large{-} " \quad \}}}$` | wc -l`<br/>
+`$   #  That's the number of duplicates. Double checking`<br/>
+`$ find . -type f -iname "*.png" | `grep "_p1-"` | wc -l`<br/>
+`$ find . -type f -iname "*.png" | `grep "_p2-"` | wc -l`<br/>
+`$ find . -type f -iname "*.png" | `grep "_p2-"` | wc -l`
 ```bash
 $ cat >/dev/null <<EOF
 Let's delete the duplicates. 
@@ -115,23 +114,23 @@ in any filenames. (There aren't, but I want it portable for
 when I'm using filenames created by others.
 EOF
 ```
-
-$ find . -type f -iname "*.png" | grep -v "_p0-" | \
-    tr '\n' '\0' | xargs -I'{}' -0 rm "{}"
-$ find . -type f -iname "*.png" | grep -v "_p0-" | wc -l
-$ #  They're all gone. Let's check for what's left
-$ find . -type f -iname "*.png" | grep "_p0-" | wc -l
+`$ find . -type f -iname "*.png" | `grep -v "_p0-"` | \`<br/>
+`    tr '\n' '\0' | xargs -I'{}' -0 rm "{}"`<br/>
+`$ find . -type f -iname "*.png" | `grep -v "_p0-"` | wc -l`<br/>
+`$ #  They're all gone. Let's check for what's left`<br/>
+`$ find . -type f -iname "*.png" | `grep "_p0-"` | wc -l`
+```bash
 $ #  Matches. Let's take a quick look at the filenames
 $ find . -type f -iname "*.png" | sort | head
 #<UnivUltrecht_-_F-oct-39-dl-1>
 $ #  Make the filenames consistent with my others
 $ #+ I'll be metaprogramming a script to do this
-$ #find . -type f -iname "*.png | sed 's#^[.]/##g;' | sort > rename....sh
-$   # probably more compute with regex engine, less robust
-$ find . -type f -iname "*.png" | awk -F'/' '{print $NF}' | sort | wc -l
-$ find . -type f -iname "*.png" | \
-    awk -F'/' '{print $NF}' | sort > rename_utrecht_foct39dl1_pre.sh
-
+```
+`$ #find . -type f -iname "*.png | `sed 's#^[.]/##g;'` | sort > rename....sh`<br/>
+`$   # probably more compute with regex engine, less robust`<br/>
+`$ find . -type f -iname "*.png" | `awk -F'/' '{print $NF}'` | sort | wc -l`<br/>
+`$ find . -type f -iname "*.png" | \`<br/>
+`    `awk -F'/' '{print $NF}'` | sort > rename_utrecht_foct39dl1_pre.sh`
 ```bash
 $ head rename_utrecht_foct39dl1_pre.sh
 $ cat >/dev/null <<EOF
@@ -149,12 +148,9 @@ $ cat >/dev/null <<EOF
 #+ script) done would take longer than the combined
 #+ time to manually make changes.
 ```
+`curr_idx=1; ofn="rename_utrecht_eoct416dl1.sh"; >"${ofn}"; while read -r line; do orig_fname="${line}"; ofn="rename_utrecht_eoct416dl1.sh"; new_fname_pre=$(echo "${orig_fname}" | `sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'`); new_fname="${new_fname_pre}_$(printf '%05d' ${curr_idx}).png"; echo "echo" | tee -a "${ofn}"; echo "echo \"  Moving\"" | tee -a "${ofn}"; echo "echo \"${orig_fname}\"" | tee -a "${ofn}"; echo "echo \"  TO\"" | tee -a "${ofn}"; echo "echo \"${new_fname}\"" | tee -a "${ofn}"; echo "echo \"      ...\"" | tee -a "${ofn}"; echo "mv \"${orig_fname}\" \"${new_fname}\" && echo \"          ... success\" || echo \"          ... FAILURE\"" | tee -a "${ofn}"; curr_idx=$(echo "${curr_idx}+1" | bc); done < rename_utrecht_eoct416dl1_pre.sh`<br/>
 
-
-`curr_idx=1; ofn="rename_utrecht_eoct416dl1.sh"; >"${ofn}"; while read -r line; do orig_fname="${line}"; ofn="rename_utrecht_eoct416dl1.sh"; new_fname_pre=$(echo "${orig_fname}" | sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'); new_fname="${new_fname_pre}_$(printf '%05d' ${curr_idx}).png"; echo "echo" | tee -a "${ofn}"; echo "echo \"  Moving\"" | tee -a "${ofn}"; echo "echo \"${orig_fname}\"" | tee -a "${ofn}"; echo "echo \"  TO\"" | tee -a "${ofn}"; echo "echo \"${new_fname}\"" | tee -a "${ofn}"; echo "echo \"      ...\"" | tee -a "${ofn}"; echo "mv \"${orig_fname}\" \"${new_fname}\" && echo \"          ... success\" || echo \"          ... FAILURE\"" | tee -a "${ofn}"; curr_idx=$(echo "${curr_idx}+1" | bc); done < rename_utrecht_eoct416dl1_pre.sh`
-
-`curr_idx=1; ofn="rename_utrecht_eoct416dl1.sh"; >"${ofn}"; while read -r line; do orig_fname="${line}"; ofn="rename_utrecht_eoct416dl1.sh"; new_fname_pre=$(echo "${orig_fname}" | sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'); new_fname="${new_fname_pre}_$(printf '%05d' ${curr_idx}).png"; echo "echo" >> "${ofn}"; echo "echo \"  Moving\"" >> "${ofn}"; echo "echo \"${orig_fname}\"" >> "${ofn}"; echo "echo \"  TO\"" >> "${ofn}"; echo "echo \"${new_fname}\"" >> "${ofn}"; echo "echo \"      ...\"" >> "${ofn}"; echo "mv \"${orig_fname}\" \"${new_fname}\" && echo \"          ... success\" || echo \"          ... FAILURE\"" >> "${ofn}"; curr_idx=$(echo "${curr_idx}+1" | bc); done < rename_utrecht_eoct416dl1_pre.sh`
-
+`curr_idx=1; ofn="rename_utrecht_eoct416dl1.sh"; >"${ofn}"; while read -r line; do orig_fname="${line}"; ofn="rename_utrecht_eoct416dl1.sh"; new_fname_pre=$(echo "${orig_fname}" | `sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'`); new_fname="${new_fname_pre}_$(printf '%05d' ${curr_idx}).png"; echo "echo" >> "${ofn}"; echo "echo \"  Moving\"" >> "${ofn}"; echo "echo \"${orig_fname}\"" >> "${ofn}"; echo "echo \"  TO\"" >> "${ofn}"; echo "echo \"${new_fname}\"" >> "${ofn}"; echo "echo \"      ...\"" >> "${ofn}"; echo "mv \"${orig_fname}\" \"${new_fname}\" && echo \"          ... success\" || echo \"          ... FAILURE\"" >> "${ofn}"; curr_idx=$(echo "${curr_idx}+1" | bc); done < rename_utrecht_eoct416dl1_pre.sh`
 ```bash
 #  this time: rename_utrecht_foct39dl1_pre.sh, rename_utrecht_foct39dl1.sh
 EOF
@@ -168,7 +164,7 @@ while read -r line; do \
   orig_fname="${line}"; \
   ofn="rename_utrecht_foct39dl1.sh"; \
 ```
-`  new_fname_pre=$(echo "${orig_fname}" | \`
+`  new_fname_pre=$(echo "${orig_fname}" | \`<br/>
 `        `sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'`); \`
 ```bash
   new_fname="${new_fname_pre}_$(printf '%05d' ${curr_idx}).png"; \
@@ -191,8 +187,8 @@ while read -r line; do \
   orig_fname="${line}"; \
   ofn="rename_utrecht_eoct416dl1.sh"; \
 ```
-`  new_fname_pre=$(echo "${orig_fname}" | \`
-`        sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'); \`
+`  new_fname_pre=$(echo "${orig_fname}" | \`<br/>
+`        `sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'`); \`
 ```bash
   new_fname="${new_fname_pre}_$(printf '%05d' ${curr_idx}).png"; \
   echo "echo" >> "${ofn}"; \
@@ -221,8 +217,10 @@ $ curr_idx=1; ofn="rename_utrecht_foct39dl1.sh"; >"${ofn}"; \
 while read -r line; do \
   orig_fname="${line}"; \
   ofn="rename_utrecht_foct39dl1.sh"; \
-  new_fname_pre=$(echo "${orig_fname}" | \
-        sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'); \
+```
+`  new_fname_pre=$(echo "${orig_fname}" | \`<br/>
+`        `sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'`); \`
+```bash
   new_fname="${new_fname_pre}_$(printf '%05d' ${curr_idx}).png"; \
   echo "echo"; \
   echo "echo \"  Moving\""; \
@@ -242,8 +240,10 @@ $ curr_idx=1; ofn="rename_utrecht_eoct416dl1.sh"; >"${ofn}"; \
 while read -r line; do \
   orig_fname="${line}"; \
   ofn="rename_utrecht_eoct416dl1.sh"; \
-  new_fname_pre=$(echo "${orig_fname}" | \
-        sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'); \
+```
+`  new_fname_pre=$(echo "${orig_fname}" | \`<br/>
+`        `sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'`); \`
+```bash
   new_fname="${new_fname_pre}_$(printf '%05d' ${curr_idx}).png"; \
   echo "echo" >> "${ofn}"; \
   echo "echo \"  Moving\"" >> "${ofn}"; \
@@ -284,22 +284,26 @@ $ ./rename_utrecht_foct39dl1.sh 2>&1 | tee renaming_utrecht_foct39dl1.out
 ### ... OUTPUT ...
 
 $ #  Now, check for any FAILUREs, using case-insensitive flag
-$ grep -i --failure renaming_utrecht_foct39dl1.out | wc -l # n_failures?
+```
+`$ `grep -i --failure renaming_utrecht_foct39dl1.out` | wc -l # n_failures?`<br/>
+```bash
 grep: unknown option -- failure
 Usage: grep [OPTION]... PATTERNS [FILE]...
 Try 'grep --help' for more information.
 0
-
 $ #  hahahahaha. I've got to make sure I laugh every day.
 $ #+ Failure is not an option ('unknown option -- failure')
-$ grep -i failure renaming_utrecht_eoct416dl1.out | wc -l # n_failures
-$ #  Great! No failures. Check successes.
-$ grep -i success renaming_utrecht_eoct416dl1.out | wc -l
+```
+`$ `grep -i failure renaming_utrecht_eoct416dl1.out` | wc -l # n_failures`<br/>
+`$ #  Great! No failures. Check successes.`<br/>
+`$ `grep -i success renaming_utrecht_eoct416dl1.out` | wc -l`<br/>
+```bash
 $ #  Matches our original number of files; good
 $
 $ #  A regex check that all filenames match my favored pattern
 $ find . -type f -iname "*.png" | wc -l
 $ find . -type f -iname "*.png" | sort | head
-$ find . -type f -iname "*.png" | sort | grep "_[0-9]\{5\}[.]png$" | wc -l
-$ find . -type f -iname "*.png" | sort | grep -v "_[0-9]\{5\}[.]png$" | wc -l
 ```
+`$ find . -type f -iname "*.png" | sort | `grep "_[0-9]\{5\}[.]png$"` | wc -l`<br/>
+`$ find . -type f -iname "*.png" | sort | `grep -v "_[0-9]\{5\}[.]png$"` | wc -l`<br/>
+`result`
