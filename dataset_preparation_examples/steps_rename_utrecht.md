@@ -103,7 +103,7 @@ $ find . -type f -iname "*.png" | wc -l  # all files are PNG, for now
 `$   #  Matches the count from the image extraction`<br/>
 `$ find . -type f -iname "*.png" | `${{\color{BrickRed}\texttt{ \quad grep \quad -v \quad\}} {\color{DarkOrange} " \large{\textunderscore}} {\color{DarkOrange}\texttt{p0 \large{-} " \quad \}}}$` | wc -l`<br/>
 `$   #  That's the number of duplicates. Double checking`<br/>
-`$ find . -type f -iname "*.png" | `${{\color{BrickRed}\texttt{ \quad grep \quad\}} {\color{DarkOrange} " \large{\textunderscore}} {\color{DarkOrange}\texttt{p1 \large{-} " \quad \}}}$"` | wc -l`<br/>
+`$ find . -type f -iname "*.png" | `${{\color{BrickRed}\texttt{ \quad grep \quad\}} {\color{DarkOrange} " \large{\textunderscore}} {\color{DarkOrange}\texttt{p1 \large{-} " \quad \}}}$` | wc -l`<br/>
 `$ find . -type f -iname "*.png" | `${{\color{BrickRed}\texttt{ \quad grep \quad\}} {\color{DarkOrange} " \large{\textunderscore}} {\color{DarkOrange}\texttt{p2 \large{-} " \quad \}}}$` | wc -l`<br/>
 `$ find . -type f -iname "*.png" | `${{\color{BrickRed}\texttt{ \quad grep \quad\}} {\color{DarkOrange} " \large{\textunderscore}} {\color{DarkOrange}\texttt{p3 \large{-} " \quad \}}}$` | wc -l`
 ```bash
@@ -129,7 +129,7 @@ $ #+ I'll be metaprogramming a script to do this
 `$ #  I usually use  sed 's#search#replace#flags;' , but MathJax (LaTeX) here doesn't`
 `$ #+ like the ways I've tried to replace it, so I'm doing  sed 's|search|replace|flags;'`
 `$ #+ This will still make it easier to use the '/' character as part of the filepath`
-`$ #find . -type f -iname "*.png | `${{\color{ForestGreen} \texttt{ \quad sed \quad }} {\color{ForestGreen} \mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}} {\color{ForestGreen} \texttt{s|}}  {\color{DarkOrange} \mathtt{^{\wedge}}} {\color{DarkOrange} \texttt{[ \ \ . \ \ ]/ \color{ForestGreen}| \ |g \ ;}} {\color{ForestGreen} \mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}}}$` | sort > rename&lt;whatever&gt;.sh`<br/>
+`$ #find . -type f -iname "*.png | `${{\color{ForestGreen} \texttt{ \quad sed \quad }} {\color{ForestGreen} \mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}} {\color{ForestGreen} \texttt{s|}}  {\color{DarkOrange} \mathtt{^{\wedge}}} {\color{DarkOrange} \texttt{[ \ \ . \ \ ]/\color{ForestGreen}||g;}} {\color{ForestGreen} \mathtt{ ^{ ^{\ _{\rule{0.6ex}{1.2ex}}}}}} {\quad}}$` | sort > rename&lt;whatever&gt;.sh`<br/>
 `$   # probably more compute with regex engine, less robust than awk`<br/>
 `$ find . -type f -iname "*.png" | `$`awk -F'/' '{print $NF}'`$` | sort | wc -l`<br/>
 `$ find . -type f -iname "*.png" | \`<br/>
