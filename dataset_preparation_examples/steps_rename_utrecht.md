@@ -133,7 +133,7 @@ $ #+ I'll be metaprogramming a script to do this
 `$   # probably more compute with regex engine, less robust than awk`<br/>
 `$ find . -type f -iname "*.png" | `${{\color{Cerulean} \texttt{ \quad awk \quad -F \quad }} {\color{Cerulean}\mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}}{\color{Cerulean}/}{\color{Cerulean}\mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}} \quad} {\color{Cerulean}\mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}}{\color{Cerulean} \mathtt{ \\{ \quad print \quad \textdollar NF \quad \\} }}{\color{Cerulean}\mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}} \quad} }$` | sort | wc -l`<br/>
 `$ find . -type f -iname "*.png" | \`<br/>
-`                        `awk -F'/' '{print $NF}'` | sort > rename_utrecht_foct39dl1_pre.sh`
+`          `${{\color{Cerulean} \texttt{ \quad awk \quad -F \quad }} {\color{Cerulean}\mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}}{\color{Cerulean}/}{\color{Cerulean}\mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}} \quad} {\color{Cerulean}\mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}}{\color{Cerulean} \mathtt{ \\{ \quad print \quad \textdollar NF \quad \\} }}{\color{Cerulean}\mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}} \quad} }$` | sort > rename_utrecht_foct39dl1_pre.sh`
 ```bash
 $ head rename_utrecht_foct39dl1_pre.sh
 $ cat >/dev/null <<EOF
