@@ -6,13 +6,13 @@ The specific usage examples will be colored &ndash; for which I need to use Math
 and thus won't have a <code>code</code> font. (Solutions people had tried, such as
 `<code style="color:red">whatever code</code>` hadn't worked.)
 
-<code>I'll put my </code> ${{\color{Cerulean}\small{\texttt{ \quad awk \quad code \quad \}}}}$ <code> in </code> ${{\color{Cerulean}\small{\texttt{ \quad blue \quad \}}}}$
+<code>I'll put my </code> ${{\color{Cerulean}\small{\texttt{ \quad awk \quad code \quad }}}}$ <code> in </code> ${{\color{Cerulean}\small{\texttt{ \quad blue \quad }}}}$
 
-<code>I'll put my (not-specifically-regex) </code> ${{\color{BrickRed}\small{\texttt{ \quad grep \quad code \quad \}}}}$ <code> in </code> ${{\color{BrickRed}\small{\texttt{ \quad red \quad \}}}}$
+<code>I'll put my (not-specifically-regex) </code> ${{\color{BrickRed}\small{\texttt{ \quad grep \quad code \quad }}}}$ <code> in </code> ${{\color{BrickRed}\small{\texttt{ \quad red \quad }}}}$
 
-<code>I'll put my (not-specifically-regex) </code> ${{\color{ForestGreen}\small{\texttt{ \quad sed \quad code \quad \}}}}$ <code> in </code> ${{\color{ForestGreen}\small{\texttt{ \quad green \quad \}}}}$
+<code>I'll put my (not-specifically-regex) </code> ${{\color{ForestGreen}\small{\texttt{ \quad sed \quad code \quad }}}}$ <code> in </code> ${{\color{ForestGreen}\small{\texttt{ \quad green \quad }}}}$
 
-<code>I'll put my </code> ${{\color{DarkOrange}\small{\texttt{ \quad code \quad for \quad regexes \quad \}}}}$ <code> in </code> ${{\color{DarkOrange}\small{\texttt{ \quad orange \quad \}}}}$
+<code>I'll put my </code> ${{\color{DarkOrange}\small{\texttt{ \quad code \quad for \quad regexes \quad }}}}$ <code> in </code> ${{\color{DarkOrange}\small{\texttt{ \quad orange \quad }}}}$
 
 <br/>
 
@@ -99,13 +99,13 @@ $ #+ Repeats give similar, but with '_p1-', '_p2-', etc.
 $ find . -type f | wc -l
 $ find . -type f -iname "*.png" | wc -l  # all files are PNG, for now
 ```
-`$ find . -type f -iname "*.png" | `${{\color{BrickRed}\texttt{ \quad grep \quad\}} {\color{DarkOrange} " \large{\textunderscore}} {\color{DarkOrange}\texttt{p0 \large{-} " \quad \}}}$` | wc -l`<br/>
+`$ find . -type f -iname "*.png" | `${{\color{BrickRed}\texttt{ \quad grep \quad}} {\color{DarkOrange} "\large{\textunderscore}} {\color{DarkOrange}\texttt{p0-" \quad }}}$` | wc -l`<br/>
 `$   #  Matches the count from the image extraction`<br/>
-`$ find . -type f -iname "*.png" | `${{\color{BrickRed}\texttt{ \quad grep \quad -v \quad\}} {\color{DarkOrange} " \large{\textunderscore}} {\color{DarkOrange}\texttt{p0 \large{-} " \quad \}}}$` | wc -l`<br/>
+`$ find . -type f -iname "*.png" | `${{\color{BrickRed}\texttt{ \quad grep \quad -v \quad}} {\color{DarkOrange} "\large{\textunderscore}} {\color{DarkOrange}\texttt{p0-" \quad }}}$` | wc -l`<br/>
 `$   #  That's the number of duplicates. Double checking`<br/>
-`$ find . -type f -iname "*.png" | `${{\color{BrickRed}\texttt{ \quad grep \quad\}} {\color{DarkOrange} " \large{\textunderscore}} {\color{DarkOrange}\texttt{p1 \large{-} " \quad \}}}$` | wc -l`<br/>
-`$ find . -type f -iname "*.png" | `${{\color{BrickRed}\texttt{ \quad grep \quad\}} {\color{DarkOrange} " \large{\textunderscore}} {\color{DarkOrange}\texttt{p2 \large{-} " \quad \}}}$` | wc -l`<br/>
-`$ find . -type f -iname "*.png" | `${{\color{BrickRed}\texttt{ \quad grep \quad\}} {\color{DarkOrange} " \large{\textunderscore}} {\color{DarkOrange}\texttt{p3 \large{-} " \quad \}}}$` | wc -l`
+`$ find . -type f -iname "*.png" | `${{\color{BrickRed}\texttt{ \quad grep \quad}} {\color{DarkOrange} "\large{\textunderscore}} {\color{DarkOrange}\texttt{p1-" \quad }}}$` | wc -l`<br/>
+`$ find . -type f -iname "*.png" | `${{\color{BrickRed}\texttt{ \quad grep \quad}} {\color{DarkOrange} "\large{\textunderscore}} {\color{DarkOrange}\texttt{p2-" \quad }}}$` | wc -l`<br/>
+`$ find . -type f -iname "*.png" | `${{\color{BrickRed}\texttt{ \quad grep \quad}} {\color{DarkOrange} "\large{\textunderscore}} {\color{DarkOrange}\texttt{p3-" \quad }}}$` | wc -l`
 ```bash
 $ cat >/dev/null <<EOF
 Let's delete the duplicates. 
@@ -114,11 +114,11 @@ in any filenames. (There aren't, but I want it portable for
 when I'm using filenames created by others.
 EOF
 ```
-`$ find . -type f -iname "*.png" | `${{\color{BrickRed} \texttt{ \quad grep \quad -v \quad\}} {\color{DarkOrange} " \large{\textunderscore}} {\color{DarkOrange}\texttt{p0 \large{-} " \quad \}}}$` | \`<br/>
+`$ find . -type f -iname "*.png" | `${{\color{BrickRed} \texttt{ \quad grep \quad -v \quad}} {\color{DarkOrange} "\large{\textunderscore}} {\color{DarkOrange}\texttt{p0-" \quad }}}$` | \`<br/>
 `                        tr '\n' '\0' | xargs -I'{}' -0 rm "{}"`<br/>
-`$ find . -type f -iname "*.png" | `${{\color{BrickRed} \texttt{ \quad grep \quad -v \quad\}} {\color{DarkOrange} " \large{\textunderscore}} {\color{DarkOrange}\texttt{p0 \large{-} " \quad \}}}$` | wc -l`<br/>
+`$ find . -type f -iname "*.png" | `${{\color{BrickRed} \texttt{ \quad grep \quad -v \quad}} {\color{DarkOrange} "\large{\textunderscore}} {\color{DarkOrange}\texttt{p0-" \quad }}}$` | wc -l`<br/>
 `$ #  They're all gone. Let's check for what's left`<br/>
-`$ find . -type f -iname "*.png" | `${{\color{BrickRed} \texttt{ \quad grep \quad\}} {\color{DarkOrange} " \large{\textunderscore}} {\color{DarkOrange}\texttt{p0 \large{-} " \quad \}}}$` | wc -l`
+`$ find . -type f -iname "*.png" | `${{\color{BrickRed} \texttt{ \quad grep \quad}} {\color{DarkOrange} " \large{\textunderscore}} {\color{DarkOrange}\texttt{p0-" \quad }}}$` | wc -l`
 ```bash
 $ #  Matches. Let's take a quick look at the filenames
 $ find . -type f -iname "*.png" | sort | head
@@ -126,12 +126,12 @@ $ find . -type f -iname "*.png" | sort | head
 $ #  Make the filenames consistent with my others
 $ #+ I'll be metaprogramming a script to do this
 ```
-`$ #  I usually use  sed 's#search#replace#flags;' , but MathJax (LaTeX) here doesn't`
+`$ #  I usually use  sed 's#search#replace#flags;' , but <strike>MathJax</strike> (LaTeX) here doesn't`
 `$ #+ like the ways I've tried to replace it, so I'm doing  sed 's|search|replace|flags;'`
 `$ #+ This will still make it easier to use the '/' character as part of the filepath`
-`$ #find . -type f -iname "*.png | `${{\color{ForestGreen} \texttt{ \quad sed \quad }} {\color{ForestGreen} \mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}} {\color{ForestGreen} \texttt{s|}}  {\color{DarkOrange} \mathtt{^{\wedge}}} {\color{DarkOrange} \texttt{[ \ \ . \ \ ]/\color{ForestGreen}||g;}} {\color{ForestGreen} \mathtt{ ^{ ^{\ _{\rule{0.6ex}{1.2ex}}}}}} {\quad}}$` | sort > rename&lt;whatever&gt;.sh`<br/>
+`$ #find . -type f -iname "*.png | `${{\color{ForestGreen} \texttt{ \quad sed \quad }} {\color{ForestGreen} \mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}} {\color{ForestGreen} \texttt{s|}}  {\color{DarkOrange} \mathtt{^{\wedge}}} {\color{DarkOrange} \texttt{[ \ \ . \ \ ]/\color{ForestGreen}||g;}} {\color{ForestGreen} \mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}} {\quad}}$` | sort > rename&lt;whatever&gt;.sh`<br/>
 `$   # probably more compute with regex engine, less robust than awk`<br/>
-`$ find . -type f -iname "*.png" | `$`awk -F'/' '{print $NF}'`$` | sort | wc -l`<br/>
+`$ find . -type f -iname "*.png" | `${{\color{Cerulean} \texttt{ \quad awk \quad -F \quad }} {\color{Cerulean}\mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}}{\color{Cerulean}/}{\color{Cerulean}\mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}} \quad} }$` | sort | wc -l`<br/>
 `$ find . -type f -iname "*.png" | \`<br/>
 `                        `awk -F'/' '{print $NF}'` | sort > rename_utrecht_foct39dl1_pre.sh`
 ```bash
