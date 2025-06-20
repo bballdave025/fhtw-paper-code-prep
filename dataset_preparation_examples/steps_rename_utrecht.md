@@ -103,9 +103,9 @@ $ find . -type f -iname "*.png" | wc -l  # all files are PNG, for now
 `$   #  Matches the count from the image extraction`<br/>
 `$ find . -type f -iname "*.png" | `${{\color{BrickRed}\texttt{ \quad grep \quad -v \quad\}} {\color{DarkOrange} " \large{\textunderscore}} {\color{DarkOrange}\texttt{p0 \large{-} " \quad \}}}$` | wc -l`<br/>
 `$   #  That's the number of duplicates. Double checking`<br/>
-`$ find . -type f -iname "*.png" | `grep "_p1-"` | wc -l`<br/>
-`$ find . -type f -iname "*.png" | `grep "_p2-"` | wc -l`<br/>
-`$ find . -type f -iname "*.png" | `grep "_p2-"` | wc -l`
+`$ find . -type f -iname "*.png" | `${{\color{BrickRed}\texttt{ \quad grep \quad\}} {\color{DarkOrange} " \large{\textunderscore}} {\color{DarkOrange}\texttt{p1 \large{-} " \quad \}}}$"` | wc -l`<br/>
+`$ find . -type f -iname "*.png" | `${{\color{BrickRed}\texttt{ \quad grep \quad\}} {\color{DarkOrange} " \large{\textunderscore}} {\color{DarkOrange}\texttt{p2 \large{-} " \quad \}}}$` | wc -l`<br/>
+`$ find . -type f -iname "*.png" | `${{\color{BrickRed}\texttt{ \quad grep \quad\}} {\color{DarkOrange} " \large{\textunderscore}} {\color{DarkOrange}\texttt{p3 \large{-} " \quad \}}}$` | wc -l`
 ```bash
 $ cat >/dev/null <<EOF
 Let's delete the duplicates. 
@@ -114,11 +114,11 @@ in any filenames. (There aren't, but I want it portable for
 when I'm using filenames created by others.
 EOF
 ```
-`$ find . -type f -iname "*.png" | `grep -v "_p0-"` | \`<br/>
-`    tr '\n' '\0' | xargs -I'{}' -0 rm "{}"`<br/>
-`$ find . -type f -iname "*.png" | `grep -v "_p0-"` | wc -l`<br/>
+`$ find . -type f -iname "*.png" | `${{\color{BrickRed} \texttt{ \quad grep \quad -v \quad\}} {\color{DarkOrange} " \large{\textunderscore}} {\color{DarkOrange}\texttt{p0 \large{-} " \quad \}}}$` | \`<br/>
+`                        tr '\n' '\0' | xargs -I'{}' -0 rm "{}"`<br/>
+`$ find . -type f -iname "*.png" | `${{\color{BrickRed} \texttt{ \quad grep \quad -v \quad\}} {\color{DarkOrange} " \large{\textunderscore}} {\color{DarkOrange}\texttt{p0 \large{-} " \quad \}}}$` | wc -l`<br/>
 `$ #  They're all gone. Let's check for what's left`<br/>
-`$ find . -type f -iname "*.png" | `grep "_p0-"` | wc -l`
+`$ find . -type f -iname "*.png" | `${{\color{BrickRed} \texttt{ \quad grep \quad\}} {\color{DarkOrange} " \large{\textunderscore}} {\color{DarkOrange}\texttt{p0 \large{-} " \quad \}}}$` | wc -l`
 ```bash
 $ #  Matches. Let's take a quick look at the filenames
 $ find . -type f -iname "*.png" | sort | head
@@ -126,11 +126,14 @@ $ find . -type f -iname "*.png" | sort | head
 $ #  Make the filenames consistent with my others
 $ #+ I'll be metaprogramming a script to do this
 ```
-`$ #find . -type f -iname "*.png | `sed 's#^[.]/##g;'` | sort > rename....sh`<br/>
-`$   # probably more compute with regex engine, less robust`<br/>
+`$ #  I usually use  sed 's#search#replace#flags;' , but MathJax (LaTeX) here doesn't`
+`$ #+ like the ways I've tried to replace it, so I'm doing  sed 's|search|replace|flags;'`
+`$ #+ This will still make it easier to use the '/' character as part of the filepath`
+`$ #find . -type f -iname "*.png | `${{\color{ForestGreen} \texttt{ \quad sed \quad 's| \}} {\color{DarkOrange} ^{\wedge}} {\color{DarkOrange} \texttt{ [.]/ \color{ForestGreen}||g;' \quad \}}}$` | sort > rename&lt;whatever&gt;.sh`<br/>
+`$   # probably more compute with regex engine, less robust than awk`<br/>
 `$ find . -type f -iname "*.png" | `awk -F'/' '{print $NF}'` | sort | wc -l`<br/>
 `$ find . -type f -iname "*.png" | \`<br/>
-`    `awk -F'/' '{print $NF}'` | sort > rename_utrecht_foct39dl1_pre.sh`
+`                        `awk -F'/' '{print $NF}'` | sort > rename_utrecht_foct39dl1_pre.sh`
 ```bash
 $ head rename_utrecht_foct39dl1_pre.sh
 $ cat >/dev/null <<EOF
