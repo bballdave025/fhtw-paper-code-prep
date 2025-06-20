@@ -77,7 +77,7 @@ path>python unwind_the_binding.py
 Default usage looks for PDF in 'new_to_convert_PDF'
 and outputs into 'converted from PDF'
 
-(Note that my  bash  is from Cygwin, and I'm returning
+(Note that my  bash  is from Cygwin, and I'm
 typing this multi-line comment there.)
 
 EOF
@@ -99,13 +99,23 @@ $ #+ Repeats give similar, but with '_p1-', '_p2-', etc.
 $ find . -type f | wc -l
 $ find . -type f -iname "*.png" | wc -l  # all files are PNG, for now
 ```
-`$ find . -type f -iname "*.png" | `${{\color{BrickRed}\texttt{ \quad grep \quad}} {\color{DarkOrange} "\large{\textunderscore}} {\color{DarkOrange}\texttt{p0-" \quad }}}$` | wc -l`<br/>
+`$ find . -type f -iname "*.png" | `
+${{\color{BrickRed}\texttt{ \quad grep \quad}} {\color{DarkOrange} "\large{\textunderscore}} {\color{DarkOrange}\texttt{p0-" \quad }}}$
+` | wc -l`<br/>
 `$   #  Matches the count from the image extraction`<br/>
-`$ find . -type f -iname "*.png" | `${{\color{BrickRed}\texttt{ \quad grep \quad -v \quad}} {\color{DarkOrange} "\large{\textunderscore}} {\color{DarkOrange}\texttt{p0-" \quad }}}$` | wc -l`<br/>
+`$ find . -type f -iname "*.png" | `
+${{\color{BrickRed}\texttt{ \quad grep \quad -v \quad}} {\color{DarkOrange} "\large{\textunderscore}} {\color{DarkOrange}\texttt{p0-" \quad }}}$
+` | wc -l`<br/>
 `$   #  That's the number of duplicates. Double checking`<br/>
-`$ find . -type f -iname "*.png" | `${{\color{BrickRed}\texttt{ \quad grep \quad}} {\color{DarkOrange} "\large{\textunderscore}} {\color{DarkOrange}\texttt{p1-" \quad }}}$` | wc -l`<br/>
-`$ find . -type f -iname "*.png" | `${{\color{BrickRed}\texttt{ \quad grep \quad}} {\color{DarkOrange} "\large{\textunderscore}} {\color{DarkOrange}\texttt{p2-" \quad }}}$` | wc -l`<br/>
-`$ find . -type f -iname "*.png" | `${{\color{BrickRed}\texttt{ \quad grep \quad}} {\color{DarkOrange} "\large{\textunderscore}} {\color{DarkOrange}\texttt{p3-" \quad }}}$` | wc -l`
+`$ find . -type f -iname "*.png" | `
+${{\color{BrickRed}\texttt{ \quad grep \quad}} {\color{DarkOrange} "\large{\textunderscore}} {\color{DarkOrange}\texttt{p1-" \quad }}}$
+` | wc -l`<br/>
+`$ find . -type f -iname "*.png" | `
+${{\color{BrickRed}\texttt{ \quad grep \quad}} {\color{DarkOrange} "\large{\textunderscore}} {\color{DarkOrange}\texttt{p2-" \quad }}}$
+` | wc -l`<br/>
+`$ find . -type f -iname "*.png" | `
+${{\color{BrickRed}\texttt{ \quad grep \quad}} {\color{DarkOrange} "\large{\textunderscore}} {\color{DarkOrange}\texttt{p3-" \quad }}}$
+` | wc -l`
 ```bash
 $ cat >/dev/null <<EOF
 Let's delete the duplicates. 
@@ -114,11 +124,17 @@ in any filenames. (There aren't, but I want it portable for
 when I'm using filenames created by others.
 EOF
 ```
-`$ find . -type f -iname "*.png" | `${{\color{BrickRed} \texttt{ \quad grep \quad -v \quad}} {\color{DarkOrange} "\large{\textunderscore}} {\color{DarkOrange}\texttt{p0-" \quad }}}$` | \`<br/>
+`$ find . -type f -iname "*.png" | `
+${{\color{BrickRed} \texttt{ \quad grep \quad -v \quad}} {\color{DarkOrange} "\large{\textunderscore}} {\color{DarkOrange}\texttt{p0-" \quad }}}$
+` | \`<br/>
 `                        tr '\n' '\0' | xargs -I'{}' -0 rm "{}"`<br/>
-`$ find . -type f -iname "*.png" | `${{\color{BrickRed} \texttt{ \quad grep \quad -v \quad}} {\color{DarkOrange} "\large{\textunderscore}} {\color{DarkOrange}\texttt{p0-" \quad }}}$` | wc -l`<br/>
+`$ find . -type f -iname "*.png" | `
+${{\color{BrickRed} \texttt{ \quad grep \quad -v \quad}} {\color{DarkOrange} "\large{\textunderscore}} {\color{DarkOrange}\texttt{p0-" \quad }}}$
+` | wc -l`<br/>
 `$ #  They're all gone. Let's check for what's left`<br/>
-`$ find . -type f -iname "*.png" | `${{\color{BrickRed} \texttt{ \quad grep \quad}} {\color{DarkOrange} " \large{\textunderscore}} {\color{DarkOrange}\texttt{p0-" \quad }}}$` | wc -l`
+`$ find . -type f -iname "*.png" | `
+${{\color{BrickRed} \texttt{ \quad grep \quad}} {\color{DarkOrange} " \large{\textunderscore}} {\color{DarkOrange}\texttt{p0-" \quad }}}$
+` | wc -l`
 ```bash
 $ #  Matches. Let's take a quick look at the filenames
 $ find . -type f -iname "*.png" | sort | head
@@ -126,14 +142,34 @@ $ find . -type f -iname "*.png" | sort | head
 $ #  Make the filenames consistent with my others
 $ #+ I'll be metaprogramming a script to do this
 ```
-`$ #  I usually use  sed 's#search#replace#flags;' , but <strike>MathJax</strike> (LaTeX) here doesn't`
-`$ #+ like the ways I've tried to replace it, so I'm doing  sed 's|search|replace|flags;'`
-`$ #+ This will still make it easier to use the '/' character as part of the filepath`
-`$ #find . -type f -iname "*.png | `${{\color{ForestGreen} \texttt{ \quad sed \quad }} {\color{ForestGreen} \mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}} {\color{ForestGreen} \texttt{s|}}  {\color{DarkOrange} \mathtt{^{\wedge}}} {\color{DarkOrange} \texttt{[ \ \ . \ \ ]/\color{ForestGreen}||g;}} {\color{ForestGreen} \mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}} {\quad}}$` | sort > rename&lt;whatever&gt;.sh`<br/>
+```bash
+$ cat >/dev/null <<EOF
+I usually use  sed 's#search#replace#flags;', but
+```
+<strike>MathJax</strike><br/> 
+```bash
+MathML (from LaTeX) (with MathJax?)
+```
+&nbsp; &ndash; [source 1](https://github.com/mathjax/MathJax/issues/3270) ([archived](https://web.archive.org/web/20250620055734/https://github.com/mathjax/MathJax/issues/3270)) and 
+[source 2](https://stackoverflow.com/questions/7545010/any-reason-to-favor-mathml-syntax-over-tex-in-mathjax/14990990#14990990) ([archived](https://web.archive.org/web/20250620055859/https://stackoverflow.com/questions/7545010/any-reason-to-favor-mathml-syntax-over-tex-in-mathjax/14990990#14990990)) &ndash; 
+```bash
+(from LaTeX) on GitHub doesn't like the ways I've tried to
+take care of the hash ('#'), so I'm doing
+   sed 's|search|replace|flags;'
+This will still make it it easier to use the '/' character
+ as part of the filepath
+```
+`$ #find . -type f -iname "*.png | `
+${{\color{ForestGreen} \texttt{ \quad sed \quad }} {\color{ForestGreen} \mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}} {\color{ForestGreen} \texttt{s|}}  {\color{DarkOrange} \mathtt{^{\wedge}}} {\color{DarkOrange} \texttt{[ \ \ . \ \ ]/\color{ForestGreen}||g;}} {\color{ForestGreen} \mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}} {\quad}}$
+` | sort > rename<whatever>.sh`<br/>
 `$   # probably more compute with regex engine, less robust than awk`<br/>
-`$ find . -type f -iname "*.png" | `${{\color{Cerulean} \texttt{ \quad awk \quad -F \quad }} {\color{Cerulean}\mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}}{\color{Cerulean}/}{\color{Cerulean}\mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}} \quad} {\color{Cerulean}\mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}}{\color{Cerulean} \mathtt{ \\{ \quad print \quad \textdollar NF \quad \\} }}{\color{Cerulean}\mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}} \quad} }$` | sort | wc -l`<br/>
+`$ find . -type f -iname "*.png" | `
+${{\color{Cerulean} \texttt{ \quad awk \quad -F \quad }} {\color{Cerulean}\mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}}{\color{Cerulean}/}{\color{Cerulean}\mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}} \quad} {\color{Cerulean}\mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}}{\color{Cerulean} \mathtt{ \\{ \quad print \quad \textdollar NF \quad \\} }}{\color{Cerulean}\mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}} \quad} }$
+` | sort | wc -l`<br/>
 `$ find . -type f -iname "*.png" | \`<br/>
-`          `${{\color{Cerulean} \texttt{ \quad awk \quad -F \quad }} {\color{Cerulean}\mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}}{\color{Cerulean}/}{\color{Cerulean}\mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}} \quad} {\color{Cerulean}\mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}}{\color{Cerulean} \mathtt{ \\{ \quad print \quad \textdollar NF \quad \\} }}{\color{Cerulean}\mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}} \quad} }$` | sort > rename_utrecht_foct39dl1_pre.sh`
+`          `
+${{\color{Cerulean} \texttt{ \quad awk \quad -F \quad }} {\color{Cerulean}\mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}}{\color{Cerulean}/}{\color{Cerulean}\mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}} \quad} {\color{Cerulean}\mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}}{\color{Cerulean} \mathtt{ \\{ \quad print \quad \textdollar NF \quad \\} }}{\color{Cerulean}\mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}} \quad} }$
+` | sort > rename_utrecht_foct39dl1_pre.sh`
 ```bash
 $ head rename_utrecht_foct39dl1_pre.sh
 $ cat >/dev/null <<EOF
@@ -151,9 +187,13 @@ $ cat >/dev/null <<EOF
 #+ script) done would take longer than the combined
 #+ time to manually make changes.
 ```
-`curr_idx=1; ofn="rename_utrecht_eoct416dl1.sh"; >"${ofn}"; while read -r line; do orig_fname="${line}"; ofn="rename_utrecht_eoct416dl1.sh"; new_fname_pre=$(echo "${orig_fname}" | `${{\color{ForestGreen} \texttt{ \quad sed \quad }} {\color{ForestGreen} \mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}} {\color{ForestGreen} \texttt{s|}}  {\color{DarkOrange} \mathtt{\textunderscore}} {\color{DarkOrange} \texttt{p0[0-9]}} {\color{DarkOrange} \mathtt{\textbackslash}} {\color{DarkOrange} \texttt{+[\ -\ ][0-9]}} {\color{DarkOrange} \mathtt{\textbackslash}} {\color{DarkOrange} \texttt{+[\ .\ ]png}} {\color{DarkOrange} \mathtt{\textdollar}} {\color{ForestGreen} \texttt{||g;}} {\color{ForestGreen} \mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}} {\quad}}$`); new_fname="${new_fname_pre}_$(printf '%05d' ${curr_idx}).png"; echo "echo" | tee -a "${ofn}"; echo "echo \"  Moving\"" | tee -a "${ofn}"; echo "echo \"${orig_fname}\"" | tee -a "${ofn}"; echo "echo \"  TO\"" | tee -a "${ofn}"; echo "echo \"${new_fname}\"" | tee -a "${ofn}"; echo "echo \"      ...\"" | tee -a "${ofn}"; echo "mv \"${orig_fname}\" \"${new_fname}\" && echo \"          ... success\" || echo \"          ... FAILURE\"" | tee -a "${ofn}"; curr_idx=$(echo "${curr_idx}+1" | bc); done < rename_utrecht_eoct416dl1_pre.sh`<br/>
+`curr_idx=1; ofn="rename_utrecht_eoct416dl1.sh"; >"${ofn}"; while read -r line; do orig_fname="${line}"; ofn="rename_utrecht_eoct416dl1.sh"; new_fname_pre=$(echo "${orig_fname}" | `
+${{\color{ForestGreen} \texttt{ \quad sed \quad }} {\color{ForestGreen} \mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}} {\color{ForestGreen} \texttt{s|}}  {\color{DarkOrange} \mathtt{\textunderscore}} {\color{DarkOrange} \texttt{p0[0-9]}} {\color{DarkOrange} \mathtt{\textbackslash}} {\color{DarkOrange} \texttt{+[\ -\ ][0-9]}} {\color{DarkOrange} \mathtt{\textbackslash}} {\color{DarkOrange} \texttt{+[\ .\ ]png}} {\color{DarkOrange} \mathtt{\textdollar}} {\color{ForestGreen} \texttt{||g;}} {\color{ForestGreen} \mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}} {\quad}}$
+`); new_fname="${new_fname_pre}_$(printf '%05d' ${curr_idx}).png"; echo "echo" | tee -a "${ofn}"; echo "echo \"  Moving\"" | tee -a "${ofn}"; echo "echo \"${orig_fname}\"" | tee -a "${ofn}"; echo "echo \"  TO\"" | tee -a "${ofn}"; echo "echo \"${new_fname}\"" | tee -a "${ofn}"; echo "echo \"      ...\"" | tee -a "${ofn}"; echo "mv \"${orig_fname}\" \"${new_fname}\" && echo \"          ... success\" || echo \"          ... FAILURE\"" | tee -a "${ofn}"; curr_idx=$(echo "${curr_idx}+1" | bc); done < rename_utrecht_eoct416dl1_pre.sh`<br/>
 
-`curr_idx=1; ofn="rename_utrecht_eoct416dl1.sh"; >"${ofn}"; while read -r line; do orig_fname="${line}"; ofn="rename_utrecht_eoct416dl1.sh"; new_fname_pre=$(echo "${orig_fname}" | `sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'`); new_fname="${new_fname_pre}_$(printf '%05d' ${curr_idx}).png"; echo "echo" >> "${ofn}"; echo "echo \"  Moving\"" >> "${ofn}"; echo "echo \"${orig_fname}\"" >> "${ofn}"; echo "echo \"  TO\"" >> "${ofn}"; echo "echo \"${new_fname}\"" >> "${ofn}"; echo "echo \"      ...\"" >> "${ofn}"; echo "mv \"${orig_fname}\" \"${new_fname}\" && echo \"          ... success\" || echo \"          ... FAILURE\"" >> "${ofn}"; curr_idx=$(echo "${curr_idx}+1" | bc); done < rename_utrecht_eoct416dl1_pre.sh`
+`curr_idx=1; ofn="rename_utrecht_eoct416dl1.sh"; >"${ofn}"; while read -r line; do orig_fname="${line}"; ofn="rename_utrecht_eoct416dl1.sh"; new_fname_pre=$(echo "${orig_fname}" | `
+${{\color{ForestGreen} \texttt{ \quad sed \quad }} {\color{ForestGreen} \mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}} {\color{ForestGreen} \texttt{s|}}  {\color{DarkOrange} \mathtt{\textunderscore}} {\color{DarkOrange} \texttt{p0[0-9]}} {\color{DarkOrange} \mathtt{\textbackslash}} {\color{DarkOrange} \texttt{+[\ -\ ][0-9]}} {\color{DarkOrange} \mathtt{\textbackslash}} {\color{DarkOrange} \texttt{+[\ .\ ]png}} {\color{DarkOrange} \mathtt{\textdollar}} {\color{ForestGreen} \texttt{||g;}} {\color{ForestGreen} \mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}} {\quad}}$
+`); new_fname="${new_fname_pre}_$(printf '%05d' ${curr_idx}).png"; echo "echo" >> "${ofn}"; echo "echo \"  Moving\"" >> "${ofn}"; echo "echo \"${orig_fname}\"" >> "${ofn}"; echo "echo \"  TO\"" >> "${ofn}"; echo "echo \"${new_fname}\"" >> "${ofn}"; echo "echo \"      ...\"" >> "${ofn}"; echo "mv \"${orig_fname}\" \"${new_fname}\" && echo \"          ... success\" || echo \"          ... FAILURE\"" >> "${ofn}"; curr_idx=$(echo "${curr_idx}+1" | bc); done < rename_utrecht_eoct416dl1_pre.sh`
 ```bash
 #  this time: rename_utrecht_foct39dl1_pre.sh, rename_utrecht_foct39dl1.sh
 EOF
@@ -166,9 +206,11 @@ curr_idx=1; ofn="rename_utrecht_foct39dl1.sh"; >"${ofn}"; \
 while read -r line; do \
   orig_fname="${line}"; \
   ofn="rename_utrecht_foct39dl1.sh"; \
+    new_fname_pre=$(echo "${orig_fname}" | \
 ```
-`  new_fname_pre=$(echo "${orig_fname}" | \`<br/>
-`        `sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'`); \`
+`        `
+${{\color{ForestGreen} \texttt{ \quad sed \quad }} {\color{ForestGreen} \mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}} {\color{ForestGreen} \texttt{s|}}  {\color{DarkOrange} \mathtt{\textunderscore}} {\color{DarkOrange} \texttt{p0[0-9]}} {\color{DarkOrange} \mathtt{\textbackslash}} {\color{DarkOrange} \texttt{+[\ -\ ][0-9]}} {\color{DarkOrange} \mathtt{\textbackslash}} {\color{DarkOrange} \texttt{+[\ .\ ]png}} {\color{DarkOrange} \mathtt{\textdollar}} {\color{ForestGreen} \texttt{||g;}} {\color{ForestGreen} \mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}} {\quad}}$
+`); \`
 ```bash
   new_fname="${new_fname_pre}_$(printf '%05d' ${curr_idx}).png"; \
   echo "echo"; \
@@ -189,9 +231,11 @@ curr_idx=1; ofn="rename_utrecht_eoct416dl1.sh"; >"${ofn}"; \
 while read -r line; do \
   orig_fname="${line}"; \
   ofn="rename_utrecht_eoct416dl1.sh"; \
+  new_fname_pre=$(echo "${orig_fname}" | \
 ```
-`  new_fname_pre=$(echo "${orig_fname}" | \`<br/>
-`        `sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'`); \`
+`        `
+${{\color{ForestGreen} \texttt{ \quad sed \quad }} {\color{ForestGreen} \mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}} {\color{ForestGreen} \texttt{s|}}  {\color{DarkOrange} \mathtt{\textunderscore}} {\color{DarkOrange} \texttt{p0[0-9]}} {\color{DarkOrange} \mathtt{\textbackslash}} {\color{DarkOrange} \texttt{+[\ -\ ][0-9]}} {\color{DarkOrange} \mathtt{\textbackslash}} {\color{DarkOrange} \texttt{+[\ .\ ]png}} {\color{DarkOrange} \mathtt{\textdollar}} {\color{ForestGreen} \texttt{||g;}} {\color{ForestGreen} \mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}} {\quad}}$
+`); \`
 ```bash
   new_fname="${new_fname_pre}_$(printf '%05d' ${curr_idx}).png"; \
   echo "echo" >> "${ofn}"; \
@@ -220,9 +264,11 @@ $ curr_idx=1; ofn="rename_utrecht_foct39dl1.sh"; >"${ofn}"; \
 while read -r line; do \
   orig_fname="${line}"; \
   ofn="rename_utrecht_foct39dl1.sh"; \
+    new_fname_pre=$(echo "${orig_fname}" | \
 ```
-`  new_fname_pre=$(echo "${orig_fname}" | \`<br/>
-`        `sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'`); \`
+`        `
+${{\color{ForestGreen} \texttt{ \quad sed \quad }} {\color{ForestGreen} \mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}} {\color{ForestGreen} \texttt{s|}}  {\color{DarkOrange} \mathtt{\textunderscore}} {\color{DarkOrange} \texttt{p0[0-9]}} {\color{DarkOrange} \mathtt{\textbackslash}} {\color{DarkOrange} \texttt{+[\ -\ ][0-9]}} {\color{DarkOrange} \mathtt{\textbackslash}} {\color{DarkOrange} \texttt{+[\ .\ ]png}} {\color{DarkOrange} \mathtt{\textdollar}} {\color{ForestGreen} \texttt{||g;}} {\color{ForestGreen} \mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}} {\quad}}$
+`); \`
 ```bash
   new_fname="${new_fname_pre}_$(printf '%05d' ${curr_idx}).png"; \
   echo "echo"; \
@@ -243,9 +289,11 @@ $ curr_idx=1; ofn="rename_utrecht_eoct416dl1.sh"; >"${ofn}"; \
 while read -r line; do \
   orig_fname="${line}"; \
   ofn="rename_utrecht_eoct416dl1.sh"; \
+    new_fname_pre=$(echo "${orig_fname}" | \
 ```
-`  new_fname_pre=$(echo "${orig_fname}" | \`<br/>
-`        `sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'`); \`
+`        `
+${{\color{ForestGreen} \texttt{ \quad sed \quad }} {\color{ForestGreen} \mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}} {\color{ForestGreen} \texttt{s|}}  {\color{DarkOrange} \mathtt{\textunderscore}} {\color{DarkOrange} \texttt{p0[0-9]}} {\color{DarkOrange} \mathtt{\textbackslash}} {\color{DarkOrange} \texttt{+[\ -\ ][0-9]}} {\color{DarkOrange} \mathtt{\textbackslash}} {\color{DarkOrange} \texttt{+[\ .\ ]png}} {\color{DarkOrange} \mathtt{\textdollar}} {\color{ForestGreen} \texttt{||g;}} {\color{ForestGreen} \mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}} {\quad}}$
+`); \`
 ```bash
   new_fname="${new_fname_pre}_$(printf '%05d' ${curr_idx}).png"; \
   echo "echo" >> "${ofn}"; \
@@ -288,12 +336,16 @@ $ ./rename_utrecht_foct39dl1.sh 2>&1 | tee renaming_utrecht_foct39dl1.out
 
 $ #  Now, check for any FAILUREs, using case-insensitive flag
 ```
-`$ `grep -i --failure renaming_utrecht_foct39dl1.out` | wc -l # n_failures?`<br/>
+`$ `
+${{\color{BrickRed}\texttt{ \quad grep \quad -i \quad}} {\color{DarkOrange} \texttt{--failure \quad}} {\mathtt{renaming \textunderscore utrecht \textunderscore foct39dl1.out \quad}}}$
+` | wc -l # n_failures?`<br/>
 ```bash
 grep: unknown option -- failure
 Usage: grep [OPTION]... PATTERNS [FILE]...
 Try 'grep --help' for more information.
 0
+```
+```
 $ #  hahahahaha. I've got to make sure I laugh every day.
 $ #+ Failure is not an option ('unknown option -- failure')
 ```
