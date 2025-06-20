@@ -129,9 +129,9 @@ $ #+ I'll be metaprogramming a script to do this
 `$ #  I usually use  sed 's#search#replace#flags;' , but MathJax (LaTeX) here doesn't`
 `$ #+ like the ways I've tried to replace it, so I'm doing  sed 's|search|replace|flags;'`
 `$ #+ This will still make it easier to use the '/' character as part of the filepath`
-`$ #find . -type f -iname "*.png | `${{\color{ForestGreen} \texttt{ \quad sed \quad 's| \}} {\color{DarkOrange} ^{\wedge}} {\color{DarkOrange} \texttt{ [.]/ \color{ForestGreen}||g;' \quad \}}}$` | sort > rename&lt;whatever&gt;.sh`<br/>
+`$ #find . -type f -iname "*.png | `${{\color{ForestGreen} \texttt{ \quad sed \quad \}} { ' } \color{ForestGreen} \texttt{s|}  {\color{DarkOrange} \mathtt{^{\wedge}\}} {\color{DarkOrange} \texttt{ [ \ \ . \ \ ]/ ' \color{ForestGreen}| \ |g; ' \quad \}}}$` | sort > rename&lt;whatever&gt;.sh`<br/>
 `$   # probably more compute with regex engine, less robust than awk`<br/>
-`$ find . -type f -iname "*.png" | `awk -F'/' '{print $NF}'` | sort | wc -l`<br/>
+`$ find . -type f -iname "*.png" | `$`awk -F'/' '{print $NF}'`$` | sort | wc -l`<br/>
 `$ find . -type f -iname "*.png" | \`<br/>
 `                        `awk -F'/' '{print $NF}'` | sort > rename_utrecht_foct39dl1_pre.sh`
 ```bash
