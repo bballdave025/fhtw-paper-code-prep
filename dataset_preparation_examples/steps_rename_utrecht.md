@@ -131,7 +131,7 @@ $ #+ I'll be metaprogramming a script to do this
 `$ #+ This will still make it easier to use the '/' character as part of the filepath`
 `$ #find . -type f -iname "*.png | `${{\color{ForestGreen} \texttt{ \quad sed \quad }} {\color{ForestGreen} \mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}} {\color{ForestGreen} \texttt{s|}}  {\color{DarkOrange} \mathtt{^{\wedge}}} {\color{DarkOrange} \texttt{[ \ \ . \ \ ]/\color{ForestGreen}||g;}} {\color{ForestGreen} \mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}} {\quad}}$` | sort > rename&lt;whatever&gt;.sh`<br/>
 `$   # probably more compute with regex engine, less robust than awk`<br/>
-`$ find . -type f -iname "*.png" | `${{\color{Cerulean} \texttt{ \quad awk \quad -F \quad }} {\color{Cerulean}\mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}}{\color{Cerulean}/}{\color{Cerulean}\mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}} \quad} }$` | sort | wc -l`<br/>
+`$ find . -type f -iname "*.png" | `${{\color{Cerulean} \texttt{ \quad awk \quad -F \quad }} {\color{Cerulean}\mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}}{\color{Cerulean}/}{\color{Cerulean}\mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}} \quad} {\color{Cerulean}\mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}}}{\color{Cerulean} \mathtt{ \\{ \quad print \quad \textdollar NF \quad \\} }}{\color{Cerulean}\mathtt{ ^{ ^{\ _{\rule{0.5ex}{1.2ex}}}}} \quad} }$` | sort | wc -l`<br/>
 `$ find . -type f -iname "*.png" | \`<br/>
 `                        `awk -F'/' '{print $NF}'` | sort > rename_utrecht_foct39dl1_pre.sh`
 ```bash
