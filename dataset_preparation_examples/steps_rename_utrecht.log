@@ -1,0 +1,1348 @@
+
+###################################
+##  go down to the part with     ##
+## HERE IS WHERE YOU WANT TO GO! ##
+###################################
+
+##############################################################################
+##############################################################################
+##############################################################################
+####                                                                      ####
+#                HERE IS WHERE YOU WANT TO GO                                #
+####                                                                      ####
+##############################################################################
+##############################################################################
+##############################################################################
+
+
+
+
+
+
+
+$ cat >/dev/null <<EOF
+#####################################################################
+#  Going through one run of renaming files to my preferred format,
+#+ used for al ~10^5 codex image files in the dataset.
+#+ For some reason, when I use the PDF files from Universiteit 
+#+ Utrecht (all open access), the image files extracted using
+#+ a script I've put together called  `unwind_the_binding.py`
+#+ end up with a different filename pattern than those from
+#+ any other PDFs I've used. It keeps redownloading all them
+#+ document images with slightly different filenames until them
+#+ memory fills up.
+#  Anyway, back to the different filename pattern ...
+#+ Sounds like some good regexes will help.
+#####################################################################
+EOF
+$ #  Keep track of stuff for repeatability
+$ checksituation
+$ #
+#  What that command is (set up in ~/.bashrc and other sourced
+#+ dotfiles). Note I can use tab completion
+$ type checksituation
+checksituation is aliased to `echo; echo " Current date/time is"; trpdate; echo; echo " Current directory ( pwd ) is "; pwd; echo;'
+$ type trpdate
+trpdate is aliased to `tripled  ate'
+$ type tripledate
+tripledate is aliased to `date && date +'%s' && date +'%s_%Y-%m-%dT%H%M%S%z''
+$ find ./new_to_convert_PDF/ -type f | wc -l # Making sure not tons of output
+$ find ./new_to_convert_PDF/ -type f
+$ find ./converted_from_PDF/ | wc -l
+$ find ./converted_from_PDF/
+$ #  just the directory, itself.
+$
+$ #  Let's make a nice, multi-line comment in an easy way
+cat >/dev/null <<EOF
+In Anaconda Prompt (for this example, I'm in Windows.)
+
+path>:: Starting near <timestamp from checksituation>
+path>python unwind_the_binding.py
+##OUTPUT
+
+Default usage looks for PDF in 'new_to_convert_PDF'
+and outputs into 'converted from PDF'
+
+(Note that my  bash  is from Cygwin, and I'm returning
+typing this multi-line comment there.
+
+EOF
+
+$ checksituation
+
+$ cat >/dev/null <<EOF
+After a [Ctrl]+[c] in Anaconda Prompt, after I can see
+that we're downloading repeat/duplicate images with
+the script.
+
+path>:: blah
+
+EOF
+
+$ #
+#  First run-through gives files with <fname>_p0-<number>.png
+#+ Repeats give similar, but with '_p1-', '_p2-', etc. 
+
+$ find . -type f | wc -l
+$ find . -type f -iname "*.png" | wc -l  # all files are PNG, for now
+$ find . -type f -iname "*.png" | grep "_p0-" | wc -l
+$   #  Matches the count from the image extraction
+$ find . -type f -iname "*.png" | grep -v "_p0-" | wc -l
+$   #  That's the number of duplicates. Double checking
+$ find . -type f -iname "*.png" | grep "_p1-" | wc -l
+$ find . -type f -iname "*.png" | grep "_p2-" | wc -l
+$ find . -type f -iname "*.png" | grep "_p2-" | wc -l
+$ cat >/dev/null <<EOF
+
+Let's delete the duplicates. 
+Null separating filenames in case there are any spaces, etc.
+in any filenames. (There aren't, but I want it portable for
+when I'm using filenames created by others.)
+
+EOF
+$ find . -type f -iname "*.png" | grep -v "_p0-" | \
+    tr '\n' '\0' | xargs -I'{}' -0 rm "{}"
+$ find . -type f -iname "*.png" | grep -v "_p0-" | wc -l
+$ #  They're all gone. Let's check for what's left
+$ find . -type f -iname "*.png" | grep "_p0-" | wc -l
+$ #  Matches. Let's take a quick look at the filenames
+$ find . -type f -iname "*.png" | sort | head
+#<UnivUltrecht_-_F-oct-39-dl-1>
+$ #
+#  Make the filenames consistent with my others
+#+ I'll be metaprogramming a script to do this
+$ #find . -type f -iname "*.png | sed 's#^[.]/##g;' | sort > rename....sh
+$   # probably more compute with regex engine, less robust
+$ find . -type f -iname "*.png" | awk -F'/' '{print $NF}' | sort | wc -l
+$ #
+#  Make sure we don't have anything weird with the sorted output;
+#+ something weird happens when there are more than 1000 images, e.g.
+#+ what's in Appendix 1
+$ find . -type f -iname "*.png" | awk -F'/' '{print $NF}' | sort | head
+$ find . -type f -iname "*.png" | awk -F'/' '{print $NF}' | sort | tail
+$ find . -type f -iname "*.png" | \
+    awk -F'/' '{print $NF}' | sort > rename_utrecht_foct39dl1_pre.sh
+$ head rename_utrecht_foct39dl1_pre.sh
+$ cat >/dev/null <<EOF
+
+  Metaprogramming (running something that will output a script)
++ First testing my long command by outputting to stdout (not to
++ script file) and not running any file-changing commands (such
++ as rm, mv, etc.) Not running tee to filename or anything
++ like that.
+
+EOF
+$
+$ cat >/dev/null <<EOF
+
+#  Here are the commands from the previous big rename.
+#+ I change things around. This could be automated, but
+#+ I think getting the automation (a meta-meta-programming
+#+ script) done would take longer than the combined
+#+ time to manually make changes.
+
+curr_idx=1; ofn="rename_utrecht_eoct416dl1.sh"; >"${ofn}"; while read -r line; do orig_fname="${line}"; ofn="rename_utrecht_eoct416dl1.sh"; new_fname_pre=$(echo "${orig_fname}" | sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'); new_fname="${new_fname_pre}_$(printf '%05d' ${curr_idx}).png"; echo "echo" | tee -a "${ofn}"; echo "echo \"  Moving\"" | tee -a "${ofn}"; echo "echo \"${orig_fname}\"" | tee -a "${ofn}"; echo "echo \"  TO\"" | tee -a "${ofn}"; echo "echo \"${new_fname}\"" | tee -a "${ofn}"; echo "echo \"      ...\"" | tee -a "${ofn}"; echo "mv \"${orig_fname}\" \"${new_fname}\" && echo \"          ... success\" || echo \"          ... FAILURE\"" | tee -a "${ofn}"; curr_idx=$(echo "${curr_idx}+1" | bc); done < rename_utrecht_eoct416dl1_pre.sh
+
+curr_idx=1; ofn="rename_utrecht_eoct416dl1.sh"; >"${ofn}"; while read -r line; do orig_fname="${line}"; ofn="rename_utrecht_eoct416dl1.sh"; new_fname_pre=$(echo "${orig_fname}" | sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'); new_fname="${new_fname_pre}_$(printf '%05d' ${curr_idx}).png"; echo "echo" >> "${ofn}"; echo "echo \"  Moving\"" >> "${ofn}"; echo "echo \"${orig_fname}\"" >> "${ofn}"; echo "echo \"  TO\"" >> "${ofn}"; echo "echo \"${new_fname}\"" >> "${ofn}"; echo "echo \"      ...\"" >> "${ofn}"; echo "mv \"${orig_fname}\" \"${new_fname}\" && echo \"          ... success\" || echo \"          ... FAILURE\"" >> "${ofn}"; curr_idx=$(echo "${curr_idx}+1" | bc); done < rename_utrecht_eoct416dl1_pre.sh
+
+#  this time: rename_utrecht_foct39dl1_pre.sh, rename_utrecht_foct39dl1.sh
+
+EOF
+$
+$ #  Copy/paste into here and from here
+$ cat >/dev/null <<EOF
+
+##################### PREVIOUS ##########################
+
+#  Checking that the script will look like we want it to look.
+#+ The preview command.
+curr_idx=1; ofn="rename_utrecht_lfol802.sh"; >"${ofn}"; \
+while read -r line; do \
+  orig_fname="${line}"; \
+  ofn="rename_utrecht_lfol802.sh"; \
+  new_fname_pre=$(echo "${orig_fname}" | \
+        sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'); \
+  new_fname="${new_fname_pre}_$(printf '%05d' ${curr_idx}).png"; \
+  echo "echo"; \
+  echo "echo \"  Moving\""; \
+  echo "echo \"${orig_fname}\""; \
+  echo "echo \"  TO\""; \
+  echo "echo \"${new_fname}\""; \
+  echo "echo \"      ...\""; \
+  echo "mv \"${orig_fname}\" \"${new_fname}\" \
+    && echo \"          ... success\" \
+    || echo \"          ... FAILURE\""; 
+  curr_idx=$(echo "${curr_idx}+1" | bc); 
+done < rename_utrecht_lfol802_pre.sh | \
+                                     head -n 50
+
+#  Saving the commands to a script that we'll run.
+#+ (put in the appropriate  ` >> "${ofn}"'
+curr_idx=1; ofn="rename_utrecht_lfol802.sh"; >"${ofn}"; \
+while read -r line; do \
+  orig_fname="${line}"; \
+  ofn="rename_utrecht_lfol802.sh"; \
+  new_fname_pre=$(echo "${orig_fname}" | \
+        sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'); \
+  new_fname="${new_fname_pre}_$(printf '%05d' ${curr_idx}).png"; \
+  echo "echo" >> "${ofn}"; \
+  echo "echo \"  Moving\"" >> "${ofn}"; \
+  echo "echo \"${orig_fname}\"" >> "${ofn}"; \
+  echo "echo \"  TO\"" >> "${ofn}"; \
+  echo "echo \"${new_fname}\"" >> "${ofn}"; \
+  echo "echo \"      ...\"" >> "${ofn}"; \
+  echo "mv \"${orig_fname}\" \"${new_fname}\" \
+    && echo \"          ... success\" \
+    || echo \"          ... FAILURE\"" >> "${ofn}"; 
+  curr_idx=$(echo "${curr_idx}+1" | bc); 
+done < rename_utrecht_lfol802_pre.sh
+
+####################### CURRENT ############################
+#
+# Copy/paste from above, then change what's needed (for
+# the first one, usually just) 
+#    rename_utrecht_<change-this>_pre.sh
+#    rename_utrecht_<change-this>.sh
+# Then, for the second one, you could do the same
+# changes, but I prefer to work off the working preview
+# that we saw for the first one. So, I do this ...
+#     Copy the preview
+#     Put in the "appending to the outfile name" part:
+#             ` >> "${ofn}"'
+#       on the same lines as shown in the second example
+#       script above (i.e. in the same places).
+#
+
+# First
+
+
+
+
+# Second
+
+
+
+
+
+#  (After, we'll have a look at the script we've outputted, i.e.
+#       rename_utrech_<this>.sh
+#  to make sure we wrote all of the right lines.
+
+EOF
+
+## {
+$ type ttdate
+$ type ttdatechk
+## }
+
+$ #  Check 50 lines 
+$ # rename_utrecht_lfol802_pre.sh
+$ curr_idx=1; ofn="rename_utrecht_lfol802.sh"; >"${ofn}"; \
+while read -r line; do \
+  orig_fname="${line}"; \
+  ofn="rename_utrecht_lfol802.sh"; \
+  new_fname_pre=$(echo "${orig_fname}" | \
+        sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'); \
+  new_fname="${new_fname_pre}_$(printf '%05d' ${curr_idx}).png"; \
+  echo "echo"; \
+  echo "echo \"  Moving\""; \
+  echo "echo \"${orig_fname}\""; \
+  echo "echo \"  TO\""; \
+  echo "echo \"${new_fname}\""; \
+  echo "echo \"      ...\""; \
+  echo "mv \"${orig_fname}\" \"${new_fname}\" \
+    && echo \"          ... success\" \
+    || echo \"          ... FAILURE\""; 
+  curr_idx=$(echo "${curr_idx}+1" | bc); 
+done < rename_utrecht_lfol802_pre.sh | \
+                                     head -n 50
+
+$ #  Metaprogramming the meat of the bash script
+$ curr_idx=1; ofn="rename_utrecht_lfol802.sh"; >"${ofn}"; \
+while read -r line; do \
+  orig_fname="${line}"; \
+  ofn="rename_utrecht_lfol802.sh"; \
+  new_fname_pre=$(echo "${orig_fname}" | \
+        sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'); \
+  new_fname="${new_fname_pre}_$(printf '%05d' ${curr_idx}).png"; \
+  echo "echo" >> "${ofn}"; \
+  echo "echo \"  Moving\"" >> "${ofn}"; \
+  echo "echo \"${orig_fname}\"" >> "${ofn}"; \
+  echo "echo \"  TO\"" >> "${ofn}"; \
+  echo "echo \"${new_fname}\"" >> "${ofn}"; \
+  echo "echo \"      ...\"" >> "${ofn}"; \
+  echo "mv \"${orig_fname}\" \"${new_fname}\" \
+    && echo \"          ... success\" \
+    || echo \"          ... FAILURE\"" >> "${ofn}"; 
+  curr_idx=$(echo "${curr_idx}+1" | bc); 
+done < rename_utrecht_lfol802_pre.sh
+
+$ cat >/dev/null <<EOF
+
+#  Note that this will allow us to see either 'success' or 'FAILURE'
+#+ output for each rename. Since it's redirected to an output file,
+#+ we can check if there are any failures and count the successes.
+#+ More on that, later.
+
+EOF
+$
+$ head rename_utrecht_lfol802.sh
+$ rm rename_utrecht_lfol802_pre.sh
+$ #  Finishing the script (and showing it)
+$ cp rename_utrecht_lfol802.sh ru_bak
+$ echo -e "\x23\x21/usr/bin/env bash\n\n" # check
+$ echo -e "\x23\x21/usr/bin/env bash\n\n" > first_part
+$ cat first_part rename_utrecht_lfol802.sh > tmpf \
+       && mv tmpf rename_utrecht_lfol802.sh
+$ diff rename_utrecht_lfol802.sh ru_bak
+$ rm first_part
+$ rm ru_bak
+$ chmod a+x rename_utrecht_lfol802.sh  # make it executable
+$ #
+#  I'm teeing the output to a progress file and to stdout.
+#+ that will allow me to see if there are a bunch of FAILUREs,
+#+ in which case I could [Ctrl]+[c]
+$ ./rename_utrecht_lfol802.sh 2>&1 | tee renaming_utrecht_lfol802.out
+
+### I've taken out most of the output
+
+### ... OUTPUT ...
+
+$ #  Now, check for any FAILUREs, using case-insensitive flag
+$ grep -i --failure renaming_utrecht_lfol802.out | wc -l # n_failures?
+grep: unknown option -- failure
+Usage: grep [OPTION]... PATTERNS [FILE]...
+Try 'grep --help' for more information.
+0
+
+$ #
+#  hahahahaha. I've got to make sure I laugh every day.
+#+ Failure is not an option ('unknown option -- failure')
+$ grep -i failure renaming_utrecht_lfol802.out | wc -l # n_failures
+$ #  Great! No failures. Check successes.
+$ grep -i success renaming_utrecht_lfol802.out | wc -l
+$ #  Matches our original number of files; good
+$
+$ #  A regex check that all filenames match my favored pattern
+$ find . -type f -iname "*.png" | wc -l
+$ find . -type f -iname "*.png" | sort | head
+$ find . -type f -iname "*.png" | sort | \
+    grep "_[0-9]\{5\}[.]png$" | 
+    wc -l
+$ find . -type f -iname "*.png" | sort | \
+    grep -v "_[0-9]\{5\}[.]png$" | \
+    wc -l
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##############################################################################
+# Appendix 1 #
+##############
+$ checksituation
+
+ Current date/time is
+Mon Jun 30 15:08:42 MDT 2025
+1751317722
+1751317722_2025-06-30T150842-0600
+
+ Current directory ( pwd ) is
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_extra_01
+
+
+$ find . -type f -iname "*.png" | \
+    awk -F'/' '{print $NF}' | \
+    sort | wc -l
+470
+$ find . -type f -iname "*.png" | \
+    awk -F'/' '{print $NF}' | \
+    sort | head
+UnivUtrecht_-_L-fol-802_p0-1001.png
+UnivUtrecht_-_L-fol-802_p0-1003.png
+UnivUtrecht_-_L-fol-802_p0-1005.png
+UnivUtrecht_-_L-fol-802_p0-1007.png
+UnivUtrecht_-_L-fol-802_p0-1009.png
+UnivUtrecht_-_L-fol-802_p0-1011.png
+UnivUtrecht_-_L-fol-802_p0-1013.png
+UnivUtrecht_-_L-fol-802_p0-1015.png
+UnivUtrecht_-_L-fol-802_p0-1017.png
+UnivUtrecht_-_L-fol-802_p0-1019.png
+
+$ find . -type f -iname "*.png" | \
+    awk -F'/' '{print $NF}' | \
+    sort | tail
+UnivUtrecht_-_L-fol-802_p0-981.png
+UnivUtrecht_-_L-fol-802_p0-983.png
+UnivUtrecht_-_L-fol-802_p0-985.png
+UnivUtrecht_-_L-fol-802_p0-987.png
+UnivUtrecht_-_L-fol-802_p0-989.png
+UnivUtrecht_-_L-fol-802_p0-991.png
+UnivUtrecht_-_L-fol-802_p0-993.png
+UnivUtrecht_-_L-fol-802_p0-995.png
+UnivUtrecht_-_L-fol-802_p0-997.png
+UnivUtrecht_-_L-fol-802_p0-999.png
+
+$ find . -type f -iname "*.png" | \
+    awk -F'/' '{print $NF}' | \
+    sort | less
+
+$ find . -type f -iname "*.png" | \
+    awk -F'/' '{print $NF}' | \
+    sort | tail -n 100
+UnivUtrecht_-_L-fol-802_p0-1741.png
+UnivUtrecht_-_L-fol-802_p0-1743.png
+UnivUtrecht_-_L-fol-802_p0-1745.png
+UnivUtrecht_-_L-fol-802_p0-1747.png
+UnivUtrecht_-_L-fol-802_p0-1749.png
+UnivUtrecht_-_L-fol-802_p0-1751.png
+UnivUtrecht_-_L-fol-802_p0-1753.png
+UnivUtrecht_-_L-fol-802_p0-1755.png
+UnivUtrecht_-_L-fol-802_p0-1757.png
+UnivUtrecht_-_L-fol-802_p0-1759.png
+UnivUtrecht_-_L-fol-802_p0-1761.png
+UnivUtrecht_-_L-fol-802_p0-1763.png
+UnivUtrecht_-_L-fol-802_p0-1765.png
+UnivUtrecht_-_L-fol-802_p0-1767.png
+UnivUtrecht_-_L-fol-802_p0-1769.png
+UnivUtrecht_-_L-fol-802_p0-1771.png
+UnivUtrecht_-_L-fol-802_p0-1773.png
+UnivUtrecht_-_L-fol-802_p0-1775.png
+UnivUtrecht_-_L-fol-802_p0-1777.png
+UnivUtrecht_-_L-fol-802_p0-1779.png
+UnivUtrecht_-_L-fol-802_p0-1781.png
+UnivUtrecht_-_L-fol-802_p0-1783.png
+UnivUtrecht_-_L-fol-802_p0-1785.png
+UnivUtrecht_-_L-fol-802_p0-1787.png
+UnivUtrecht_-_L-fol-802_p0-1789.png
+UnivUtrecht_-_L-fol-802_p0-1791.png
+UnivUtrecht_-_L-fol-802_p0-1793.png
+UnivUtrecht_-_L-fol-802_p0-1795.png
+UnivUtrecht_-_L-fol-802_p0-1797.png
+UnivUtrecht_-_L-fol-802_p0-1799.png
+UnivUtrecht_-_L-fol-802_p0-1801.png
+UnivUtrecht_-_L-fol-802_p0-1803.png
+UnivUtrecht_-_L-fol-802_p0-1805.png
+UnivUtrecht_-_L-fol-802_p0-1807.png
+UnivUtrecht_-_L-fol-802_p0-1809.png
+UnivUtrecht_-_L-fol-802_p0-1811.png
+UnivUtrecht_-_L-fol-802_p0-1813.png
+UnivUtrecht_-_L-fol-802_p0-1815.png
+UnivUtrecht_-_L-fol-802_p0-1817.png
+UnivUtrecht_-_L-fol-802_p0-1819.png
+UnivUtrecht_-_L-fol-802_p0-1821.png
+UnivUtrecht_-_L-fol-802_p0-1823.png
+UnivUtrecht_-_L-fol-802_p0-1825.png
+UnivUtrecht_-_L-fol-802_p0-1827.png
+UnivUtrecht_-_L-fol-802_p0-1829.png
+UnivUtrecht_-_L-fol-802_p0-1831.png
+UnivUtrecht_-_L-fol-802_p0-1833.png
+UnivUtrecht_-_L-fol-802_p0-1835.png
+UnivUtrecht_-_L-fol-802_p0-1837.png
+UnivUtrecht_-_L-fol-802_p0-1839.png
+UnivUtrecht_-_L-fol-802_p0-1841.png
+UnivUtrecht_-_L-fol-802_p0-1843.png
+UnivUtrecht_-_L-fol-802_p0-1845.png
+UnivUtrecht_-_L-fol-802_p0-1847.png
+UnivUtrecht_-_L-fol-802_p0-1849.png
+UnivUtrecht_-_L-fol-802_p0-1851.png
+UnivUtrecht_-_L-fol-802_p0-1853.png
+UnivUtrecht_-_L-fol-802_p0-1855.png
+UnivUtrecht_-_L-fol-802_p0-1857.png
+UnivUtrecht_-_L-fol-802_p0-1859.png
+UnivUtrecht_-_L-fol-802_p0-1861.png
+UnivUtrecht_-_L-fol-802_p0-1863.png
+UnivUtrecht_-_L-fol-802_p0-1865.png
+UnivUtrecht_-_L-fol-802_p0-1867.png
+UnivUtrecht_-_L-fol-802_p0-1869.png
+UnivUtrecht_-_L-fol-802_p0-1871.png
+UnivUtrecht_-_L-fol-802_p0-1873.png
+UnivUtrecht_-_L-fol-802_p0-1875.png
+UnivUtrecht_-_L-fol-802_p0-1877.png
+UnivUtrecht_-_L-fol-802_p0-1879.png
+UnivUtrecht_-_L-fol-802_p0-1881.png
+UnivUtrecht_-_L-fol-802_p0-1883.png
+UnivUtrecht_-_L-fol-802_p0-1885.png
+UnivUtrecht_-_L-fol-802_p0-1887.png
+UnivUtrecht_-_L-fol-802_p0-949.png
+UnivUtrecht_-_L-fol-802_p0-951.png
+UnivUtrecht_-_L-fol-802_p0-953.png
+UnivUtrecht_-_L-fol-802_p0-955.png
+UnivUtrecht_-_L-fol-802_p0-957.png
+UnivUtrecht_-_L-fol-802_p0-959.png
+UnivUtrecht_-_L-fol-802_p0-961.png
+UnivUtrecht_-_L-fol-802_p0-963.png
+UnivUtrecht_-_L-fol-802_p0-965.png
+UnivUtrecht_-_L-fol-802_p0-967.png
+UnivUtrecht_-_L-fol-802_p0-969.png
+UnivUtrecht_-_L-fol-802_p0-971.png
+UnivUtrecht_-_L-fol-802_p0-973.png
+UnivUtrecht_-_L-fol-802_p0-975.png
+UnivUtrecht_-_L-fol-802_p0-977.png
+UnivUtrecht_-_L-fol-802_p0-979.png
+UnivUtrecht_-_L-fol-802_p0-981.png
+UnivUtrecht_-_L-fol-802_p0-983.png
+UnivUtrecht_-_L-fol-802_p0-985.png
+UnivUtrecht_-_L-fol-802_p0-987.png
+UnivUtrecht_-_L-fol-802_p0-989.png
+UnivUtrecht_-_L-fol-802_p0-991.png
+UnivUtrecht_-_L-fol-802_p0-993.png
+UnivUtrecht_-_L-fol-802_p0-995.png
+UnivUtrecht_-_L-fol-802_p0-997.png
+UnivUtrecht_-_L-fol-802_p0-999.png
+
+$ # Problem with 900
+
+$ find . -type f -iname "*.png" | \
+    awk -F'/' '{print $NF}' | \
+    grep "_p0[-]9" | wc -l
+26
+
+$ find . -type f -iname "*.png" | \
+    awk -F'/' '{print $NF}' | \
+    grep "_p0[-]9" | \
+    sort > to_rename_with_leading_0.lst
+
+$ cat to_rename_with_leading_0.lst
+UnivUtrecht_-_L-fol-802_p0-949.png
+UnivUtrecht_-_L-fol-802_p0-951.png
+UnivUtrecht_-_L-fol-802_p0-953.png
+UnivUtrecht_-_L-fol-802_p0-955.png
+UnivUtrecht_-_L-fol-802_p0-957.png
+UnivUtrecht_-_L-fol-802_p0-959.png
+UnivUtrecht_-_L-fol-802_p0-961.png
+UnivUtrecht_-_L-fol-802_p0-963.png
+UnivUtrecht_-_L-fol-802_p0-965.png
+UnivUtrecht_-_L-fol-802_p0-967.png
+UnivUtrecht_-_L-fol-802_p0-969.png
+UnivUtrecht_-_L-fol-802_p0-971.png
+UnivUtrecht_-_L-fol-802_p0-973.png
+UnivUtrecht_-_L-fol-802_p0-975.png
+UnivUtrecht_-_L-fol-802_p0-977.png
+UnivUtrecht_-_L-fol-802_p0-979.png
+UnivUtrecht_-_L-fol-802_p0-981.png
+UnivUtrecht_-_L-fol-802_p0-983.png
+UnivUtrecht_-_L-fol-802_p0-985.png
+UnivUtrecht_-_L-fol-802_p0-987.png
+UnivUtrecht_-_L-fol-802_p0-989.png
+UnivUtrecht_-_L-fol-802_p0-991.png
+UnivUtrecht_-_L-fol-802_p0-993.png
+UnivUtrecht_-_L-fol-802_p0-995.png
+UnivUtrecht_-_L-fol-802_p0-997.png
+UnivUtrecht_-_L-fol-802_p0-999.png
+
+$ while read -r line; do \
+    orig="${line}"; \
+    echo; \
+    echo "  Moving"; \
+    echo "${orig}"; \
+    new_fname=$(echo "${orig}" | \
+                   sed 's#_p0-9#_p0-09#g;'); \
+    echo "  TO"; \
+    echo "${new_fname}"; \
+done < to_rename_with_leading_0.lst | head
+
+  Moving
+UnivUtrecht_-_L-fol-802_p0-949.png
+  TO
+UnivUtrecht_-_L-fol-802_p0-0949.png
+
+  Moving
+UnivUtrecht_-_L-fol-802_p0-951.png
+  TO
+UnivUtrecht_-_L-fol-802_p0-0951.png
+
+$ while read -r line; do \
+    orig="${line}"; \
+    echo; \
+    echo "  Moving"; \
+    echo "${orig}"; \
+    new_fname=$(echo "${orig}" | \
+                   sed 's#_p0-9#_p0-09#g;'); \
+    echo "  TO"; \
+    echo "${new_fname}"; \
+    echo "      ..."; \
+    echo "-Command- mv \"${orig}\" \"${new_fname}\"" \
+       && echo "          ... success" \
+       || echo "          ... FAILURE"; \
+done < to_rename_with_leading_0.lst | head
+
+  Moving
+UnivUtrecht_-_L-fol-802_p0-949.png
+  TO
+UnivUtrecht_-_L-fol-802_p0-0949.png
+      ...
+-Command- mv "UnivUtrecht_-_L-fol-802_p0-949.png" "UnivUtrecht_-_L-fol-802_p0-0949.png"
+          ... success
+
+  Moving
+
+$ while read -r line; \
+    do orig="${line}"; \
+    echo; \
+    echo "  Moving"; \
+    echo "${orig}"; \
+    new_fname=$(echo "${orig}" | \
+                   sed 's#_p0-9#_p0-09#g;'); \
+    echo "  TO"; \
+    echo "${new_fname}"; \
+    echo "      ..."; \
+    echo "-Command- mv \"${orig}\" \"${new_fname}\"" \
+       && echo "          ... success" \
+       || echo "          ... FAILURE"; \
+done < to_rename_with_leading_0.lst | head -n 20
+
+  Moving
+UnivUtrecht_-_L-fol-802_p0-949.png
+  TO
+UnivUtrecht_-_L-fol-802_p0-0949.png
+      ...
+-Command- mv "UnivUtrecht_-_L-fol-802_p0-949.png" "UnivUtrecht_-_L-fol-802_p0-0949.png"
+          ... success
+
+  Moving
+UnivUtrecht_-_L-fol-802_p0-951.png
+  TO
+UnivUtrecht_-_L-fol-802_p0-0951.png
+      ...
+-Command- mv "UnivUtrecht_-_L-fol-802_p0-951.png" "UnivUtrecht_-_L-fol-802_p0-0951.png"
+          ... success
+
+  Moving
+UnivUtrecht_-_L-fol-802_p0-953.png
+  TO
+
+$ while read -r line; do \
+    orig="${line}"; \
+    echo; \
+    echo "  Moving"; \
+    echo "${orig}"; \
+    new_fname=$(echo "${orig}" | \
+                   sed 's#_p0-9#_p0-09#g;'); \
+    echo "  TO"; \
+    echo "${new_fname}"; \
+    echo "      ..."; \
+    mv "${orig}" "${new_fname}" \
+           && echo "          ... success" \
+           || echo "          ... FAILURE"; \
+done < to_rename_with_leading_0.lst 2>&1 | \
+            tee fixing_awkward_order_in_1000_plus_length_$(ttdate).out
+
+  Moving
+UnivUtrecht_-_L-fol-802_p0-949.png
+  TO
+UnivUtrecht_-_L-fol-802_p0-0949.png
+      ...
+          ... success
+
+  Moving
+UnivUtrecht_-_L-fol-802_p0-951.png
+  TO
+UnivUtrecht_-_L-fol-802_p0-0951.png
+
+## ...
+
+### ... LOTS OF OUTPUT ...
+
+## ...
+
+UnivUtrecht_-_L-fol-802_p0-997.png
+  TO
+UnivUtrecht_-_L-fol-802_p0-0997.png
+      ...
+          ... success
+
+  Moving
+UnivUtrecht_-_L-fol-802_p0-999.png
+  TO
+UnivUtrecht_-_L-fol-802_p0-0999.png
+      ...
+          ... success
+
+$ grep -i --failure to_rename_with_leading_0.lst | wc -;
+grep: unknown option -- failure
+Usage: grep [OPTION]... PATTERNS [FILE]...
+Try 'grep --help' for more information.
+      0       0       0 -
+
+$ #  Failure is not an option!
+
+$ grep -i failure \
+fixing_awkward_order_in_1000_plus_length_1751317288_2025-06-30T150128-0600.out\
+    | wc -l
+0
+
+$ grep -i success \
+fixing_awkward_order_in_1000_plus_length_1751317288_2025-06-30T150128-0600.out\
+    | wc -l
+26
+
+$ #  Right on!
+
+$ checksituation
+
+ Current date/time is
+Mon Jun 30 15:14:54 MDT 2025
+1751318094
+1751318094_2025-06-30T151454-0600
+
+ Current directory ( pwd ) is
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_extra_01
+
+
+$
+
+
+
+
+
+################################################
+########
+## OTHER TRIES USED TO PREPARE THINGS
+##
+
+
+## Better than first try, which first try is below
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ echo >/dev/null <<EOF
+> conda activate find-binding-and-unwind
+> python unwind_the_binding.py
+> # then watch the converted_from_PDF
+> By the way, the next PDF shouldn't go into this folder, but into
+> ../new_to_convert_PDF
+> EOF
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ checksituation
+
+ Current date/time is
+Mon Jun 16 11:43:12 MDT 2025
+1750095792
+1750095792_2025-06-16T114312-0600
+
+ Current directory ( pwd ) is
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ cat >/dev/null <<EOF
+> (find-binding-and-unwind) C:\David\FHTW-2025-All_-_move_2024_get_new\Tools>python unwind_the_binding.py
+pages:   0%|                                                                                   | 0/703 [00:00<?, ?it/s]
+page_images:   2%|█                                                                   | 11/703 [00:03<03:58,  2.90it/s]
+>
+> Wait for that in Anaconda Prompt (CMD), when it gets to 703/703, copy/paste
+> then [Ctrl]+[c]
+> EOF
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ #  Oops, got sidetracked.
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ cat >/dev/null <<EOF
+> (find-binding-and-unwind) C:\David\FHTW-2025-All_-_move_2024_get_new\Tools>python unwind_the_binding.py
+page_images: 100%|███████████████████████████████████████████████████████████████████| 703/703 [04:21<00:00,  2.69it/s]
+page_images:  53%|███████████████████████████████████▊                               | 376/703 [02:34<02:14,  2.43it/s]
+pages:   0%|                                                                       | 1/703 [06:57<81:23:16, 417.37s/it]
+Traceback (most recent call last):
+  File "C:\David\FHTW-2025-All_-_move_2024_get_new\Tools\unwind_the_binding.py", line 46, in <module>
+    pix.save(os.path.join(outdir,
+  File "C:\Users\bballdave025\.conda\envs\find-binding-and-unwind\Lib\site-packages\fitz\__init__.py", line 10026, in save
+    return self._writeIMG(filename, idx, jpg_quality)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bballdave025\.conda\envs\find-binding-and-unwind\Lib\site-packages\fitz\__init__.py", line 9733, in _writeIMG
+    if   format_ == 1:  mupdf.fz_save_pixmap_as_png(pm, filename)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bballdave025\.conda\envs\find-binding-and-unwind\Lib\site-packages\fitz\mupdf.py", line 43063, in fz_save_pixmap_as_png
+    return _mupdf.fz_save_pixmap_as_png(pixmap, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+^C
+(find-binding-and-unwind) C:\David\FHTW-2025-All_-_move_2024_get_new\Tools>
+> EOF
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find . -type f -iname "*.png" | grep "_p0-" | wc -l
+703
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find . -type f -iname "*.png" | grep "_p1-" | wc -l
+377
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find . -type f -iname "*.png" | grep -v "_p0-" | wc -l
+377
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find . -type f -iname "*.png" | grep -v "_p0-" | head
+./UnivUtrecht_-_Al-Quran_HSS-Hs-3-A-1-fol_p1-1415.png
+./UnivUtrecht_-_Al-Quran_HSS-Hs-3-A-1-fol_p1-1417.png
+./UnivUtrecht_-_Al-Quran_HSS-Hs-3-A-1-fol_p1-1419.png
+./UnivUtrecht_-_Al-Quran_HSS-Hs-3-A-1-fol_p1-1421.png
+./UnivUtrecht_-_Al-Quran_HSS-Hs-3-A-1-fol_p1-1423.png
+./UnivUtrecht_-_Al-Quran_HSS-Hs-3-A-1-fol_p1-1435.png
+./UnivUtrecht_-_Al-Quran_HSS-Hs-3-A-1-fol_p1-1437.png
+./UnivUtrecht_-_Al-Quran_HSS-Hs-3-A-1-fol_p1-1439.png
+./UnivUtrecht_-_Al-Quran_HSS-Hs-3-A-1-fol_p1-1441.png
+./UnivUtrecht_-_Al-Quran_HSS-Hs-3-A-1-fol_p1-1443.png
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find . -type f -iname "*.png" | grep -v "_p0-" | tr '\n' '\0' | xargs -I'{}' -0 rm "{}"
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find . -type f | wc -l
+703
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find . -type f -iname "*.png"| wc -l
+703
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find . -type f -iname "*.png" | sed 's#^[.]/##g;' | sort > rename_utrecht_hs3a1fol_pre.sh
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ wc -l < rename_utrecht_hs3a1fol_pre.sh
+703
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ curr_idx=1; ofn="rename_utrecht_hs3a1fol.sh"; >"${ofn}"; while read -r line; do orig_fname="${line}"; ofn="rename_utrecht_hs3a1fol.sh"; new_fname_pre=$(echo "${orig_fname}" | sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'); new_fname="${new_fname_pre}_$(printf '%05d' ${curr_idx}).png"; echo "echo" >> "${ofn}"; echo "echo \"  Moving\"" >> "${ofn}"; echo "echo \"${orig_fname}\"" >> "${ofn}"; echo "echo \"  TO\"" >> "${ofn}"; echo "echo \"${new_fname}\"" >> "${ofn}"; echo "echo \"      ...\"" >> "${ofn}"; echo "mv \"${orig_fname}\" \"${new_fname}\" && echo \"          ... success\" || echo \"          ... FAILURE\"" >> "${ofn}"; curr_idx=$(echo "${curr_idx}+1" | bc); done < rename_utrecht_hs3a1fol_pre.sh
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ echo -e "\x23\x21/usr/bin/env bash\n\n" > put_it_before
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ cat put_it_before rename_utrecht_hs3a1fol.sh > tmpf && mv tmpf rename_utrecht_hs3a1fol.sh
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ head rename_utrecht_hs3a1fol
+head: cannot open 'rename_utrecht_hs3a1fol' for reading: No such file or directory
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ head rename_utrecht_hs3a1fol.sh
+#!/usr/bin/env bash
+
+
+echo
+echo "  Moving"
+echo "UnivUtrecht_-_Al-Quran_HSS-Hs-3-A-1-fol_p0-1415.png"
+echo "  TO"
+echo "UnivUtrecht_-_Al-Quran_HSS-Hs-3-A-1-fol_00001.png"
+echo "      ..."
+mv "UnivUtrecht_-_Al-Quran_HSS-Hs-3-A-1-fol_p0-1415.png" "UnivUtrecht_-_Al-Quran_HSS-Hs-3-A-1-fol_00001.png" && echo "          ... success" || echo "          ... FAILURE"
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ tail rename_utrecht_hs3a1fol.sh
+echo "UnivUtrecht_-_Al-Quran_HSS-Hs-3-A-1-fol_00702.png"
+echo "      ..."
+mv "UnivUtrecht_-_Al-Quran_HSS-Hs-3-A-1-fol_p0-2817.png" "UnivUtrecht_-_Al-Quran_HSS-Hs-3-A-1-fol_00702.png" && echo "          ... success" || echo "          ... FAILURE"
+echo
+echo "  Moving"
+echo "UnivUtrecht_-_Al-Quran_HSS-Hs-3-A-1-fol_p0-2819.png"
+echo "  TO"
+echo "UnivUtrecht_-_Al-Quran_HSS-Hs-3-A-1-fol_00703.png"
+echo "      ..."
+mv "UnivUtrecht_-_Al-Quran_HSS-Hs-3-A-1-fol_p0-2819.png" "UnivUtrecht_-_Al-Quran_HSS-Hs-3-A-1-fol_00703.png" && echo "          ... success" || echo "          ... FAILURE"
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ chmod a+x rename_utrecht_hs3a1fol.sh
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ rm rename_utrecht_hs3a1fol_pre.sh
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ rm put_it_before
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ ./rename_utrecht_hs3a1fol.sh 2>&1 | tee renaming_utrecht_hs3a1fol_$(ttdate).out
+
+
+### OUTPUT ###
+
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## This is the first try. You are below.
+##############################################################
+bballdave025@MY-MACHINE ~
+$ checksituation
+
+ Current date/time is
+Mon Jun 16 07:42:16 MDT 2025
+1750081336
+1750081336_2025-06-16T074216-0600
+
+ Current directory ( pwd ) is
+/home/bballdave025
+
+
+bballdave025@MY-MACHINE ~
+$ cd 'C:\David\FHTW-2025-All_-_move_2024_get_new\new_-_folder_for_not-yet-ready_new_imgs\converted_from_PDF'
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find . -type f | sort | head # then use -iname "*.png"
+./UnivUtrecht_-_109-N-13_p0-2215.png
+./UnivUtrecht_-_109-N-13_p0-2217.png
+./UnivUtrecht_-_109-N-13_p0-2219.png
+./UnivUtrecht_-_109-N-13_p0-2221.png
+./UnivUtrecht_-_109-N-13_p0-2223.png
+./UnivUtrecht_-_109-N-13_p0-2225.png
+./UnivUtrecht_-_109-N-13_p0-2227.png
+./UnivUtrecht_-_109-N-13_p0-2229.png
+./UnivUtrecht_-_109-N-13_p0-2231.png
+./UnivUtrecht_-_109-N-13_p0-2233.png
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find . -type f | sed 's#^[.]/##g;' | sort | head # then use -iname "*.png"
+UnivUtrecht_-_109-N-13_p0-2215.png
+UnivUtrecht_-_109-N-13_p0-2217.png
+UnivUtrecht_-_109-N-13_p0-2219.png
+UnivUtrecht_-_109-N-13_p0-2221.png
+UnivUtrecht_-_109-N-13_p0-2223.png
+UnivUtrecht_-_109-N-13_p0-2225.png
+UnivUtrecht_-_109-N-13_p0-2227.png
+UnivUtrecht_-_109-N-13_p0-2229.png
+UnivUtrecht_-_109-N-13_p0-2231.png
+UnivUtrecht_-_109-N-13_p0-2233.png
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ echo "#" | hexdump -C
+00000000  23 0a                                             |#.|
+00000002
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ echo "!" | hexdump -C
+00000000  21 0a                                             |!.|
+00000002
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ echo -e "\x23\x21/usr/bin/env bash\n\n" > rename_utrecht_109n13.sh # SKIP
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ cat rename_utrecht_109n13.sh # SKIP
+#!/usr/bin/env bash
+
+
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find . -type f | sed 's#^[.]/##g;' | sort >> rename_utrecht_109n13.sh # use -iname "*.png"
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ wc -l < rename_utrecht_109n13.sh
+1107
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ echo -e "\x23\x21/usr/bin/env bash\n\n" | wc -l
+3
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ curridx=-2
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ #  Less steps.
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find . -type f | sed 's#^[.]/##g;' | sort >> rename_utrecht_109n13_pre.sh # use -iname "*.png"
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ rm rename_utrecht_109n13.sh
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ head rename_utrecht_109n13_pre.sh
+UnivUtrecht_-_109-N-13_p0-2215.png
+UnivUtrecht_-_109-N-13_p0-2217.png
+UnivUtrecht_-_109-N-13_p0-2219.png
+UnivUtrecht_-_109-N-13_p0-2221.png
+UnivUtrecht_-_109-N-13_p0-2223.png
+UnivUtrecht_-_109-N-13_p0-2225.png
+UnivUtrecht_-_109-N-13_p0-2227.png
+UnivUtrecht_-_109-N-13_p0-2229.png
+UnivUtrecht_-_109-N-13_p0-2231.png
+UnivUtrecht_-_109-N-13_p0-2233.png
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ curr_idx=1; >rename_utrecht_109n13.sh; while read -r line; do orig_fname="${line}"; new_fname_pre=$(echo "${orig_fname}" | sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'); new_fname="${new_fname_pre}_$(printf '%05d' ${curr_idx}).png"; echo "  Moving"; echo "${orig_fname}"; echo "  TO"; echo "${new_fname}"; done < rename_utrecht_109n13_pre.sh | head -n 30 ## Can skip, might check
+  Moving
+UnivUtrecht_-_109-N-13_p0-2215.png
+  TO
+UnivUtrecht_-_109-N-13_00001.png
+  Moving
+UnivUtrecht_-_109-N-13_p0-2217.png
+  TO
+UnivUtrecht_-_109-N-13_00001.png
+  Moving
+UnivUtrecht_-_109-N-13_p0-2219.png
+  TO
+UnivUtrecht_-_109-N-13_00001.png
+  Moving
+UnivUtrecht_-_109-N-13_p0-2221.png
+  TO
+UnivUtrecht_-_109-N-13_00001.png
+  Moving
+UnivUtrecht_-_109-N-13_p0-2223.png
+  TO
+UnivUtrecht_-_109-N-13_00001.png
+  Moving
+UnivUtrecht_-_109-N-13_p0-2225.png
+  TO
+UnivUtrecht_-_109-N-13_00001.png
+  Moving
+UnivUtrecht_-_109-N-13_p0-2227.png
+  TO
+UnivUtrecht_-_109-N-13_00001.png
+  Moving
+UnivUtrecht_-_109-N-13_p0-2229.png
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ curr_idx=1; ofn="rename_utrecht_109n13.sh"; >"${ofn}"; while read -r line; do orig_fname="${line}"; ofn="rename_utrecht_109n13.sh"; new_fname_pre=$(echo "${orig_fname}" | sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'); new_fname="${new_fname_pre}_$(printf '%05d' ${curr_idx}).png"; echo "echo" >> "${ofn}"; echo "echo \"  Moving\"" >> "${ofn}"; echo "echo \"${orig_fname}\"" >> "${ofn}"; echo "echo \"  TO\"" >> "${ofn}"; echo "echo \"${new_fname}\"" >> "${ofn}"; echo "echo \"      ...\"" >> "${ofn}"; echo "mv \"${orig_fname}\" \"${new_fname}\" && echo \"          ... success\" || echo \"          ... FAILURE\"" >> "${ofn}"; curr_idx=$(echo "${curr_idx}+1" | bc); done < rename_utrecht_109n13_pre.sh
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ echo -e "\x23\x21"
+#!
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ echo -e "\x23\x21/usr/bin/env bash\n\n" > put_it_before
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ cat put_it_before rename_utrecht_109n13.sh | head -n 20
+#!/usr/bin/env bash
+
+
+echo
+echo "  Moving"
+echo "UnivUtrecht_-_109-N-13_p0-2215.png"
+echo "  TO"
+echo "UnivUtrecht_-_109-N-13_00001.png"
+echo "      ..."
+mv "UnivUtrecht_-_109-N-13_p0-2215.png" "UnivUtrecht_-_109-N-13_00001.png" && echo "          ... success" || echo "          ... FAILURE"
+echo
+echo "  Moving"
+echo "UnivUtrecht_-_109-N-13_p0-2217.png"
+echo "  TO"
+echo "UnivUtrecht_-_109-N-13_00002.png"
+echo "      ..."
+mv "UnivUtrecht_-_109-N-13_p0-2217.png" "UnivUtrecht_-_109-N-13_00002.png" && echo "          ... success" || echo "          ... FAILURE"
+echo
+echo "  Moving"
+echo "UnivUtrecht_-_109-N-13_p0-2219.png"
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ wc -l rename_utrecht_109n13.sh
+7735 rename_utrecht_109n13.sh
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ cat put_it_before rename_utrecht_109n13.sh > tmpf && mv tmpf rename_utrecht_109n13.sh
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ wc -l < rename_utrecht_109n13.sh
+7738
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ head -n 30 rename_utrecht_109n13.sh
+#!/usr/bin/env bash
+
+
+echo
+echo "  Moving"
+echo "UnivUtrecht_-_109-N-13_p0-2215.png"
+echo "  TO"
+echo "UnivUtrecht_-_109-N-13_00001.png"
+echo "      ..."
+mv "UnivUtrecht_-_109-N-13_p0-2215.png" "UnivUtrecht_-_109-N-13_00001.png" && echo "          ... success" || echo "          ... FAILURE"
+echo
+echo "  Moving"
+echo "UnivUtrecht_-_109-N-13_p0-2217.png"
+echo "  TO"
+echo "UnivUtrecht_-_109-N-13_00002.png"
+echo "      ..."
+mv "UnivUtrecht_-_109-N-13_p0-2217.png" "UnivUtrecht_-_109-N-13_00002.png" && echo "          ... success" || echo "          ... FAILURE"
+echo
+echo "  Moving"
+echo "UnivUtrecht_-_109-N-13_p0-2219.png"
+echo "  TO"
+echo "UnivUtrecht_-_109-N-13_00003.png"
+echo "      ..."
+mv "UnivUtrecht_-_109-N-13_p0-2219.png" "UnivUtrecht_-_109-N-13_00003.png" && echo "          ... success" || echo "          ... FAILURE"
+echo
+echo "  Moving"
+echo "UnivUtrecht_-_109-N-13_p0-2221.png"
+echo "  TO"
+echo "UnivUtrecht_-_109-N-13_00004.png"
+echo "      ..."
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ chmod a+x rename_utrecht_109n13.sh
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ ./rename_utrecht_109n13.sh 2>&1 | tee renaming_utrecht_109n13_$(ttdate).out
+
+##### OUTPUT #####
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ history | tail -n 30
+  518  echo -e "\x23\x21"
+  519  echo -e "\x23\x21/usr/bin/env bash\n\n" > put_it_before
+  520  cat put_it_before rename_utrecht_109n13.sh | head -n 20
+  521  wc -l rename_utrecht_109n13.sh
+  522  cat put_it_before rename_utrecht_109n13.sh > tmpf && mv tmpf rename_utrecht_109n13.sh
+  523  wc -l < rename_utrecht_109n13.sh
+  524  head -n 30 rename_utrecht_109n13.sh
+  525  chmod a+x rename_utrecht_109n13.sh
+  526  ./rename_utrecht_109n13.sh 2>&1 | tee renaming_utrecht_109n13_$(ttdate).out
+  527  echo "./rename_utrecht_109n13.sh 2>&1 | tee renaming_utrecht_109n13_$(ttdate).out"
+  528  grep -i --failure renaming_utrecht_109n13_1750083290_2025-06-16T081450-0600.out
+  529  # Failure is not an option.
+  530  grep -i failure renaming_utrecht_109n13_1750083290_2025-06-16T081450-0600.out  | wc -l
+  531  #  Haha, oops.
+  532  ls "*sh*png"
+  533  ls "*sh*.png"
+  534  find . -type f -iname "*.sh*.png" | wc -l
+  535  find . -type f -iname "*.sh*.png"
+  536  mv rename_utrecht_109n13.sh_01104.png rename_utrecht_109n13.sh
+  537  mv rename_utrecht_109n13_pre.sh_01105.png rename_utrecht_109n13_pre.sh
+  538  rm put_it_before
+  539  mv *.sh ..
+  540  mv *.out ..
+  541  mkdir -p ../converted_from_PDF_-_utrecht_holder
+  542  #  Moving them with file explorer.
+  543  find . -type f -iname "*.png" | wc -l
+  544  find ../converted_from_PDF_-_utrecht_holder/ -type f -iname "*.png"
+  545  find ../converted_from_PDF_-_utrecht_holder/ -type f -iname "*.png" | wc -l
+  546  history | tail -n 20
+  547  history | tail -n 30
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ mv ../new_to_convert_PDF/UnivUtrecht_-_109-N-13.pdf ../converted_PDFs_-_origs/
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ #  Moving next PDF from Utrecht into this folder, then from Anaconda Prompt
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ echo >/dev/null <<EOF
+> conda activate find-binding-and-unwind
+> python unwind_the_binding.py
+> # then watch the converted_from_PDF
+> By the way, the next PDF shouldn't go into this folder, but into
+> ../new_to_convert_PDF
+> EOF
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ find . | wc -l
+1
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ #  Just this folder
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$ echo >/dev/null <<EOF                                                         > Something like the following comes up:
+> (find-binding-and-unwind) C:\David\FHTW-2025-All_-_move_2024_get_new\Tools>python unwind_the_binding.py
+pages:   0%|                                                                                   | 0/870 [00:00<?, ?it/s]
+page_images:   4%|██▌                                                                 | 33/870 [00:11<05:11,  2.69it/s]
+>
+> That n/870 will go to 870/870, then another 1/870 will restart.
+> At that point, [Ctrl]+[c} the Anaconda Prompt and continue from the start
+> EOF
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF
+$
+
+########## OTHER CYGWIN TERMINAL ############
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ #  BTW, from the Anaconda prompt ...
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ cat >/dev/null <<EOF
+> (find-binding-and-unwind) C:\David\FHTW-2025-All_-_move_2024_get_new\Tools>python unwind_the_binding.py
+page_images:  62%|█████████████████████████████████████████▍                         | 538/870 [03:24<02:06,  2.63it/s]
+pages:   0%|                                                                                   | 0/870 [03:26<?, ?it/s]
+Traceback (most recent call last):
+  File "C:\David\FHTW-2025-All_-_move_2024_get_new\Tools\unwind_the_binding.py", line 46, in <module>
+    pix.save(os.path.join(outdir,
+  File "C:\Users\bballdave025\.conda\envs\find-binding-and-unwind\Lib\site-packages\fitz\__init__.py", line 10026, in save
+    return self._writeIMG(filename, idx, jpg_quality)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bballdave025\.conda\envs\find-binding-and-unwind\Lib\site-packages\fitz\__init__.py", line 9733, in _writeIMG
+    if   format_ == 1:  mupdf.fz_save_pixmap_as_png(pm, filename)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\bballdave025\.conda\envs\find-binding-and-unwind\Lib\site-packages\fitz\mupdf.py", line 43063, in fz_save_pixmap_as_png
+    return _mupdf.fz_save_pixmap_as_png(pixmap, filename)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: code=2: cannot fwrite: No space left on device
+
+(find-binding-and-unwind) C:\David\FHTW-2025-All_-_move_2024_get_new\Tools>:: Dang, filled up the memory. I'll be moving the backup stuff in new_-_folder_for_not_yet_ready_new_imgs
+(find-binding-and-unwind) C:\David\FHTW-2025-All_-_move_2024_get_new\Tools>
+> EOF
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ #  That backup (to my 14TB external) is saying it's got 1h50m left,
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ #+ which seems about right, given there are 29k items and 165 GB left to move
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ #  Time for a break!
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ #  TIG/Scriptures!
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ #  Then working with my fhtw-manuscript-models GitHub repo, following
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ #+
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ #  Didn't finish there. Now, I can look.
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ # https://drive.google.com/file/d/1RQ7SPUk8ZhJYzDJGpQVASgwCrNC4JqFD/view
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ # https://github.com/Ravishukla1234/Image_classification_using_Amazon_Sagemaker
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ 
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ 
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ 
+
+
+## Next command for renames:
+
+curr_idx=1; ofn="rename_utrecht_110e13rarfol.sh"; >"${ofn}"; while read -r line; do orig_fname="${line}"; ofn="rename_utrecht_110e13rarfol.sh"; new_fname_pre=$(echo "${orig_fname}" | sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'); new_fname="${new_fname_pre}_$(printf '%05d' ${curr_idx}).png"; echo "echo" >> "${ofn}"; echo "echo \"  Moving\"" >> "${ofn}"; echo "echo \"${orig_fname}\"" >> "${ofn}"; echo "echo \"  TO\"" >> "${ofn}"; echo "echo \"${new_fname}\"" >> "${ofn}"; echo "echo \"      ...\"" >> "${ofn}"; echo "mv \"${orig_fname}\" \"${new_fname}\" && echo \"          ... success\" || echo \"          ... FAILURE\"" >> "${ofn}"; curr_idx=$(echo "${curr_idx}+1" | bc); done < rename_utrecht_110e13rarfol_pre.sh
+
+
+## Next command for renames
+
+curr_idx=1; ofn="rename_utrecht_hs3a1fol.sh"; >"${ofn}"; while read -r line; do orig_fname="${line}"; ofn="rename_utrecht_hs3a1fol.sh"; new_fname_pre=$(echo "${orig_fname}" | sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'); new_fname="${new_fname_pre}_$(printf '%05d' ${curr_idx}).png"; echo "echo" >> "${ofn}"; echo "echo \"  Moving\"" >> "${ofn}"; echo "echo \"${orig_fname}\"" >> "${ofn}"; echo "echo \"  TO\"" >> "${ofn}"; echo "echo \"${new_fname}\"" >> "${ofn}"; echo "echo \"      ...\"" >> "${ofn}"; echo "mv \"${orig_fname}\" \"${new_fname}\" && echo \"          ... success\" || echo \"          ... FAILURE\"" >> "${ofn}"; curr_idx=$(echo "${curr_idx}+1" | bc); done < rename_utrecht_hs3a1fol_pre.sh
+
+
+## Next command for renames
+
+rename_utrecht_hs1b16_pre.sh
+
+curr_idx=1; ofn="rename_utrecht_hs1b16.sh"; >"${ofn}"; while read -r line; do orig_fname="${line}"; ofn="rename_utrecht_hs1b16.sh"; new_fname_pre=$(echo "${orig_fname}" | sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'); new_fname="${new_fname_pre}_$(printf '%05d' ${curr_idx}).png"; echo "echo" >> "${ofn}"; echo "echo \"  Moving\"" >> "${ofn}"; echo "echo \"${orig_fname}\"" >> "${ofn}"; echo "echo \"  TO\"" >> "${ofn}"; echo "echo \"${new_fname}\"" >> "${ofn}"; echo "echo \"      ...\"" >> "${ofn}"; echo "mv \"${orig_fname}\" \"${new_fname}\" && echo \"          ... success\" || echo \"          ... FAILURE\"" >> "${ofn}"; curr_idx=$(echo "${curr_idx}+1" | bc); done < rename_utrecht_hs1b16_pre.sh
+
+
+## Next commmand for renames
+
+rename_utrecht_w137fol_pre.sh
+
+curr_idx=1; ofn="rename_utrecht_w137fol.sh"; >"${ofn}"; while read -r line; do orig_fname="${line}"; ofn="rename_utrecht_w137fol.sh"; new_fname_pre=$(echo "${orig_fname}" | sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'); new_fname="${new_fname_pre}_$(printf '%05d' ${curr_idx}).png"; echo "echo" >> "${ofn}"; echo "echo \"  Moving\"" >> "${ofn}"; echo "echo \"${orig_fname}\"" >> "${ofn}"; echo "echo \"  TO\"" >> "${ofn}"; echo "echo \"${new_fname}\"" >> "${ofn}"; echo "echo \"      ...\"" >> "${ofn}"; echo "mv \"${orig_fname}\" \"${new_fname}\" && echo \"          ... success\" || echo \"          ... FAILURE\"" >> "${ofn}"; curr_idx=$(echo "${curr_idx}+1" | bc); done < rename_utrecht_w137fol_pre.sh
+
+
+## Next command for renames
+
+rename_utrecht_lfol773rdl1_pre.sh
+
+curr_idx=1; ofn="rename_utrecht_lfol773rdl1.sh"; >"${ofn}"; while read -r line; do orig_fname="${line}"; ofn="rename_utrecht_lfol773rdl1.sh"; new_fname_pre=$(echo "${orig_fname}" | sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'); new_fname="${new_fname_pre}_$(printf '%05d' ${curr_idx}).png"; echo "echo" >> "${ofn}"; echo "echo \"  Moving\"" >> "${ofn}"; echo "echo \"${orig_fname}\"" >> "${ofn}"; echo "echo \"  TO\"" >> "${ofn}"; echo "echo \"${new_fname}\"" >> "${ofn}"; echo "echo \"      ...\"" >> "${ofn}"; echo "mv \"${orig_fname}\" \"${new_fname}\" && echo \"          ... success\" || echo \"          ... FAILURE\"" >> "${ofn}"; curr_idx=$(echo "${curr_idx}+1" | bc); done < rename_utrecht_lfol773rdl1_pre.sh
+
+
+## Next command for renames
+
+curr_idx=1; ofn="rename_utrecht_eoct416dl1.sh"; >"${ofn}"; while read -r line; do orig_fname="${line}"; ofn="rename_utrecht_eoct416dl1.sh"; new_fname_pre=$(echo "${orig_fname}" | sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'); new_fname="${new_fname_pre}_$(printf '%05d' ${curr_idx}).png"; echo "echo" | tee -a "${ofn}"; echo "echo \"  Moving\"" | tee -a "${ofn}"; echo "echo \"${orig_fname}\"" | tee -a "${ofn}"; echo "echo \"  TO\"" | tee -a "${ofn}"; echo "echo \"${new_fname}\"" | tee -a "${ofn}"; echo "echo \"      ...\"" | tee -a "${ofn}"; echo "mv \"${orig_fname}\" \"${new_fname}\" && echo \"          ... success\" || echo \"          ... FAILURE\"" | tee -a "${ofn}"; curr_idx=$(echo "${curr_idx}+1" | bc); done < rename_utrecht_eoct416dl1_pre.sh
+
+curr_idx=1; ofn="rename_utrecht_eoct416dl1.sh"; >"${ofn}"; while read -r line; do orig_fname="${line}"; ofn="rename_utrecht_eoct416dl1.sh"; new_fname_pre=$(echo "${orig_fname}" | sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'); new_fname="${new_fname_pre}_$(printf '%05d' ${curr_idx}).png"; echo "echo" >> "${ofn}"; echo "echo \"  Moving\"" >> "${ofn}"; echo "echo \"${orig_fname}\"" >> "${ofn}"; echo "echo \"  TO\"" >> "${ofn}"; echo "echo \"${new_fname}\"" >> "${ofn}"; echo "echo \"      ...\"" >> "${ofn}"; echo "mv \"${orig_fname}\" \"${new_fname}\" && echo \"          ... success\" || echo \"          ... FAILURE\"" >> "${ofn}"; curr_idx=$(echo "${curr_idx}+1" | bc); done < rename_utrecht_eoct416dl1_pre.sh
+
+
+## Next command(s) for renames
+
+rename_utrecht_foct39dl1.sh
+rename_utrecht_foct39dl1_pre.sh
+
+curr_idx=1; ofn="rename_utrecht_eoct416dl1.sh"; >"${ofn}"; while read -r line; do orig_fname="${line}"; ofn="rename_utrecht_eoct416dl1.sh"; new_fname_pre=$(echo "${orig_fname}" | sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'); new_fname="${new_fname_pre}_$(printf '%05d' ${curr_idx}).png"; echo "echo" | tee -a "${ofn}"; echo "echo \"  Moving\"" | tee -a "${ofn}"; echo "echo \"${orig_fname}\"" | tee -a "${ofn}"; echo "echo \"  TO\"" | tee -a "${ofn}"; echo "echo \"${new_fname}\"" | tee -a "${ofn}"; echo "echo \"      ...\"" | tee -a "${ofn}"; echo "mv \"${orig_fname}\" \"${new_fname}\" && echo \"          ... success\" || echo \"          ... FAILURE\"" | tee -a "${ofn}"; curr_idx=$(echo "${curr_idx}+1" | bc); done < rename_utrecht_eoct416dl1_pre.sh
+
+curr_idx=1; ofn="rename_utrecht_eoct416dl1.sh"; >"${ofn}"; while read -r line; do orig_fname="${line}"; ofn="rename_utrecht_eoct416dl1.sh"; new_fname_pre=$(echo "${orig_fname}" | sed 's#_p[0-9]\+[-][0-9]\+[.]png##g;'); new_fname="${new_fname_pre}_$(printf '%05d' ${curr_idx}).png"; echo "echo" >> "${ofn}"; echo "echo \"  Moving\"" >> "${ofn}"; echo "echo \"${orig_fname}\"" >> "${ofn}"; echo "echo \"  TO\"" >> "${ofn}"; echo "echo \"${new_fname}\"" >> "${ofn}"; echo "echo \"      ...\"" >> "${ofn}"; echo "mv \"${orig_fname}\" \"${new_fname}\" && echo \"          ... success\" || echo \"          ... FAILURE\"" >> "${ofn}"; curr_idx=$(echo "${curr_idx}+1" | bc); done < rename_utrecht_eoct416dl1_pre.sh
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

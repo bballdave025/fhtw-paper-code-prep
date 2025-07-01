@@ -1,0 +1,1416 @@
+
+$ checksituation
+$ cd /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/
+
+$ cat >/dev/null <<EOF
+
+Note that I'm calling this batch 9, but the only way
+you'll know that is that there will be sundry things
+with 'b9' in the name. To highlight this, I'm putting
+the next paragraph-y thingie.
+THIS SHOULD CHANGE FOR EACH BATCH!
+
+#$@$@$@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$@$@$#
+#####################@@@@@@@@@@@@@@@@@@####################
+###########################################################
+###############                             ###############
+#####                                                 #####
+##                                                       ##
+#                         b9                              #
+#                                                         #
+#                   (for batch 9)                         #
+##                                                       ##
+#####                                                 #####
+###############                             ###############
+###########################################################
+############$$$$$$$$$$$$$$$$$$$$$##########################
+#@$@$@$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@$@$@#
+
+EOF
+$ b9_ts=$(ttdate)
+$ echo ${b9_ts}
+$ type ttdate
+$ batchtag="b9"
+$ # batchts="${${batchtag}_ts}" # command doesn't work, do
+$ echo ${batchtag}_ts
+b9_ts
+$ # then use result for  rhs
+$ batchts="${b9_ts}
+
+
+$ cat >/dev/null <<EOF
+
+
+
+#$@$@$@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$#
+#####################@@@@@@@@@@@@@@@@@@##############
+#####################################################
+#####################################################
+# Check to only do new PDFs -- pre-game
+#####################################################
+############$$$$$$$$$$$$$$$$$$$$$####################
+#@$@$@$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@#
+
+# STEP -1
+
+
+EOF
+$ cd converted_from_PDF
+$ checksituation
+$ lh  #  Check if empty and ready for new extracted images
+$ type lh
+$ #  How many final-jpeg images (after the 2024 stuff)?
+$ find ../../new_final_jpeg_to_use/ -type f | wc -l
+$ #  Are they all final converted JPEG images?
+$ find ../../new_final_jpeg_to_use/ -type f -iname "*.jpg" | wc -l
+$ #  Are they all unique?
+$ find ../../new_final_jpeg_to_use/ -type f -iname "*.jpg" | \
+    sort | uniq | wc -l
+$ #
+#  Surprisingly, I don't have any, e.g. "<blah>_00234-f134r.jpg"
+#+ though I'm pretty sure there are some in the 2024 stuff.
+#+ I think that'll change, so do the check
+$ find ../../new_final_jpeg_to_use/ -type f -iname "*.jpg" | \
+    grep -v "_[0-9]\{5\}[.]jpg$" | wc -l
+$ #  Check to get filename bases correct
+$ find ../../new_final_jpeg_to_use/ -type f -iname "*.jpg" | \
+    awk -F'/' '{print $NF}' | \
+    sed 's#_[0-9]\{5\}[.]jpg##g' | \
+    head
+$ find ../../new_final_jpeg_to_use/ -type f -iname "*.jpg" | \
+    awk -F'/' '{print $NF}' | \
+    sed 's#_[0-9]\{5\}[.]jpg##g' | \
+    sort | uniq | head
+$ checksituation
+$ #  From how many unique documents have we gotten images?
+$ find ../../new_final_jpeg_to_use/ -type f -iname "*.jpg" | \
+    awk -F'/' '{print $NF}' | \
+    sed 's#_[0-9]\{5\}[.]jpg##g' | \
+    sort | uniq | wc -l
+$ #  If you want to look through them, vim it or
+$ find ../../new_final_jpeg_to_use/ -type f -iname "*.jpg" | \
+    awk -F'/' '{print $NF}' | \
+    sed 's#_[0-9]\{5\}[.]jpg##g' | \
+    sort | uniq | less
+$ find ../../new_final_jpeg_to_use/ -type f -iname "*.jpg" | \
+    awk -F'/' '{print $NF}' | \
+    sed 's#_[0-9]\{5\}[.]jpg##g' | \
+    sort | uniq -c | head
+$ find ../../new_final_jpeg_to_use/ -type f -iname "*.jpg" | \
+    awk -F'/' '{print $NF}' | \
+    sed 's#_[0-9]\{5\}[.]jpg##g' | \
+    sort | uniq | awk '{ sum += $1 }; END { print sum }' # check match
+$ find ../../new_final_jpeg_to_use/ -type f -iname "*.jpg" | \
+    awk -F'/' '{print $NF}' | \
+    sed 's#_[0-9]\{5\}[.]jpg##g' | sort | uniq > \
+        ../../fnames_before_new_b9_conversion_${batchts}.lst
+$ wc -l < ../../fnames_before_new_b9_conversion_#tab-complete#.lst
+$ #
+#  That gives us all of our currently-ready JPEG files
+#+ (at least the ones that haven't been moved to them
+#+ external drive; I should probably create a similar
+#+ file here on the local drive and save it on GDrive.)
+$
+$ #  Now for the PDFs we want to convert
+$ find ../new_to_convert_PDF/ -type f -iname "*.pdf" | \
+    awk -F'/' '{print $NF}' | \
+    sort | wc -l
+$ find ../new_to_convert_PDF/ -type f -iname "*.pdf" | \
+    awk -F'/' '{print $NF}' | \
+    sort #  could add `|head` or `|less` if too many files
+$ find ../new_to_convert_PDF/ -type f -iname "*.pdf" | \
+    awk -F'/' '{print $NF}' | \
+    sed 's#[.]pdf$##g' | \
+    sort | head
+$ find ../new_to_convert_PDF/ -type f -iname "*.pdf" | \
+    awk -F'/' '{print $NF}' | \
+    sed 's#[.]pdf$##g' | \
+    sort > \
+      ../../fnames_pdfs_check_dups_before_${batchtag}_conversion_${batchts}.lst
+$ comm -12 \
+    ../../fnames_before_new_${batchtag}_conversion_${batchts}.lst \  
+    ../../fnames_pdfs_check_dups_before_${batchtag}_conversion_${batchts}.lst | \
+  wc -l  # Num filenames found in both (sorted) files
+$ cat >/dev/null <<EOF
+#  Sometimes, the previous command fails with a messge like
+#+ `comm: file 1 is not in sorted order'
+#+ `comm: input is not in sorted order'
+#+ (Maybe the `uniq' throws things off, but I doubt it
+#+ Whatever the reason, you can use the next command if
+#+ You get the failure/message
+EOF
+
+$ did_fail=0  # Make sure to change this to 1 if it failed!!!
+$ [ did_fail ] && \
+comm -12 \
+  <(sort ../../fnames_before_new_${batchtag}_conversion_${batchts}.lst) \  
+  <(sort \
+    ../../fnames_pdfs_check_dups_before_${batchtag}_conversion_${batchts}.lst | \
+  wc -l
+$ #
+#  If you don't get zero as output from whichever command worked,
+#+ take off the ` | wc -l', look at the filename base (document
+#+ name), and investigate. You'll probably take out a PDF.
+
+
+$ #
+#  Now, we'll go to the Anaconda prompt for the conversion
+#+ and use the batchts for the approximate start time
+$ echo "${batchts}"
+
+
+
+
+$ cat >/dev/null <<EOF
+
+
+
+#$@$@$@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$@$@$#
+#####################@@@@@@@@@@@@@@@@@@####################
+###########################################################
+###########################################################
+# Do the download from Anaconda Prompt (Windows for now)
+# and do preliminary checks
+#   n_files from each PDFs
+#   PDF files we already know to be palette
+#   ... 
+###########################################################
+############$$$$$$$$$$$$$$$$$$$$$##########################
+#@$@$@$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@$@$@#
+
+# STEP 1
+
+
+EOF
+$ checksituation
+
+
+
+$ cat >/dev/null <<EOF
+::  In Anaconda Prompt; for now, in Windows
+(base) C:\Users\bballdave025>cd C:\David\FHTW-2025-All_-_move_2024_get_new\Tools
+
+(base) C:\David\FHTW-2025-All_-_move_2024_get_new\Tools>conda activate find-binding-and-unwind
+
+(find-binding-and-unwind) C:\David\FHTW-2025-All_-_move_2024_get_new\Tools>python unwind_the_binding.py
+
+
+::  Since I'm still in Windows, I'll go back
+::+ to Cygwin
+EOF
+$
+$ #  Now, we can stay in the *NIX-like environment -- Cygwin
+$ checksituation
+
+$ #  check, are all png? what are any other files?
+$ find . -type f | wc -l
+$ find . -type f -iname "*.png" | wc -l  
+$ # See if there are any spaces that snuck into filenames
+$ find . -type f -iname "*.png" | grep " " | wc -l
+$ #
+#  Why not check for non-ascii as well as non-printable ascii
+#+ then anything else I don't want in a filename
+$ #  Any with non-printable ASCII?
+$ find . -type f -iname "*.png" | awk -F'/' '{print $NF}' | \
+    grep "[\x00-\x08\x0B-\x0C\x0E-\x1F\x7F]" | wc -l
+$ #
+#  Any with undesired space-y (still non-printable --
+#+ tab, line feed, carriage return, space)?
+$ find . -type f -iname "*.png" | awk -F'/' '{print $NF}' | \
+    grep "[\x09-\x10\x0B\x0D\x20]" | wc -l
+$ #  Any that are actually non-ascii
+$ find . -type f -iname "*.png" | awk -F'/' '{print $NF}' | \
+    grep -v "[\x00-\x7F]" | wc -l
+$ #
+#  Sanity check: do we get the right number of files if we do
+#+ a slightly-changed negation of the previous (simple check 
+#+ for ascii, naive actually.
+$ find . -type f -iname "*.png" | awk -F'/' '{print $NF}' | \
+    grep "^[\x00-\x7F]\+$" | wc -l
+$ #
+#  Now, check for any filenames with undesired
+#+ ASCII characters
+$
+$ ##------ BEGIN SKIP THIS ------##
+$ #+ better make a nice file to test things
+$ cat >this_file <<EOF
+go to ~ and try using # to comment out the ! dontcha think?
+Might be <> good
+@your-name
+/home/user/
+Put in | and \ to see what they do
+then " and ^ the % out of ;:*
+what will ` do?
+then ) un]balance { bracke [ ts like (razy
+one }balance
+maybe a '\0'
+and an & for the next
+$#!n splints and hbar
+EOF
+$ grep -o '[~@#$%^&|/)(}{[*?>\<;:"`]\|]'"\|'" this_file | sort -u | tr '\n' '.'
+".#.$.%.&.'.(.).*./.:.;.<.>.?.@.[.\.].^.`.{.|.}.~.
+$ ##------ ENDOF SKIP THIS ------##
+$
+$ # So, to find out if any filenames have those unwanted characters
+$ find . -type f -iname "*.png" | awk -F'/' '{print $NF}' | \
+    grep  '[~@#$%^&|/)(}{[*?>\<;:"`]\|]'"\|'" | wc -l
+$ #  Any other preliminary checks can go here.
+$ #  Maybe better version of my character rules
+$ find . -type f -iname "*.png" | awk -F'/' '{print $NF}' | \
+    grep  '[]~@#$%^&|/)(}{[*?>\<;:"`'"']"
+
+
+
+$ cat >/dev/null <<EOF
+
+
+
+#$@$@$@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$@$@$#
+#####################@@@@@@@@@@@@@@@@@@####################
+###########################################################
+###########################################################
+# Rename the files  
+###########################################################
+############$$$$$$$$$$$$$$$$$$$$$##########################
+#@$@$@$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@$@$@#
+
+# STEP 2
+
+
+EOF
+$ checksituation
+$ #  Copy/paste from GitHub (or from here)
+$ find . -type f -iname "*.png" > fnames.lst; \
+echo -e "\n\n  $(date +'%s_%Y-%m-%dT%H%M%S%z') \n" | tee -a rename.out; \
+find . -type f -iname "*.png" -print0 | \
+xargs -I'{}' -0 bash -c '
+orig="{}";
+echo;
+echo "orig: ${orig}";
+my_first=$(echo "${orig}" | \
+  sed '"'"'s#^[.]/\(.*\)p\([0-9]\+\)[-][0-9]\+\([.]png\)$#\1#g'"'"');
+echo "my_first: ${my_first}";
+my_end=$(echo "${orig}" | \
+  sed '"'"'s#^[.]/\(.*p\)\([0-9]\+\)[-][0-9]\+\([.]png\)$#\3#g'"'"');
+echo "my_end: ${my_end}";
+my_second=$(echo "${orig}" | \
+  sed '"'"'s#^[.]/\(.*p\)\([0-9]\+\)[-][0-9]\+\([.]png\)$#\2#g'"'"');
+echo "my_second: $my_second";
+my_num=0;
+my_unpad=$(echo "${my_second}+1" | bc);
+echo "my_unpad: ${my_unpad}";
+my_num=0;
+if [ $my_unpad -lt 10 ]; then
+  my_num="0000${my_unpad}";
+elif [ $my_unpad -lt 100 ]; then
+  my_num="000${my_unpad}";
+elif [ $my_unpad -lt 1000 ]; then
+  my_num="00${my_unpad}";
+elif [ $my_unpad -lt 10000 ]; then
+  my_num="0${my_unpad}";
+else
+  my_num="${my_unpad}";
+fi;
+echo "my_num: ${my_num}";
+new_fname="${my_first}${my_num}${my_end}";
+echo "  Command will be:" | tee -a rename.out;
+echo "mv \"${orig}\" \"${new_fname}\"" | tee -a rename.out;
+echo "    ..." | tee -a rename.out;
+mv "${orig}" "${new_fname}" \
+  && echo -e "        ... success\n" | tee -a rename.out \
+  || echo -e "        ... FAILURE\n" | tee -a rename.out
+'
+### ... OUTPUT ... ###
+
+$ grep -i --failure rename.out | wc -l  # hahahaha, Failure is not an option!
+$ grep -i failure rename.out | wc -l
+$ #
+#  Here's where to take care of things (or comment on it)
+#+ if the number is not zero (0)
+$ #  A good one is  grep -i -B10 failure rename.out
+$ mv fnames.lst ../fnames_${batchts}.lst
+$ mv rename.out ../rename_${batchts}.lst
+
+
+
+$ cat >/dev/null <<EOF
+
+
+
+#$@$@$@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$@$@$#
+#####################@@@@@@@@@@@@@@@@@@####################
+###########################################################
+###########################################################
+# Check for number of files from each PDF (search using
+# the bare, strip off the     "_[0-9]\{5\}[.][^.]\{2,5\}$"
+# (or, to be exact for here:  "_[0-9]\{5\}[.]png$")
+# and do  sort | uniq -c  (all in the converted_from_PDF)
+# (note that if this is done before rename, you'll use
+#    "_p[0-9]\+[-][0-9]\+[.]png$"  )
+###########################################################
+############$$$$$$$$$$$$$$$$$$$$$##########################
+#@$@$@$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@$@$@#
+
+# STEP 3
+
+
+EOF
+$ checksituation
+$ #  Find if we have any files that don't follow the general pattern
+$ find . -type f -iname "*.png" | \
+    sed 's#^[.]/##g;' | \
+    grep -v "_[0-9]\{5\}[.]png$" | \
+    sort | uniq | wc -l
+$ #
+#  head  and  tail  it if there are some, or you can see all of
+#+ them. The later commands will need more than one pattern
+#+ (more than just "_[0-9]\{5\}[.]png$"
+$ find . -type f -iname "*.png" | \
+    sed 's#^[.]/##g; s#_[0-9]\{5\}[.]png$##g' | \
+    sort | uniq -c
+$ #  Check to see if we get a match on the number of files
+$ find . -type f -iname "*.png" | \
+    sed 's#^[.]/##g; s#_[0-9]\{5\}[.]png$##g' | \
+    sort | uniq -c | \
+    awk '{sum += $1}; END {print sum}'
+$ find . -type f -iname "*.png" | wc -l
+
+
+
+
+$ cat >/dev/null <<EOF
+
+
+
+#$@$@$@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$@$@$#
+#####################@@@@@@@@@@@@@@@@@@####################
+###########################################################
+###########################################################
+# Move in the BnF non-palette images 1 and 2
+# Possibly also move something where the Bodleian
+# doesn't have a 2 (and maybe not a 3?)
+# Also maybe do the first one for things with other
+# library images. 
+#
+# Or, if they're deleted, just leave
+# them missing.
+###########################################################
+############$$$$$$$$$$$$$$$$$$$$$##########################
+#@$@$@$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@$@$@#
+
+# STEP 4
+
+
+EOF
+$ #  We have a list of commands, then an example from the terminal
+checksituation
+
+files_str=$(find . -type f -iname "*.png" | \
+               sed 's#^[.]/##g; s#_[0-9]\{5\}[.]png$##g' | \
+               sort | uniq | tr '\n' '|' \
+)
+
+echo "${files_str}" | tr '|' '\n'
+
+#  Note that the -iname patterns below might also start with 'France'
+
+find ./<maybe-dir> -type f -iname "BnF*what*ever*pattern*00003.png" # should get something
+
+find ./<maybe-dir> -type f -iname "BnF*what*ever*pattern*00002.png" # should be empty
+
+find ./<maybe-dir> -type f -iname "BnF*what*ever*pattern*00001.png" # should be empty
+
+## Copy, either the not-favored-but-definitely-should-be-used
+### 1 ###
+
+cp ../BnF_-_TITLE_00001.png BnF-BibArsenal_-_Ms-6039_00001.png
+
+cp ../BnF_-_TITLE_00002.png BnF-BibArsenal_-_Ms-6039_00002.png
+
+## or (what I prefer)
+### 2 ###
+
+cp ../BnF_-_TITLE_00002.png BnF-BibArsenal_-_Ms-6039_00001.png
+
+cp ../BnF_-_TITLE_00001.png BnF-BibArsenal_-_Ms-6039_00002.png
+
+      # equivalently
+
+cp ../BnF_-_TITLE_00001.png BnF-BibArsenal_-_Ms-6039_00002.png
+
+cp ../BnF_-_TITLE_00002.png BnF-BibArsenal_-_Ms-6039_00001.png
+
+
+
+################ FROM TERMINAL EXAMPLE ####################
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ echo "${files_str}" | tr '|' '\n'
+BnF-BibArsenal_-_Candide_Ms-3160
+BnF-BibArsenal_-_Ms-6039
+BnF-BibArsenal_-_Ms-8407
+BnF-BibArsenal_-_Ms-87
+BnF_-_Ms-Fra-24308
+BnF_-_Ms-Grec-2467
+BnF_-_Ms-Grec-338
+BnF_-_Ms-Heb-187
+BnF_-_Ms-Lat-17385
+BnF_-_Ms-Lat-17551
+BnF_-_Ms-Lat-17742
+BnF_-_Ms-Lat-18315
+BnF_-_Ms-Lat-18417
+BnF_-_Ms-Lat-18420
+BnF_-_Ms-Lat-18421
+BnF_-_Ms-Lat-18553
+BnF_-_Ms-Lat-18554
+BnF_-_Ms-Lat-3085A
+BnF_-_Ms-Supplmnt-Grec-1027
+DigitaleLandesbibOberosterreich_-_Linz-AT-OOeLB-Hs-20
+England-Bodl-Christ-Church_-_MS-95
+England-Bodl_-_BodlLib_MS-Canon-Misc-575
+England-Bodl_-_BodlLib_MS-Duke-Humfrey-c-1
+England-Bodl_-_BodlLib_MS-Hamilton-45
+England-Bodl_-_BodlLib_MS-Hamilton-9
+England-Bodl_-_BodlLib_MS-Lat-th-d-18
+France-BibMunMetz_-_Ms-12324
+HLSbibFulda_-_Victor-Codex-100-Bonifatianus-1
+StaatsbibBamberg_-_Msc-Patr-5
+UniversiteitLeiden_-_LibriMissalis fragmentaBPL25_-_LowerResolution
+
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ find . -type f -iname "BnF*Arsenal*Ms-6039*00003.png"
+./BnF-BibArsenal_-_Ms-6039_00003.png
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ find . -type f -iname "BnF*Arsenal*Ms-6039*00002.png"
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ find . -type f -iname "BnF*Arsenal*Ms-6039*00001.png"
+
+##-------------------------------------------------------------------
+## EITHER
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ cp ../BnF_-_TITLE_00001.png BnF-BibArsenal_-_Ms-6039_00001.png
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ cp ../BnF_-_TITLE_00002.png BnF-BibArsenal_-_Ms-6039_00002.png
+
+##--------------------------------------------------------------------
+## OR
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ cp ../BnF_-_TITLE_00002.png BnF-BibArsenal_-_Ms-6039_00001.png
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+$ cp ../BnF_-_TITLE_00001.png BnF-BibArsenal_-_Ms-6039_00002.png
+
+##
+## END EITHER/OR
+##---------------------------------------------------------------------
+
+
+
+
+
+############# ANOTHER FROM-TERMINAL EXAMPLE ###############
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs
+$ find . -type f -iname "BnF*Lat*17385*00003.png"
+./converted_from_PDF_-_now_to_jpeg/BnF_-_Ms-Lat-17385_00003.png
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs
+$ find . -type f -iname "BnF*Lat*17385*00002.png"
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs
+$ find . -type f -iname "BnF*Lat*17385*00001.png"
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs
+$
+
+##-------------------------------------------------------------------
+## EITHER
+
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs
+$ cp BnF_-_TITLE_00001.png converted_from_PDF_-_now_to_jpeg/BnF_-_Ms-Lat-17385_00001.png
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs
+$ cp BnF_-_TITLE_00002.png converted_from_PDF_-_now_to_jpeg/BnF_-_Ms-Lat-17385_00002.png
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs
+$
+
+##--------------------------------------------------------------------
+## OR
+
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs
+$ cp BnF_-_TITLE_00001.png converted_from_PDF_-_now_to_jpeg/BnF_-_Ms-Lat-17385_00002.png
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs
+$ cp BnF_-_TITLE_00002.png converted_from_PDF_-_now_to_jpeg/BnF_-_Ms-Lat-17385_00001.png
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs
+$ ##
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs
+$ 
+
+##
+## END EITHER/OR
+##---------------------------------------------------------------------
+
+
+
+
+
+$ cat >/dev/null <<EOF
+
+
+
+#$@$@$@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$#
+#####################@@@@@@@@@@@@@@@@@@##############
+#####################################################
+#####################################################
+# IT LOOKS LIKE I SOMEHOW SKIPPED ...
+#####################################################
+############$$$$$$$$$$$$$$$$$$$$$####################
+#@$@$@$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@#
+
+# ... STEP 5
+
+# (BUT I'LL RUN A CHECK)
+$ time grep -IRHn "STEP 5" /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/steps_for_pdf_to_ready_ingestible_jpeg.log:1032:# STEP 5
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/steps_pdf_through_jpeg.txt:271:# ... STEP 5
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/steps_pdf_through_jpeg.txt:274:$ time grep -IRHn "STEP 5" 
+real    79m25.444s
+user    0m10.437s
+sys     1m44.546s
+
+##########   STEP  ##########
+##########     5   ##########
+##########   WILL  ##########
+##########    BE   ##########
+########## SKIPPED ##########
+
+
+# (BUT IT WAS)
+#$@$@$@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$@$@$#
+#####################@@@@@@@@@@@@@@@@@@####################
+###########################################################
+###########################################################
+# Maybe split color, grayscale, (palette) (?) The same
+# conversion is done on all of them, but it might be
+# nice for keeping track (and having less processing at
+# one time) to do the split, anyway.
+###########################################################
+############$$$$$$$$$$$$$$$$$$$$$##########################
+#@$@$@$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@$@$@#
+
+# STEP 5
+
+########## SKIP ##########
+##########  OF  ##########
+##########  IT  ##########
+
+EOF
+$ checksituation
+
+
+
+
+$ cat >/dev/null <<EOF
+
+
+
+#$@$@$@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$#
+#####################@@@@@@@@@@@@@@@@@@##############
+#####################################################
+#####################################################
+# CHECK THE FORMATS FOR THE PNGs - PRE
+#####################################################
+############$$$$$$$$$$$$$$$$$$$$$####################
+#@$@$@$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@#
+
+# STEP 6
+
+
+EOF
+$ checksituation
+$ type ttdate
+$ type ttdatechk
+$ ttdate && \
+ time \
+    identify -format "
+      \n\n%f\n%[magick] %[colorspace] %[type] \
+              %[extension] %[bit-depth] %[channels]\n" \
+        *.png > ../${batchtag}_all_png_formats_for_batch_${batchts}.out \
+  && ttdatechk
+$ #  You could usse tab-complete with the start you get below for
+#+ the filename. 
+#+ I think it's better to just work with the variable substitution,
+#+ which is what's done in all but the next few following steps.
+$ cat >/dev/null <<EOF
+
+$ ttdate && \
+ time \
+    identify -format "
+      \n\n%f\n%[magick] %[colorspace] %[type] \
+              %[extension] %[bit-depth] %[channels]\n" \
+          *.png | tr -s ' '\
+        > ../${batchtag}_all_png_formats_for_batch_${batchts}.out \
+  && ttdatechk
+1751378511_2025-07-01T080151-0600
+
+real    3m29.806s
+user    5m58.890s
+sys     0m52.811s
+1751378721_2025-07-01T080521-0600
+ExitedNormally
+1751378721_2025-07-01T080521-0600
+  (this may be a BONUS timestamp)
+
+$ #  How to find the filename and use tab-complete
+$ echo "../${batchtag}_all_png_formats_for_batch_${batchts}.out"
+../b10_all_png_formats_for_batch_1751377236_2025-07-01T074036-0600.out
+
+$ #
+#+ Now tab complete, let's say type through  '../b10_all_p' then [Tab]
+#+ Wherever you see 
+#+   ../${batchtag}_all_png_formats_for_batch_${batchts}.out
+
+$ #
+#+ I would suggest NOT using that method, but I want to put it
+#+ in, just in case.
+
+EOF
+$
+$ #
+#+ The filename, in case you're doing tab-completion,
+#+ and also because it's good to remember
+$ echo "../${batchtag}_all_png_formats_for_batch_${batchts}.out"
+$ grep "PNG.*png" \
+    "../${batchtag}_all_png_formats_for_batch_${batchts}.out" | \
+          wc -l
+$ grep "PNG.*png" \
+    ../${batchtag}_all_png_formats_for_batch_${batchts}.out | \
+          sort | uniq -c | wc -l
+$ grep "PNG.*png" \
+    ../${batchtag}_all_png_formats_for_batch_${batchts}.out | \
+          sort | uniq -c
+$ #  Example check
+$ grep -B 1 "Grayscale" \
+    ../${batchtag}_all_png_formats_for_batch_${batchts}.out
+$ checksituation
+
+
+
+
+$ cat >/dev/null <<EOF
+
+
+
+#$@$@$@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$#
+#####################@@@@@@@@@@@@@@@@@@##############
+#####################################################
+#####################################################
+# Time for the actual conversion
+#####################################################
+############$$$$$$$$$$$$$$$$$$$$$####################
+#@$@$@$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@#
+
+# STEP 7
+
+
+EOF
+$ checksituation
+$ #
+#+ Run a check for the total file count to go with the
+#+ other check with the count of document bases
+$ grep "PNG.*png" \
+    ../${batchtag}_all_png_formats_for_batch_${batchts}.out | \
+          sort | uniq -c | \
+          awk '{sum += $1}; END {print sum}'
+$ #  Let's do this converting!
+$ ttdate && \
+ time \
+    mogrify -format jpg -quality 92 \
+            -colorspace srgb -type truecolor \
+        *.png \
+    && ttdatechk
+$ find . -type f -iname "*.png" | wc -l
+$ find . -type f -iname "*.jpg" | wc -l
+$ find . -type f -not -iname "*.png" -a -not -iname "*.jpg" | wc -l
+
+
+
+
+
+
+$ cat >/dev/null <<EOF
+
+
+
+#$@$@$@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$#
+#####################@@@@@@@@@@@@@@@@@@##############
+#####################################################
+#####################################################
+# Check the JPEG format details
+# Make sure we have the 00001 and 00002 for all
+# documents. If we don't have them, we're probably
+# okay (given how many intro images we have).
+#####################################################
+############$$$$$$$$$$$$$$$$$$$$$####################
+#@$@$@$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@#
+
+# STEP 8
+
+
+EOF
+$ ttdate && \
+ time \
+    identify -format "
+      \n\n%f\n%[magick] %[colorspace] %[type] 
+              %[extension] %[bit-depth] %[channels]\n" \
+        *.jpg > ../${batchtag}_all_jpeg_formats_for_batch_${batchts}.out \
+  && ttdatechk
+$ grep JPEG \
+    ../${batchtag}_all_jpeg_format_info_formats_for_batch_{batchts}.out | \
+        sort | uniq -c | wc -l
+$ grep JPEG \
+    ../${batchtag}_all_jpeg_format_info_formats_for_batch_{batchts}.out | \
+        sort | uniq -c
+$ #  Get a list of all the document filename bases
+$ find . -type f -iname "*.png" | \
+    awk -F'/' '{print $NF}' | \
+    sed 's#_[0-9]\{5\}[.]png$##g' | \
+      sort | uniq > ../${batchtag}_doc_fnames_for_big_moves_${batchts}.lst
+$ while read -r line; do \
+    bare="${line}"; \
+    echo; \
+    echo "--------------------"; \
+    echo "${bare}"; \
+    echo "-----"; \
+    find \
+      "/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/"\
+"new_-_folder_for_not-yet-ready_new_imgs/"\
+"converted_from_PDF_-_now_to_jpeg/" \
+        -type f | \
+            grep "${bare}.*0000[1234][.][^.]\{2,5\}$"; \
+done < ../${batchtag}_doc_fnames_for_big_moves_${batchts}.lst
+
+
+
+
+
+
+$ cat >/dev/null <<EOF
+
+
+
+#$@$@$@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$#
+#####################@@@@@@@@@@@@@@@@@@##############
+#####################################################
+#####################################################
+# Do final checks on the format details, then do
+# the cool big moves into the final jpeg and the
+# backup png
+#####################################################
+############$$$$$$$$$$$$$$$$$$$$$####################
+#@$@$@$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@#
+
+# STEP 9
+
+
+EOF
+$ checksituation
+$ #
+#  We want '0' as the output of the next, unless there
+#+ are lingering script or outfiles; any of those two
+#+ should be moved to '../', making sure that they have
+#+ the appropriate batch timestamp ( ${batchts} , here)
+$ find . -type f -not -iname "*.jpg" -a -not -iname "*.png" | wc -l
+$ #
+#  Remember to move any non JPEG nor PNG files 
+#+ out (usually to "../" or  `rm' them)
+$ find . -type f -iname "*.jpg" | wc -l
+$ find . -type f -iname "*.png" | wc -l
+$ #  are they equal? do they add up to the total file number?
+$ [ $(find . -type f -iname "*.jpg" | wc -l) -eq \
+      $(find . -type f -iname "*.png" | wc -l) ] \
+          && echo "They're equal. Move along." \
+          || echo "They're not equal. Check stuff."
+$ [ $(echo "
+        $(find . -type f -iname \"*.jpg\" | \
+     wc -l)+$(find . -type f -iname \"*.png\" | wc -l)" | bc) -eq 
+                    $(find . -type f | wc -l) ] 
+      && echo "JPEG and PNG numbers add to total file number. Move along."
+      || echo "Sum of JPEG and PNG counts != Total file count. Check."
+
+
+$ cat >/dev/null << EOF
+
+PUT THE COMMAND(S) TOGETHER HERE, COPY/PASTE THE
+PREVIOUS ONE(S) AND MAKE CHANGES
+
+#  paste the complete fname ... maybe  ls ../b9_doc_fnames_*.lst
+#+ or even  ls ../${batchtag}_doc_fnames_*.lst
+#+ nope, I have  ${batchtag}  and  ${batchts}
+
+##------ PREVIOUS, b5555555555555555555555555555555555555555555555-----
+
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+## This first part (with  b5 ) can be skipped for quickness.
+## I'm leaving it here for reference to what's going on.
+##~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+####################################
+#b9_doc_fnames_for_big_moves_#.lst
+####################################
+
+
+meta_jpeg_fname="moving_b5_jpegs_1748618510_2025-05-30T092150-0600.sh"; \
+touch "${meta_jpeg_fname}"; >"${meta_jpeg_fname}"; \
+while read -r line; do \
+  bare="${line}"; \
+  meta_jpeg_fname="moving_b5_jpegs_1748618510_2025-05-30T092150-0600.sh"; \
+  echo >> "${meta_jpeg_fname}"; \
+  echo "echo" >> "${meta_jpeg_fname}"; \
+  dir2be=\
+"/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/"\
+"new_final_jpeg_to_use/${bare}/"; \
+  echo "echo -e \" Creating directory\\n\\\"${dir2be}\\\"\"" >> \
+    "${meta_jpeg_fname}"; \
+  echo "mkdir -p \"${dir2be}\" "\
+"&& echo \"      ... success creating dir\" "\
+"|| echo \"      ... FAILURE creating dir\"" >> \
+    "${meta_jpeg_fname}"; \
+  echo "echo \" Now moving jpeg files.\"" >> \
+    "${meta_jpeg_fname}"; \
+  echo "mv \"$(pwd)/${bare}\"*.jpg \"${dir2be}\" "\
+"&& echo \"      ... success moving jpegs\" "\
+"|| echo \"      ... FAILURE moving jpegs\"" >> \
+    "${meta_jpeg_fname}"; \
+  echo >> "${meta_jpeg_fname}"; \
+done < ../b5_doc_fnames_for_big_moves_1748618510_2025-05-30T092150-0600.lst
+
+##-----5555555555555555555555555555555555555555555555-----
+
+meta_png_fname="moving_b5_pngs_1748618510_2025-05-30T092150-0600.sh"; \
+touch "${meta_png_fname}"; >"${meta_png_fname}"; \
+while read -r line; do \
+  bare="${line}"; \
+  meta_png_fname="moving_b5_pngs_1748618510_2025-05-30T092150-0600.sh";
+  echo >> "${meta_png_fname}";
+  echo "echo" >> "${meta_png_fname}";
+  dir2be=\
+"/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/"\
+"new_-_folder_for_not-yet-ready_new_imgs/png_bak_from_PDFs/${bare}/"; \
+  echo "echo -e \" Creating directory\\n\\\"${dir2be}\\\"\"" >> \
+    "${meta_png_fname}"; \
+  echo "mkdir -p \"${dir2be}\" "\
+"&& echo \"      ... success creating dir\" "\
+"|| echo \"      ... FAILURE creating dir\"" >> \
+    "${meta_png_fname}"; \
+  echo "echo \" Now moving png files.\"" >> \
+    "${meta_png_fname}"; \
+  echo "mv \"$(pwd)/${bare}\"*.png \"${dir2be}\" "\
+"&& echo \"      ... success moving pngs\" "\
+"|| echo \"      ... FAILURE moving pngs\"" >> \
+    "${meta_png_fname}"; \
+  echo >> "${meta_png_fname}";
+done < ../b5_doc_fnames_for_big_moves_1748618510_2025-05-30T092150-0600.lst
+
+##--END PREVIOUS, b5555555555555555555555555555555555555555555555-----
+
+#########################################################################
+#### CHANGE!!!!!         !!!  CHANGE  !!!    C!H!A!N!G!E! !!!!!!     ####
+#### YOU DON'T NEED TO LOOK AT THAT FIRST PART. IF YOU'VE BEEN       ####
+#### FOLLOWING THE OTHER STEPS, THE ONLY THING YOU SHOULD NEED TO DO ####
+#### IS COPY THE JPEG MULTI-LINE COMMAND TO THE TERMINAL AND RUN IT, ####
+#### THEN COPY THE PNG MULTI-LINE COMMAND TO THE TERMINAL AND RUN    ####
+#### IT. FORGET THIS NEXT LITTLE PART.                               ####
+####                                                                 ####
+####    C    H    A    N    G    E    ! #################################
+####                                                                 ####
+#########################################################################
+
+
+##  BEGIN:  FORGET THIS
+#########################################################################
+####  NO NEED TO COPY AFTER THIS. USE SPACE HERE (OR AN EDITOR) AND  ####
+####  THEN COPY/PASTE THE STUFF TO THE PROMPT                        ####
+#########################################################################
+##  ENDOF:  FORGET THIS
+
+##--CURRENT, b99999999999999999999999999999999999999999999999999-----
+
+# b9_doc_fnames_for_big_moves_#.lst
+
+meta_jpeg_fname="moving_${batchtag}_jpegs_${batchts}.sh"; \
+touch "${meta_jpeg_fname}"; >"${meta_jpeg_fname}"; \
+while read -r line; do \
+  bare="${line}"; \
+  meta_jpeg_fname="moving_${batchtag}_jpegs_${batchts}.sh"; \
+  echo >> "${meta_jpeg_fname}"; \
+  echo "echo" >> "${meta_jpeg_fname}"; \
+  dir2be=\
+"/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/"\
+"new_final_jpeg_to_use/${bare}/"; \
+  echo "echo -e \" Creating directory\\n\\\"${dir2be}\\\"\"" >> \
+    "${meta_jpeg_fname}"; \
+  echo "mkdir -p \"${dir2be}\" "\
+"&& echo \"      ... success creating dir\" "\
+"|| echo \"      ... FAILURE creating dir\"" >> \
+    "${meta_jpeg_fname}"; \
+  echo "echo \" Now moving jpeg files.\"" >> \
+    "${meta_jpeg_fname}"; \
+  echo "mv \"$(pwd)/${bare}\"*.jpg \"${dir2be}\" "\
+"&& echo \"      ... success moving jpegs\" "\
+"|| echo \"      ... FAILURE moving jpegs\"" >> \
+    "${meta_jpeg_fname}"; \
+  echo >> "${meta_jpeg_fname}"; \
+done < ../${batchtag}_doc_fnames_for_big_moves_${batchts}.lst
+
+##-----b999999999999999999999999999999999999999999999999999-----
+
+meta_png_fname="moving_${batchtag}_pngs_${batchts}.sh"; \
+touch "${meta_png_fname}"; >"${meta_png_fname}"; \
+while read -r line; do \
+  bare="${line}"; \
+  meta_png_fname="moving_${batchtag}_pngs_${batchts}.sh";
+  echo >> "${meta_png_fname}";
+  echo "echo" >> "${meta_png_fname}";
+  dir2be=\
+"/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/"\
+"new_-_folder_for_not-yet-ready_new_imgs/png_bak_from_PDFs/${bare}/"; \
+  echo "echo -e \" Creating directory\\n\\\"${dir2be}\\\"\"" >> \
+    "${meta_png_fname}"; \
+  echo "mkdir -p \"${dir2be}\" "\
+"&& echo \"      ... success creating dir\" "\
+"|| echo \"      ... FAILURE creating dir\"" >> \
+    "${meta_png_fname}"; \
+  echo "echo \" Now moving png files.\"" >> \
+    "${meta_png_fname}"; \
+  echo "mv \"$(pwd)/${bare}\"*.png \"${dir2be}\" "\
+"&& echo \"      ... success moving pngs\" "\
+"|| echo \"      ... FAILURE moving pngs\"" >> \
+    "${meta_png_fname}"; \
+  echo >> "${meta_png_fname}";
+done < ../${batchtag}_doc_fnames_for_big_moves_${batchts}.lst
+
+##--END PREVIOUS, b5555555555555555555555555555555555555555555555-----
+
+## NOW COPY/PASTE THE NEW ONES IN AT THE PROMPT (after the EOF)
+
+EOF
+
+$ ls *.sh  # should have two
+$
+$ ## BIG JPEG MOVE
+$ cp moving_${batchtag}_jpegs_${batchts}.sh mbj_bak
+$ # Add shebang to file
+$ echo -e "\x23\x21/usr/bin/env bash\n\n" # check
+$ echo -e "\x23\x21/usr/bin/env bash\n\n" > first_part
+$ cat first_part moving_${batchtag}_jpegs_${batchts}.sh \
+    > tmpf && mv tmpf moving_${batchtag}_jpegs_${batchts}.sh
+$ diff moving_${batchtag}_jpegs_${batchts}.sh \
+    mbj_bak  ## Including the output you should always get
+1,3d0
+< #!/usr/bin/env bash
+<
+<
+
+$ rm first_part
+$ rm mbj_bak
+$ chmod a+x moving_${batchtag}_jpegs_${batchts}.sh  # make it executable
+$ #  I'm teeing the output to a progress file and to stdout.
+$ #+ that will allow me to see if there are a bunch of FAILUREs,
+$ #+ in which case I could [Ctrl]+[c]
+$ ./moving_${batchtag}_jpegs_${batchts}.sh 2>&1 | \
+    tee big_${batchtag}_jpeg_move_${batchts}.out
+$ grep -i --failure big_${batchtag}_jpeg_move_${batchts}.out
+$ #  Hahahaha, gotta get my laugh in for the day. Failure isn't an option!
+$ #+ ( grep: unknown option -- failure )
+$ grep -i failure big_${batchtag}_jpeg_move_${batchts}.out | wc -l
+$ #  If the result of that isn't zero (0), check things out.
+$ find . -type f -iname "*.jpg" | wc -l  # better be zero (0)
+$ #  Maybe check directories from output, e.g. (only changing 4th line)
+$ #-----START SKIP UNTIL AUTOMATE-----#
+$ find \
+    "/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/"\
+"new_final_jpeg_to_use/"\
+"UnivUtrecht_-_109-N-13/" \
+      -type f -iname "*.jpg" | wc -l
+$ cat >/dev/null <<EOF
+
+Here's some space for changing (if this is editable, or
+you can copy/paste elsewhere and change)
+
+#+ only fourth linee needs changing
+find \
+    "/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/"\
+"new_final_jpeg_to_use/"\
+"UnivUtrecht_-_109-N-13/" \
+      -type f -iname "*.jpg" | wc -l
+EOF
+$ #-----ENDOF SKIP UNTIL AUTOMATE-----#
+$ #  LET'S AUTOMATE!
+$ mytmp="this_temp.txt"; >"${mytmp}"; \
+while read -r line; do \
+    mytmp=this_temp.txt";
+    stem="${line}";
+    printf "%s " "${stem}" | tee "${mytmp}";
+    find "/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/"\
+"new_final_jpeg_to_use/"\
+"${stem}/" \
+      -type f -iname "*.jpg" | wc -l | tee "${mytmp}";
+done < ../${batchtag}_doc_fnames_for_big_moves_${batchts}.lst; echo
+
+$ awk '{ sum += $1 }; END {print sum}' "${mytmp}"
+$
+$
+$ ## BIG PNG MOVE
+$ find . -type f -iname "*.jpg" | wc -l  # better be zero (0)
+$ find . -type f -iname "*.png" | wc -l
+$ find . -type f -not -iname "*.png" | wc -l
+$ find . -type f -not -iname "*.png" #don't worry about backups (~, .., .un~)
+$ checksituation
+$ ls "moving_${batchtag}_pngs*.sh"
+$ cat >/dev/null << EOF
+
+#  If you didn't create the moving_<b#>_pngs_<ts>.sh file, go
+#+ back to the metaprogramming for jpegs; search your history via
+#+   history | grep "${batchtag}_doc_fnames_for_big_moves"
+#+ and/or
+#+   history | \
+#+ grep "meta_jpeg_fname\|moving_${batchtag}"_jpegs.*[.]sh$" | tail -n 5
+
+EOF
+$ cp moving_${batchtag}_pngs_${batchts}.sh mbp_bak
+$ # Add shebang to file
+$ echo -e "\x23\x21/usr/bin/env bash\n\n" # check
+$ echo -e "\x23\x21/usr/bin/env bash\n\n" > first_part
+$ cat first_part cat first_part moving_${batchtag}_pngs_${batchts}.sh \
+     > tmpf && mv tmpf moving_${batchtag}_pngs_${batchts}.sh
+$ diff moving_${batchtag}_jpegs_${batchts}.sh \
+    mbj_bak  ## Including the output you should always get
+1,3d0
+< #!/usr/bin/env bash
+<
+<
+
+$ rm first_part
+$ rm mbp_bak
+$ chmod a+x moving_${batchtag}_pngs_${batchts}.sh  # make it executable
+$ #  I'm teeing the output to a progress file and to stdout.
+$ #+ that will allow me to see if there are a bunch of FAILUREs,
+$ #+ in which case I could [Ctrl]+[c]
+$ ./moving_${batchtag}_pngs_${batchts}.sh 2>&1 | \
+    tee big_${batchtag}_png_move_${batchts}.out
+$ #  Moving PNGs always takes longer; I wonder why.
+$ grep -i --failure big_${batchtag}_jpeg_move_${batchts}.out
+$ #  Hahahaha, gotta get my laugh in for the day. Failure isn't an option!
+$ #+ ( grep: unknown option -- failure )
+$ grep -i failure big_${batchtag}_jpeg_move_${batchts}.out | wc -l
+$ #  If the result of that isn't zero (0), check things out.
+$ checksituation
+$ #  Maybe check output dirs from shell script output, e.g.
+$ #-----START SKIP UNTIL AUTOMATE-----#
+$ find \
+    "/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/"\
+"new_-_folder_for_not-yet-ready_new_imgs/png_bak_from_PDFs/"\
+"UnivUtrecht_-_109-N-13/" \
+      -type f -iname "*.png" | wc -l
+$ #+ only fourth linee needs changing
+$ cat >/dev/null <<EOF
+
+Here's some space for changing (if this is editable, or
+you can copy/paste elsewhere and change)
+
+#+ only fourth line needs changing
+find \
+    "/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/"\
+"new_-_folder_for_not-yet-ready_new_imgs/png_bak_from_PDFs/"\
+"UnivUtrecht_-_109-N-13/" \
+      -type f -iname "*.png" | wc -l
+EOF
+$ #-----ENDOF SKIP UNTIL AUTOMATE-----#
+$ #  LET'S AUTOMATE!
+$ mytmp="this_temp.txt"; >"${mytmp}"; \
+while read -r line; do \
+    mytmp=this_temp.txt";
+    stem="${line}";
+    printf "%s " "${stem}" | tee "${mytmp}";
+    find "/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/"\
+"new_-_folder_for_not-yet-ready_new_imgs/png_bak_from_PDFs/"\
+"${stem}/" \
+      -type f -iname "*.jpg" | wc -l | tee "${mytmp}";
+done < ../${batchtag}_doc_fnames_for_big_moves_${batchts}.lst; echo
+
+$ awk '{ sum += $1 }; END {print sum}' "${mytmp}"
+$
+$
+$ #  Final clean-up (moving files for future reference)
+$ lh
+$ type lh
+lh is aliased to `ls -lah'
+$ #  Your removals might change depending on what's still there.
+$ #  First, bye-bye backups.
+$ rm ./.*~
+$ rm ./*~
+$ #  Once again, might be different based on the output from  lh
+$ # mv moving_b*.sh .. # OR
+$ mv *.* ..
+$ lh  # should only see '.' and '..'
+$ find . -type f | wc -l  # Should get zero (0)
+$ find . -type d  # Should only get '.'
+$ checksituation
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+##--CURRENT, b88888888888888888888888888888888888888888888888888-----
+
+# b8_doc_fnames_for_big_moves_#.lst
+../b8_doc_fnames_for_big_moves_1750226072_2025-06-17T235432-0600.lst
+
+meta_jpeg_fname="moving_b8_jpegs_${b8_ts}.sh"; \
+touch "${meta_jpeg_fname}"; >"${meta_jpeg_fname}"; \
+while read -r line; do \
+  bare="${line}"; \
+  meta_jpeg_fname="moving_b8_jpegs_${b8_ts}.sh"; \
+  echo >> "${meta_jpeg_fname}"; \
+  echo "echo" >> "${meta_jpeg_fname}"; \
+  dir2be=\
+"/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/"\
+"new_final_jpeg_to_use/${bare}/"; \
+  echo "echo -e \" Creating directory\\n\\\"${dir2be}\\\"\"" >> \
+    "${meta_jpeg_fname}"; \
+  echo "mkdir -p \"${dir2be}\" "\
+"&& echo \"      ... success creating dir\" "\
+"|| echo \"      ... FAILURE creating dir\"" >> \
+    "${meta_jpeg_fname}"; \
+  echo "echo \" Now moving jpeg files.\"" >> \
+    "${meta_jpeg_fname}"; \
+  echo "mv \"$(pwd)/${bare}\"*.jpg \"${dir2be}\" "\
+"&& echo \"      ... success moving jpegs\" "\
+"|| echo \"      ... FAILURE moving jpegs\"" >> \
+    "${meta_jpeg_fname}"; \
+  echo >> "${meta_jpeg_fname}"; \
+done < ../b8_doc_fnames_for_big_moves_1750226072_2025-06-17T235432-0600.lst
+
+##-----b8888888888888888888888888888888888888888888888888888888888888888-----
+
+meta_png_fname="moving_b8_pngs_${batchts}.sh"; \
+touch "${meta_png_fname}"; >"${meta_png_fname}"; \
+while read -r line; do \
+  bare="${line}"; \
+  meta_png_fname="moving_b8_pngs_${batchts}.sh";
+  echo >> "${meta_png_fname}";
+  echo "echo" >> "${meta_png_fname}";
+  dir2be=\
+"/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/"\
+"new_-_folder_for_not-yet-ready_new_imgs/png_bak_from_PDFs/${bare}/"; \
+  echo "echo -e \" Creating directory\\n\\\"${dir2be}\\\"\"" >> \
+    "${meta_png_fname}"; \
+  echo "mkdir -p \"${dir2be}\" "\
+"&& echo \"      ... success creating dir\" "\
+"|| echo \"      ... FAILURE creating dir\"" >> \
+    "${meta_png_fname}"; \
+  echo "echo \" Now moving png files.\"" >> \
+    "${meta_png_fname}"; \
+  echo "mv \"$(pwd)/${bare}\"*.png \"${dir2be}\" "\
+"&& echo \"      ... success moving pngs\" "\
+"|| echo \"      ... FAILURE moving pngs\"" >> \
+    "${meta_png_fname}"; \
+  echo >> "${meta_png_fname}";
+done < ../b8_doc_fnames_for_big_moves_1750226072_2025-06-17T235432-0600.lst
+
+##--END , b888888888888888888888888888888888888888888888888888888888888888-----
+
+
+
+
+
+
+
+
+
+
+
+
+$ cat >/dev/null <<EOF
+
+
+
+#$@$@$@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$#
+#####################@@@@@@@@@@@@@@@@@@##############
+#####################################################
+#####################################################
+# Find which batch (which "b[0-9]\+" corresponds
+# to your directory
+#####################################################
+############$$$$$$$$$$$$$$$$$$$$$####################
+#@$@$@$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@#
+
+# Step Appendix A
+
+
+EOF
+$ find . -type f -iname "*.jpg" | \
+    awk -F'/' '{ print $NF }' | \
+    sed 's#[_][0-9]\+[.]jpg$##g;' | \
+    sort | uniq -c | wc -l  #  Few enough to see usefully?
+$ find . -type f -iname "*.jpg" | \
+    awk -F'/' '{ print $NF }' | \
+    sed 's#[_][0-9]\+[.]jpg$##g;' | \
+    sort | uniq -c
+$ #  Another check on the total number of files.
+$ find . -type f -iname "*.jpg" | \
+    awk -F'/' '{ print $NF }' | \
+    sed 's#[_][0-9]\+[.]jpg$##g;' | \
+    sort | uniq -c | \
+    awk '{ sum += $1 }; END { print sum }'
+$ #  Pick one filename from above. For the example here,
+$ #+    UnivUtrecht_-_109-N-13
+$ #  This command can take a while, especially if you're
+$ #+ close to 50k files in your base directory.
+$ ### time grep -iIRHn "UnivUtrecht_-_109-N-13" \
+  ###    /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/
+$ #+ Let's see how many we have (image, PDF), first, then
+$ #+ the longer command
+$ find /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/ \
+    -type f -iname "*.jpg" -o -iname "*.png" -o -iname "*pdf" | wc -l
+96592
+$ #  Some are duplicates (but that fact doesn't matter in considering
+$ #+ the time it will take to do a recursive grep). Still, I'd like
+$ #+ to know.
+$ find /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/ \
+    -type f -iname "*.jpg" -o -iname "*.png" -o -iname "*.pdf" | \
+    awk -F'/' '{print $NF}' | \
+    sed 's#[.]\(jpg\|png\|pdf\)$##g;' | \
+    sort | uniq | wc -l
+73675
+$ cat >/dev/null <<EOF
+#  I think the not-one-thirdness of that number is probably due
+#+ to the fact I have a lot of FamilySearch. Oh, and I just
+#+ thought of something that makes me feel less uncomfortable;
+#+ I moved some backups (PNG and PDF) to the external.
+EOF
+$ #  Let's speed things up by only looking through a type of file
+$ #+ that's an outfile and should have all filenames
+$ find /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/ -type f -iname "rename*.out" | wc -l
+8
+$ #  Perfect. Only eight to look through.
+$ find /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/ \
+    -type f -iname "rename*.out" -print0 | \
+        xargs -I'{}' -0 grep -iRHn "UnivUtrecht_-_109-N-13"
+
+$ #  None found. Try casting the net a little wider ...
+$ find /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/ \
+        -type f \
+          -not -iname "*.pdf" -a \
+          -not -iname "*.png" -a \
+          -not -iname "*.jpg" \
+    |wc -l #-print0|xargs -I'{}' -0 grep -iRHn "UnivUtrecht_-_109-N-13" "{}"
+456
+$ #  You'll almost never need to do the next one.
+$ # time find /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/ \
+  #      -type f \
+  #        -not -iname "*.pdf" -a \
+  #        -not -iname "*.png" -a \
+  #        -not -iname "*.jpg" \
+  #      -print0 | \
+  #  xargs -I'{}' -0 grep -iHn "UnivUtrecht_-_109-N-13" "{}"
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/b8_all_png_info_formats_for_batch_1750226072_2025-06-17T235432-0600.out:3:UnivUtrecht_-_109-N-13_00001.png
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/b8_all_png_info_formats_for_batch_1750226072_2025-06-17T235432-0600.out:7:UnivUtrecht_-_109-N-13_00002.png
+
+### ...
+
+### ... TOO MUCH OUTPUT ...
+
+### ... and
+
+### ... LOTS OF TIME (which won't change)
+
+### ...
+
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/b8_all_png_info_formats_for_batch_1750226072_2025-06-17T235432-0600.out:4407:UnivUtrecht_-_109-N-13_01102.png
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/b8_all_png_info_formats_for_batch_1750226072_2025-06-17T235432-0600.out:4411:UnivUtrecht_-_109-N-13_01103.png
+
+
+real    1m21.000s
+user    0m11.727s
+sys     0m10.415s^C
+
+$ ^C
+$ ^C
+$ time find /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/ \
+        -type f \
+          -not -iname "*.pdf" -a \
+          -not -iname "*.png" -a \
+          -not -iname "*.jpg" \
+        -print0 | \
+    xargs -I'{}' -0 bash -c '
+       grep -iHn "UnivUtrecht_-_109-N-13" "{}"
+    ' | awk -F':' '{print $1}' | \
+    awk -F'/' '{print $NF}' | sort | uniq -c
+   1103 b8_all_png_info_formats_for_batch_1750226072_2025-06-17T235432-0600.out
+   3309 rename_utrecht_109n13.sh
+   1103 rename_utrecht_109n13_pre.sh
+   2206 renaming_utrecht_109n13_1750083290_2025-06-16T081450-0600.out
+      2 steps_pdf_through_jpeg.txt
+     64 steps_rename_utrecht.log
+
+real    2m13.345s
+user    0m31.082s
+sys     0m31.258s
+
+$ #  As the command aboveis running, I'm thinking of two things:
+$ #    1) I already know it's  b8 ; I think I still want a
+$ #       command that will do it in one go, rather than 
+$ #       spilling a bunch of output out and doing [Ctrl]+[c]
+$ #    2) I could do the first search for "\(^\|_\)b[0-9]\+
+
+$ checksituation
+
+ Current date/time is
+Sun Jun 29 14:34:23 MDT 2025
+1751229263
+1751229263_2025-06-29T143423-0600
+
+ Current directory ( pwd ) is
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
+
+
+$
+
+
+
+
+
