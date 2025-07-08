@@ -2,7 +2,7 @@
 $ checksituation
 $ cd /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/
 
-$ cat >/dev/null <<EOF
+$ cat >/dev/null <<'EOF'
 
 Note that I'm calling this batch 9, but the only way
 you'll know that is that there will be sundry things
@@ -38,7 +38,7 @@ $ # then use result for  rhs
 $ batchts="${b9_ts}
 
 
-$ cat >/dev/null <<EOF
+$ cat >/dev/null <<'EOF'
 
 
 
@@ -99,12 +99,13 @@ $ find ../../new_final_jpeg_to_use/ -type f -iname "*.jpg" | \
 $ find ../../new_final_jpeg_to_use/ -type f -iname "*.jpg" | \
     awk -F'/' '{print $NF}' | \
     sed 's#_[0-9]\{5\}[.]jpg##g' | \
-    sort | uniq | awk '{ sum += $1 }; END { print sum }' # check match
+    sort | uniq -c | awk '{ sum += $1 }; END { print sum }' # check match
 $ find ../../new_final_jpeg_to_use/ -type f -iname "*.jpg" | \
     awk -F'/' '{print $NF}' | \
     sed 's#_[0-9]\{5\}[.]jpg##g' | sort | uniq > \
-        ../../fnames_before_new_b9_conversion_${batchts}.lst
-$ wc -l < ../../fnames_before_new_b9_conversion_#tab-complete#.lst
+        ../../fnames_before_new_${batchtag}_conversion_${batchts}.lst
+$ wc -l < ../../fnames_before_new_${batchtag}_conversion_${batchts}.lst
+$ echo ../../fnames_before_new_${batchtag}_conversion_${batchts}.lst
 $ #
 #  That gives us all of our currently-ready JPEG files
 #+ (at least the ones that haven't been moved to them
@@ -128,25 +129,27 @@ $ find ../new_to_convert_PDF/ -type f -iname "*.pdf" | \
     sort > \
       ../../fnames_pdfs_check_dups_before_${batchtag}_conversion_${batchts}.lst
 $ comm -12 \
-    ../../fnames_before_new_${batchtag}_conversion_${batchts}.lst \  
+    ../../fnames_before_new_${batchtag}_conversion_${batchts}.lst \
     ../../fnames_pdfs_check_dups_before_${batchtag}_conversion_${batchts}.lst | \
   wc -l  # Num filenames found in both (sorted) files
-$ cat >/dev/null <<EOF
+$ cat >/dev/null <<'EOF'
 #  Sometimes, the previous command fails with a messge like
 #+ `comm: file 1 is not in sorted order'
 #+ `comm: input is not in sorted order'
 #+ (Maybe the `uniq' throws things off, but I doubt it
-#+ Whatever the reason, you can use the next command if
-#+ You get the failure/message
+#+ Whatever the reason, the use of the next command gets
+#+ things how they need to be. (Generally - if there's a
+#+ different error message, you might need to check
+$+ other things.
 EOF
 
 $ did_fail=0  # Make sure to change this to 1 if it failed!!!
-$ [ did_fail ] && \
+$ [ ! did_fail ] && \
 comm -12 \
-  <(sort ../../fnames_before_new_${batchtag}_conversion_${batchts}.lst) \  
+  <(sort ../../fnames_before_new_${batchtag}_conversion_${batchts}.lst) \
   <(sort \
-    ../../fnames_pdfs_check_dups_before_${batchtag}_conversion_${batchts}.lst | \
-  wc -l
+    ../../fnames_pdfs_check_dups_before_${batchtag}_conversion_${batchts}.lst) | \
+  wc -l  #  The '!' is due to exit codes
 $ #
 #  If you don't get zero as output from whichever command worked,
 #+ take off the ` | wc -l', look at the filename base (document
@@ -161,7 +164,7 @@ $ echo "${batchts}"
 
 
 
-$ cat >/dev/null <<EOF
+$ cat >/dev/null <<'EOF'
 
 
 
@@ -186,7 +189,7 @@ $ checksituation
 
 
 
-$ cat >/dev/null <<EOF
+$ cat >/dev/null <<'EOF'
 ::  In Anaconda Prompt; for now, in Windows
 (base) C:\Users\bballdave025>cd C:\David\FHTW-2025-All_-_move_2024_get_new\Tools
 
@@ -199,6 +202,139 @@ $ cat >/dev/null <<EOF
 ::+ to Cygwin
 EOF
 $
+
+
+
+$
+$ cat >/dev/null <<'EOF'
+
+#  You can also copy a bit of the first stuff in conda;
+#+ here it is, this time.
+
+(base) C:\Users\Anast>cd C:\David\FHTW-2025-All_-_move_2024_get_new\Tools
+
+(base) C:\David\FHTW-2025-All_-_move_2024_get_new\Tools>conda activate find-binding-and-unwind
+
+(find-binding-and-unwind) C:\David\FHTW-2025-All_-_move_2024_get_new\Tools>>python unwind_the_binding.py
+
+(find-binding-and-unwind) C:\David\FHTW-2025-All_-_move_2024_get_new\Tools>:: That did nothing ...
+(find-binding-and-unwind) C:\David\FHTW-2025-All_-_move_2024_get_new\Tools>:: I had an extra '>'
+(find-binding-and-unwind) C:\David\FHTW-2025-All_-_move_2024_get_new\Tools>:: Starting about
+(find-binding-and-unwind) C:\David\FHTW-2025-All_-_move_2024_get_new\Tools>:: 1751403156_2025-07-01T145236-0600
+(find-binding-and-unwind) C:\David\FHTW-2025-All_-_move_2024_get_new\Tools>python unwind_the_binding.py
+
+#  You can also copy and paste some of the output, if you'd like.
+#+ I'll include a bit of what's before; in fact, I'll include all of it.
+
+(base) C:\Users\Anast>cd C:\David\FHTW-2025-All_-_move_2024_get_new\Tools
+
+(base) C:\David\FHTW-2025-All_-_move_2024_get_new\Tools>conda activate find-binding-and-unwind
+
+(find-binding-and-unwind) C:\David\FHTW-2025-All_-_move_2024_get_new\Tools>>python unwind_the_binding.py
+
+(find-binding-and-unwind) C:\David\FHTW-2025-All_-_move_2024_get_new\Tools>:: That did nothing ...
+(find-binding-and-unwind) C:\David\FHTW-2025-All_-_move_2024_get_new\Tools>:: I had an extra '>'
+(find-binding-and-unwind) C:\David\FHTW-2025-All_-_move_2024_get_new\Tools>:: Starting about
+(find-binding-and-unwind) C:\David\FHTW-2025-All_-_move_2024_get_new\Tools>:: 1751403156_2025-07-01T145236-0600
+(find-binding-and-unwind) C:\David\FHTW-2025-All_-_move_2024_get_new\Tools>python unwind_the_binding.py
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00, 15.52it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  4.45it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  6.67it/s]
+pages: 100%|█████████████████████████████████████████████████████████████████████████████| 3/3 [00:00<00:00,  6.11it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  3.23it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  3.67it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  3.46it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  2.94it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  3.65it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  3.25it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  3.60it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  3.31it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  3.39it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  3.31it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  3.19it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  3.29it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  3.77it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  4.02it/s]
+pages: 100%|███████████████████████████████████████████████████████████████████████████| 14/14 [00:04<00:00,  3.40it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:03<00:00,  3.39s/it]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.08it/s]
+pages: 100%|█████████████████████████████████████████████████████████████████████████████| 2/2 [00:04<00:00,  2.16s/it]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  4.87it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  1.38it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  7.24it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████|       | 0/1 [00:00<?, ?it/s]
+EOF
+
+$ # 
+#  I often move on with Cygwin at this point, but this time, I was
+#+ getting this nice step-by-step document going, and I wanted
+#+ to see how longs things would take. You might want to copy/paste
+#+ the last lines from the  `python unwind_the_binding.py` output,
+#+ but you're welcome to do it with a heredoc similar to the one I
+#+ finished with 'EOF'.
+#
+#  P.S., I think my first part of the status bars (tqdm) was strange
+#+ due to my scrolling and trying to get stuff copy/pasted
+
+$
+$ #  That was pretty normal.
+$ # just finished
+$ ttdate
+1751405431_2025-07-01T153031-0600
+$
+
+
+
+
+$ cat >/dev/null <<'EOF'
+
+(From Anaconda Prompt)
+
+:: ... OUTPUT ...
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  6.08it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  3.56it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  5.74it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  6.44it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  6.29it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  6.70it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  7.09it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  6.44it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  6.15it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  7.02it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  6.28it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  6.12it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  6.14it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  6.36it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  6.70it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  6.34it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  6.26it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  4.53it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  6.97it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  6.32it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  6.57it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  6.83it/s]
+page_images: 100%|███████████████████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  6.70it/s]
+pages: 100%|███████████████████████████████████████████████████████████████████████████| 49/49 [00:08<00:00,  6.08it/s]
+Done!
+
+(find-binding-and-unwind) C:\David\FHTW-2025-All_-_move_2024_get_new\Tools>:: finished about 1751405431_2025-07-01T153031-0600
+(find-binding-and-unwind) C:\David\FHTW-2025-All_-_move_2024_get_new\Tools>
+
+EOF
+
+
+$ #
+#  That's what the ending looked like!
+#+ 10 PDFs, total size of 185 MB (and done small on purpose)
+$ echo "1751405431-1751404880" | bc
+551
+$ echo "551/60.0" | bc -l
+9.18333333333333333333
+$ #
+#  9 minutes and a bit. I probably spent about a minute with copy/paste,
+#+ etc. so we could use 8.5 minutes if we want to figure out how longer
+#+ things take.
+
 $ #  Now, we can stay in the *NIX-like environment -- Cygwin
 $ checksituation
 
@@ -210,23 +346,134 @@ $ find . -type f -iname "*.png" | grep " " | wc -l
 $ #
 #  Why not check for non-ascii as well as non-printable ascii
 #+ then anything else I don't want in a filename
+#+ (Note that this won't give you all bad characters, but will
+#+ tell you if the file contains any bad characters)
 $ #  Any with non-printable ASCII?
-$ find . -type f -iname "*.png" | awk -F'/' '{print $NF}' | \
-    grep "[\x00-\x08\x0B-\x0C\x0E-\x1F\x7F]" | wc -l
+$ find . -type f -iname "*.png" | \
+    awk -F'/' '{print $NF}' | \
+      grep -P "[\x00-\x08\x0B-\x0C\x0E-\x1F\x7F]" | \
+        wc -l
+$ #  More portable (BUT EXCLUDES NULL)
+$ find . -type f -iname "*.png" | \
+    awk -F'/' '{print $NF}' | \
+      LC_ALL=C grep $'[\001-\010\013-\014\016-\037\177]' | \
+        wc -l
 $ #
-#  Any with undesired space-y (still non-printable --
-#+ tab, line feed, carriage return, space)?
-$ find . -type f -iname "*.png" | awk -F'/' '{print $NF}' | \
-    grep "[\x09-\x10\x0B\x0D\x20]" | wc -l
+#  Any with undesired space-y (still printable --
+#+ but control) tab, line feed, carriage return, space
+#+ (is that all?)
+$ find . -type f -iname "*.png" | \
+    awk -F'/' '{print $NF}' | \
+      grep -P "[\x09-\x10\x0B\x0D\x20]" | \
+        wc -l
+$ #  More portable
+$ find . -type f -iname "*.png" | \
+    awk -F'/' '{print $NF}' | \
+      LC_ALL=C grep "[\011-\020\013\015\040]" | \
+        wc -l
+$ cat > /dev/null <<'EOF'
+
+Actually, according to 
+ref="https://web.archive.org/web/20250702150044/"\
+"https://stackoverflow.com/questions/3001177/"\
+"how-do-i-grep-for-all-non-ascii-characters"
+
+(see table below, which I think you can get from the
+ man page of _something_)
+ 
+I should include hex \x08-\x0D, in the still printable, but
+undesired space-y group instead of straight control, but
+I like the way I separate them better. 
+
+Non-Printable ASCII Chars
+** marks PRINTABLE but CONTROL chars that is useful to exclude sometimes
+Dec   Hex Ctrl Char description           
+0     00  ^@  NULL                        
+1     01  ^A  START OF HEADING (SOH)      
+2     02  ^B  START OF TEXT (STX)         
+3     03  ^C  END OF TEXT (ETX)           
+4     04  ^D  END OF TRANSMISSION (EOT)   
+5     05  ^E  END OF QUERY (ENQ)          
+6     06  ^F  ACKNOWLEDGE (ACK)           
+7     07  ^G  BEEP (BEL)                  
+8     08  ^H  BACKSPACE (BS)**            
+9     09  ^I  HORIZONTAL TAB (HT)**       
+10    0A  ^J  LINE FEED (LF)**            
+11    0B  ^K  VERTICAL TAB (VT)**         
+12    0C  ^L  FF (FORM FEED)**            
+13    0D  ^M  CR (CARRIAGE RETURN)**      
+14    0E  ^N  SO (SHIFT OUT)              
+15    0F  ^O  SI (SHIFT IN)               
+16    10  ^P  DATA LINK ESCAPE (DLE)
+17    11  ^Q  DEVICE CONTROL 1 (DC1)
+18    12  ^R  DEVICE CONTROL 2 (DC2)
+19    13  ^S  DEVICE CONTROL 3 (DC3)
+20    14  ^T  DEVICE CONTROL 4 (DC4)
+21    15  ^U  NEGATIVE ACKNOWLEDGEMENT (NAK)
+22    16  ^V  SYNCHRONIZE (SYN)
+22    16  ^V  SYNCHRONIZE (SYN)
+23    17  ^W  END OF TRANSMISSION BLOCK (ETB)
+24    18  ^X  CANCEL (CAN)
+25    19  ^Y  END OF MEDIUM (EM)
+26    1A  ^Z  SUBSTITUTE (SUB)
+27    1B  ^[  ESCAPE (ESC)
+28    1C  ^\  FILE SEPARATOR (FS) RIGHT ARROW
+29    1D  ^]  GROUP SEPARATOR (GS) LEFT ARROW
+30    1E  ^^  RECORD SEPARATOR (RS) UP ARROW
+31    1F  ^_  UNIT SEPARATOR (US) DOWN ARROW
+
+##
+## Why doesn't anyone list \x7F in the control characters?
+##
+
+Oh, I didn't get anything for `man ascii` for Cygwin as I
+have it, but found that I could install `manpages` or `man-pages`
+or use some "manual" (meaning more work) versions, pun hahahaha
+
+$ echo "DEC OCT HEXA CHAR" && \
+awk 'BEGIN {for (i = 32; i < 127; i++) '\
+'printf "%03d %03o 0x%02x %c\n", i, i, i, i}'
+
+And for control, e.g.
+printf %q "$(echo -e '\000')"
+printf %q "$(echo -e '\001')"
+...
+printf %q "$(echo -e '\031')"
+#  seems like a skip, but we're just going to that last
+#+ control character
+printf %q "$(echo -e '\177')"
+
+But Time Is Not Now (TINN)
+
+EOF
 $ #  Any that are actually non-ascii
-$ find . -type f -iname "*.png" | awk -F'/' '{print $NF}' | \
-    grep -v "[\x00-\x7F]" | wc -l
-$ #
+$ find . -type f -iname "*.png" | \
+    awk -F'/' '{print $NF}' | \
+      grep -v -P "[\x00-\x7F]" | wc -l
+$ #  More portable
+$ find . -type f -iname "*.png" | \
+    awk -F'/' '{print $NF}' | \
+      LC_ALL=C grep -v "[\001-\177]" | wc -l
+$ #OR (and I should check which is faster, of if they're equivalent)
+$ find . -type f -iname "*.png" | \
+    awk -F'/' '{print $NF}' | \
+      grep -P "[^\x00-\x7f]" | wc -l
+$ #  More portable
+$ find . -type f -iname "*.png" | \
+    awk -F'/' '{print $NF}' | \
+      LC_ALL=C grep "[^\001-\177]" | wc -l
+$ # 
 #  Sanity check: do we get the right number of files if we do
 #+ a slightly-changed negation of the previous (simple check 
-#+ for ascii, naive actually.
-$ find . -type f -iname "*.png" | awk -F'/' '{print $NF}' | \
-    grep "^[\x00-\x7F]\+$" | wc -l
+#+ for ascii, naive actually).
+$ find . -type f -iname "*.png" | \
+    awk -F'/' '{print $NF}' | \
+      grep -P "^[\x00-\x7F]\+$" | wc -l
+$ #  More portable
+$ find . -type f -iname "*.png" | \
+    awk -F'/' '{print $NF}' | \
+      grep "^[\001-\177]\+$" | wc -l
+$ find . -type f 
 $ #
 #  Now, check for any filenames with undesired
 #+ ASCII characters
@@ -249,6 +496,9 @@ $#!n splints and hbar
 EOF
 $ grep -o '[~@#$%^&|/)(}{[*?>\<;:"`]\|]'"\|'" this_file | sort -u | tr '\n' '.'
 ".#.$.%.&.'.(.).*./.:.;.<.>.?.@.[.\.].^.`.{.|.}.~.
+$ #
+#  Note that I found later that I'd been missing exclamation
+#+ mark and plain ol' space
 $ ##------ ENDOF SKIP THIS ------##
 $
 $ # So, to find out if any filenames have those unwanted characters
@@ -256,12 +506,382 @@ $ find . -type f -iname "*.png" | awk -F'/' '{print $NF}' | \
     grep  '[~@#$%^&|/)(}{[*?>\<;:"`]\|]'"\|'" | wc -l
 $ #  Any other preliminary checks can go here.
 $ #  Maybe better version of my character rules
-$ find . -type f -iname "*.png" | awk -F'/' '{print $NF}' | \
-    grep  '[]~@#$%^&|/)(}{[*?>\<;:"`'"']"
+$ find . -type f -iname "*.png" | \
+    awk -F'/' '{print $NF}' | \
+      grep '[] ~@#$%^&|/)(}{[*?>\!<;:"`'"']" | \
+        wc -l
+
+$ cat >/dev/null <<'EOF'
+
+### OUTPUT FROM  `cat unicode_of_it.sh
+#!/usr/bin/env bash
+
+echo "CHARACTER  HEXA OCTA KBD-ESC DEC uconv_-x_any-name  ASCII_RFC20_Name"
+for i in {0..127}; do
+  dec_str="${i}"
+  while [ ${#dec_str} -lt 3 ]; do
+    dec_str=" ${dec_str}"
+  done
+  hex_base=$(echo "ibase=10; obase=16; ${i}" | bc)
+  while [ ${#hex_base} -lt 2 ]; do
+    hex_base="0${hex_base}"
+  done
+  hex_str="\\x${hex_base}"
+  oct_base=$(echo "ibase=10; obase=8; ${i}" | bc)
+  while [ ${#oct_base} -lt 3 ]; do
+    oct_base="0${oct_base}"
+  done
+  oct_str="\\${oct_base}"
+  kbd_str=""
+  the_char=""
+  the_char_extra=""
+  char_uconv=""
+  char_name=""
+  if [ ${i} -lt 32 -o ${i} -eq 127 ]; then
+    if [ ${i} -eq 0 ]; then
+      the_char="NULL"
+    elif [ ${i} -eq 10 ]; then
+      the_char="$'\n'"
+    else
+      the_char=$(printf %q "$(echo -e ${oct_str})")
+      the_char_extra=" "
+    fi
+    if [ ${i} -eq 10 ]; then
+      kbd_str=" $"
+    elif [ ${i} -eq 127 ]; then
+      kbd_str="^?"
+    else
+      kbd_str=$(echo -ne "${oct_str}" | cat -ETv)
+    fi
+    char_uconv=$(echo -ne "${hex_str}" | uconv -x any-name)
+    while [ ${#char_uconv} -lt 18 ]; do
+      char_uconv="${char_uconv}"
+    done
+  else
+    the_char=$(printf %b "${oct_str}")
+  fi
+  while [ ${#the_char} -lt 10 ]; do
+    the_char=" ${the_char}"
+  done
+  while [ ${#kbd_str} -lt 7 ]; do
+    kbd_str="${kbd_str} "
+  done
+  case ${i} in
+    0)
+      char_name="NUL '\0' (null character)"
+      ;;
+    1)
+      char_name="SOH      (start of heading)"
+      ;;
+    2)
+      char_name="STX      (start of text)"
+      ;;
+    3)
+      char_name="ETX      (end of text)"
+      ;;
+    4)
+      char_name="EOT      (end of transmission)"
+      ;;
+    5)
+      char_name="ENQ      (enquiry)"
+      ;;
+    6)
+      char_name="ACK      (acknowledge)"
+      ;;
+    7)
+      char_name="BEL      (bell)"
+      ;;
+    8)
+      char_name="BS       (backspace)"
+      ;;
+    9)
+      char_name="HT       (horizontal tab)"
+      ;;
+    10)
+      char_name="LF       (new line)"
+      ;;
+    11)
+      char_name="VT       (vertical tab)"
+      ;;
+    12)
+      char_name="FF       (form feed)"
+      ;;
+    13)
+      char_name="CR       (carriage ret)"
+      ;;
+    14)
+      char_name="SO       (shift out)"
+      ;;
+    15)
+      char_name="SI       (shift in)"
+      ;;
+    16)
+      char_name="DLE      (data link escape)"
+      ;;
+    17)
+      char_name="DC1      (device control 1)"
+      ;;
+    18)
+      char_name="DC2      (device control 2)"
+      ;;
+    19)
+      char_name="DC3      (device control 3)"
+      ;;
+    20)
+      char_name="DC4      (device control 4)"
+      ;;
+    21)
+      char_name="NAK      (negative ack.)"
+      ;;
+    22)
+      char_name="SYN      (synchronous idle)"
+      ;;
+    23)
+      char_name="ETB      (end of trans. blk)"
+      ;;
+    24)
+      char_name="CAN      (cancel)"
+      ;;
+    25)
+      char_name="EM       (end of medium)"
+      ;;
+    26)
+      char_name="SUB      (substitute)"
+      ;;
+    27)
+      char_name="ESC      (escape)"
+      ;;
+    28)
+      char_name="FS       (file separator)"
+      ;;
+    29)
+      char_name="GS       (group separator)"
+      ;;
+    30)
+      char_name="RS       (record separator)"
+      ;;
+    31)
+      char_name="US       (unit separator)"
+      ;;
+    32)
+      char_name="SPACE"
+      ;;
+    127)
+      char_name="DEL      (erase/obliterate[1])"
+      ;;
+    *)
+      char_name=""  # Not a control (or useful-to-have-named space) char
+      ;;
+  esac
+  while [ ${#char_name} -lt 25 ]; do
+    char_name="${char_name} "
+  done
+  echo "${the_char} ${hex_str} ${oct_str} "\
+"${kbd_str} ${dec_str} ${char_uconv} ${char_name}"
+done
+echo "CHARACTER  HEXA OCTA KBD-ESC DEC uconv_-x_any-name  ASCII_RFC20_Name"
+# echo
+# echo
+# echo
+# echo
+# echo "[1] (This is included, because DWB has always wondered.)"
+# echo "From ref=\"https://web.archive.org/web/20250706173518/\"\\"
+# echo "\"https://datatracker.ietf.org/doc/html/rfc20\""
+# echo "Section 5.2"
+# echo ">    DEL (Delete): This character is used primarily to \"erase\" or"
+# echo "> \"obliterate\" erroneous or unwanted characters in perforated tape."
+# echo "> (In the strict sense, DEL is not a control character.)"
+# echo
+# echo "Also, from the Wikipedia Article on \"Delete character\""
+# echo "archived = \"https://web.archive.org/web/20250706180611/\\\""
+# echo "\"https://en.wikipedia.org/wiki/Delete_character\""
+# echo "we learn \"It is denoted as ^? in caret notation[.]\""
+# echo
+# echo "There's also more elucidating information there"
+# echo
+# echo "> This code was originally used to mark deleted characters on"
+# echo "> punched tape, since any character could be changed to all 1s"
+# echo "> by punching holes everywhere. If a character was punched"
+# echo "> erroneously, punching out all seven bits caused this position"
+# echo "> to be ignored or deleted. In hexadecimal, this is 7F to rub"
+# echo "> out 7 bits (FF to rubout 8 bits was used for 8-bit codes)."
+# echo "> This character could also be used as padding to slow down"
+# echo "> printing after newlines, though the all-zero NUL was more"
+# echo "> often used."
+# echo ">"
+# echo "> The Teletype Model 33 provided a key labelled [RUB OUT] to"
+# echo "> punch this character (after the user backed up the tape using"
+# echo "> another button), and did not provide a key that produced the"
+# echo "> backspace character (BS)."
 
 
+## Now for output from  `./ascii_of_it.sh`
+CHARACTER  HEXA OCTA KBD-ESC DEC uconv_-x_any-name  ASCII_RFC20_Name
+      NULL \x00 \000 ^@        0 \N{<control-0000>} NUL '\0' (null character)
+   $'\001' \x01 \001 ^A        1 \N{<control-0001>} SOH      (start of heading)
+   $'\002' \x02 \002 ^B        2 \N{<control-0002>} STX      (start of text)
+   $'\003' \x03 \003 ^C        3 \N{<control-0003>} ETX      (end of text)
+   $'\004' \x04 \004 ^D        4 \N{<control-0004>} EOT      (end of transmission)
+   $'\005' \x05 \005 ^E        5 \N{<control-0005>} ENQ      (enquiry)
+   $'\006' \x06 \006 ^F        6 \N{<control-0006>} ACK      (acknowledge)
+     $'\a' \x07 \007 ^G        7 \N{<control-0007>} BEL      (bell)
+     $'\b' \x08 \010 ^H        8 \N{<control-0008>} BS       (backspace)
+     $'\t' \x09 \011 ^I        9 \N{<control-0009>} HT       (horizontal tab)
+     $'\n' \x0A \012  $       10 \N{<control-000A>} LF       (new line)
+     $'\v' \x0B \013 ^K       11 \N{<control-000B>} VT       (vertical tab)
+     $'\f' \x0C \014 ^L       12 \N{<control-000C>} FF       (form feed)
+     $'\r' \x0D \015 ^M       13 \N{<control-000D>} CR       (carriage ret)
+   $'\016' \x0E \016 ^N       14 \N{<control-000E>} SO       (shift out)
+   $'\017' \x0F \017 ^O       15 \N{<control-000F>} SI       (shift in)
+   $'\020' \x10 \020 ^P       16 \N{<control-0010>} DLE      (data link escape)
+   $'\021' \x11 \021 ^Q       17 \N{<control-0011>} DC1      (device control 1)
+   $'\022' \x12 \022 ^R       18 \N{<control-0012>} DC2      (device control 2)
+   $'\023' \x13 \023 ^S       19 \N{<control-0013>} DC3      (device control 3)
+   $'\024' \x14 \024 ^T       20 \N{<control-0014>} DC4      (device control 4)
+   $'\025' \x15 \025 ^U       21 \N{<control-0015>} NAK      (negative ack.)
+   $'\026' \x16 \026 ^V       22 \N{<control-0016>} SYN      (synchronous idle)
+   $'\027' \x17 \027 ^W       23 \N{<control-0017>} ETB      (end of trans. blk)
+   $'\030' \x18 \030 ^X       24 \N{<control-0018>} CAN      (cancel)
+   $'\031' \x19 \031 ^Y       25 \N{<control-0019>} EM       (end of medium)
+   $'\032' \x1A \032 ^Z       26 \N{<control-001A>} SUB      (substitute)
+     $'\E' \x1B \033 ^[       27 \N{<control-001B>} ESC      (escape)
+   $'\034' \x1C \034 ^\       28 \N{<control-001C>} FS       (file separator)
+   $'\035' \x1D \035 ^]       29 \N{<control-001D>} GS       (group separator)
+   $'\036' \x1E \036 ^^       30 \N{<control-001E>} RS       (record separator)
+   $'\037' \x1F \037 ^_       31 \N{<control-001F>} US       (unit separator)
+           \x20 \040          32  SPACE
+         ! \x21 \041          33
+         " \x22 \042          34
+         # \x23 \043          35
+         $ \x24 \044          36
+         % \x25 \045          37
+         & \x26 \046          38
+         ' \x27 \047          39
+         ( \x28 \050          40
+         ) \x29 \051          41
+         * \x2A \052          42
+         + \x2B \053          43
+         , \x2C \054          44
+         - \x2D \055          45
+         . \x2E \056          46
+         / \x2F \057          47
+         0 \x30 \060          48
+         1 \x31 \061          49
+         2 \x32 \062          50
+         3 \x33 \063          51
+         4 \x34 \064          52
+         5 \x35 \065          53
+         6 \x36 \066          54
+         7 \x37 \067          55
+         8 \x38 \070          56
+         9 \x39 \071          57
+         : \x3A \072          58
+         ; \x3B \073          59
+         < \x3C \074          60
+         = \x3D \075          61
+         > \x3E \076          62
+         ? \x3F \077          63
+         @ \x40 \100          64
+         A \x41 \101          65
+         B \x42 \102          66
+         C \x43 \103          67
+         D \x44 \104          68
+         E \x45 \105          69
+         F \x46 \106          70
+         G \x47 \107          71
+         H \x48 \110          72
+         I \x49 \111          73
+         J \x4A \112          74
+         K \x4B \113          75
+         L \x4C \114          76
+         M \x4D \115          77
+         N \x4E \116          78
+         O \x4F \117          79
+         P \x50 \120          80
+         Q \x51 \121          81
+         R \x52 \122          82
+         S \x53 \123          83
+         T \x54 \124          84
+         U \x55 \125          85
+         V \x56 \126          86
+         W \x57 \127          87
+         X \x58 \130          88
+         Y \x59 \131          89
+         Z \x5A \132          90
+         [ \x5B \133          91
+         \ \x5C \134          92
+         ] \x5D \135          93
+         ^ \x5E \136          94
+         _ \x5F \137          95
+         ` \x60 \140          96
+         a \x61 \141          97
+         b \x62 \142          98
+         c \x63 \143          99
+         d \x64 \144         100
+         e \x65 \145         101
+         f \x66 \146         102
+         g \x67 \147         103
+         h \x68 \150         104
+         i \x69 \151         105
+         j \x6A \152         106
+         k \x6B \153         107
+         l \x6C \154         108
+         m \x6D \155         109
+         n \x6E \156         110
+         o \x6F \157         111
+         p \x70 \160         112
+         q \x71 \161         113
+         r \x72 \162         114
+         s \x73 \163         115
+         t \x74 \164         116
+         u \x75 \165         117
+         v \x76 \166         118
+         w \x77 \167         119
+         x \x78 \170         120
+         y \x79 \171         121
+         z \x7A \172         122
+         { \x7B \173         123
+         | \x7C \174         124
+         } \x7D \175         125
+         ~ \x7E \176         126
+     \\177 \x7F \177 ^?      127 \N{<control-007F>} DEL      (erase/obliterate[1])
+CHARACTER  HEXA OCTA KBD-ESC DEC uconv_-x_any-name  ASCII_RFC20_Name
 
-$ cat >/dev/null <<EOF
+EOF
+
+$ #
+#  final ensure-filename-is-good-and-show-bad-ones
+#+ then put extra in appendix
+$ find . -type f -iname "*.png" | \
+    awk -F'/' '{print $NF}' | \
+      grep -P "\x00" | wc -l
+$ #
+#  If you have a null byte in your filename, I'm pretty
+#+ sure I can't help you (okay, I _can_ imagine some situations
+#+ where you could accidentally put some in, but I don't know
+#+ if the filesystem will let you do it. I do remember a
+#+ tough bug where someone accidentally typed a space at the
+#+ end of the filename (after the extension, so we were *NIX)
+$ find . -type f -iname "*.png" | \
+    awk -F'/' '{print $NF}' | \
+      LC_ALL=C \
+        grep -v "[\053-\056\060-\071\075\101-\132\137\141-172]" | \
+          wc -l
+      
+      
+$ cat >/dev/null <<'EOF'
+      
+      grep  '[] ~@#$%^&|/)(}{[*?>\!<;:"`'"']"
+              xixxxxxxxxxxxxxxxxxxixxx  x
+              Was missing '!' and ' '
+#  Note questionables: '[,.=]' # I'm pretty okay with '.'
+#+ I'm perfectly okay with '[-+_]'
+#+ and of course '[A-Za-z0-9]' are fine
+
+EOF
+
+$ checksituation
+$ cat >/dev/null <<'EOF'
 
 
 
@@ -331,9 +951,21 @@ $ #  A good one is  grep -i -B10 failure rename.out
 $ mv fnames.lst ../fnames_${batchts}.lst
 $ mv rename.out ../rename_${batchts}.lst
 
+#
+# ###
+# ###
+#    ###
+#    ###
+#       ###   Here is the spot to do the one Utrecht conversion
+#       ####  when going through the whole process with
+#       ###   keeping the I/O log from terminal.
+#    ###
+#    ###
+# ###
+# ###
 
 
-$ cat >/dev/null <<EOF
+$ cat >/dev/null <<'EOF'
 
 
 
@@ -359,26 +991,26 @@ $ checksituation
 $ #  Find if we have any files that don't follow the general pattern
 $ find . -type f -iname "*.png" | \
     sed 's#^[.]/##g;' | \
-    grep -v "_[0-9]\{5\}[.]png$" | \
-    sort | uniq | wc -l
+      grep -v "_[0-9]\{5\}[.]png$" | \
+        sort | uniq | wc -l
 $ #
 #  head  and  tail  it if there are some, or you can see all of
 #+ them. The later commands will need more than one pattern
-#+ (more than just "_[0-9]\{5\}[.]png$"
+#+ (more than just "_[0-9]\{5\}[.]png$")
 $ find . -type f -iname "*.png" | \
     sed 's#^[.]/##g; s#_[0-9]\{5\}[.]png$##g' | \
-    sort | uniq -c
+      sort | uniq -c
 $ #  Check to see if we get a match on the number of files
 $ find . -type f -iname "*.png" | \
     sed 's#^[.]/##g; s#_[0-9]\{5\}[.]png$##g' | \
-    sort | uniq -c | \
-    awk '{sum += $1}; END {print sum}'
+      sort | uniq -c | \
+        awk '{sum += $1}; END {print sum}'
 $ find . -type f -iname "*.png" | wc -l
 
 
 
 
-$ cat >/dev/null <<EOF
+$ cat >/dev/null <<'EOF'
 
 
 
@@ -566,7 +1198,7 @@ $
 
 
 
-$ cat >/dev/null <<EOF
+$ cat >/dev/null <<'EOF'
 
 
 
@@ -622,7 +1254,7 @@ $ checksituation
 
 
 
-$ cat >/dev/null <<EOF
+$ cat >/dev/null <<'EOF'
 
 
 
@@ -642,36 +1274,23 @@ EOF
 $ checksituation
 $ type ttdate
 $ type ttdatechk
+$ #
+#  If you're having problems with the ${batchtag}, ${batchts} stuff,
+#+ Tab completion will work. It's described after the command.
 $ ttdate && \
  time \
     identify -format "
       \n\n%f\n%[magick] %[colorspace] %[type] \
               %[extension] %[bit-depth] %[channels]\n" \
-        *.png > ../${batchtag}_all_png_formats_for_batch_${batchts}.out \
+        *.png | tr -s ' ' \
+      > ../${batchtag}_all_png_formats_for_batch_${batchts}.out \
   && ttdatechk
-$ #  You could usse tab-complete with the start you get below for
+$ #
+#  You could usse tab-complete with the start you get below for
 #+ the filename. 
 #+ I think it's better to just work with the variable substitution,
-#+ which is what's done in all but the next few following steps.
-$ cat >/dev/null <<EOF
-
-$ ttdate && \
- time \
-    identify -format "
-      \n\n%f\n%[magick] %[colorspace] %[type] \
-              %[extension] %[bit-depth] %[channels]\n" \
-          *.png | tr -s ' '\
-        > ../${batchtag}_all_png_formats_for_batch_${batchts}.out \
-  && ttdatechk
-1751378511_2025-07-01T080151-0600
-
-real    3m29.806s
-user    5m58.890s
-sys     0m52.811s
-1751378721_2025-07-01T080521-0600
-ExitedNormally
-1751378721_2025-07-01T080521-0600
-  (this may be a BONUS timestamp)
+#+ which is what's done for basically everything, I think.
+$ cat >/dev/null <<'EOF'
 
 $ #  How to find the filename and use tab-complete
 $ echo "../${batchtag}_all_png_formats_for_batch_${batchts}.out"
@@ -696,20 +1315,20 @@ $ grep "PNG.*png" \
     "../${batchtag}_all_png_formats_for_batch_${batchts}.out" | \
           wc -l
 $ grep "PNG.*png" \
-    ../${batchtag}_all_png_formats_for_batch_${batchts}.out | \
+    "../${batchtag}_all_png_formats_for_batch_${batchts}.out" | \
           sort | uniq -c | wc -l
 $ grep "PNG.*png" \
-    ../${batchtag}_all_png_formats_for_batch_${batchts}.out | \
+    "../${batchtag}_all_png_formats_for_batch_${batchts}.out" | \
           sort | uniq -c
-$ #  Example check
+$ #  Example check if something looks like it needs inspecting
 $ grep -B 1 "Grayscale" \
-    ../${batchtag}_all_png_formats_for_batch_${batchts}.out
+    "../${batchtag}_all_png_formats_for_batch_${batchts}.out"
 $ checksituation
 
 
 
 
-$ cat >/dev/null <<EOF
+$ cat >/dev/null <<'EOF'
 
 
 
@@ -731,7 +1350,7 @@ $ #
 #+ Run a check for the total file count to go with the
 #+ other check with the count of document bases
 $ grep "PNG.*png" \
-    ../${batchtag}_all_png_formats_for_batch_${batchts}.out | \
+    "../${batchtag}_all_png_formats_for_batch_${batchts}.out" | \
           sort | uniq -c | \
           awk '{sum += $1}; END {print sum}'
 $ #  Let's do this converting!
@@ -750,7 +1369,7 @@ $ find . -type f -not -iname "*.png" -a -not -iname "*.jpg" | wc -l
 
 
 
-$ cat >/dev/null <<EOF
+$ cat >/dev/null <<'EOF'
 
 
 
@@ -773,21 +1392,23 @@ EOF
 $ ttdate && \
  time \
     identify -format "
-      \n\n%f\n%[magick] %[colorspace] %[type] 
+      \n\n%f\n%[magick] %[colorspace] %[type] \
               %[extension] %[bit-depth] %[channels]\n" \
-        *.jpg > ../${batchtag}_all_jpeg_formats_for_batch_${batchts}.out \
+          *.jpg | tr -s ' ' \
+        > ../${batchtag}_all_jpeg_formats_for_batch_${batchts}.out \
   && ttdatechk
 $ grep JPEG \
-    ../${batchtag}_all_jpeg_format_info_formats_for_batch_{batchts}.out | \
+    ../${batchtag}_all_jpeg_formats_for_batch_${batchts}.out | \
         sort | uniq -c | wc -l
 $ grep JPEG \
-    ../${batchtag}_all_jpeg_format_info_formats_for_batch_{batchts}.out | \
+    ../${batchtag}_all_jpeg_formats_for_batch_${batchts}.out | \
         sort | uniq -c
 $ #  Get a list of all the document filename bases
 $ find . -type f -iname "*.png" | \
     awk -F'/' '{print $NF}' | \
     sed 's#_[0-9]\{5\}[.]png$##g' | \
-      sort | uniq > ../${batchtag}_doc_fnames_for_big_moves_${batchts}.lst
+      sort | uniq \
+        > ../${batchtag}_doc_fnames_for_big_moves_${batchts}.lst
 $ while read -r line; do \
     bare="${line}"; \
     echo; \
@@ -807,7 +1428,7 @@ done < ../${batchtag}_doc_fnames_for_big_moves_${batchts}.lst
 
 
 
-$ cat >/dev/null <<EOF
+$ cat >/dev/null <<'EOF'
 
 
 
@@ -843,12 +1464,15 @@ $ [ $(find . -type f -iname "*.jpg" | wc -l) -eq \
       $(find . -type f -iname "*.png" | wc -l) ] \
           && echo "They're equal. Move along." \
           || echo "They're not equal. Check stuff."
-$ [ $(echo "
-        $(find . -type f -iname \"*.jpg\" | \
-     wc -l)+$(find . -type f -iname \"*.png\" | wc -l)" | bc) -eq 
-                    $(find . -type f | wc -l) ] 
-      && echo "JPEG and PNG numbers add to total file number. Move along."
-      || echo "Sum of JPEG and PNG counts != Total file count. Check."
+$ [ $(echo $(find . -type f -iname "*.jpg" | \
+        wc -l)+$(find . -type f -iname "*.png" | \
+          wc -l) | bc) -eq \
+    $(find . -type f | wc -l) ] \
+      && echo "JPEG and PNG numbers add to total file number. Move along." \
+      || echo "Sum of JPEG and PNG counts != Total file count. Check it."
+$ #  Always good to check
+$ echo ../${batchtag}_doc_fnames_for_big_moves_${batchts}.lst
+$ stat ../${batchtag}_doc_fnames_for_big_moves_${batchts}.lst
 
 
 $ cat >/dev/null << EOF
@@ -948,9 +1572,11 @@ done < ../b5_doc_fnames_for_big_moves_1748618510_2025-05-30T092150-0600.lst
 
 ##--CURRENT, b99999999999999999999999999999999999999999999999999-----
 
-# b9_doc_fnames_for_big_moves_#.lst
+$ #  Always good to check
+$ echo ../${batchtag}_doc_fnames_for_big_moves_${batchts}.lst
+$ stat ../${batchtag}_doc_fnames_for_big_moves_${batchts}.lst
 
-meta_jpeg_fname="moving_${batchtag}_jpegs_${batchts}.sh"; \
+$ meta_jpeg_fname="moving_${batchtag}_jpegs_${batchts}.sh"; \
 touch "${meta_jpeg_fname}"; >"${meta_jpeg_fname}"; \
 while read -r line; do \
   bare="${line}"; \
@@ -975,9 +1601,15 @@ while read -r line; do \
   echo >> "${meta_jpeg_fname}"; \
 done < ../${batchtag}_doc_fnames_for_big_moves_${batchts}.lst
 
+
+$ #  Check we have the file we want
+$ echo "${meta_jpeg_fname}"
+$ stat $(!!)  # or `stat ${meta_jpeg_fname}`
+$
+
 ##-----b999999999999999999999999999999999999999999999999999-----
 
-meta_png_fname="moving_${batchtag}_pngs_${batchts}.sh"; \
+$ meta_png_fname="moving_${batchtag}_pngs_${batchts}.sh"; \
 touch "${meta_png_fname}"; >"${meta_png_fname}"; \
 while read -r line; do \
   bare="${line}"; \
@@ -1002,50 +1634,65 @@ while read -r line; do \
   echo >> "${meta_png_fname}";
 done < ../${batchtag}_doc_fnames_for_big_moves_${batchts}.lst
 
-##--END PREVIOUS, b5555555555555555555555555555555555555555555555-----
+
+
+$ #  Check we have the file we want
+$ echo "${meta_png_fname}"
+$ stat $(!!)  # or `stat ${meta_png_fname}`
+$
+
+
+##--END CURRENT, b999999999999999999999999999999999999999999999-----
 
 ## NOW COPY/PASTE THE NEW ONES IN AT THE PROMPT (after the EOF)
 
-EOF
+# (Unless you don't use this whole heredoc thingie.)
 
+EOF
+$
+$ checksituation
 $ ls *.sh  # should have two
 $
-$ ## BIG JPEG MOVE
+$ ##  BIG JPEG MOVE
 $ cp moving_${batchtag}_jpegs_${batchts}.sh mbj_bak
-$ # Add shebang to file
+$ #  Add shebang to file
 $ echo -e "\x23\x21/usr/bin/env bash\n\n" # check
 $ echo -e "\x23\x21/usr/bin/env bash\n\n" > first_part
 $ cat first_part moving_${batchtag}_jpegs_${batchts}.sh \
     > tmpf && mv tmpf moving_${batchtag}_jpegs_${batchts}.sh
 $ diff moving_${batchtag}_jpegs_${batchts}.sh \
-    mbj_bak  ## Including the output you should always get
+    mbj_bak  ##  I'm including the output you should always get.
+             ##+ You don't need to include these comments.
 1,3d0
 < #!/usr/bin/env bash
 <
 <
 
-$ rm first_part
+$ rm first_part  # Or leave it for the second, PNG part
 $ rm mbj_bak
 $ chmod a+x moving_${batchtag}_jpegs_${batchts}.sh  # make it executable
-$ #  I'm teeing the output to a progress file and to stdout.
-$ #+ that will allow me to see if there are a bunch of FAILUREs,
-$ #+ in which case I could [Ctrl]+[c]
-$ ./moving_${batchtag}_jpegs_${batchts}.sh 2>&1 | \
+$ #
+#  I'm teeing the output to a progress file and to stdout.
+#+ that will allow me to see if there are a bunch of FAILUREs,
+#+ in which case I could [Ctrl]+[c]
+$ time ./moving_${batchtag}_jpegs_${batchts}.sh 2>&1 | \
     tee big_${batchtag}_jpeg_move_${batchts}.out
-$ grep -i --failure big_${batchtag}_jpeg_move_${batchts}.out
-$ #  Hahahaha, gotta get my laugh in for the day. Failure isn't an option!
-$ #+ ( grep: unknown option -- failure )
+$ grep -i --failure big_${batchtag}_jpeg_move_${batchts}.out | wc -l
+$ #
+#  Hahahaha, gotta get my laugh in for the day. Failure isn't an option!
+#+ ( grep: unknown option -- failure )
 $ grep -i failure big_${batchtag}_jpeg_move_${batchts}.out | wc -l
 $ #  If the result of that isn't zero (0), check things out.
 $ find . -type f -iname "*.jpg" | wc -l  # better be zero (0)
 $ #  Maybe check directories from output, e.g. (only changing 4th line)
+$
 $ #-----START SKIP UNTIL AUTOMATE-----#
 $ find \
     "/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/"\
 "new_final_jpeg_to_use/"\
 "UnivUtrecht_-_109-N-13/" \
       -type f -iname "*.jpg" | wc -l
-$ cat >/dev/null <<EOF
+$ cat >/dev/null <<'EOF'
 
 Here's some space for changing (if this is editable, or
 you can copy/paste elsewhere and change)
@@ -1058,29 +1705,32 @@ find \
       -type f -iname "*.jpg" | wc -l
 EOF
 $ #-----ENDOF SKIP UNTIL AUTOMATE-----#
+$
 $ #  LET'S AUTOMATE!
-$ mytmp="this_temp.txt"; >"${mytmp}"; \
+$ mytmp="this_temp.txt"; >"${mytmp}"; echo; \
 while read -r line; do \
-    mytmp=this_temp.txt";
+    mytmp=this_temp.txt;
     stem="${line}";
-    printf "%s " "${stem}" | tee "${mytmp}";
+    printf "%s " "${stem}" | tee -a "${mytmp}";
     find "/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/"\
 "new_final_jpeg_to_use/"\
 "${stem}/" \
-      -type f -iname "*.jpg" | wc -l | tee "${mytmp}";
+      -type f -iname "*.jpg" | wc -l | tee -a "${mytmp}";
 done < ../${batchtag}_doc_fnames_for_big_moves_${batchts}.lst; echo
 
-$ awk '{ sum += $1 }; END {print sum}' "${mytmp}"
+$ awk '{ sum += $2 }; END {print sum}' "${mytmp}"
+$ rm "${mytmp}"
 $
 $
-$ ## BIG PNG MOVE
+$ ##  BIG PNG MOVE
 $ find . -type f -iname "*.jpg" | wc -l  # better be zero (0)
 $ find . -type f -iname "*.png" | wc -l
 $ find . -type f -not -iname "*.png" | wc -l
-$ find . -type f -not -iname "*.png" #don't worry about backups (~, .., .un~)
+$ #  There will almost-certainly be files that show up here.
+$ find . -type f -not -iname "*.png" #don't worry about backups(~,..,.un~,etc.)
 $ checksituation
-$ ls "moving_${batchtag}_pngs*.sh"
-$ cat >/dev/null << EOF
+$ ls moving_$(printf "${batchtag}")_pngs*.sh
+$ cat >/dev/null <<'EOF'
 
 #  If you didn't create the moving_<b#>_pngs_<ts>.sh file, go
 #+ back to the metaprogramming for jpegs; search your history via
@@ -1091,13 +1741,14 @@ $ cat >/dev/null << EOF
 
 EOF
 $ cp moving_${batchtag}_pngs_${batchts}.sh mbp_bak
-$ # Add shebang to file
+$ #  Add shebang to file, might just be checking, `cat first_part`
 $ echo -e "\x23\x21/usr/bin/env bash\n\n" # check
 $ echo -e "\x23\x21/usr/bin/env bash\n\n" > first_part
-$ cat first_part cat first_part moving_${batchtag}_pngs_${batchts}.sh \
+$ cat first_part moving_${batchtag}_pngs_${batchts}.sh \
      > tmpf && mv tmpf moving_${batchtag}_pngs_${batchts}.sh
-$ diff moving_${batchtag}_jpegs_${batchts}.sh \
-    mbj_bak  ## Including the output you should always get
+$ diff moving_${batchtag}_pngs_${batchts}.sh \
+    mbp_bak  ##  I'm including the output you should always get.
+             ##+ You don't need to include these comments.
 1,3d0
 < #!/usr/bin/env bash
 <
@@ -1106,18 +1757,21 @@ $ diff moving_${batchtag}_jpegs_${batchts}.sh \
 $ rm first_part
 $ rm mbp_bak
 $ chmod a+x moving_${batchtag}_pngs_${batchts}.sh  # make it executable
-$ #  I'm teeing the output to a progress file and to stdout.
-$ #+ that will allow me to see if there are a bunch of FAILUREs,
-$ #+ in which case I could [Ctrl]+[c]
-$ ./moving_${batchtag}_pngs_${batchts}.sh 2>&1 | \
+$ #
+#  I'm teeing the output to a progress file and to stdout.
+#+ that will allow me to see if there are a bunch of FAILUREs,
+#+ in which case I could [Ctrl]+[c]
+$ time ./moving_${batchtag}_pngs_${batchts}.sh 2>&1 | \
     tee big_${batchtag}_png_move_${batchts}.out
 $ #  Moving PNGs always takes longer; I wonder why.
-$ grep -i --failure big_${batchtag}_jpeg_move_${batchts}.out
-$ #  Hahahaha, gotta get my laugh in for the day. Failure isn't an option!
-$ #+ ( grep: unknown option -- failure )
+$ grep -i --failure big_${batchtag}_jpeg_move_${batchts}.out | wc -l
+$ #
+#  Hahahaha, gotta get my laugh in for the day. Failure isn't an option!
+#+ ( grep: unknown option -- failure )
 $ grep -i failure big_${batchtag}_jpeg_move_${batchts}.out | wc -l
 $ #  If the result of that isn't zero (0), check things out.
 $ checksituation
+$
 $ #  Maybe check output dirs from shell script output, e.g.
 $ #-----START SKIP UNTIL AUTOMATE-----#
 $ find \
@@ -1126,7 +1780,7 @@ $ find \
 "UnivUtrecht_-_109-N-13/" \
       -type f -iname "*.png" | wc -l
 $ #+ only fourth linee needs changing
-$ cat >/dev/null <<EOF
+$ cat >/dev/null <<'EOF'
 
 Here's some space for changing (if this is editable, or
 you can copy/paste elsewhere and change)
@@ -1139,19 +1793,20 @@ find \
       -type f -iname "*.png" | wc -l
 EOF
 $ #-----ENDOF SKIP UNTIL AUTOMATE-----#
+$
 $ #  LET'S AUTOMATE!
-$ mytmp="this_temp.txt"; >"${mytmp}"; \
+$ mytmp="this_temp.txt"; >"${mytmp}"; echo; \
 while read -r line; do \
-    mytmp=this_temp.txt";
+    mytmp=this_temp.txt;
     stem="${line}";
-    printf "%s " "${stem}" | tee "${mytmp}";
+    printf "%s " "${stem}" | tee -a "${mytmp}";
     find "/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/"\
 "new_-_folder_for_not-yet-ready_new_imgs/png_bak_from_PDFs/"\
 "${stem}/" \
-      -type f -iname "*.jpg" | wc -l | tee "${mytmp}";
+      -type f -iname "*.png" | wc -l | tee -a "${mytmp}";
 done < ../${batchtag}_doc_fnames_for_big_moves_${batchts}.lst; echo
 
-$ awk '{ sum += $1 }; END {print sum}' "${mytmp}"
+$ awk '{ sum += $2 }; END {print sum}' "${mytmp}"
 $
 $
 $ #  Final clean-up (moving files for future reference)
@@ -1264,7 +1919,20 @@ done < ../b8_doc_fnames_for_big_moves_1750226072_2025-06-17T235432-0600.lst
 
 
 
-$ cat >/dev/null <<EOF
+
+
+
+
+
+
+
+
+
+
+
+
+
+$ cat >/dev/null <<'EOF'
 
 
 
@@ -1316,7 +1984,7 @@ $ find /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/ \
     sed 's#[.]\(jpg\|png\|pdf\)$##g;' | \
     sort | uniq | wc -l
 73675
-$ cat >/dev/null <<EOF
+$ cat >/dev/null <<'EOF'
 #  I think the not-one-thirdness of that number is probably due
 #+ to the fact I have a lot of FamilySearch. Oh, and I just
 #+ thought of something that makes me feel less uncomfortable;
