@@ -1,3 +1,55 @@
+#@brief   A .gitignore file for my fhtw-paper-code-prep
+#@file    .gitignore
+#@author  David BLACK  GH: @bballdave025
+#@since   2025-07-09
+#
+#  -v- In case this file gets copied to another repo without changing -v-
+#+ -v- this stuff, there will be a reference to the previous repo     -v-
+#@orig_repo  fhtw-paper-code-prep
+#@project    Reused Manuscript Fragments in Bindings for 2025
+#@package    None for now.
+
+
+# Specific directories
+#**/__pycache__/
+#__pycache__/
+
+**/.ipynb_checkpoints/
+#.ipynb_checkpoints/
+
+#  The teplate below
+# None of those backup files
+*~
+.*~
+*.un~
+
+# None of those Windows Office (at least MS Word) backup files
+$~*
+~$*
+~WRL*
+~*
+
+#*.info
+
+## LET THESE IN!!!
+!img/
+!dataset_preparation_examples/
+
+
+!*.log  #  The template below excluded logfiles. I've edited it,
+        #+ but I want to be sure things work.
+
+
+
+
+
+
+
+
+
+
+## >>>>>>>>>>>>>> .gitignore template from GitHub, sometime in >>>>>>
+## >>>>>>>>>>>>>> June 2025 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -192,3 +244,5 @@ cython_debug/
 #  refer to https://docs.cursor.com/context/ignore-files
 .cursorignore
 .cursorindexingignore
+
+## >>>>>>>>>>>>>>>>>>> ENDOF: .gitignore template from Github >>>>>>>

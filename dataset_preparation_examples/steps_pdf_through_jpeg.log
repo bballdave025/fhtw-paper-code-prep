@@ -1,4 +1,31 @@
 
+
+Note that I'm calling this batch 13, but the only way
+you'll know that is that there will be sundry things
+with 'b13' in the name. To highlight this, I'm putting
+the next paragraph-y thingie.
+THIS SHOULD CHANGE FOR EACH BATCH!
+
+#$@$@$@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$@$@$#
+#####################@@@@@@@@@@@@@@@@@@####################
+###########################################################
+###############                             ###############
+#####                                                 #####
+##                                                       ##
+#                         b13                             #
+#                                                         #
+#                   (for batch 13)                        #
+##                                                       ##
+#####                                                 #####
+###############                             ###############
+###########################################################
+############$$$$$$$$$$$$$$$$$$$$$##########################
+#@$@$@$@$@$@$@$@$@$@$@@$@$@$@$@$@$@$@$$@$@$@$@$@$@$@$@$@$@#
+
+EOF
+
+
+
 $ checksituation
 $ cd /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/
 
@@ -72,6 +99,7 @@ $ #
 #+ I think that'll change, so do the check
 $ find ../../new_final_jpeg_to_use/ -type f -iname "*.jpg" | \
     grep -v "_[0-9]\{5\}[.]jpg$" | wc -l
+$ #  If it's not zero (0), check on things
 $ #  Check to get filename bases correct
 $ find ../../new_final_jpeg_to_use/ -type f -iname "*.jpg" | \
     awk -F'/' '{print $NF}' | \
@@ -948,8 +976,8 @@ $ #
 #  Here's where to take care of things (or comment on it)
 #+ if the number is not zero (0)
 $ #  A good one is  grep -i -B10 failure rename.out
-$ mv fnames.lst ../fnames_${batchts}.lst
-$ mv rename.out ../rename_${batchts}.lst
+$ mv fnames.lst ../fnames_${batchtag}_${batchts}.lst
+$ mv rename.out ../rename_${batchtag}_${batchts}.lst
 
 #
 # ###
@@ -999,6 +1027,9 @@ $ #
 #+ (more than just "_[0-9]\{5\}[.]png$")
 $ find . -type f -iname "*.png" | \
     sed 's#^[.]/##g; s#_[0-9]\{5\}[.]png$##g' | \
+      sort | uniq -c | wc -l
+$ find . -type f -iname "*.png" | \
+    sed 's#^[.]/##g; s#_[0-9]\{5\}[.]png$##g' | \
       sort | uniq -c
 $ #  Check to see if we get a match on the number of files
 $ find . -type f -iname "*.png" | \
@@ -1036,6 +1067,8 @@ $ cat >/dev/null <<'EOF'
 EOF
 $ #  We have a list of commands, then an example from the terminal
 checksituation
+$
+$ cat >/dev/null <<'EOF'
 
 files_str=$(find . -type f -iname "*.png" | \
                sed 's#^[.]/##g; s#_[0-9]\{5\}[.]png$##g' | \
@@ -1072,9 +1105,11 @@ cp ../BnF_-_TITLE_00001.png BnF-BibArsenal_-_Ms-6039_00002.png
 
 cp ../BnF_-_TITLE_00002.png BnF-BibArsenal_-_Ms-6039_00001.png
 
+EOF
+$ # Now for the stuff from terminal, with a look at the file list, too
+$ cat >/dev/null <<'EOF'
 
-
-################ FROM TERMINAL EXAMPLE ####################
+################ START  FROM TERMINAL EXAMPLE ####################
 
 bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
 $ echo "${files_str}" | tr '|' '\n'
@@ -1120,6 +1155,12 @@ $ find . -type f -iname "BnF*Arsenal*Ms-6039*00002.png"
 bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs/converted_from_PDF_-_now_to_jpeg
 $ find . -type f -iname "BnF*Arsenal*Ms-6039*00001.png"
 
+EOF
+$ #  Next part coming.
+$ cat >/dev/null <<'EOF'
+
+################ CONT'D  FROM TERMINAL EXAMPLE ####################
+
 ##-------------------------------------------------------------------
 ## EITHER
 
@@ -1142,10 +1183,12 @@ $ cp ../BnF_-_TITLE_00001.png BnF-BibArsenal_-_Ms-6039_00002.png
 ## END EITHER/OR
 ##---------------------------------------------------------------------
 
+################ END  FROM TERMINAL EXAMPLE ####################
+
+EOF
 
 
-
-
+$ #  Feel free to skip this other example (don't copy/paste)
 ############# ANOTHER FROM-TERMINAL EXAMPLE ###############
 
 bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/new_-_folder_for_not-yet-ready_new_imgs
@@ -1282,9 +1325,9 @@ $ ttdate && \
     identify -format "
       \n\n%f\n%[magick] %[colorspace] %[type] \
               %[extension] %[bit-depth] %[channels]\n" \
-        *.png | tr -s ' ' \
+        *.png | sed 's#[ ]\+# #g' \
       > ../${batchtag}_all_png_formats_for_batch_${batchts}.out \
-  && ttdatechk
+    && ttdatechk
 $ #
 #  You could usse tab-complete with the start you get below for
 #+ the filename. 
@@ -1322,7 +1365,8 @@ $ grep "PNG.*png" \
           sort | uniq -c
 $ #  Example check if something looks like it needs inspecting
 $ grep -B 1 "Grayscale" \
-    "../${batchtag}_all_png_formats_for_batch_${batchts}.out"
+    "../${batchtag}_all_png_formats_for_batch_${batchts}.out" | \
+      wc -l
 $ checksituation
 
 
@@ -1396,7 +1440,7 @@ $ ttdate && \
               %[extension] %[bit-depth] %[channels]\n" \
           *.jpg | tr -s ' ' \
         > ../${batchtag}_all_jpeg_formats_for_batch_${batchts}.out \
-  && ttdatechk
+    && ttdatechk
 $ grep JPEG \
     ../${batchtag}_all_jpeg_formats_for_batch_${batchts}.out | \
         sort | uniq -c | wc -l
