@@ -1467,6 +1467,23 @@ $ while read -r line; do \
             grep "${bare}.*0000[1234][.][^.]\{2,5\}$"; \
 done < ../${batchtag}_doc_fnames_for_big_moves_${batchts}.lst
 
+$ #
+#  Or, if you're in a different directory. Either change
+#+ the first argument to  find , yourelf, or use the
+#+ following, noting that  realpath  isn't all-the-way
+#+ portable
+$ while read -r line; do \
+    bare="${line}"; \
+    echo; \
+    echo "--------------------"; \
+    echo "${bare}"; \
+    echo "-----"; \
+    find \
+      "$(realpath $PWD)" \
+        -type f | \
+            grep "${bare}.*0000[1234][.][^.]\{2,5\}$"; \
+done < ../${batchtag}_doc_fnames_for_big_moves_${batchts}.lst
+
 
 
 
@@ -1518,8 +1535,9 @@ $ #  Always good to check
 $ echo ../${batchtag}_doc_fnames_for_big_moves_${batchts}.lst
 $ stat ../${batchtag}_doc_fnames_for_big_moves_${batchts}.lst
 
-
-$ cat >/dev/null << EOF
+$
+$
+$ cat >/dev/null <<'EOF'
 
 PUT THE COMMAND(S) TOGETHER HERE, COPY/PASTE THE
 PREVIOUS ONE(S) AND MAKE CHANGES
@@ -1539,6 +1557,10 @@ PREVIOUS ONE(S) AND MAKE CHANGES
 #b9_doc_fnames_for_big_moves_#.lst
 ####################################
 
+EOF
+$
+$
+$ cat >/dev/null <<'EOF'
 
 meta_jpeg_fname="moving_b5_jpegs_1748618510_2025-05-30T092150-0600.sh"; \
 touch "${meta_jpeg_fname}"; >"${meta_jpeg_fname}"; \
@@ -1564,6 +1586,11 @@ while read -r line; do \
     "${meta_jpeg_fname}"; \
   echo >> "${meta_jpeg_fname}"; \
 done < ../b5_doc_fnames_for_big_moves_1748618510_2025-05-30T092150-0600.lst
+
+EOF
+$
+$
+$ cat >/dev/null <<'EOF'
 
 ##-----5555555555555555555555555555555555555555555555-----
 
@@ -1594,6 +1621,11 @@ done < ../b5_doc_fnames_for_big_moves_1748618510_2025-05-30T092150-0600.lst
 
 ##--END PREVIOUS, b5555555555555555555555555555555555555555555555-----
 
+EOF
+$
+$
+$ cat >/dev/null <<'EOF'
+
 #########################################################################
 #### CHANGE!!!!!         !!!  CHANGE  !!!    C!H!A!N!G!E! !!!!!!     ####
 #### YOU DON'T NEED TO LOOK AT THAT FIRST PART. IF YOU'VE BEEN       ####
@@ -1606,15 +1638,12 @@ done < ../b5_doc_fnames_for_big_moves_1748618510_2025-05-30T092150-0600.lst
 ####                                                                 ####
 #########################################################################
 
+EOF
+$
+$
+$ cat >/dev/null <<'EOF'
 
-##  BEGIN:  FORGET THIS
-#########################################################################
-####  NO NEED TO COPY AFTER THIS. USE SPACE HERE (OR AN EDITOR) AND  ####
-####  THEN COPY/PASTE THE STUFF TO THE PROMPT                        ####
-#########################################################################
-##  ENDOF:  FORGET THIS
-
-##--CURRENT, b99999999999999999999999999999999999999999999999999-----
+##-- CURRENT --
 
 $ #  Always good to check
 $ echo ../${batchtag}_doc_fnames_for_big_moves_${batchts}.lst
@@ -1645,13 +1674,19 @@ while read -r line; do \
   echo >> "${meta_jpeg_fname}"; \
 done < ../${batchtag}_doc_fnames_for_big_moves_${batchts}.lst
 
-
-$ #  Check we have the file we want
-$ echo "${meta_jpeg_fname}"
-$ stat $(!!)  # or `stat ${meta_jpeg_fname}`
+EOF
 $
+$ #
+#  Check we have the file we want, unless we're waiting until
+#+ after all the heredocs have been seen.
+#$ echo "${meta_jpeg_fname}"
+#$ stat $(!!)  # or `stat ${meta_jpeg_fname}`
+$
+$
+$
+$ cat >/dev/null <<'EOF'
 
-##-----b999999999999999999999999999999999999999999999999999-----
+##----- CURRENT -----
 
 $ meta_png_fname="moving_${batchtag}_pngs_${batchts}.sh"; \
 touch "${meta_png_fname}"; >"${meta_png_fname}"; \
@@ -1678,7 +1713,10 @@ while read -r line; do \
   echo >> "${meta_png_fname}";
 done < ../${batchtag}_doc_fnames_for_big_moves_${batchts}.lst
 
-
+EOF
+$
+$
+$ cat >/dev/null <<'EOF'
 
 $ #  Check we have the file we want
 $ echo "${meta_png_fname}"
@@ -1686,11 +1724,13 @@ $ stat $(!!)  # or `stat ${meta_png_fname}`
 $
 
 
-##--END CURRENT, b999999999999999999999999999999999999999999999-----
+##-- END CURRENT --
 
+#
 ## NOW COPY/PASTE THE NEW ONES IN AT THE PROMPT (after the EOF)
 
 # (Unless you don't use this whole heredoc thingie.)
+# (Or unless you've already done the copying/pasting.)
 
 EOF
 $
@@ -1728,9 +1768,10 @@ $ #
 $ grep -i failure big_${batchtag}_jpeg_move_${batchts}.out | wc -l
 $ #  If the result of that isn't zero (0), check things out.
 $ find . -type f -iname "*.jpg" | wc -l  # better be zero (0)
-$ #  Maybe check directories from output, e.g. (only changing 4th line)
+$ #  Maybe check directories from output, e.g.
 $
 $ #-----START SKIP UNTIL AUTOMATE-----#
+$ #  only changing 4th line
 $ find \
     "/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/"\
 "new_final_jpeg_to_use/"\
@@ -1851,14 +1892,14 @@ while read -r line; do \
 done < ../${batchtag}_doc_fnames_for_big_moves_${batchts}.lst; echo
 
 $ awk '{ sum += $2 }; END {print sum}' "${mytmp}"
-$
+$ rm "${mytmp}"
 $
 $ #  Final clean-up (moving files for future reference)
 $ lh
 $ type lh
 lh is aliased to `ls -lah'
 $ #  Your removals might change depending on what's still there.
-$ #  First, bye-bye backups.
+$ #  First, bye-bye backups.  ls  them if you want to check
 $ rm ./.*~
 $ rm ./*~
 $ #  Once again, might be different based on the output from  lh
