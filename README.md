@@ -129,6 +129,9 @@ https://community.adobe.com/t5/lightroom-ecosystem-cloud-based-discussions/light
 
 ##### Picasa
 
+85  [Google Sites]()
+https://sites.google.com/site/picasaresources/picasa/save-photos
+
 ##### Canva
 
 80 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; This isn't a standard/default value (it
@@ -144,9 +147,22 @@ saw in Google results was 80.
 92 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [Try to find a better source that the title of a GitHub issue]()
 https://github.com/photoprism/photoprism/issues/2215
 
+##### Picsart:
+
+No default.
+
+##### Affinity Photo:
+
+100 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [Affinity Forum]()
+https://forum.affinity.serif.com/index.php?/topic/41561-saving-jpg-ctrl-s-quality-is-100-how-to-setup/
+
+Someone should get fired.
+
 ##### Firefox:
 
-92 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+92 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ???
+
+https://stackoverflow.com/questions/8371510/canvas-reduces-imagesize-of-jpeg-but-why
 
 ##### Suggestions from a website (and hopefully more websites)
 
@@ -184,8 +200,12 @@ https://regex.info/blog/lightroom-goodies/jpeg-quality
 
 [A discussion of what quality means](https://web.archive.org/web/20250611223537/http://www.faqs.org/faqs/jpeg-faq/part1/section-5.html)
 
-[Quality has to do with matrix coefficients related to frequency of DFT (sometimes; it depends how the encoders work)]()
+[Quality has to do with matrix coefficients (sometimes; it depends how the encoders work)]()
 Also https://stackoverflow.com/a/41577078/6505499
+
+(matrix coefficients related to frequency of DFT?)
+
+https://stackoverflow.com/a/61224392/6505499
 
 [Photo StackExchange Discussion](https://web.archive.org/web/20250719201635/https://photo.stackexchange.com/questions/30243/what-quality-to-choose-when-converting-to-jpg)
 
