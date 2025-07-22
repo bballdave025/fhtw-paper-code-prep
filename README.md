@@ -1,9 +1,13 @@
 # fhtw-paper-code-prep
 Stuff to clone onto Amazon AWS SageMaker instances for different models. Different notebooks with different models and different platforms (TF, Torch).
 
+<br/>
+
 ## Discussion of Models, Jupyter Notebooks, Paper-draft PDFs, etc.
 
 Coming soon!
+
+<br/>
 
 ## Useful Commands for Dave
 
@@ -48,7 +52,7 @@ alias ttdatechk='  echo -e "$(ttdate)\nExitedNormally" '\
 included in (something sourced by) my `$HOME/.bashrc`, though typing them at the
 terminal prompt works, too.
 
-
+<br/>
 
 #### 1
 
@@ -61,6 +65,17 @@ ALWAYS USE A COMMAND LIKE THIS, <strong>WITHOUT ANY `-quality PERCENT`
 FLAG</strong>, WHEN DOING CONVERSIONS FROM JPEG TO (DIFFERENT-FORMAT)
 JPEG.
 
+An example of my most-used `1` command, then (using aliases I detailed in '0', above), is
+
+```bash
+ttdate && \
+  time \
+    mogrify -colorspace srgb -type truecolor *.jpg \
+  && ttdatechk
+```
+
+<br/>
+
 #### 2
 
 ```bash
@@ -69,11 +84,33 @@ mogrify -format jpg -quality 92 -colorspace srgb -type truecolor *.png
 
 A `quality` of `92` is pretty standard<sup>1</sup>.
 
+An example of my most-used `2` command, then (using aliases I detailed in '0', above), is
+
+```bash
+ttdate && \
+  time \
+    mogrify -colorspace srgb -type truecolor *.jpg \
+  && ttdatechk
+```
+
+<br/>
+
 #### 3
 
 ```bash
-mogrify -format jpg -quality 92 *.tiff
+mogrify -format jpg -quality 92 *.tiff  # *.tiff for an example
 ```
+
+An example of my most-used `3` command, then (using aliases I detailed in '0', above), is
+
+```bash
+ttdate && \
+  time \
+    mogrify -format jpg -quality 92 *.tiff \
+  && ttdatechk
+```
+
+<br/>
 
 #### 4
 
@@ -84,6 +121,8 @@ mogrify -format jpg -quality 92 *.tiff
 #+ yes, it goes much faster with the files on the local machine
 ```
 
+<br/>
+
 ### Notes
 
 1. I'm talking loose and fast by saying "pretty standard". I think the best way to
@@ -93,7 +132,8 @@ used programs.
 I'll put in links to more formal research, later, though I'll note
 that I like the analysis at
 [Lenspiration](https://web.archive.org/web/20250619215342/https://www.lenspiration.com/2020/07/what-quality-setting-should-i-use-for-jpg-photos/)
-(that's an archived version) about JPEG quality in (Adobe) [Lightroom](https://lightroom.adobe.com/).
+(that's an archived version) about JPEG quality in (Adobe) [Lightroom](https://lightroom.adobe.com/)
+(that's not an archived version).
 From what I can gather, the actual pixel output (in Lightroom) is the same
 (or more likely only trivially different)
 anywhere in the 93-100 range, and similarly the same in the 85-92 range.
@@ -104,33 +144,54 @@ very little different between 92 (or 93) and 100, while the file size grows
 markedly (following a previously visible exponential trend) between
 about 90 and 95.
 
+<br/>
+
 #### Default Settings
 
 ##### ImageMagick: 
 
-92 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [documentation (archived version)](https://web.archive.org/web/20250716224304/http://www.imagemagick.org/script/command-line-options.php)
+92 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+[documentation (archived version)](https://web.archive.org/web/20250716224304/http://www.imagemagick.org/script/command-line-options.php)
 
 used to be 85 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 [source from 2010](https://web.archive.org/web/20250719200242/https://imagemagick.org/discourse-server/viewtopic.php?t=16751), 
 which is after the change had been made
+
+<br/>
 
 ##### GIMP:
 
 90 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Found just now, after I downloaded the newest stable GIMP 3.0.4, by exporting an
 image as with a `.jpg` extension and pressing the <kbd>Reset to FactoryDefaults</kbd> button. Right after I finished,
 I got the UNIX Timestamp as `1752957414` which is the same as `Sat Jul 19 20:36:54 UTC 2025` (from `date -u`)
+I found the same version when following similar steps in version 2.10.
 
-used to be 92  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; which I found when doing the same thing in a 2.x version
+<br/>
+
+##### Irfanview:
+
+80 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+[Irfanview Forum](https://web.archive.org/web/20250720161514/https://irfanview-forum.de/forum/program/support/98629-can-t-save-default-jpg-quality)
+
+<br/>
 
 ##### Adobe Lightroom:
 
-90 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [Adobe Community post]() 
-https://community.adobe.com/t5/lightroom-ecosystem-cloud-based-discussions/lightroom-cc-export-res-mobile-vs-desktop/m-p/10566888
+90 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+[Adobe Community post](https://web.archive.org/web/20250720154131/https://community.adobe.com/t5/lightroom-ecosystem-cloud-based-discussions/lightroom-cc-export-res-mobile-vs-desktop/m-p/10566888) 
+
+<br/>
 
 ##### Picasa
 
-85  [Google Sites]()
-https://sites.google.com/site/picasaresources/picasa/save-photos
+85  [Google Sites](https://web.archive.org/web/20250720154425/https://sites.google.com/site/picasaresources/picasa/save-photos)
+
+Note that the formatting/style went a little wacky for the archived version 
+(at least in my view of it). Scroll past the big images of an X and a 
+magnifying glass, some other stuff, and another magnifying glass, and then 
+you should be able to see the content just fine.
+
+<br/>
 
 ##### Canva
 
@@ -138,50 +199,75 @@ https://sites.google.com/site/picasaresources/picasa/save-photos
 seems the user picks their default when installing), but the value I most often
 saw in Google results was 80.
 
+<br/>
+
 ##### Snapseed:
 
-95 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; https://smartphones.gadgethacks.com/how-to/snapseed-101-save-photos-full-quality-0180555/
+95 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+[GadgetHacks > Smartphones](https://web.archive.org/web/20250720160842/https://smartphones.gadgethacks.com/how-to/snapseed-101-save-photos-full-quality-0180555/)
+
+<br/>
 
 ##### Photoprism:
 
-92 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [Try to find a better source that the title of a GitHub issue]()
-https://github.com/photoprism/photoprism/issues/2215
+92 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+[GitHub issue on the Photoprism repo](https://web.archive.org/web/20250722141918/https://github.com/photoprism/photoprism/issues/2215)
+
+<br/>
 
 ##### Picsart:
 
 No default.
 
+<br/>
+
 ##### Affinity Photo:
 
-100 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [Affinity Forum]()
-https://forum.affinity.serif.com/index.php?/topic/41561-saving-jpg-ctrl-s-quality-is-100-how-to-setup/
+100 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+[Affinity Forum](https://web.archive.org/web/20250720161928/https://forum.affinity.serif.com/index.php?/topic/41561-saving-jpg-ctrl-s-quality-is-100-how-to-setup/)
 
-Someone should get fired.
+Someone should get fired. That's taking up a bunch of extra, unneeded storage (though I guess it's less than the RAW version).
+
+<br/>
 
 ##### Firefox:
 
-92 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ???
+92 (sometimes stated as 0.92) &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ???
 
-https://stackoverflow.com/questions/8371510/canvas-reduces-imagesize-of-jpeg-but-why
+[StackOverflow post 1](https://web.archive.org/web/20250722142520/https://stackoverflow.com/questions/8371510/canvas-reduces-imagesize-of-jpeg-but-why)
 
-##### Suggestions from a website (and hopefully more websites)
+[StackOverflow post 2](https://web.archive.org/web/20250722142419/https://stackoverflow.com/questions/15754281/what-is-the-default-quality-for-html5-canvas-todataurl)
+which gives source [a](https://web.archive.org/web/20250722142442/https://bugs.webkit.org/show_bug.cgi?id=49365#c6) as well as referencing the other SO post, above.
 
-https://sirv.com/help/articles/dynamic-imaging/format/
+<br/>
+
+##### Suggestions from a website
+
+[Sirv](https://web.archive.org/web/20250722161503/https://sirv.com/help/articles/dynamic-imaging/format/)
 
 > For best results, we recommend that you upload uncompressed JPEGs – at least 92% quality or above.
 
-a \[sic\] for the intimation that "uncompressed" is equivalent to "92% ([sic] on the '%', too) quality or above"
+a \[sic\] for the intimation that "uncompressed" is equivalent to "92% (\[sic\] on the '%', too) quality or above"
+
+Maybe `<strong>@TODO</strong>` : Look for suggestions from other websites.
+
+<br/>
 
 #### Lots of papers and technical discussions (archived version when possible)
 
-[Image Quality Assessment Using The Ssim And The Just Noticeable Difference Paradigm](https://www.researchgate.net/profile/Julian-Abich-Iv-2/publication/262897371_Image_Quality_Assessment_Using_the_SSIM_and_the_Just_Noticeable_Difference_Paradigm/links/00b495391c77795f7d000000/Image-Quality-Assessment-Using-the-SSIM-and-the-Just-Noticeable-Difference-Paradigm.pdf?__cf_chl_tk=lMD1O9vfCcn.kLyQZyVkxgivkLqtiER0FEV9isAfCWY-1752953478-1.0.1.1-KdFFTtv9AjJIuF.yByCJJkrlb0XyE7CGs7OnyJ6q3eE)
+[Image Quality Assessment Using The Ssim And The Just Noticeable Difference Paradigm](https://web.archive.org/web/20250722163124/https://link.springer.com/chapter/10.1007/978-3-642-39360-0_3?).
+PDF viewable [here](https://www.researchgate.net/profile/Julian-Abich-Iv-2/publication/262897371_Image_Quality_Assessment_Using_the_SSIM_and_the_Just_Noticeable_Difference_Paradigm/links/00b495391c77795f7d000000/Image-Quality-Assessment-Using-the-SSIM-and-the-Just-Noticeable-Difference-Paradigm.pdf?__cf_chl_rt_tk=sjVwp.LY5bGUWhTGJ2MQeOfGwreBZkok73NKvpUCbew-1753201608-1.0.1.1-iLtjb2T5Ma8BIySt4s81oXgEsN4p7FG4N1yfF_txMas)
+https://doi.org/10.1007/978-3-642-39360-0_3
 
-[Perceptual Visual Quality Assessment: Principles, Methods, and Future Directions (arxiv)](https://arxiv.org/html/2503.00625v1)
+[Perceptual Visual Quality Assessment: Principles, Methods, and Future Directions (arxiv)]([https://arxiv.org/html/2503.00625v1](https://web.archive.org/web/20250304060645/https://arxiv.org/html/2503.00625v1))
+http://dx.doi.org/10.48550/arXiv.2503.00625
 
-[Multiple just-noticeable-difference-based no-reference stereoscopic image quality assessment](https://opg.optica.org/ao/viewmedia.cfm?uri=ao-58-2-340&seq=0&html=true)
+[Multiple just-noticeable-difference-based no-reference stereoscopic image quality assessment](https://web.archive.org/web/20250722162220/https://pubmed.ncbi.nlm.nih.gov/30645317/)
 https://doi.org/10.1364/AO.58.000340
 
-[Image Quality Assessment: From Error Visibility to Structural Similarity, LINK IS TO PDF DOWNLOAD](https://www.cns.nyu.edu/pub/lcv/wang03-preprint.pdf)
+[Image Quality Assessment: From Error Visibility to Structural Similarity](https://web.archive.org/web/20250722163156/https://ieeexplore.ieee.org/document/1284395/)
+[This link is for PDF download](https://www.cns.nyu.edu/pub/lcv/wang03-preprint.pdf)
+https://doi.org/10.1109/TIP.2003.819861
 
 [Post from fstoppers.com](https://web.archive.org/web/20250528180757/https://fstoppers.com/education/about-jpeg-images-and-their-quality-degradation-435235) 
 which I include solely because of the statement that begins the article, 
@@ -192,35 +278,31 @@ Let’s have a look at how much information you really lose."
 You should, however, see Wikipedia's JPEG article, specifically the Lossless Editing section, archived version 
 [here](https://web.archive.org/web/20250716110206/https://en.wikipedia.org/wiki/JPEG#Lossless_editing)
 
-
-[An Analysis of Lightroom JPEG Export Quality Settings]()
-https://regex.info/blog/lightroom-goodies/jpeg-quality
+[An Analysis of Lightroom JPEG Export Quality Settings](https://web.archive.org/web/20250722162339/https://regex.info/blog/lightroom-goodies/jpeg-quality)
 
 [Post from darkroomphotos concerning Lighroom with scientific measurements](https://web.archive.org/web/20250719201256/https://darkroomphotos.com/lightroom-exporting-jpegs-lightroom-quality-settings/)
 
 [A discussion of what quality means](https://web.archive.org/web/20250611223537/http://www.faqs.org/faqs/jpeg-faq/part1/section-5.html)
 
 [Quality has to do with matrix coefficients (sometimes; it depends how the encoders work)](https://web.archive.org/web/20250722050928/https://stackoverflow.com/questions/21541502/imagemagick-jpeg-quality-size)
-Also https://stackoverflow.com/a/41577078/6505499
-
-(matrix coefficients related to frequency of DFT?)
-
-https://stackoverflow.com/a/61224392/6505499
+The matrix is called the Quantization Matrix or sometimes the Quantization Table.
+(matrix coefficients related to frequency in DFT?)
 
 [Photo StackExchange Discussion](https://web.archive.org/web/20250719201635/https://photo.stackexchange.com/questions/30243/what-quality-to-choose-when-converting-to-jpg)
 
-[Something else from Photo StackExchange about what quality means](https://photo.stackexchange.com/questions/57226/how-does-the-usual-jpeg-0-100-quality-settings-translate-into-photoshops-0-12-q)
+[Something else from Photo StackExchange about what quality means]([https://photo.stackexchange.com/questions/57226/how-does-the-usual-jpeg-0-100-quality-settings-translate-into-photoshops-0-12-q](https://web.archive.org/web/20250722164003/https://photo.stackexchange.com/questions/57226/how-does-the-usual-jpeg-0-100-quality-settings-translate-into-photoshops-0-12-q))
 
 There's a good discussion in the comments:
 
 >  But possibly it is the case that quality number 0-100 isn't actually part of the jpeg standard (i.e. there aren't quantization tables specified in the standard by a given quality number) and so there IS no direct translation between adobes and libjpegs quality numbers because they actually use different quantization tables altogether. If that is the case, then there really isn't a translation between them and the answer you pointed to is as good as it is going to get. –John Robertson | Dec 3, 2014 at 19:15
 
->  It actually _is_ defined in [the standard]() but many encoders use a 0-100 scale which doesn't correspond to this. –mattdm | Dec 3, 2014 at 19:25
+>  It actually _is_ defined in [the standard](https://web.archive.org/web/20250722164256/https://datatracker.ietf.org/doc/html/rfc2435#section-4.2) but many encoders use a 0-100 scale which doesn't correspond to this. –mattdm | Dec 3, 2014 at 19:25
 
 Link for 'the standard', https://datatracker.ietf.org/doc/html/rfc2435#section-4.2
 
-[FotoForensics Post, very understandable]()
-https://fotoforensics.com/tutorial.php?tt=estq
+[FotoForensics Post, very understandable](https://web.archive.org/web/20250720164555/https://fotoforensics.com/tutorial.php?tt=estq)
+
+<br/>
 
 #### OTHER STUFF
 
@@ -245,3 +327,28 @@ LLM prompt, still rough
 > I remember having heard that a JPEG quality of 92 is ideal, because it gives a visual result not much different than anything from 93 to 100, but obviously uses less memory due to the higher compression that exists at the higher qualities. Is there some kind of standard that exists in a document or a well-respected study that backs up this advice?
 >
 > I would appreciate something that discusses perceptual quality having some kind of sweet spot after which increased quality is barely visually perceptual, but file size continues to grow.
+
+<hr/>
+
+And let's finish with this comment from `libjpeg`'s README, quoted 
+[here](https://web.archive.org/web/20250722144316/https://www.phpied.com/ie9-and-jpeg-xr-first-impressions/) 
+on Stoyan's phpied.com
+
+> `FILE FORMAT WARS
+> `================
+> `
+> `The ISO JPEG standards committee actually promotes different formats like
+> `JPEG-2000 or JPEG-XR which are incompatible with original DCT-based JPEG
+> `and which are based on faulty technologies.  IJG therefore does not and
+> `will not support such momentary mistakes (see REFERENCES).
+> `We have little or no sympathy for the promotion of these formats.  Indeed, `
+> `one of the original reasons for developing this free software was to help  `
+> `force convergence on common, interoperable format standards for JPEG files.`
+> `Don't use an incompatible file format!                                     `
+> `(In any case, our decoder will remain capable of reading existing JPEG     `
+> `image files indefinitely.)                                                 `
+
+It turns out that comes from the 
+[`README` of v.8](https://web.archive.org/web/20250722144855/https://github.com/videoP/jaPRO/blob/master/lib/jpeg-8c/README), 
+though the current version is v.9. An active fork called `libjpeg-turbo`, 
+used by some programs, including ImageMagick, still uses v.8, though.
