@@ -1314,6 +1314,14 @@ $ cat >/dev/null <<'EOF'
 
 
 EOF
+ttdate && \
+ time \
+    identify -format "
+      \n\n%f\n%[magick] %[colorspace] %[type] \
+              %[extension] %[bit-depth] %[channels]\n" \
+        *.jpg | sed 's#[ ]\+# #g' \
+      > ../${batchtag}_all_png_formats_for_batch_${batchts}.out \
+    && ttdatechk
 $ checksituation
 $ type ttdate
 $ type ttdatechk
@@ -1328,6 +1336,22 @@ $ ttdate && \
         *.png | sed 's#[ ]\+# #g' \
       > ../${batchtag}_all_png_formats_for_batch_${batchts}.out \
     && ttdatechk
+$ cat >/dev/null <<'EOF'
+
+LET'S PUT THE JPEG VERSION HERE, JUST SO BOTH ARE IN THE SAME
+PLACE. AT THIS POINT IN THE STEPS, YOU SHOULD BE USING THE PNG
+VERSION ABOVE
+
+ttdate && \
+ time \
+    identify -format "
+      \n\n%f\n%[magick] %[colorspace] %[type] \
+              %[extension] %[bit-depth] %[channels]\n" \
+        *.jpg | sed 's#[ ]\+# #g' \
+      > ../${batchtag}_all_png_formats_for_batch_${batchts}.out \
+    && ttdatechk
+
+EOF
 $ #
 #  You could usse tab-complete with the start you get below for
 #+ the filename. 
@@ -1441,6 +1465,23 @@ $ ttdate && \
           *.jpg | tr -s ' ' \
         > ../${batchtag}_all_jpeg_formats_for_batch_${batchts}.out \
     && ttdatechk
+$ cat >/dev/null <<'EOF'
+
+LET'S PUT THE PNG VERSION HERE, JUST SO BOTH ARE IN THE SAME
+PLACE. AT THIS POINT IN THE STEPS, YOU SHOULD BE USING THE JPEG
+VERSION ABOVE
+
+ttdate && \
+ time \
+    identify -format "
+      \n\n%f\n%[magick] %[colorspace] %[type] \
+              %[extension] %[bit-depth] %[channels]\n" \
+        *.jpg | sed 's#[ ]\+# #g' \
+      > ../${batchtag}_all_png_formats_for_batch_${batchts}.out \
+    && ttdatechk
+
+EOF
+$
 $ grep JPEG \
     ../${batchtag}_all_jpeg_formats_for_batch_${batchts}.out | \
         sort | uniq -c | wc -l
