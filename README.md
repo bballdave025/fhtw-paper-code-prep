@@ -200,7 +200,7 @@ https://regex.info/blog/lightroom-goodies/jpeg-quality
 
 [A discussion of what quality means](https://web.archive.org/web/20250611223537/http://www.faqs.org/faqs/jpeg-faq/part1/section-5.html)
 
-[Quality has to do with matrix coefficients (sometimes; it depends how the encoders work)]()
+[Quality has to do with matrix coefficients (sometimes; it depends how the encoders work)](https://web.archive.org/web/20250722050928/https://stackoverflow.com/questions/21541502/imagemagick-jpeg-quality-size)
 Also https://stackoverflow.com/a/41577078/6505499
 
 (matrix coefficients related to frequency of DFT?)
