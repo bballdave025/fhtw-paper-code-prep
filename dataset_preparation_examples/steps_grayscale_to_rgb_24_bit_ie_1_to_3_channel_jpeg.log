@@ -1,0 +1,1617 @@
+Script started on 2025-07-22 12:27:59-06:00 [TERM="xterm" TTY="/dev/pty0" COLUMN
+S="80" LINES="40"]
+
+bballdave025@MY-MACHINE ~
+$ checksituation
+
+ Current date/time is
+Tue Jul 22 12:28:09 MDT 2025
+1753208889
+1753208889_2025-07-22T122809-0600
+
+ Current directory ( pwd ) is
+/home/bballdave025
+
+
+bballdave025@MY-MACHINE ~
+$ cd /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks/
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ checksituation
+
+ Current date/time is
+Tue Jul 22 12:28:30 MDT 2025
+1753208911
+1753208911_2025-07-22T122831-0600
+
+ Current directory ( pwd ) is
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ cat >/dev/null <<'EOF'
+
+###############################################
+##################           ##################
+#####                                     #####
+#             STEPS FOR GRAYSCALE             #
+#####                                     #####
+##################           ##################
+###############################################
+
+EOF
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #  Doing a FamilySearch example this time
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #  Start by looking at the files and their formats
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ find . -type f | wc -l
+14
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ find . -type f -iname "*.jpg" | wc -l
+14
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ find . -type f -iname "*.jpg"
+./FamilySearch_-_DGS005132154_00033.jpg
+./FamilySearch_-_DGS005132154_00035.jpg
+./FamilySearch_-_DGS100585845_00001.jpg
+./FamilySearch_-_DGS100585845_00499.jpg
+./FamilySearch_-_DGS102439140_00010.jpg
+./FamilySearch_-_DGS102439140_00014.jpg
+./FamilySearch_-_DGS102439140_00016.jpg
+./FamilySearch_-_DGS102439140_00017.jpg
+./FamilySearch_-_DGS102439140_00022.jpg
+./FamilySearch_-_DGS102439140_00035.jpg
+./FamilySearch_-_DGS102439140_00062.jpg
+./FamilySearch_-_DGS102439140_00083.jpg
+./FamilySearch_-_DGS102439151_00005.jpg
+./FamilySearch_-_DGS102439151_00021.jpg
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #  I don't think they're all watermarks this time, but there are some
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #+ watermarks
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ type ttdate
+ttdate is aliased to `date +'%s_%Y-%m-%dT%H%M%S%z''
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ type ttdatechk
+ttdatechk is aliased to `      echo -e "$(ttdate)\nExitedNormally"
+                            || echo -e "$(ttdate)\nExitedNonZero"
+; ttdate; echo "  (this may be a BONUS timestamp)";
+#  '; ttdate' -> Make sure we get the timestamp even if something
+#+ weird makes us bypass the && and || after the
+#+ command we are checking, something like
+#+   some_error_command && run_main_checked_thing && ttdatechk
+#+ (though that doesn't make it bypass
+#+ the short-circuit &&, ||)
+#+ Note I don't care about a double
+#+ timestamp, as long as I get at least one.
+#
+#+ To see how it works, use the commands,
+#+ % awk 2>/dev/null && whoami && ttdatechk  # no whoami output
+#+ % echo "Will you see who you are?" && whoami && ttdatechk
+#
+#  Comments formatted for `type ttdatechk` with
+#+ an 80-character-width terminal
+#+ Trailing single quote matches the backtick after "aliased to "'
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #
+#  I need the  &&  before;
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ my_ts=$(ttdate)
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ echo "${my_ts}"
+1753209154_2025-07-22T123234-0600
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ ## RIGHT ONE COMING, I THINK
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ ttdate && \
+  time \
+    identify -format "
+      \n\n%f\n%[magick] %[colorspace] %[type] \
+              %[extension] %[bit-depth] %[channels]\n" \
+          *.jpg | tr -s ' ' \
+        > fs_watermarks_etc_pre_conversion_${my_ts}.out \
+    && ttdatechk
+1753209293_2025-07-22T123453-0600
+
+real    0m2.526s
+user    0m2.625s
+sys     0m1.468s
+1753209295_2025-07-22T123455-0600
+ExitedNormally
+1753209296_2025-07-22T123456-0600
+  (this may be a BONUS timestamp)
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ grep JPEG fs_watermarks_etc_pre_conversion_${my_ts}.out | wc -l
+14
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ grep JPEG fs_watermarks_etc_pre_conversion_${my_ts}.out | \
+>   sort | uniq -c  # I don't even care if I get all 14
+     14 JPEG Gray Grayscale jpg 8 gray
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #
+#  Well, I got all 14. I meant I don't care if I get 14 separate lines.
+#+ There was only one line.
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #
+#  Perfect. Now to my GitHub for the manuscript-waste-reuse-finder README
+#+ (which was my first project for the reuse stuff)
+#+ https://github.com/bballdave025/manuscript-waste-reuse-finder
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #
+#  I'm going to upload an image of the Windows File Explorer window where
+#+ I've right-clicked next to the details columns (e.g. 'Name',
+#+ 'Date Modified', 'Type', 'Size', ...), selected 'More', and both found
+#+ and checkmarked 'Bit depth'
+#+ This is the pre-conversion version, and I'll save it here.
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #  I've called it 'WinFileExplorer_bitdepth_gs_pre_conv.png' and saved it
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #+ in this directory.
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ find . -type f
+./FamilySearch_-_DGS005132154_00033.jpg
+./FamilySearch_-_DGS005132154_00035.jpg
+./FamilySearch_-_DGS100585845_00001.jpg
+./FamilySearch_-_DGS100585845_00499.jpg
+./FamilySearch_-_DGS102439140_00010.jpg
+./FamilySearch_-_DGS102439140_00014.jpg
+./FamilySearch_-_DGS102439140_00016.jpg
+./FamilySearch_-_DGS102439140_00017.jpg
+./FamilySearch_-_DGS102439140_00022.jpg
+./FamilySearch_-_DGS102439140_00035.jpg
+./FamilySearch_-_DGS102439140_00062.jpg
+./FamilySearch_-_DGS102439140_00083.jpg
+./FamilySearch_-_DGS102439151_00005.jpg
+./FamilySearch_-_DGS102439151_00021.jpg
+./fs_watermarks_etc_pre_conversion_1753209154_2025-07-22T123234-0600.out
+./WinFileExplorer_bitdepth_gs_pre_conv.png
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #  The image is now also at
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #+ url="https://raw.githubusercontent.com/bballdave025/"\
+#+"fhtw-paper-code-prep/refs/heads/main/img/"\
+#+"WinFileExplorer_bitdepth_gs_pre_conv.png
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ pre_url="https://raw.githubusercontent.com/bballdave025/"\
+"fhtw-paper-code-prep/refs/heads/main/img/"\
+"WinFileExplorer_bitdepth_gs_pre_conv.png"
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ cat >/dev/null <<'EOF'
+
+To see the whole URL (and then copy it and paste it into a browser,
+if you want to see the image), use the following for your terminal
+
+pre_url="https://raw.githubusercontent.com/bballdave025/"\
+"fhtw-paper-code-prep/refs/heads/main/img/"\
+"WinFileExplorer_bitdepth_gs_pre_conv.png"
+
+echo "${pre_url}"  # copy/paste the output into your browser
+
+EOF
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #  Though we won't need wget or anything this time, since the image is
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #+ in our working directory
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #
+#  See Appendix 1 for details of how to view the image, either
+#+ from or in your terminal
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ find . -type f -iname "*.jpg" -o iname "*.out" -o iname "seeofit*" | wc -l
+find: paths must precede expression: `iname'
+0
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ find . -type f -iname "*.jpg" -o -iname "*.out" -o -iname "seeofit*" | wc -l
+18
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ find . -type f -iname "*.jpg" -o -iname "*.out" -o -iname "seeofit*"
+./FamilySearch_-_DGS005132154_00033.jpg
+./FamilySearch_-_DGS005132154_00035.jpg
+./FamilySearch_-_DGS100585845_00001.jpg
+./FamilySearch_-_DGS100585845_00499.jpg
+./FamilySearch_-_DGS102439140_00010.jpg
+./FamilySearch_-_DGS102439140_00014.jpg
+./FamilySearch_-_DGS102439140_00016.jpg
+./FamilySearch_-_DGS102439140_00017.jpg
+./FamilySearch_-_DGS102439140_00022.jpg
+./FamilySearch_-_DGS102439140_00035.jpg
+./FamilySearch_-_DGS102439140_00062.jpg
+./FamilySearch_-_DGS102439140_00083.jpg
+./FamilySearch_-_DGS102439151_00005.jpg
+./FamilySearch_-_DGS102439151_00021.jpg
+./fs_watermarks_etc_pre_conversion_1753209154_2025-07-22T123234-0600.out
+./seeofit1.png
+./seeofit1_edit.png
+./seeofit1_edit_crop.png
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ find . -type f -iname "*903*"
+./zBW_from_903_col_terminal_-_Best.png
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #  That was the best img2txt result. I'll put it up to GitHub
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ mv ./zBW_from_903_col_terminal_-_Best.png \
+    ./BW_from_903_col_terminal_-_Best.png
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ history | grep "grep JPEG" | tail
+  206  grep JPEG fs_watermarks_and_1_stubby_cover_formats_1752945953_2025-07-19T112553-0600.out | wc -l
+  207  grep JPEG fs_watermarks_and_1_stubby_cover_formats_1752945953_2025-07-19T112553-0600.out | sort | uniq -c | wc -l
+  208  grep JPEG fs_watermarks_and_1_stubby_cover_formats_1752945953_2025-07-19T112553-0600.out | sort | uniq -c
+  247  grep JPEG fs_watermarks_and_1_stubby_cover_formats_post_1752949014_2025-07-19T121654-0600.out | wc -l
+  248  grep JPEG fs_watermarks_and_1_stubby_cover_formats_post_1752949014_2025-07-19T121654-0600.out | sort | uniq -c | wc -l
+  249  grep JPEG fs_watermarks_and_1_stubby_cover_formats_post_1752949014_2025-07-19T121654-0600.out | sort | uniq -c
+  498  grep JPEG fs_watermarks_etc_pre_conversion_${my_ts}.out | wc -l
+  499  grep JPEG fs_watermarks_etc_pre_conversion_${my_ts}.out |   sort | uniq -c  # I don't even care if I get all 14
+  604  history | grep "grep JPEG" | tail
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ grep JPEG \
+>   fs_watermarks_etc_pre_conversion_1753209154_2025-07-22T123234-0600.out |
+> ^C
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ grep -i jpeg \
+>   fs_watermarks_etc_pre_conversion_1753209154_2025-07-22T123234-0600.out | \
+>     sort | uniq -c
+     14 JPEG Gray Grayscale jpg 8 gray
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #
+#  Perfect. Now to my GitHub for the manuscript-waste-reuse-finder README
+#+ (which was my first project for the reuse stuff)
+#+ https://github.com/bballdave025/manuscript-waste-reuse-finder
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #
+#  I'm going to upload an image of the Windows File Explorer window where
+#+ I've right-clicked next to the details columns (e.g. 'Name',
+#+ 'Date Modified', 'Type', 'Size', ...), selected 'More', and both found
+#+ and checkmarked 'Bit depth'
+#+ This pre-conversion version can be found at
+#+ url="https://raw.githubusercontent.com/bballdave025/"\
+#+"fhtw-paper-code-prep/refs/heads/main/img/"\
+#+"WinFileExplorer_bitdepth_gs_pre_conv.png"
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ cat >/dev/null <<'EOF'
+
+To see the whole URL (and then copy it and paste it into a browser,
+if you want to see the image), use the following for your terminal
+
+pre_url="https://raw.githubusercontent.com/bballdave025/"\
+"fhtw-paper-code-prep/refs/heads/main/img/"\
+"WinFileExplorer_bitdepth_gs_pre_conv.png"
+
+echo "${pre_url}"
+
+EOF
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #
+#  See Appendix 1 for details of how to view the image, either
+#+ from or in your terminal
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ cat >/dev/null <<'EOF'
+
+From the repo's README.md file, the command is given as
+
+    mogrify -colorspace srgb -type truecolor *.jpg
+
+AND I'M GOING TO REMEMBER TO BACK UP THE ORIGNAL, 1-CHANNEL JPEGs
+
+EOF
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ stat \
+    ../new_-_folder_for_not-yet-ready_new_imgs/\
+jpeg_bak_from_orig_1_channel_grayscale/
+  File: ../new_-_folder_for_not-yet-ready_new_imgs/jpeg_bak_from_orig_1_channel_grayscale/
+  Size: 0               Blocks: 4          IO Block: 65536  directory
+Device: 34409,44143     Inode: 9851624185222054  Links: 1
+Access: (0775/drwxrwxr-x)  Uid: (197609/   bballdave025)   Gid: (197609/   bballdave025)
+Access: 2025-07-22 20:43:44.178828300 -0600
+Modify: 2025-07-19 12:07:59.284736800 -0600
+Change: 2025-07-19 12:07:59.284736800 -0600
+ Birth: 2025-07-19 12:07:23.836189300 -0600
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ cp *.jpg \
+    ../new_-_folder_for_not-yet-ready_new_imgs/\
+jpeg_bak_from_orig_1_channel_grayscale/
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #
+#  I might need to rename those, so I know when I'm finding the 24-bit JPEGs
+#+ That's a TINN thing.
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ find \
+    ../new_-_folder_for_not-yet-ready_new_imgs/\
+jpeg_bak_from_orig_1_channel_grayscale/ \
+  -type f | wc -l
+30
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #  Good. There were 16 in the last batch, and 14 in this one.
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ cat >/dev/null <<'EOF'
+
+TIME FOR THE CONVERSION
+
+EOF
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ ttdate && time mogrify -colorspace srgb -type truecolor *.jpg && ttdatechk
+1753240207_2025-07-22T211007-0600
+
+real    0m7.423s
+user    0m8.640s
+sys     0m4.203s
+1753240215_2025-07-22T211015-0600
+ExitedNormally
+1753240215_2025-07-22T211015-0600
+  (this may be a BONUS timestamp)
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #
+#  Here goes another screenshot of the File Explorer, so we can see that
+#+ everything is now 24 (total) bits, 8 bits per channel.
+#+ (and editing the photo in GIMP: doubling size, erode, unsharp map,
+#+ change mode to indexed/1-bit, cropping it).
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #
+#  Maybe I should do the ImageMagick  identify  first, even though that
+#+ gives us bits per channel, so we have to figure out that sRGB has
+#+ three channels and there are 8 bits per channel, so we have
+#+ 24 (total) bits for the total bit depth.
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ echo "${my_ts}"
+1753209154_2025-07-22T123234-0600
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ checksituation
+
+ Current date/time is
+Tue Jul 22 21:15:05 MDT 2025
+1753240505
+1753240505_2025-07-22T211505-0600
+
+ Current directory ( pwd ) is
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ ttdate && \
+ time \
+    identify -format "
+      \n\n%f\n%[magick] %[colorspace] %[type] \
+              %[extension] %[bit-depth] %[channels]\n" \
+          *.jpg | tr -s ' ' \
+        > fs_watermarks_etc_post_${my_ts}.out \
+    && ttdatechk
+1753240513_2025-07-22T211513-0600
+
+real    0m3.699s
+user    0m8.234s
+sys     0m1.108s
+1753240517_2025-07-22T211517-0600
+ExitedNormally
+1753240517_2025-07-22T211517-0600
+  (this may be a BONUS timestamp)
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ rm fs_watermarks_etc_post_1753209154_2025-07-22T123234-0600.out
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ ttdate && \
+ time \
+    identify -format "
+      \n\n%f\n%[magick] %[colorspace] %[type] \
+              %[extension] %[bit-depth] %[channels]\n" \
+          *.jpg | tr -s ' ' \
+        > fs_watermarks_etc_post_conversion_${my_ts}.out \
+    && ttdatechk
+1753240737_2025-07-22T211857-0600
+
+real    0m3.872s
+user    0m8.499s
+sys     0m1.155s
+1753240741_2025-07-22T211901-0600
+ExitedNormally
+1753240741_2025-07-22T211901-0600
+  (this may be a BONUS timestamp)
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ ls fs*
+fs_watermarks_etc_post_conversion_1753209154_2025-07-22T123234-0600.out
+fs_watermarks_etc_pre_conversion_1753209154_2025-07-22T123234-0600.out
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ grep -i jpeg \
+>   fs_watermarks_etc_post_conversion_${my_ts}.out | wc -l
+14
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ grep -i jpeg \
+>   fs_watermarks_etc_post_conversion_1753209154_2025-07-22T123234-0600.out | \
+>     sort | uniq -c
+     14 JPEG sRGB Grayscale jpg 8 srgb
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #  All right. Time for the image.
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ cat >/dev/null <<'EOF'
+
+To see the whole URL for the post-conversion File Explorer window
+(and then copy it and paste it into a browser, if you want to see
+the image), you'll be able to see that our total bit-depth is
+indeed 24, giving us some extra confirmation that we have a
+3-channel, 8-bit-per-channel JPEG, which is what our versions (or
+at least I know TensorFlow's) of the models will take. Use the
+following to get the link in your terminal
+
+post_url="https://raw.githubusercontent.com/bballdave025/"\
+"fhtw-paper-code-prep/refs/heads/main/img/"\
+"WinFileExplorer_bitdepth_gs_post_conv.png"
+
+echo "${post_url}"  # copy/paste the output into your browser
+
+EOF
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ cat >/dev/null <<'EOF'
+
+We actually have it in our working directory, but you can
+follow the instructions from the pre-conversion image for
+download, viewing, etc. from Appendix 1. Remember to change
+things for the post/2 filenames, such as the following,
+which I'm doing. (I don't really have a need to do it for
+any further such conversions, but it's a really good
+illustration. I SHOULD check to see that the bit depths
+go to 24.)
+
+mv WinFileExplorer_bitdepth_gs_post_conv.png seeofit2.png
+
+EOF
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ mv WinFileExplorer_bitdepth_gs_post_conv.png seeofit2.png
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #
+#  Oh, in editing the image in GIMP, I duplicate the layer with mode,
+#+ Multiply, after running Erode. And I'm pretty sure I did the
+#+ conversion to black and white before the unsharp mask.
+#+ I'm going to switch it up this time ( unsharp before black and white)
+#+ but before that, I'm going to merge the layers.
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ checksituation
+
+ Current date/time is
+Tue Jul 22 21:41:17 MDT 2025
+1753242077
+1753242077_2025-07-22T214117-0600
+
+ Current directory ( pwd ) is
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #  I think that worked a little better for everything but the text ...
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #+ and the text is what I want. Q&R, let's continue. Exposure.
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #  Oh, last time, when I did the crop in  Paint, it went from a bit depth
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #+ of 1 (binary) back to 32 (RBG and alpha). I'll crop in GIMP this time,
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #+ and maybe convert seeofit2_edit_crop.png
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #+ Yep, I converted it.
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ cat >/dev/null <<'EOF'
+
+In the width = 903 and height = 150 terminal, I'll paste in
+
+img2txt -W 903 seeofit2.png 2>/dev/null
+
+EOF
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #  Oops, that's the color one. Instead.
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #  img2txt -W 903 seeofit2_edit_crop.png 2>/dev/null
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ cat >/dev/null <<'EOF'
+>
+> It's not optimized, like the previous one, but I might try a bit of the
+> same approach, just not with as wide of a range.
+>
+> Oh, and widen the terminal to about 930
+>
+> It looks as if there are still colors, though, when I highlight stuff.
+>
+> 907
+> Okay. 3+2/2
+>
+> 905
+> Good. 2+1/2 and a few almost-halves
+>
+> 903
+> Okay, 2+2/2, but the 24s don't look good. Oh yeah, we have 24, as expected
+>
+> 901
+
+> Not bad - 3+0/2, and the 24s look better.
+>
+> 900
+> About the same as 901
+>
+> It seems that 905 is the winner. I'm guessing the "resonance" or
+> "sweet spot", or whatever is outside the range we searched. I'll deal with
+> it and choose 105
+>
+> <strike>  img2txt -W 905 seeofit2.png 2>/dev/null  </strike>
+>
+> And I'll save it as BW_post_conv_from_905_col_terminal_-_Good.png
+>
+> EOF
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #  I mean    img2txt -W 905 seeofit2_edit_crop.png 2>/dev/null
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #  That's all done and quite a bit more, too.
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ exit
+exit
+
+Script done on 2025-07-22 22:41:13-06:00 [COMMAND_EXIT_CODE="0"]
+
+
+
+
+
+
+$ #
+############################################################
+############################################################
+############################################################
+###########################      ###########################
+###                      APPENDIX 1                      ###
+###########################      ###########################
+############################################################
+############################################################
+############################################################
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ cat >/dev/null <<'EOF'
+>
+> Though unneeded this time, we had
+> pre_url="https://raw.githubusercontent.com/bballdave025/"\
+"fhtw-paper-code-prep/refs/heads/main/img/"\
+"WinFileExplorer_bitdepth_gs_pre_conv.png"
+>
+> But it's also in our current directory (visible with an  `ls' or a `find')
+>
+> echo "${pre_url}"
+>
+> HOW TO SEE IT WITHOUT COPY/PASTING THE LINK INTO YOUR BROWSER
+>
+> (If we didn't have it already in our working directory)
+> #  Download the image
+>
+> wget -O - "${pre_url}" > seeofit.jpg
+>
+> #  We're free to use
+>
+> mv WinFileExplorer_bitdepth_gs_pre_conv.png seeofit1.png
+>
+> #  Remembering that we have the original file up in GitHub
+>
+> #  If your X is set up, you can use
+> cat >/dev/null <<'EOF'
+
+Th##########################      #########################
+
+  cat >/dev/null <<'EOF'
+
+Th                      e, we had
+sudo dnf install feh.githubusercontent.com/bballdave025/"\
+sudo yum install feh || sudo dnf install feh
+sudo apt-get install feh
+brew install feh || sudo brew install feh
+choco install fehsible with an  `ls' or a `find')
+apt-cyg install feh
+/path/to/cygin/install/exe/setup-x86_64 -q -P feh
+#  or whatever command goes w/ your package manager to install, 'feh'
+                 HOUT COPY/PASTING THE LINK INTO YOUR BROWSER
+#  THEN
+
+feh seeofit1.jpg &age
+
+>
+> #  Yay!!
+>
+> EOF
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #  Split that into two for the  *.md version
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ cat >/dev/null <<'EOF'
+
+This seems a good time to share one of my favorite xkcd comics,
+"1654: Universal Install Script"
+https://xkcd.com/1654/
+  OR, IF YOU AREN'T SO EXPERIENCED WITH LINUX
+https://www.explainxkcd.com/wiki/index.php/1654:_Universal_Install_Script
+
+Let's see Randall's `install.sh`
+
+(NOTE:
+  There are possible script insertion attack vulnerabilities,
+  so it's not a super-great idea to try this with any random program's
+  name. Still, it kind of gives an idea of what I'm explaining above.
+  I know as of now that `feh` is the name used for the install I'm
+  doing. Do a search for "typosquatting -url -domain" or for
+  "typosquatting python" or cf.
+  security_url="https://discuss.python.org/t/"\
+  "typosquatting-dependency-confusion-supply-"\
+  "chain-attack-call-it-as-you-wish/52615"
+  [for the archived version, prepend the following without a space,
+  https://web.archive.org/web/20250720173044/ ]
+)
+EOF
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ cat >/dev/null <<'EOF'
+
+prompt$ cat install.sh
+#!/bin/bash
+
+pip install "$1" &
+easy_install "$1" &
+brew install "$1" &
+npm install "$1" &
+yum install "$1" & dnf install "$1" &
+docker run "$1" &
+pkg install "$1" &
+apt-get install "$1" &
+sudo apt-get install "$1" &
+steamcmd +app_update "$1" validate &
+git clone https://github.com/"$1"/"$1" &
+cd "$1"; ./configure; make; make install &
+curl "$1" | bash &
+
+prompt$
+
+EOF
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ cat >/dev/null <<'EOF'
+
+If you want to see a decent rendering of the file in the terminal,
+try using  chafa  or  jp2a  or  ascii-image-converter  or
+  img2text from libcaca
+
+Note that using a full-screen terminal might give you better image
+quality, but it's not certain to do so.
+To be able to read the '8' under the 'Bit depth' unambiguously
+
+I'll give examples for
+1) chafa , which will work for  jp2a  and  ascii-image-converter
+if you substitute the new name for 'chafa'; AND
+2) img2text , which has slightly different install/use steps
+
+I have  `img2text` already installed
+(found out by using `type img2txt` and/or `command -v img2txt`)
+
+you can try whichever of the following install scripts matches
+your shell/OS, or any that show up as already installed.
+
+EOF
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ type img2txt
+img2txt is /usr/bin/img2txt
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ command -v img2txt
+/usr/bin/img2txt
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ cat >/dev/null <<'EOF'
+
+  Possible commands for Install
+sudo dnf install chafa || sudo dnf install chafa
+sudo yum install chafa || sudo yum install chafa
+sudo apt-get install chafa
+brew install chara || sudo brew install chafa
+choco install chafa
+apt-cyg install chafa
+/path/to/cygin/install/exe/setup-x86_64 -q -P chafa
+#  or whatever command goes w/ your package manager to install, 'chafa'
+
+  THEN
+
+chafa seeofit1.jpg
+
+EOF
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ cat >/dev/null <<'EOF'
+
+  Possible commands for Install
+sudo dnf install caca-utils || sudo dnf install caca-utils
+sudo yum install caca-utils || sudo yum install caca-utils
+sudo apt-get install caca-utils
+brew install caca-utils || sudo brew install caca-utils
+choco install caca-utils
+apt-cyg install caca-utils
+/path/to/cygin/install/exe/setup-x86_64 -q -P caca-utils
+#  or whatever command goes w/ your package manager to install
+
+  THEN
+
+img2txt seeofit1.jpg
+
+EOF
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #  This likely won't work. Before, I've had to maximize the size of
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #+ the terminal window on the screen, then minimize the size of the
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #+ text in the terminal. Let's try it plain, though.
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ ls *.png
+WinFileExplorer_bitdepth_gs_pre_conv.png
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ mv WinFileExplorer_bitdepth_gs_pre_conv.png seeofit1.png
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ img2txt seeofit1.png
+::;tt:.       ;S8tSS %%XXXX.                        .. S  t
+888@@Xt.%% :%:  :t;         .  . .  .  . .  .  . .  .    .;X
+; t;.%t;S%Stt;::;SS:XX;8S;X%;%tSXXXS;;tS;%SSt;@XXXt;;;;;;;:;
+tXXXtSXt8%St%S%;;X8;@%%8@SSS;@%%SXSSttX8@t%%;;%SXSS;;::::;::
+:%S%:;;t;;@%%%S%;t;;%t;t:;:;;XX;t;:;:;;;;@XXS;SSXXXXt:;;::;:
+.:.::;;@%Stt::%t;:t%%@@S;;t;t%;tS%:;;ttttX;:::;:t%::;::.::;:
+.:. ...:;:;t:.%%:.tt;Stt;;t%t%%%t%.:t%%t%t.  ::.:;;;:;t;;.;
+ .tS%t%S.  tt;  .             . .;%.      .%t  :t;  :%t%; .
+ :;%tt;;;:.XSX@@SS;@@8SX@X8@@S...;tS%t%tS:.St%..;tt%:;.....
+;%XXXXS%XS @X@@8XX:888X@8@88@S   tSS%;%%S..St%  ;StS::
+%X@888SSSt @@88888:8@8888@@88@   t%SX;SSSt.XtX  ;X%X:;  . .
+ tS@X%t  . X%S@@XXt@@@@@8X8@8X.  ;t%%;%%; .%;% .;%t%.:
+           @SSX@SS:8@8@@8X88X%  .;%%%;%%:..Stt  :%;%:: .  .
+  . .  . . @@88888;8@888@@@88@   t%XS;XSt .XtX  ;S%X:;
+           XS@888@;8@8@888888X.  t%S%;S%; .St% .;%tS.: . .
+ .  . .  . @%SXXSS:@S@XXXS@XS%  .:t%t;tt:..t;t  :ttt.:     .
+        .  @@888@@:888888@@@8X   tSXS%XXt .X%S  ;X%X:;  .
+ . .  .   .@X88888;888888@888@. .t%XS%X%S .XtS. .X%S:;    .
+        .  X%SXXSS;XSXXXSX@XXS   ;t%t;;t% .t;t   ttt.: .
+  . . .    8%%XSXXSSS%SSXStSX@XS.;ttt;ttt;.t;t:   ;%     .
+        .  .              .                 .   .    .  .  .
+ t%;.  .      .  .  . .     .  .  .  .  .     .   .   .  8X;
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #  Not too convincing. I want to look at a couple options.
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ man img2txt | cat
+img2txt(1)                  General Commands Manual                  img2txt(1)
+
+NAME
+       img2txt - convert images to various text‐based coloured files
+
+SYNOPSIS
+       img2txt [ -W width ] [ -H height ] [ -x font‐width ] [ -y font‐height ]
+               [ -b brightness ] [ -c contrast ] [ -g gamma ]
+               [ -d dither ] [ -f format ] FILE
+
+DESCRIPTION
+       img2txt  converts  images to colour ASCII characters and outputs them to
+       text‐based coloured files.
+
+       img2txt can load the most widespread image formats: PNG, JPEG, GIF, PNG,
+       BMP etc (see NOTES for details).  By  default  the  output  text  is  60
+       columns  wide, and the line count is computed accordingly to respect as‐
+       pect ratio of original file.  The default output format is standard ANSI
+       coloured text.
+
+OPTIONS
+       -W, --width=<width>
+              Change output column count. If not given, the default is  set  to
+              60.
+
+       -H, --height=<height>
+              Change output line count. If not given, the height is computed to
+              match correct aspect ratio.
+
+       -x, --font‐width=<width>
+              Change  output font width. If not given, the default is set to 6.
+              This value will be used for computing aspect ratio.
+
+       -y, --font‐height=<height>
+              Change output font height. If not given, the default  is  set  to
+              10. This value will be used for computing aspect ratio.
+
+       -b, --brightness=<brightness>
+              Change image brightness. Default to 1.0.
+
+       -c, --contrast=<contrast>
+              Change image contrast. Default to 1.0.
+
+       -g, --gamma=<gamma>
+              Change image gamma. Default to 1.0.
+
+       -d, --dither=<dither>
+              Change dithering algorithm. This can be one of the following (de‐
+              fault to fstein) :
+                none     : Nearest color
+                ordered2 : Ordered 2x2
+                ordered4 : Ordered 4x4
+                ordered8 : Ordered 8x8
+                random   : Random
+                fstein   : Floyd Steinberg
+
+       -f, --format=<format>
+              Change  output  format. This can be one of the following (default
+              to ansi) :
+                ansi   : coloured ANSI
+                caca   : internal libcaca format
+                utf8   : UTF8 with CR
+                utf8cr : UTF8 with CRLF (MS Windows)
+                html   : HTML with CSS and DIV support
+                html3  : Pure HTML3 with tables
+                irc    : IRC with ctrl‐k codes
+                bbfr   : BBCode (French)
+                ps     : Postscript
+                svg    : Scalable Vector Graphics
+                tga    : Targa Image
+
+       -h, --help
+              Display help message and exit.
+
+       -v, --version
+              Display version of the program and exit.
+
+EXAMPLES
+       img2txt hello.jpg > hello.ans
+
+       img2txt --width=40 --format=svg hello.jpg > tinyhello.svg
+
+NOTES
+       Setting both column and line count (using --width and --height) will let
+       you choose the exact output size without taking aspect ratio in account.
+
+       You must compile libcaca package with support of Imlib2 to  be  able  to
+       load  a  wide variety of image formats. Otherwise you will only  be able
+       to load regular BMP files.
+
+SEE ALSO
+       cacaview(1)
+
+AUTHOR
+       This manual page was written by Sam Hocevar <sam@hocevar.net> and  Jean‐
+       Yves Lamoureux <jylam@lnxscene.org>.
+
+libcaca                            2007‐11‐07                        img2txt(1)
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ img2txt -W 80 -x 1 -y 1 seeofit1.png
+.;..;:. .          ;8 S 8 : t: .   .                                     :t  .:
+.S ;@t%X: . .  . . : %@88tt.@8X%SXSSt .  . .  .  . .  .  . .  .  . .  %  tX .tS
+S@S%@t.::.   .     ;8 .8 :8   .        .       .       .       .     .  .     :;
+%8t8; X8S::88: ;8X. t88.8;      . .  .    . .    .  .    .  .    .     .   . ::@
+%S ;S;::;;::::::::::.  :.:..::::::::::::::::::::::::::::::::::::::::::::::::::t%
+:ttS:;;St;%@%tSSS;;;;;;XX;t88;SS8:;%X;:Stt888@8@%;;tt%;XS@@%;X@8888;;:;;:;:;:;::
+:;S%;:t@8:X%XtSt;:;;:;;@Xt%8St:;8;88@;;S::X%t;%;:;:%8S:%%%;;;tX%%tt:;:;:;:;:;:;:
+::t;;::tS:SX%XS@8@8S;;;S@St;;;ttX::t%;.;t;@888@8X;:t%t:%@8X:;tX88888;;;:;::;:;::
+S@88X8%@8;@8St%:;:::;;t88;%8X:88XS888;;X8.t;::::;;8@8@8%t::;;;S:::;:::;:;:;:;:;:
+:;88@;;:;;:;:8888X888t;@t:%S;::S:;;;;;S8@;;:;:;::;::%:;X@@88;S8888@8X@;:;:;::;::
+:::;:;:;:t;:;;;;;;;::;:;::::t:;:;::::;:;:;;;::;:;;;;;:t:;;:;;::;;;;:;:;;:;:;:;:;
+;;;;;;;;t8X88;;;;;;;;;:;;;;t8X8@;;;;;;;;;;%8@;;;;;;;;;88X;:;;;;;S88;;;;;;;;;;;;;
+       ..;:.:t:;..:::...;t;:t:;::....:;;:......;;.....:..........:.............
+ 8..:.:@;%t%SX@8%;SS@8;.88@@XX888t@@S8%88t8XS%;S88XtXXS8.   ;t8..@XSS@tX@XSX.Xt
+        ....: ................ .........::...... .............. ................
+  . . .  .  . ..           ..:             .:           .:     .:    ....  . .
+  .     .   . :888: .  . .      . . .  .   .%88  .  . . .X8X . ;@8.  .X@@88% .
+  @X;XX8@S8  .             . .        .  . .      .     ...    . .  .     .  .
+ .         .  .@XSXX@SSX.X888X8X8S888XSt....t%tXS;S%tS%..%S%%:..ttt%S;%......:
+  8;X%X%t X%%..@%8X888@@%@888%8S8888@88X....;%%%%;S%tX%..S%:X:..;tttS:%:.....:
+  8%88@@8:888. 8888888@8:8@8S88@@8X@888%.   tXS@StXX%8%  @@%@:  t%XS@;S  . .   .
+;;:;;;;;;;;tt  @:t;tt%tt;%t%t;ttt;t%;XSS  . .;;;;..:..:  ::.:. ..;.::.: .
+888t :;%88888: 88S8XX%88t8S8t%;%t8%S%@@@    %X@@88tX8X8t 88%8:  %@8S8;@    . .
+%X8SX@SXSSSSS. 8%;;t%;:; S%%XXSSS;SXXS;t  . ;;;ttt:;;;t: t;:;.  :;;tt.; .      .
+  ;;:.  ..    .@S@8@8@88%@8X88X888888@@8    :%S%XS:%S%S; SS;@:  t%X%X:%.  .  .
+  S8SSS88  . . XX@@@88XX:X8@8@888@888@Xt .  tStX%;%XS@   XStS:  ;;X%S:%
+        .      X;X%XSX%S;SStXSX;XSXS%@@S   ..;tt;;:t.t . ;;.t.  ::;:t.;. . .  .
+  .  .   .  . .88S@X%t88:8t8:XtXt@%t@SX@    %@X8@SX8X8   88S8;  %X@X8;@      .
+   .   .     . @;. t;  :;%t;t;tt;tt%:%:; .  :;::;.:::: . ;;:.   .:::: : .  .
+     .    .    8XS8S@t88%8@8S8@8S8X@8XS8   .;XS8StS@%8.  XXt8:. tS@S@;S.      .
+  .     .   .  8SSSSX%%% S@X8S8@@S@8XX%;    ;%;S%:t%%S   %%tt.  ;;;t%:t  .  .
+    .     .  . Xt8X8@8SX%X@%8X@%8X@@%@8X .  :t%ttt;t;%.  %t.S.. :t;;%:t.      .
+   .  . .      8888888@8:8@8S8X8S8X@888S  . tS%8StS8S8.  @@%@:  ttXS@:S  . .
+ .         . . @tt:%%%;t;X%%S%St;S%XS8S%    ;t;tt;:;:; . ;;:;.  .t;:t.;      . .
+    .  .  .   .8@S8XXt88%8X8%8S8%8%X@@X8 .  ;@X8@%@8S8   @@t8: .tS@X8;X.  .
+  .   .     .  8%;ttt;;t %%%XtSSS%S@%S;t  . ;;;tt:;;;t   tt:;.  ::t:t.;    . .
+        .    . @S@8@8X88%@8X888@8888@8@8    ;SSSS%SXt@ . SS;@:  ;%XSS:%. .     .
+  . .    . .  .@@88888X@:X888888@@888@@t .  t%tXS%S@%8   XStS:  ;tS%X:%.   .  .
+      .      . X:StSSXt%;S%t%t%;;%%%S@XS  . .;t;;;;t.;   :;.t.  :;;;;.;  .
+  .  .  .  .   88S@X%%88:8%@;XtX%@%;tS@@.   %8X88t8@@8X. 88S8:.  X8X8t@.   . .
+   .         . 8:. ;;  :;S;tt;ttttt%;%:;  . :;::;.:.:;.  ;;:.    :::;..  .     .
+      .  . .   8SX8@8%88t88@X8@88SX888X8.   ;XS@S;@%t@S .SX;8: . %%SX;S.    .
+ .  .   .    .:@X;%XSXtX;X;X%;SSSSS:8@888@t ;tt%%S;t%tS; %ttS:   ..tS.   .    .
+   .      .  ..%;X888S8X@@X8@X@X88XS%S8@SSX.:%%t%t:tttt: tt;tt .   ;%: .   .
+     . .     . . .      .  .  .                      .        .   .      .   .
+ .       . .             .      .  .  .  .   .  .  .   . .  .   .   .  .       .
+   . .       .  .    . .   . .    .        .      .                  .    . .
+ tt;:  .  .       .      .     .    .  . .    . .    .  . .  . .  .     .   8@S:
+ :SXX   .   . .  .  . .    .     .    .     .      .   .    .    .  .  .    88%:
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ img2txt -W 79 -x 1 -y 1 seeofit1.png
+.;..;:. .         .;8 X 8 ..%  .  .                                     .t  :.
+.S ;@t%X: . .  .  .:.S88St8 88%S8X%8  .  . .  .  . .  .  . .  .  . . % .tX  tS
+S@S%@t.:..   .   ..:. .8  8      .     .       .       .       .           . :;
+%8t8;:88S:;88. %8%. 888:8:      .   .    .  .    .  .    .  .    .  .  .   .::@
+%S ;S;::;:::::::::::.  :.:;::::::::::::::::::::::::::::::::::::::::::::::::::t%
+:ttS:;;Xt;S@t%SS%:;;;;tXS;S8S;@SS;;8:;tS;8@@888S;;:%S;%X@XS;%@8888;:;;;:;:;:;::
+:;S%;;t@@:XXt%%t;:;;:;t88;SS%;X.;;88t;t8.t@tttt:;;:88;;Xtt;:tX%%tt;::;:;:;:;:;:
+::t;:::tS:S@t@S@8@8t;;t%X;;%;;St%;:S;:t%;X%@888@%;;SS:tX@@;:tS8@888%;;:;::;:;::
+S@88X8S88:88%%t:;:;:;;S8@:X8;;SX@888S;@@S;t;;;:;:%8@88t%:;:;;St:;;:;:;:;:;:;:;:
+:;88@;::;:;::8888@8@@;;@;:S%:;:S:;:;;;8@8:;:;:;:;;:%;;%.888;%88@88@@8;:;:;::;::
+:::;:;:;:t;;;;;;;::;:::::;:t;:;:;:;::;:::;;;::;::;;:;t:;;:::;::t;:;:;;:;::;:;:;
+;;;;;;;;%8888;;;;;;;;;;;;;;S888%;;;;;;;;;;88t;;;;;;;;X88;:;;;;;S88;;;;;;;;;;;;;
+       ..t:.;;:;..t.:..:;%:;:t.:.....;t:.......t:...............:.............
+ 8..:.:8:%t%XX88:;@S@8;%88;XS@8SS@X@8@X8Xt@S@; 88StX8X; .  .%8..X@%SXtX@XSX.Xt
+    .   ....:............ ..............;......................................
+  .     .   . .     .    .  ;              .:  .       .:     .:    ....  . .
+  .  .  . .  .t888.   .      . . . . . . . :88t  .  .  .;88   .@8. ..%8@88t .
+  @X;@@@8%8.   . .  .   . .                .         . .   .  .     . . .   .
+ .    .  .  . t8SXS@XS@;.8888S@@8S888%X.....%%SSt%%StS:.tX%%;..:tStX;t:.....:
+  8;X%X%t @%t ;@%8@888XXS8@8XS8%@88@88@:..:.%tSStt%S%S:.ttt%t...%t;S;t:.....:
+  8%88X88:888 ;8@888888%:X8@@888@8S8@X8    .S@XX%tX@S8. SXSX; ..S@t8;%: . .   .
+;;:;;;;t;tt;;.:X.t;%tttt;t%t%:%;;%ttt@@  .  :;:;:..:.:  ::.::   ;.:;.:.     .
+888t :;S88888 ;88@8S%X@@t%S8%S;t%8tt@8%    .XX888t8S@8S S@XXt  ;@8t8;S:  .
+%X8SXXS@SSSS%.:8;t;%t:t: XS%XS@%S;XSXt%  . .t;;%t.t::%:.;t;:.. .;;;t.:.    .  .
+  ;;:. .   .  :@S888@@8X%88888@@88888@%     %%SX%;St%X% t%%St  :SSt@;t: .
+  S8SSS@X    .;@S@X88X8;:88@88888X888%@.  . %%SSttSSX;  %X%%; ..%StX;t.   .  .
+        . .   :S;S%XSX%%;SS%XS%tXSXtX88    .;t;t;:t:;.. :::;:   ;::t::. .   .
+  .  .      . ;88X@StSXS:;%@tStX;8:Xt8S  .  @@88SS8X8t  X8X@%  .@8%8tS;   .
+   .   .  .  .:@; .;; .;;t%;t;t;;%tt;t;    .;:;:::::..  :;::  ..:;::.:       .
+     .        ;8XX@SSS@@%X88X@@8S8S8SS: .   SXX@%t@%8;. SS%X%  .X@%8;%: .  .
+  .    . . . .:8%S%XX%X: 8@XX@8@@S8X@tS   . %t%%;t%;S;  ;Stt:  .tt;S:;.  .    .
+   .          :St@X888XS%@XS8XXS8X8S%88 .   tt%%;:%;t:  t;;t;  .t;;%:;:    .
+     .  .  . .;8@888888%:X88@@88S8S88X8   ..SXXX%%@X8t  SXSX;. .%@t8;%:  .   .
+  .   .       :X;;;%Sttt;SX%X;X:t%SSX@X .  .;;tt;:t::.  :;;::   t;:t.; .
+    .    .  . ;8@X8SS%@@%S@8XXX8%8t@X@t     X8@8%@@X8t .SXSX% ..S@X8t%:   . . .
+  .    .     .:8t;;%t:%. XS%SSSSSt@X%t% . . t;tt:;;;t:  ;t;:.  .;t:%::. .
+     .   . .  :@S888@X8X%88@888X88888@%     %SSS%XS%X:. t%%St . %X%@:%:   . .
+  .    .     .;8X@@88@8t.8888888@X8@8X8 .  .%%SStSXSX;  %X%%;  .tXt@;t. .     .
+    .     .   :X:%tX%S%t;%StS;%;tS%SS88  .  ;;tt:;t:;. .:::;:  .t;:;.:.   .
+  .   .  .  . ;88X@St%X%:;%@tSt8tX:;t8%    .X888X@88X8  X8X@%   %8S8tS:.    .
+    .        .:@; .;; .;;t%;t;t;tttt;%;.  . ;;;;::::::  ::::  . .:::.:  .  .  .
+  .   . .  .  :8S@8XXX8@t@8888888XX88Xt    .%@XXtSS%t8. %S%S%   ;S%8;%:
+          .  .;XS;%XSSSX;X;%;SS%SS%%8X888S .%ttS%;%tt@; ;%t%t  .  ;X:   . . .
+  . .  .      ;X%X88XS88@@@@X@X88@Xt%X8X%@; ;%t%t:tt;tt ;%:;S    .:%: .       .
+     .   .  . . .           . .         .   .    .    .       .         .  .
+  .    .     .   .   .  .      .  .  .        .    .    .  .    .  . .       .
+    .     .    .      .   .  .      .  .  .  .  .    .   .   .         . . .
+ tt;: .  .  .    .  .   .   .   . .        .      .    .      .  . .       8XS:
+ :SXX        .    .   .   .   .      .  .     .  .  .     . .        . .   88S:
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ img2txt -W 79 -x 1 seeofit1.png
+X888@;t%t;t%t;;tt;;;tt%SS;t%t;SSt;t%::;%:;tt;;;;:::tt;;%;t;::tt%t%;;:::::::::tt
+::t;S%%%ttt;t:;XtSSXXS%t;XXS@SXSS%XXSS@.::.:%tt%;;%t;%;.;t;;:: :tt;t;;::::....
+  :....:. .   :8S@X88@@%;88X888@8@8@888    .%%%SttStS;  t%t%;  .%%tX:t.
+ .....       .:S;%%S%%%;:%%tS%%%St%S%%S:.:  ;;;t:;;;;;. :;;;:   :::t.:. . .::..
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ img2txt -W 79 seeofit1.png
+.%.:%;:%.         .;t88X.t::@t8@S@8%                                 ;  ;X  ;t
+t S.%%:::....  .. .:;88.8 ...:::...: . .  . . .  . . .  . . .  . . .   .    .SS
+@8@8@t@@%:;XX:.tXt:.t:S;8 .:.:..:.:.:...:..:...:.:..:.:..:..:.:...:.:.:..:.::88
+:t%8S:tXS:S@tSSSt;;;:;tX%:X8X;@8t;@@;;t8.X88@@@t;;:X@:t@SS%;%8X8@8;::;:;:;:;:;:
+;%XXtttSS;XXtStSSSXt;;t@8:SX;;X@%ttX;;t%:XS8XX@St;%XXttSSS;:;SX8XX@t;;:;::;:;::
+tS888X;%%:%%t@@SX%XSS;t8%;X@;;X@%%%St;88@:;;:;::;tS8SX%@X@@;t@X8SX8@S;;:;:;::;:
+:;ttt;;:t@@XX;:;:::;;;;:;;:%8XXt;:;:;::::;X@;:;::;::;%@X:::;;:;%X@;:;;::;:;:;::
+.t....:%:t;;t@%t::%XSt:tS@8tX@tX;;S%%SXS%X;X%:.@t%XX%SX.:..:;t:.;:::;::;:::.;;.
+ .. .  :.::::t;t..;t%;:::;%;%t;t:;ttttStStttt:.;t%%;tt%... .:;..;t;;;:tt;t;:;.
+             .;S%S   .      :    .     .   :SS:    .   .;%S   .SS.  .tS%SS; . .
+  St88@@X8X   .;....  ......  ......... .................: ..................
+  8tXSS%S.@St.;8%8@888@%;8@88X8X8888888.. ..%%SSt%%S%S:.tS%%;...%%;X;t:.. ...
+::;;%%%%t:tt% :8S@@888@%:8888X8X8@88888     %S%St;%StX  t%t%;  .%%tX:t.      .
+@8S@%%XX88888 ;8S@@88@@%;8@X88888X88@88   . %%%X%;%;%Xt t%t%;  :%X:X:t. .  .
+  %%%%;t: .  .:8S8@8888%:88X88888@88888    .%%%X%;SttXt.tSt%;  :%StX;t..      .
+  S:%%%%;     ;8S@X888@%:88@888X8X8@888     %%SSt;StS;  t%t%; . %%tX:t.  .  .
+           . .:8S@@88@@%;88X888@8@88888   . %%%Stt%%S: .t%t%;  .%S:X:t..
+  . . .  .    ;8S@@888@%:88@8@8@8X8@8@8    .%%SS;t%tS;  t%t%;  .%StX:t.   . .
+            . :8%8@8888%;88@888X8@8@@88    .%%SSttStS;  tSt%;  .%ttX:t: .     .
+  .  .  . .  .:8S@X88@@%;88@888@8X88888   . %%SSt;S%S: .t%t%;  .tS;X:t.    .
+      .       ;8S@@888@%;88@888@8@88888.   .tS%St%StS;  t%t%;  .%%tX:t..  .  .
+ . .     .  . :8S8@8888%;88@888@8@88888  .  %SSStS%%S;  %%%%; ..tXtX;t.  .
+     .  .    .;8S@X88@@%;88X888X8@88888   . %%%StSX%S:. t%t%;  .%StS:t..    .
+  .    .  .   :8%@@888@%:88@888@8S88888    .%SSStt%XtX  t%t%;   ;%tX:t.   .   .
+    .       . :8S@@88@@%;88@888@8S88@88. .  %S%Stt%ttX  t%t%; . ;ttX:t: .   .
+ .    .  .   .tt%S88XX88S@X@X@888@SS@8888@: %%%X%;SttX% tSt%S    .;X;
+   .       .             .           .       .     .           .       .  . .
+  .  . . .   .       .      .  .  .     . .     .    .  .   .     .  .   . ::
+ tS%S      .     .     . .    .     .       .  .   .      .   .        .   8@@:
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #
+#  I've made it black and white, with thicker text (all using GIMP), so
+#+ It should be more easily seen, as so it can be viewed in my logfile.
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ img2txt -W 79 seeofit1.png  # Okay, this is fake
+FamilySearch_-_DGS005132154_00033.jpg
+FamilySearch_-_DGS005132154_00035.jpg
+FamilySearch_-_DGS100585845_00001.jpg
+FamilySearch_-_DGS100585845_00499.jpg
+FamilySearch_-_DGS102439140_00010.jpg
+FamilySearch_-_DGS102439140_00014.jpg
+FamilySearch_-_DGS102439140_00016.jpg
+FamilySearch_-_DGS102439140_00017.jpg
+FamilySearch_-_DGS102439140_00022.jpg
+FamilySearch_-_DGS102439140_00035.jpg
+FamilySearch_-_DGS102439140_00062.jpg
+FamilySearch_-_DGS102439140_00083.jpg
+FamilySearch_-_DGS102439151_00005.jpg
+FamilySearch_-_DGS102439151_00021.jpg
+fs_watermarks_etc_pre_conversion_1753209154_2025-07-22T123234-0600.out
+seeofit1.png
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #  But I didn't save it here.
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ img2txt seeofit1_edit.png
+.:88:%t         X@8  %8SSS%;                        ;. 8  8.
+8X88S8% 88 t@%.8888t.   .    .  . .  .  . .  .  . .     .;@t
+  :. .:;8XX@S     : .t .8;@8   @XX88: S8;S8@X  S88;  .
+S8%@X88S 88@88X  8t;8%t::8XX 8@8X@88%;%t%;8@  8X888.  .  .
+ X8S  ;%tt;88888.@; 8XtS   . @8 %:.  . ;;8X@8 88SS@@;     .
+.;  ;%t888S@;:XS;.@8@;%8%;StX@tS88:t%%XS@X;  :t @8::; . . %
+.%. .t..;tX@;:88t:X@S8@@XX@8@@8888;;X88@8@   tS::888t@888;S
+ t8@X888.  X@8.. .   .  .  . .. .8Xt .. . :;8. tXX  %@8S8
+ %X8@8%SXt..@Xt%X8S%%t@SXX;%t8   8@%S8X8S;:%8@  X@8%%S    ..
+ @8888X%@@ %tt .%SS..:: :tt.:8   @  .8%;.;; S%. 8 %.S@  .
+ S@S@8  .  ;::St:;@:.t%St:St;t. .X;.:@:..Xt.t.  X;;:X8    .
+ @%tSX@    :X%.;SS8ttt%;%t:%.X   8S;%8tX8.;%8S  8S@t%S.
+        .  %SX:;X@S.;.t.tt.tt8   8t.;8%t8 ;:XS  @.8;SX  .  .
+  .  .    .%::%;.;@. ..t:.%.:% . X...8. @ ;:%   8.t:X@   .
+       .   :%:: :t8 : ;.:.::;t   @; .8.S8 t:X; .8:X.S@ .
+  . .    . ;@X;%X8S%%%S%SS;tt8   8%%%8SX@ ;%8@  XS@%%S    .
+      .    S: ;::;X;.:.t..SS.X . X ; ;: @ ;;%.  8;::X@  .
+  .    .   t; %:.t8: ; :.;%ttt   X : S::..t %. .t;t.X@.    .
+    .    . .XX;%X@X%SSX%@@;St@  .8%%X88@% :S8@   X@S%S   .
+  .   .    ;88X%@%88S8XXSX8X%tX@:8SX%8@XX8t@8@t   8%   .
+    .   . .         .    .     . .  .        . . .       .
+ 8@@  .       .  .   .       .        .   .        . .  t :8
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #  Interesting what it makes of a black and white image.
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ cat >/dev/null <<'EOF'
+>
+> Okay, I'll tell you what I'm going to do. I'll try to make it visible in
+> a terminal that started with width 80. Then I'll try it with one maximized
+> to fit the whole window (using the box in the upper-right corner).
+> With both the standard and maximized windows, I'll make the text size
+> of the terminal as small as possible.
+>
+> I'll go into this same directory (before making things small) and find
+> the actual width of the terminal having tiny text size by using
+>
+> tput cols > width_standard
+> tput cols > width_maximized
+>
+> Then, using the number of columns (viewing them with a text editor having
+> normal-sized text, though I guess I could just try to type or copy without
+> any mistakes using  `n_cols=$(tput cols)`  then  `img2txt -W ${n_cols} ...`
+>
+> But anyway, the commands will be
+>
+> img2txt -W <n_cols> seeofit1.png
+>
+> Then I'll take screenshots of the terminals to include in the same dir as
+> this log (maybe made into a markdown) file.
+>
+> EOF
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ checksituation
+
+ Current date/time is
+Tue Jul 22 13:29:43 MDT 2025
+1753212583
+1753212583_2025-07-22T132943-0600
+
+ Current directory ( pwd ) is
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #  Opening different terminals
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #+ Now, they're open and zoomed out
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ cat width_standard
+560
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ cat width_maximized
+cat: width_maximized: No such file or directory
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ ls
+FamilySearch_-_DGS005132154_00033.jpg
+FamilySearch_-_DGS005132154_00035.jpg
+FamilySearch_-_DGS100585845_00001.jpg
+FamilySearch_-_DGS100585845_00499.jpg
+FamilySearch_-_DGS102439140_00010.jpg
+FamilySearch_-_DGS102439140_00014.jpg
+FamilySearch_-_DGS102439140_00016.jpg
+FamilySearch_-_DGS102439140_00017.jpg
+FamilySearch_-_DGS102439140_00022.jpg
+FamilySearch_-_DGS102439140_00035.jpg
+FamilySearch_-_DGS102439140_00062.jpg
+FamilySearch_-_DGS102439140_00083.jpg
+FamilySearch_-_DGS102439151_00005.jpg
+FamilySearch_-_DGS102439151_00021.jpg
+fs_watermarks_etc_pre_conversion_1753209154_2025-07-22T123234-0600.out
+seeofit1.png
+seeofit1_edit.png
+width_standard
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ ls
+FamilySearch_-_DGS005132154_00033.jpg
+FamilySearch_-_DGS005132154_00035.jpg
+FamilySearch_-_DGS100585845_00001.jpg
+FamilySearch_-_DGS100585845_00499.jpg
+FamilySearch_-_DGS102439140_00010.jpg
+FamilySearch_-_DGS102439140_00014.jpg
+FamilySearch_-_DGS102439140_00016.jpg
+FamilySearch_-_DGS102439140_00017.jpg
+FamilySearch_-_DGS102439140_00022.jpg
+FamilySearch_-_DGS102439140_00035.jpg
+FamilySearch_-_DGS102439140_00062.jpg
+FamilySearch_-_DGS102439140_00083.jpg
+FamilySearch_-_DGS102439151_00005.jpg
+FamilySearch_-_DGS102439151_00021.jpg
+fs_watermarks_etc_pre_conversion_1753209154_2025-07-22T123234-0600.out
+seeofit1.png
+seeofit1_edit.png
+width_standard
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #  Why no width_maximized? Because I didn't  'cd'
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #2copy#cd /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ cat width_maximized
+1901
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ cat width_standard
+560
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ cat >/dev/null <<'EOF'
+>
+> The commands will be
+>
+> img2txt -W 1901 seeofit1_edit.png
+>
+> and
+>
+> img2txt -W 560 seeofit1_edit.png
+>
+> I'll probably try them with the colored  seeofit1.png , too, just for
+> kicks and giggles
+>
+> EOF
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #  The 1901 is almost too good.
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #  I'm making the standard (80x24) terminal taller.
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #  Just a bit too small to see. I'm going to try with a double the width
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ # (1080 pixels, why does that sound familiar?)
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ cat >/dev/null <<'EOF'
+>
+> Doing
+>
+> img2txt -W 1901 seeofit1.png
+>
+> img2txt -W 560 seeofit1.png
+>
+> (After a few screenshots)
+>
+> EOF
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #  Oh, it's 1080 characters, not pixels, but whatever.
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ find . -type f -iname "*.png"
+./BW_from_1901_col_terminal_01.png
+./BW_from_1901_col_terminal_02.png
+./BW_from_1901_col_terminal_03.png
+./BW_from_1901_col_terminal_04.png
+./BW_from_560_col_terminal.png
+./seeofit1.png
+./seeofit1_edit.png
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ ls_name_and_size *.png
+184320 BW_from_1901_col_terminal_03.png
+151552 BW_from_1901_col_terminal_02.png
+135168 BW_from_1901_col_terminal_04.png
+ 94208 BW_from_1901_col_terminal_01.png
+ 90112 BW_from_560_col_terminal.png
+ 81920 seeofit1.png
+ 28672 seeofit1_edit.png
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ man img2txt | grep "no*color"
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ man img2txt | grep "mono"
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ man img2txt | grep "black"
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ man img2txt | grep "white"
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ man img2txt | grep "color"
+                none     : Nearest color
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #man img2txt  # do it in another terminal?
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ man img2txt | cat | wc -l
+98
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ man img2txt | cat
+img2txt(1)                  General Commands Manual                  img2txt(1)
+
+NAME
+       img2txt - convert images to various text‐based coloured files
+
+SYNOPSIS
+       img2txt [ -W width ] [ -H height ] [ -x font‐width ] [ -y font‐height ]
+               [ -b brightness ] [ -c contrast ] [ -g gamma ]
+               [ -d dither ] [ -f format ] FILE
+
+DESCRIPTION
+       img2txt  converts  images to colour ASCII characters and outputs them to
+       text‐based coloured files.
+
+       img2txt can load the most widespread image formats: PNG, JPEG, GIF, PNG,
+       BMP etc (see NOTES for details).  By  default  the  output  text  is  60
+       columns  wide, and the line count is computed accordingly to respect as‐
+       pect ratio of original file.  The default output format is standard ANSI
+       coloured text.
+
+OPTIONS
+       -W, --width=<width>
+              Change output column count. If not given, the default is  set  to
+              60.
+
+       -H, --height=<height>
+              Change output line count. If not given, the height is computed to
+              match correct aspect ratio.
+
+       -x, --font‐width=<width>
+              Change  output font width. If not given, the default is set to 6.
+              This value will be used for computing aspect ratio.
+
+       -y, --font‐height=<height>
+              Change output font height. If not given, the default  is  set  to
+              10. This value will be used for computing aspect ratio.
+
+       -b, --brightness=<brightness>
+              Change image brightness. Default to 1.0.
+
+       -c, --contrast=<contrast>
+              Change image contrast. Default to 1.0.
+
+       -g, --gamma=<gamma>
+              Change image gamma. Default to 1.0.
+
+       -d, --dither=<dither>
+              Change dithering algorithm. This can be one of the following (de‐
+              fault to fstein) :
+                none     : Nearest color
+                ordered2 : Ordered 2x2
+                ordered4 : Ordered 4x4
+                ordered8 : Ordered 8x8
+                random   : Random
+                fstein   : Floyd Steinberg
+
+       -f, --format=<format>
+              Change  output  format. This can be one of the following (default
+              to ansi) :
+                ansi   : coloured ANSI
+                caca   : internal libcaca format
+                utf8   : UTF8 with CR
+                utf8cr : UTF8 with CRLF (MS Windows)
+                html   : HTML with CSS and DIV support
+                html3  : Pure HTML3 with tables
+                irc    : IRC with ctrl‐k codes
+                bbfr   : BBCode (French)
+                ps     : Postscript
+                svg    : Scalable Vector Graphics
+                tga    : Targa Image
+
+       -h, --help
+              Display help message and exit.
+
+       -v, --version
+              Display version of the program and exit.
+
+EXAMPLES
+       img2txt hello.jpg > hello.ans
+
+       img2txt --width=40 --format=svg hello.jpg > tinyhello.svg
+
+NOTES
+       Setting both column and line count (using --width and --height) will let
+       you choose the exact output size without taking aspect ratio in account.
+
+       You must compile libcaca package with support of Imlib2 to  be  able  to
+       load  a  wide variety of image formats. Otherwise you will only  be able
+       to load regular BMP files.
+
+SEE ALSO
+       cacaview(1)
+
+AUTHOR
+       This manual page was written by Sam Hocevar <sam@hocevar.net> and  Jean‐
+       Yves Lamoureux <jylam@lnxscene.org>.
+
+libcaca                            2007‐11‐07                        img2txt(1)
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ range 899..950
+bash: range: command not found
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ for i in {899..901}; do echo $i; done
+899
+900
+901
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ tput col
+tput: unknown terminfo capability 'col'
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ tput cols
+80
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ cat >/dev/null <<'EOF'
+>
+> I know there's gotta be a sweet spot where the vertical height hits some
+> "resonance"/"sweetspot"/ratio and the characters all come out nice and
+> smooth, without those extra lines containing skinny characters instead of
+> (erase "instead of") but rather with just black for the characters.
+>
+> 942  Not too bad: pattern4-5 about right on, 2-3 with extra, small-letter
+>      rows
+>
+> 940  Seems better than 942
+>
+> Oh, where I'm getting these from. Changed my terminal's scrollback from
+> 10k to 100k, then ran
+>
+>
+#  Find that sweet spot for the characters to nicely render
+for i in {875..950}; do
+  echo -e "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+  echo "${i}"
+  echo -e "\n\n"
+  img2txt -W ${i} seeofit1_edit_crop.png 2>/dev/null
+  echo -e "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+done
+>
+> That's a nice program.
+>
+> 933  All very nice except 4 (and maybe 1/2) rows
+>
+> 925  Nice. I don't think nicer than 933, but close 5 + 3/2 bad
+>
+> 921  Best yet. 3 + 4/2
+>
+>
+919  Even better. 3 + 2/2
+
+# Lost it with an actual |_Ctrl_| + |_c_|
+
+910 Great, 2 + 4/2
+
+# Lost it with an actual |_Ctrl_| + |_c_|
+
+916  Best yet 2 + 2/2
+
+909  Contender. 3 + 3/2, but the 8s are great
+
+# Lost it with an actual |_Ctrl_| + |_c_|
+
+908  Good area, 3+3/2, good 8s,
+919  Even better. 3 + 2/2
+907  2+1/2 Best so far, highly decent, with nicer letters and all 8s but 1
+# Lost it with an actual |_Ctrl_| + |_c_|
+905  Another 2+1/2, letters not quite as nice.
+910 Great, 2 + 4/2
+WINNER WINNER WINNER WINNER WINNNER WINNER WINNER
+# Lost it with an actual |_Ctrl_| + |_c_|re minor (middle of 3). 8s good
+     though not the best. Vertical edges okay. Header letters nice.
+916  Best yet 2 + 2/2WINNER WINNNER WINNER WINNER
+
+909  Contender. 3 + 3/2, but the 8s are greate
+
+# Lost it with an actual |_Ctrl_| + |_c_|vertical edges and 8s not as good.
+
+908  Good area, 3+3/2, good 8s,s that it was good. The even number doesn't
+NO   do so well
+907  2+1/2 Best so far, highly decent, with nicer letters and all 8s but 1
+894  Migh have mentioned it if it were near the beginning, but doesn't go
+905  Another 2+1/2, letters not quite as nice.
+
+WINNER WINNER WINNER WINNER WINNNER WINNER WINNER both get the 8s (which
+903  Hard to beat. 3/2, and two of them are minor (middle of 3). 8s good
+     though not the best. Vertical edges okay. Header letters nice.
+WINNER WINNER WINNER WINNER WINNNER WINNER WINNERerticals, great 8s
+
+902  Another 3/2. 8s and verticals not as nice
+
+901  Fighting 903. 2/2, but some rougher vertical edges and 8s not as good.
+
+900  Has 5+2/2, so I didn't miss that it was good. The even number doesn't
+NO   do so well
+
+894  Migh have mentioned it if it were near the beginning, but doesn't go
+NO   even to the candidates
+
+881  Not too bad, especialy with side. 2+5/2, but both get the 8s (which
+     are otherwise really nice
+
+882  Very similar to 881, but less 1/2 s, rough verticals, great 8s
+>
+> img2txt -W 903 seeofit1_edit_crop.png 2>/dev/null
+>
+> EOF
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #  With  tput cols  giving 903
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #  That is also really close to fitting the "image" in the window.
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ #  Now for some kicks/giggles time
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$ checksituation
+
+ Current date/time is
+Tue Jul 22 20:05:04 MDT 2025
+1753236304
+1753236304_2025-07-22T200504-0600
+
+ Current directory ( pwd ) is
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
+$
+
+
