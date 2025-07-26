@@ -202,16 +202,17 @@ ttdate && \
 find . -type f -iname "*.jpg" | \
   awk -F'/' '{print $NF}' | \
   grep "_abg" | \
+\# that last line was the problem #
   grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" | \
   sed 's#[.]jpg$##g' | \
     tr -s '_' | sed 's#^_##g; s#_$##g' | tr _ ' ' | \
       tr '\n' '\0' | \
       xargs -I'{}' -0 bash -c '
         orig="{}"; \
-        echo "${orig}" | xargs -n1 | sort | xargs'
+        echo "${orig}" | xargs -n1 | sort | xargs' \
+ && ttdatechk
 
-$ find . -type f -iname "*.jpg" |    awk -F'/' '{print $NF}' |    grep "_abg" |    grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" |    sed 's#[.]jpg$##g' |      tr -s '_' | sed 's#^_##g; s#_$##g' | tr _ ' ' |        tr '\n' '\0' | xargs -I'{}' -0 bash -c 'orig="{}"; echo "${orig}" | xargs -n1 | sort | xargs' | sort | uniq
-
+##### -v- The final 1bigccommand -v- #####
 $ ttdate &&\
   time \
 find . -type f -iname "*.jpg" | \ 
@@ -227,6 +228,7 @@ find . -type f -iname "*.jpg" | \
    tee uniq_combo_1bigcmd_sorted_legals_${my_ts}.lst \
  && ttdatechk
 
+##### -v- NOTE: just the last step of the 
 ttdate && \
   time \
 tr '\n' '\0' < \
@@ -251,6 +253,25 @@ tr '\n' '\0' < \
 #
 ######## GETTING ALL NAME-RULE-FOLLOWING CLASSIFICATIONS W/1 OF 'f25m3'
 #+ Very closely related to just-follow-naming-rules, but not the same search
+
+######## A VERY GOOD CONSISTENCY CHECK
+#  1. Get a list of all downloaded filenames, with only the filename base
+#+    and the to-be-stripped extension.
+#+ 2. Strip the extension. This gives us BIG (filename roots)
+#+ 3. Get a list of all the  filies in the dataset
+#+ 4. Strip off fully legal 3lett combos (with extension)
+#+ 5. This gives us DS (dataset's filename roots)
+#+ 6. Find those in DS but not in BIG. There should
+#+    theoretically be zero. Any that we find likely
+#+    have a classification typo or inconsistent filename base
+#+ 7. When you have done all checks and get 0 for
+#+ 8. $ comm -13 file_BIG file_DS | wc -l
+#+    Then you're ready to check for all of the files which
+#+    can be considered in-the-wild.
+#+    $ #WILD=$(comm -23 file_BIG file_DS)
+#+    $ Probably easier to do
+$_    $ comm -23 file_BIG file_DS > all_in_the_wild_possibilities_${my_tw}.lst
+
 
 
 ########    MULTIPLE CLASSES stuff
