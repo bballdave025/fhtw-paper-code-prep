@@ -1,0 +1,3825 @@
+Script started on 2025-07-25 18:02:48-06:00 [TERM="xterm" TTY="/dev/pty0" COLUMN
+S="70" LINES="46"]
+
+Anast@DESKTOP-O7KM5A5 ~
+$ checksituation
+
+ Current date/time is
+Fri Jul 25 18:02:51 MDT 2025
+1753488171
+1753488171_2025-07-25T180251-0600
+
+ Current directory ( pwd ) is
+/home/Anast
+
+  cat >/dev/null <<'EOF'
+Anast@DESKTOP-O7KM5A5 ~
+Today, we'll finish some sanity checks on the classification combinations.
+I also hope to start getting the yes/no for the 9 single binary
+classifications that will be done. The term, single binary classification,
+is the term for images having a specific type of reuse, A, (and possibly
+others) versus images not having A.The term, single binary classification,
+is the term for images having a specific type of reuse, A, (and possibly
+Those are ...s images not having A.
+
+(cwa|fmr|gni|nbr|orc|scg|spr|tbr|ucr)
+
+i.e.|fmr|gni|nbr|orc|scg|spr|tbr|ucr)
+
+(I was going to say these would be abbreviated directory names, but it
+might just be nicer to leave these as they are. i.e. We could use
+directory names with the three-letter labels.) directory names, but it
+might just be nicer to leave these as they are. i.e. We could use
+Doing a new heredoc to make sure I don't go past the number of lines
+the current terminal window can hold.
+Doing a new heredoc to make sure I don't go past the number of lines
+EOF current terminal window can hold.
+
+Anast@DESKTOP-O7KM5A5 ~
+$ cat >/dev/null <<'EOF'
+
+So, the nice abbreviated view of the 9 single binary classifications
+
+yes_cwa   no_cwa
+yes_fmr   no_fmr
+yes_gni   no_gni
+yes_nbr   no_nbr
+yes_orc   no_orc
+yes_scg   no_scg
+yes_spr   no_spr
+yes_tbr   no_tbr
+yes_ucr   no_ucr
+
+EOF
+
+Anast@DESKTOP-O7KM5A5 ~
+$ cat >/dev/null <<'EOF'
+
+The 10th classification is what I'll designate with the term,
+multi binary classification, which I use just so I can say
+single and multi, just like at Amazon shirts. This might better be called
+combined classifications. It's just images containing reuse for binding
+versus images not containing reuse for binding. We'll have the folders,
+
+is yes_reuse   no_reuse
+
+I shall (or at least should) heretofore say
+9 single-reuse-type binary classifications
+ancat >/dev/null <<'EOF'
+1 multi binary classification
+The 10th classification is what I'll designate with the term,
+multi binary classification, which I use just so I can say
+single and multi, just like at Amazon shirts. This might better be called
+combined classifications. It's just images containing reuse for binding
+versus images not containing reuse for binding. We'll have the folders,
+        9 single classifications are
+is yes_reuse   no_reuse
+yes_cwa   no_cwa
+I shall (or at least should) heretofore say
+9 single-reuse-type binary classifications
+and_nbr   no_nbr
+1 multi binary classification
+yes_scg   no_scg
+(probably better defined as
+1 combined-reuse-types binary classifications
+but the single/multi makes me happy
+
+So, the 9 single classifications are
+
+yes_cwa   no_cwaeuse
+yes_fmr   no_fmr
+yes_gni   no_gni
+yes_nbr   no_nbr
+yes_orc   no_orc
+yes_scg   no_scg
+yes_spr   no_spr
+yes_tbr   no_tbr
+yes_ucr   no_ucr
+
+and the 1 multi classification is
+
+yes_reuse   no_reuse
+
+EOF
+
+Anast@DESKTOP-O7KM5A5 ~
+$
+
+Anast@DESKTOP-O7KM5A5 ~
+$ find /cygdrive/c/David/my_repos_dwb/fhtw-paper-code-prep/dataset_preparation_e
+xamples/ -type f | wc -l
+9
+
+Anast@DESKTOP-O7KM5A5 ~
+$ find /cygdrive/c/David/my_repos_dwb/fhtw-paper-code-prep/dataset_preparation_e
+xamples/ -type f
+/cygdrive/c/David/my_repos_dwb/fhtw-paper-code-prep/dataset_preparation_examples
+/complete_steps_complete_pdf_through_jpeg_all_io_with_mistakes_etc_and_ascii.log
+/cygdrive/c/David/my_repos_dwb/fhtw-paper-code-prep/dataset_preparation_examples
+/label_checking_01_Lab_Notebook_bballdave025_1753329287_2025-07-23T215447-0600_c
+lean.log
+/cygdrive/c/David/my_repos_dwb/fhtw-paper-code-prep/dataset_preparation_examples
+/label_checking_02_Lab_Notebook_bballdave025_1753410017_2025-07-24T202017-0600_c
+lean_manual.log
+/cygdrive/c/David/my_repos_dwb/fhtw-paper-code-prep/dataset_preparation_examples
+/steps_grayscale_to_rgb_24_bit_ie_1_to_3_channel_jpeg.log
+/cygdrive/c/David/my_repos_dwb/fhtw-paper-code-prep/dataset_preparation_examples
+/steps_pdf_through_jpeg.log
+/cygdrive/c/David/my_repos_dwb/fhtw-paper-code-prep/dataset_preparation_examples
+/steps_pdf_through_jpeg.md
+/cygdrive/c/David/my_repos_dwb/fhtw-paper-code-prep/dataset_preparation_examples
+/steps_rename_utrecht.log
+/cygdrive/c/David/my_repos_dwb/fhtw-paper-code-prep/dataset_preparation_examples
+/steps_rename_utrecht.md
+/cygdrive/c/David/my_repos_dwb/fhtw-paper-code-prep/dataset_preparation_examples
+/steps_walkthrough_pdf_through_jpeg.log
+
+Anast@DESKTOP-O7KM5A5 ~
+$ find /cygdrive/c/David/my_repos_dwb/fhtw-paper-code-prep/dataset_preparation_e
+xamples/ -type f -iname "label_checking*"
+/cygdrive/c/David/my_repos_dwb/fhtw-paper-code-prep/dataset_preparation_examples
+/label_checking_01_Lab_Notebook_bballdave025_1753329287_2025-07-23T215447-0600_c
+lean.log
+/cygdrive/c/David/my_repos_dwb/fhtw-paper-code-prep/dataset_preparation_examples
+/label_checking_02_Lab_Notebook_bballdave025_1753410017_2025-07-24T202017-0600_c
+lean_manual.log
+
+Anast@DESKTOP-O7KM5A5 ~
+$ tail -n 25 .bballdave025_bash_aliases
+alias cmds4checkfnames=cfcf
+alias cfsquared=cfcf
+alias c4cf=cfcf
+
+
+
+
+## Used classifications for FHTW-2025, greppable (BRE)
+alias fhtw2025all3lett='echo "\(abg\|cwa\|fko\|fmr\|gni\|iac\|'\
+'mbr\|mcl\|mmx\|nbr\|oic\|orc\|scg\|spr\|suh\|tbr\|ucr\)"; echo; '\
+'echo; echo "Also remember the regexes (specific for Notepad++ at '\
+'the moment); '\
+'echo "   Srch:   ^(.{80})\n(.+)\$      Repl:   \1\2"; '\
+'echo "   Srch:   ^(.{160})\n(.+)"'
+alias f25a3='fhtw2025all3lett'
+
+
+
+
+##  Classifications used by Reuse Model for FHTW 2025,
+##+ greppable (BRE)
+alias fhtw2025model3lett=\
+'echo "\(cwa\|fmr\|gni\|nbr\|orc\|scg\|spr\|tbr\|ucr\)"'
+alias f25m3='fhtw2025model3lett'
+
+
+Anast@DESKTOP-O7KM5A5 ~
+$ type cfcf
+cfcf is aliased to `commandsforcheckingfilenames'
+
+Anast@DESKTOP-O7KM5A5 ~
+$ type commandsforcheckingfilenames
+commandsforcheckingfilenames is aliased to `echo "${str4fnameregexcheck}"'
+
+Anast@DESKTOP-O7KM5A5 ~
+$ echo "${str4fnameregexcheck}"
+
+######### COMMANDS CAN BE COPY/PASTED, OR YOU CAN USE THE IDEAS #########
+######### TO GET WHAT YOU WANT. (DON'T INCLUDE LEADING $S)      #########
+
+$ #  Any with non-printable ASCII?
+$ find . -type f | awk -F'/' '{print $NF}' | \
+    grep -P "[\x00-\x08\x0B-\x0C\x0E-\x1F\x7F]" | wc -l
+$ #  Any with undesired space-y (still non-printable --
+$ #+ tab, line feed, carriage return, space)?
+$ find . -type f | awk -F'/' '{print $NF}' | \
+    grep -P "[\x09-\x10\x0B\x0D\x20]" | wc -l
+$ #  Any that are actually non-ASCII?
+$ find . -type f | awk -F'/' '{print $NF}' | \
+    grep -vP "[\x00-\x7F]" | wc -l
+$ #  Sanity check: do we get the right number of files if we do
+$ #+ a slightly-changed negation of the previous (simple check
+$ #+ for ascii, naive actually)?
+$ #wrong#find . -type f | awk -F'/' '{print $NF}' | \
+  #wrong#  grep "^[\x00-\x7F]\+$" | wc -l
+$ #  Do we have any filenames with undesired
+$ #+ ASCII characters
+$ # So, to find out if any filenames have those unwanted characters
+$ find . -type f | awk -F'/' '{print $NF}' | \
+    grep '[] ~!@#$%^&|\/)(}{[*?><;:"`'"'"']' | wc -l
+
+
+#  This is as good a place as any to put these next notes, which
+#+ are useful for fixing the new replay cleaning of runscript results
+#+ Note to WATCH OUT for false positives when joining lines that
+#+ got cut by the right side of the terminal.
+#+ The right-side-of-the-terminal thing is why we have a series of
+#+ regexes having multiples of 80. If the terminal width has been
+#+ changed, the regexes will need to change in order to match the
+#+ width. The width can be found with   tput cols
+## (Cleaning still not perfect, but better now than before. I'm pretty
+#+ sure the problem is specific to Cygwin but haven't tested.)
+#
+#  The series of regexes is specifically for Notepad++ and has a few
+#+ quirks specific to that program. There shouldn't be any spaces.
+
+   Srch:   ^(.{80})\n(.+)$      Repl:   \1\2
+   Srch:   ^(.{160})\n(.+)$     Repl:   \1\2
+
+# and so forth with 240, 320, ... if needed.
+
+#########################################################################
+
+
+Anast@DESKTOP-O7KM5A5 ~
+$ cfcf
+
+######### COMMANDS CAN BE COPY/PASTED, OR YOU CAN USE THE IDEAS #########
+######### TO GET WHAT YOU WANT. (DON'T INCLUDE LEADING $S)      #########
+
+$ #  Any with non-printable ASCII?
+$ find . -type f | awk -F'/' '{print $NF}' | \
+    grep -P "[\x00-\x08\x0B-\x0C\x0E-\x1F\x7F]" | wc -l
+$ #  Any with undesired space-y (still non-printable --
+$ #+ tab, line feed, carriage return, space)?
+$ find . -type f | awk -F'/' '{print $NF}' | \
+    grep -P "[\x09-\x10\x0B\x0D\x20]" | wc -l
+$ #  Any that are actually non-ASCII?
+$ find . -type f | awk -F'/' '{print $NF}' | \
+    grep -vP "[\x00-\x7F]" | wc -l
+$ #  Sanity check: do we get the right number of files if we do
+$ #+ a slightly-changed negation of the previous (simple check
+$ #+ for ascii, naive actually)?
+$ #wrong#find . -type f | awk -F'/' '{print $NF}' | \
+  #wrong#  grep "^[\x00-\x7F]\+$" | wc -l
+$ #  Do we have any filenames with undesired
+$ #+ ASCII characters
+$ # So, to find out if any filenames have those unwanted characters
+$ find . -type f | awk -F'/' '{print $NF}' | \
+    grep '[] ~!@#$%^&|\/)(}{[*?><;:"`'"'"']' | wc -l
+
+
+#  This is as good a place as any to put these next notes, which
+#+ are useful for fixing the new replay cleaning of runscript results
+#+ Note to WATCH OUT for false positives when joining lines that
+#+ got cut by the right side of the terminal.
+#+ The right-side-of-the-terminal thing is why we have a series of
+#+ regexes having multiples of 80. If the terminal width has been
+#+ changed, the regexes will need to change in order to match the
+#+ width. The width can be found with   tput cols
+## (Cleaning still not perfect, but better now than before. I'm pretty
+#+ sure the problem is specific to Cygwin but haven't tested.)
+#
+#  The series of regexes is specifically for Notepad++ and has a few
+#+ quirks specific to that program. There shouldn't be any spaces.
+
+   Srch:   ^(.{80})\n(.+)$      Repl:   \1\2
+   Srch:   ^(.{160})\n(.+)$     Repl:   \1\2
+
+# and so forth with 240, 320, ... if needed.
+
+#########################################################################
+
+
+Anast@DESKTOP-O7KM5A5 ~
+$ type f25a1
+bash: type: f25a1: not found
+
+Anast@DESKTOP-O7KM5A5 ~
+$ type f25a3
+f25a3 is aliased to `fhtw2025all3lett'
+
+Anast@DESKTOP-O7KM5A5 ~
+$ type fhtw2025all3lett
+fhtw2025all3lett is aliased to `echo "\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|
+mmx\|nbr\|oic\|orc\|scg\|spr\|suh\|tbr\|ucr\)"; echo; echo; echo "Also remember
+the regexes (specific for Notepad++ at the moment); echo "   Srch:   ^(.{80})\n(
+.+)\$      Repl:   \1\2"; echo "   Srch:   ^(.{160})\n(.+)"'
+
+Anast@DESKTOP-O7KM5A5 ~
+$ f25a3
+bash: syntax error near unexpected token `('
+
+Anast@DESKTOP-O7KM5A5 ~
+$ #  Fixing it in another terminal
+
+Anast@DESKTOP-O7KM5A5 ~
+$ cp .bballdave025_bash_aliases .important_backups/.bballdave025_bash_aliases.$(
+ttdate).bak
+
+Anast@DESKTOP-O7KM5A5 ~
+$ echo 'echo "\(abg\|cwa\|fko\|fmr\|gni\|iac\|'\
+'mbr\|mcl\|mmx\|nbr\|oic\|orc\|scg\|spr\|suh\|tbr\|ucr\)"; echo; '\
+'echo; echo "Also remember the regexes (specific for Notepad++ at '\
+'the moment); '\
+'echo "   Srch:   ^(.{80})\n(.+)\$      Repl:   \1\2"; '\
+'echo "   Srch:   ^(.{160})\n(.+)"'
+echo "\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|mmx\|nbr\|oic\|orc\|scg\|spr\|su
+h\|tbr\|ucr\)"; echo; echo; echo "Also remember the regexes (specific for Notepa
+d++ at the moment); echo "   Srch:   ^(.{80})\n(.+)\$      Repl:   \1\2"; echo "
+   Srch:   ^(.{160})\n(.+)"
+
+Anast@DESKTOP-O7KM5A5 ~
+$ echo "\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|mmx\|nbr\|oic\|orc\|scg\|spr\|
+suh\|tbr\|ucr\)"; echo; echo; echo "Also remember the regexes (specific for Note
+pad++ at the moment); echo "   Srch:   ^(.{80})\n(.+)\$      Repl:   \1\2"; echo
+ "   Srch:   ^(.{160})\n(.+)"
+bash: syntax error near unexpected token `('
+
+Anast@DESKTOP-O7KM5A5 ~
+$ echo 'echo "\(abg\|cwa\|fko\|fmr\|gni\|iac\|''mbr\|mcl\|mmx\|nbr\|oic\|orc\|sc
+g\|spr\|suh\|tbr\|ucr\)"; echo; ''echo; echo "Also remember the regexes (specifi
+c for Notepad++ at ''the moment); ''echo "   Srch:   ^(.{80})\n(.+)\$      Repl:
+   \1\2"; ''echo "   Srch:   ^(.{160})\n(.+)"' | sed 's#[;] #\n#g'
+echo "\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|mmx\|nbr\|oic\|orc\|scg\|spr\|su
+h\|tbr\|ucr\)"
+echo
+echo
+echo "Also remember the regexes (specific for Notepad++ at the moment)
+echo "   Srch:   ^(.{80})\n(.+)\$      Repl:   \1\2"
+echo "   Srch:   ^(.{160})\n(.+)"
+
+Anast@DESKTOP-O7KM5A5 ~
+$ echo "\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|mmx\|nbr\|oic\|orc\|scg\|spr\|
+suh\|tbr\|ucr\)"
+\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|mmx\|nbr\|oic\|orc\|scg\|spr\|suh\|tbr
+\|ucr\)
+
+Anast@DESKTOP-O7KM5A5 ~
+$ echo "Also remember the regexes (specific for Notepad++ at the moment)
+> ^C
+
+Anast@DESKTOP-O7KM5A5 ~
+$ echo "Also remember the regexes (specific for Notepad++ at the moment)"
+Also remember the regexes (specific for Notepad++ at the moment)
+
+Anast@DESKTOP-O7KM5A5 ~
+$ source .bballdave025_bash_aliases
+
+Anast@DESKTOP-O7KM5A5 ~
+$ type f25a3
+f25a3 is aliased to `fhtw2025all3lett'
+
+Anast@DESKTOP-O7KM5A5 ~
+$ type fhtw2025all3lett
+fhtw2025all3lett is aliased to `echo "\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|
+mmx\|nbr\|oic\|orc\|scg\|spr\|suh\|tbr\|ucr\)"; echo; echo; echo "Also remember
+the regexes (specific for Notepad++ at the moment);" echo "   Srch:   ^(.{80})\n
+(.+)\$      Repl:   \1\2"; echo "   Srch:   ^(.{160})\n(.+)"'
+
+Anast@DESKTOP-O7KM5A5 ~
+$ f25a3
+\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|mmx\|nbr\|oic\|orc\|scg\|spr\|suh\|tbr
+\|ucr\)
+
+
+Also remember the regexes (specific for Notepad++ at the moment); echo    Srch:
+  ^(.{80})\n(.+)$      Repl:   \1\2
+   Srch:   ^(.{160})\n(.+)
+
+Anast@DESKTOP-O7KM5A5 ~
+$ source .bballdave025_bash_aliases
+
+Anast@DESKTOP-O7KM5A5 ~
+$ type f25a3
+f25a3 is aliased to `fhtw2025all3lett'
+
+Anast@DESKTOP-O7KM5A5 ~
+$ type fhtw2025all3lett
+fhtw2025all3lett is aliased to `echo "\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|
+mmx\|nbr\|oic\|orc\|scg\|spr\|suh\|tbr\|ucr\)"; echo; echo; echo "Also remember
+the regexes (specific for Notepad++ at the moment)"; echo "   Srch:   ^(.{80})\n
+(.+)\$      Repl:   \1\2"; echo "   Srch:   ^(.{160})\n(.+)"'
+
+Anast@DESKTOP-O7KM5A5 ~
+$ f25a3
+\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|mmx\|nbr\|oic\|orc\|scg\|spr\|suh\|tbr
+\|ucr\)
+
+
+Also remember the regexes (specific for Notepad++ at the moment)
+   Srch:   ^(.{80})\n(.+)$      Repl:   \1\2
+   Srch:   ^(.{160})\n(.+)
+
+Anast@DESKTOP-O7KM5A5 ~
+$
+
+Anast@DESKTOP-O7KM5A5 ~
+$
+
+Anast@DESKTOP-O7KM5A5 ~
+$ type f25a3
+f25a3 is aliased to `fhtw2025all3lett'
+
+Anast@DESKTOP-O7KM5A5 ~
+$ type fhtw2025all3lett
+fhtw2025all3lett is aliased to `echo "\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|
+mmx\|nbr\|oic\|orc\|scg\|spr\|suh\|tbr\|ucr\)"; echo; echo; echo "Also remember
+the regexes (specific for Notepad++ at the moment)"; echo "   Srch:   ^(.{80})\n
+(.+)\$      Repl:   \1\2"; echo "   Srch:   ^(.{160})\n(.+)"'
+
+Anast@DESKTOP-O7KM5A5 ~
+$ source .bballdave025_bash_aliases
+
+Anast@DESKTOP-O7KM5A5 ~
+$ type f25a3
+f25a3 is aliased to `fhtw2025all3lett'
+
+Anast@DESKTOP-O7KM5A5 ~
+$ type fhtw2025all3lett
+fhtw2025all3lett is aliased to `echo "\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|
+mmx\|nbr\|oic\|orc\|scg\|spr\|suh\|tbr\|ucr\)";'
+
+Anast@DESKTOP-O7KM5A5 ~
+$ f25a3
+\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|mmx\|nbr\|oic\|orc\|scg\|spr\|suh\|tbr
+\|ucr\)
+
+Anast@DESKTOP-O7KM5A5 ~
+$ type f25m3
+f25m3 is aliased to `fhtw2025model3lett'
+
+Anast@DESKTOP-O7KM5A5 ~
+$ type fhtw2025model3lett
+fhtw2025model3lett is aliased to `echo "\(cwa\|fmr\|gni\|nbr\|orc\|scg\|spr\|tbr
+\|ucr\)"'
+
+Anast@DESKTOP-O7KM5A5 ~
+$ f25m3
+\(cwa\|fmr\|gni\|nbr\|orc\|scg\|spr\|tbr\|ucr\)
+
+Anast@DESKTOP-O7KM5A5 ~
+$ #  For some copy/paste action ...
+
+Anast@DESKTOP-O7KM5A5 ~
+$ f25a3
+\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|mmx\|nbr\|oic\|orc\|scg\|spr\|suh\|tbr
+\|ucr\)
+
+Anast@DESKTOP-O7KM5A5 ~
+$ f25m3
+\(cwa\|fmr\|gni\|nbr\|orc\|scg\|spr\|tbr\|ucr\)
+
+Anast@DESKTOP-O7KM5A5 ~
+$ cfcf
+
+######### COMMANDS CAN BE COPY/PASTED, OR YOU CAN USE THE IDEAS #########
+######### TO GET WHAT YOU WANT. (DON'T INCLUDE LEADING $S)      #########
+
+$ #  Any with non-printable ASCII?
+$ find . -type f | awk -F'/' '{print $NF}' | \
+    grep -P "[\x00-\x08\x0B-\x0C\x0E-\x1F\x7F]" | wc -l
+$ #  Any with undesired space-y (still non-printable --
+$ #+ tab, line feed, carriage return, space)?
+$ find . -type f | awk -F'/' '{print $NF}' | \
+    grep -P "[\x09-\x10\x0B\x0D\x20]" | wc -l
+$ #  Any that are actually non-ASCII?
+$ find . -type f | awk -F'/' '{print $NF}' | \
+    grep -vP "[\x00-\x7F]" | wc -l
+$ #  Sanity check: do we get the right number of files if we do
+$ #+ a slightly-changed negation of the previous (simple check
+$ #+ for ascii, naive actually)?
+$ #wrong#find . -type f | awk -F'/' '{print $NF}' | \
+  #wrong#  grep "^[\x00-\x7F]\+$" | wc -l
+$ #  Do we have any filenames with undesired
+$ #+ ASCII characters
+$ # So, to find out if any filenames have those unwanted characters
+$ find . -type f | awk -F'/' '{print $NF}' | \
+    grep '[] ~!@#$%^&|\/)(}{[*?><;:"`'"'"']' | wc -l
+
+
+#  This is as good a place as any to put these next notes, which
+#+ are useful for fixing the new replay cleaning of runscript results
+#+ Note to WATCH OUT for false positives when joining lines that
+#+ got cut by the right side of the terminal.
+#+ The right-side-of-the-terminal thing is why we have a series of
+#+ regexes having multiples of 80. If the terminal width has been
+#+ changed, the regexes will need to change in order to match the
+#+ width. The width can be found with   tput cols
+## (Cleaning still not perfect, but better now than before. I'm pretty
+#+ sure the problem is specific to Cygwin but haven't tested.)
+#
+#  The series of regexes is specifically for Notepad++ and has a few
+#+ quirks specific to that program. There shouldn't be any spaces.
+
+   Srch:   ^(.{80})\n(.+)$      Repl:   \1\2
+   Srch:   ^(.{160})\n(.+)$     Repl:   \1\2
+
+# and so forth with 240, 320, ... if needed.
+
+#########################################################################
+
+
+Anast@DESKTOP-O7KM5A5 ~
+$ find .important_backups/ -type f -iname ".bballdave025_bash_aliases.*" | tail
+-n 2 | head -n 1
+.important_backups/.bballdave025_bash_aliases.1753489253_2025-07-25T182053-0600.
+bak
+
+Anast@DESKTOP-O7KM5A5 ~
+$ find .important_backups/ -type f -iname ".bballdave025_bash_aliases.*" | tail
+-n 2 | head -n 1 | awk -F'/' '{print $NF}'
+.bballdave025_bash_aliases.1753489253_2025-07-25T182053-0600.bak
+
+Anast@DESKTOP-O7KM5A5 ~
+$ cd /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Jus
+t_3lett_FS_-_Combined/
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ cat >/dev/null <<'EOF'
+>
+> I found the categories using
+>
+> $ find . -type f -iname "*.jpg" | awk -F'/' '{print $NF}' | \
+> grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" | \
+> awk -F'.' '{print $1}' > class_3lett_finder_$(ttdate).lst
+>
+> Remember that there can be more than one classification per file, and that
+> some of the counts will come from the folders containing 'mbr' (and maybe
+> other) classifications.
+>
+> sed 's#_#\n#g;' \
+>   class_3lett_finder_$(ttdate).lst \
+>   awk 'NF' | sort | uniq > list_vert_3lett.lst
+>
+> That   list_vert_3lett.lst   had 17 lines
+>
+> A better version is adding, so the end of the pipeline is
+>
+>            | sort | uniq | sort > list_vert_3lett.lst
+>
+> Then the following input/output
+>
+> $ cat list_vert_3lett.lst | \
+>     sed 's#$#\\|#g;' | tr -d '\n' | sed 's#\\|$##'
+> abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|mmx\|nbr\|oic\|orc\|scg\|spr\|suh\|
+> tbr\|ucr
+>
+> (where the last two lines should be joined together without a space)
+>
+> EOF
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ #  Then I made the aliases
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ cat >/dev/null <<'EOF'
+>
+> But before that, I did a first check
+>
+> $ #  SANITY CHECKS FOR CLASSIFICATIONS.
+> $ dirlist=$(find . -maxdepth 1 -type d | grep -v "^[.]$")
+> $ #
+> #  All 'Across_Book_Gutter_Reuse' should have at least one class (though
+> #+ I should note that the 'Reuse' part isn't accurate, as I also put any
+> #+ '_oic', '_mmx', '_mcl' that had their non-reuse stuff across the book
+> #+ gutter in this classification.
+>
+> $ #
+> #  Also, there should be no files in the 'Across_Book_Gutter_Reuse' dir
+> $ find ./Across_Book_Gutter_Reuse/ -type f | wc -l  # should be '0'
+>
+>
+> $ #
+> #  For 'Connecting_or_Guard_Reuse', there can't be another binding class,
+> #+ nor can there be '_mbr', but '_mcl' can be there. I think that's all.
+> $ find ./Connecting_or_Guard_Reuse/ -type f -iname "*.jpg" | wc -l
+>
+> #  That out of
+> $ find . -type f -iname "*.jpg" | wc -l  # I got 3331, 2025-07-23
+>
+> #  Then I went backwards, checking for no bad filenames
+>
+> $ find . -type f -iname "*.jpg" | \
+>     awk -F'/' '{print $NF}' | \
+>     grep '[ ~@#$%^&|/)(}{[*?>\<;:"`]\|]'"\|'" | \
+>       wc -l      # We want to get '0'
+>
+>
+> So just look through this, start at this point and go up backwards.
+>
+> EOF
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ dirlist=$(find . -maxdepth 1 -type d | grep -v "^[.]$")
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ echo "${dirlist}" | sed -n '1,1p'
+./Across_Book_Gutter_Reuse
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ #  Note that this should be called
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ #+ 'Across_Book_Gutter_Reuse_and_Other_Interesting'
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ #+ or maybe even 'Across_Book_Gutter'
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ #  Same pattern as that finding the list of classifications.
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ cat >/dev/null <<'EOF'
+
+All 'Across_Book_Gutter_Reuse' should have at least one class (though
+I should note that the 'Reuse' part isn't accurate, as I also put any
+'_oic', '_mmx', '_mcl' that had their non-reuse stuff across the book
+gutter in this classification.
+Also, there should be no files in the 'Across_Book_Gutter_Reuse' dir
+
+$ find ./Across_Book_Gutter_Reuse/ -type f | wc -l  # should be '0'
+
+Here goes.
+
+EOF
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find ./Across_Book_Gutter_Reuse/ -type f | wc -l
+0
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ #  Actually, not the same thing as finding list of 3lett classifications
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" | awk -F'/' '{print $NF}' | head
+AarauAargauerKantonsbib_-_MsWettF13-ecod_00007_f001r_mcl_scg_fko.jpg
+AarauAargauerKantonsbib_-_MsWettF13-ecod_00213_f103r_mcl_scg.jpg
+AarauAargauerKantonsbib_-_MsWettF13-ecod_00215_scg.jpg
+BnE_-_VirorumIllustrium_Mss5786_00002_scg.jpg
+BnF_-_Breviarium_Alarici_Ms-Lat-4404_00004_mcl_scg.jpg
+BnF_-_Ms-Grec-487_00010_scg_fko.jpg
+BnF_-_Ms-Grec-487_00054_scg_fko.jpg
+BnF_-_Ms-Grec-487_00077_fko_scg_suh.jpg
+Bodleian-Library-Douce-A-subt-67_00004_scg.jpg
+Bodleian-Library-Douce-A-subt-67_00005_abg_scg.jpg
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" | awk -F'/' '{print $NF}' | \
+>    grep "_abg" | head
+Bodleian-Library-Douce-A-subt-67_00005_abg_scg.jpg
+ZurichZentralbib_-_MsD176C-ecod_00009_f001r_abg_cwa.jpg
+Bamberg_-_MscLit152_00204_abg_fmr.jpg
+BeineckeMs1119-10622001_00006_abg_fmr.jpg
+Bodleian-Library-MS-Add-A-263_00138_abg_fmr.jpg
+Bodl_-_Bodleian-Library-MS-Hamilton-55_00006_abg_fmr.jpg
+Bodl_-_Bodleian-Library-MS-Hamilton-55_00351_abg_fmr_fko.jpg
+Bodl_-_BodleianLib_MsLaudMisc417_00006_mcl_abg_fmr_iac.jpg
+Bodl_-_BodleianLib_MsLaudMisc417_00353_mcl_iac_fmr_abg.jpg
+FamilySearch_-_DGS004321721_00006_abg_fmr.jpg
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" | awk -F'/' '{print $NF}' |
+> ^C
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" | awk -F'/' '{print $NF}' | \
+>    grep "_abg" | grep -io "\(_[a-z]\{3\}\)\+[.]jpg$"
+_abg_scg.jpg
+_abg_cwa.jpg
+_abg_fmr.jpg
+_abg_fmr.jpg
+_abg_fmr.jpg
+_abg_fmr.jpg
+_abg_fmr_fko.jpg
+_mcl_abg_fmr_iac.jpg
+_mcl_iac_fmr_abg.jpg
+_abg_fmr.jpg
+_abg_fmr.jpg
+_abg_fmr.jpg
+_abg_fmr.jpg
+_mcl_abg_fmr.jpg
+_abg_fmr.jpg
+_abg_mbr_fmr.jpg
+_abg_mcl_fmr.jpg
+_abg_fmr.jpg
+_abg_fmr.jpg
+_abg_fmr.jpg
+_abg_fmr.jpg
+_abg_fmr.jpg
+_mcl_fmr_abg.jpg
+_abg_mcl_fmr.jpg
+_abg_fmr.jpg
+_abg_fmr.jpg
+_abg_fmr.jpg
+_abg_fmr.jpg
+_abg_fmr.jpg
+_abg_mcl_fmr.jpg
+_abg_fmr.jpg
+_abg_fmr.jpg
+_abg_fmr.jpg
+_abg_fmr.jpg
+_mbr_ucr_cwa_abg_fmr.jpg
+_abg_mbr_tbr_scg_ucr.jpg
+_abg_mcl_mbr_gni_fko.jpg
+_mbr_abg_mbr_fmr_cwa_tbr.jpg
+_abg_mbr_fmr_ucr_scg.jpg
+_abg_mbr_ucr_fmr_fko.jpg
+_mbr_abg_fmr_scg_cwa_suh.jpg
+_mcl_abg_mbr_fmr_scg.jpg
+_mbr_abg_scg_fmr.jpg
+_mbr_abg_fmr_scg.jpg
+_abg_mbr_ucr_fmr_fko.jpg
+_mcl_fmr_abg_cwa_mbr.jpg
+_abg_mbr_fmr_cwa_ucr_fko.jpg
+_mbr_abg_fmr_ucr.jpg
+_mbr_abg_tbr_cwa.jpg
+_abg_mbr_ucr_scg.jpg
+_abg_mbr_scg_fmr.jpg
+_abg_mbr_fmr_mcl.jpg
+_abg_mbr_scg_fmr.jpg
+_abg_mbr_ucr_scg.jpg
+_abg_mbr_fmr_scg_ucr.jpg
+_abg_mbr_scg_fmr.jpg
+_abg_mbr_fmr_scg.jpg
+_abg_mbr_scg_fmr.jpg
+_mcl_mbr_abg_fmr.jpg
+_abg_mbr_scg_fmr.jpg
+_mcl_abg_mbr_ucr_tbr_suh.jpg
+_mbr_abg_suh_tbr_fmr.jpg
+_abg_oic_nbr.jpg
+_abg_fko_nbr.jpg
+_abg_oic_nbr.jpg
+_abg_oic_nbr.jpg
+_abg_oic_nbr.jpg
+_abg_mmx_nbr.jpg
+_abg_oic_nbr.jpg
+_abg_mmx_nbr.jpg
+_abg_oic_nbr.jpg
+_abg_oic_nbr.jpg
+_fko_abg_oic_nbr.jpg
+_abg_oic_nbr.jpg
+_abg_oic_nbr.jpg
+_abg_oic_nbr.jpg
+_abg_oic_nbr.jpg
+_abg_oic_nbr.jpg
+_abg_tbr.jpg
+_abg_tbr.jpg
+_abg_tbr_mcl.jpg
+_abg_ucr.jpg
+_abg_ucr.jpg
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" | awk -F'/' '{print $NF}' |    grep "_abg" | gre
+p -io "\(_[a-z]\{3\}\)\+[.]jpg$" | head
+_abg_scg.jpg
+_abg_cwa.jpg
+_abg_fmr.jpg
+_abg_fmr.jpg
+_abg_fmr.jpg
+_abg_fmr.jpg
+_abg_fmr_fko.jpg
+_mcl_abg_fmr_iac.jpg
+_mcl_iac_fmr_abg.jpg
+_abg_fmr.jpg
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" | awk -F'/' '{print $NF}' |    grep "_abg" | gre
+p -io "\(_[a-z]\{3\}\)\+[.]jpg$" | \
+>    sed 's#[.]jpg$##g' | sort | uniq -c | wc -l
+39
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ #  I can deal with 39
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" | awk -F'/' '{print $NF}' |    grep "_abg" | gre
+p -io "\(_[a-z]\{3\}\)\+[.]jpg$" |    sed 's#[.]jpg$##g' | sort | uniq -c
+      1 _abg_cwa
+      1 _abg_fko_nbr
+     23 _abg_fmr
+      1 _abg_fmr_fko
+      1 _abg_mbr_fmr
+      1 _abg_mbr_fmr_cwa_ucr_fko
+      1 _abg_mbr_fmr_mcl
+      1 _abg_mbr_fmr_scg
+      1 _abg_mbr_fmr_scg_ucr
+      1 _abg_mbr_fmr_ucr_scg
+      5 _abg_mbr_scg_fmr
+      1 _abg_mbr_tbr_scg_ucr
+      2 _abg_mbr_ucr_fmr_fko
+      2 _abg_mbr_ucr_scg
+      3 _abg_mcl_fmr
+      1 _abg_mcl_mbr_gni_fko
+      2 _abg_mmx_nbr
+     12 _abg_oic_nbr
+      1 _abg_scg
+      2 _abg_tbr
+      1 _abg_tbr_mcl
+      2 _abg_ucr
+      1 _fko_abg_oic_nbr
+      1 _mbr_abg_fmr_scg
+      1 _mbr_abg_fmr_scg_cwa_suh
+      1 _mbr_abg_fmr_ucr
+      1 _mbr_abg_mbr_fmr_cwa_tbr
+      1 _mbr_abg_scg_fmr
+      1 _mbr_abg_suh_tbr_fmr
+      1 _mbr_abg_tbr_cwa
+      1 _mbr_ucr_cwa_abg_fmr
+      1 _mcl_abg_fmr
+      1 _mcl_abg_fmr_iac
+      1 _mcl_abg_mbr_fmr_scg
+      1 _mcl_abg_mbr_ucr_tbr_suh
+      1 _mcl_fmr_abg
+      1 _mcl_fmr_abg_cwa_mbr
+      1 _mcl_iac_fmr_abg
+      1 _mcl_mbr_abg_fmr
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" | awk -F'/' '{print $NF}' |    grep "_abg" | gre
+p -io "\(_[a-z]\{3\}\)\+[.]jpg$" |    sed 's#[.]jpg$##g' | sort | uniq -c | \
+> sort -rn
+     23 _abg_fmr
+     12 _abg_oic_nbr
+      5 _abg_mbr_scg_fmr
+      3 _abg_mcl_fmr
+      2 _abg_ucr
+      2 _abg_tbr
+      2 _abg_mmx_nbr
+      2 _abg_mbr_ucr_scg
+      2 _abg_mbr_ucr_fmr_fko
+      1 _mcl_mbr_abg_fmr
+      1 _mcl_iac_fmr_abg
+      1 _mcl_fmr_abg_cwa_mbr
+      1 _mcl_fmr_abg
+      1 _mcl_abg_mbr_ucr_tbr_suh
+      1 _mcl_abg_mbr_fmr_scg
+      1 _mcl_abg_fmr_iac
+      1 _mcl_abg_fmr
+      1 _mbr_ucr_cwa_abg_fmr
+      1 _mbr_abg_tbr_cwa
+      1 _mbr_abg_suh_tbr_fmr
+      1 _mbr_abg_scg_fmr
+      1 _mbr_abg_mbr_fmr_cwa_tbr
+      1 _mbr_abg_fmr_ucr
+      1 _mbr_abg_fmr_scg_cwa_suh
+      1 _mbr_abg_fmr_scg
+      1 _fko_abg_oic_nbr
+      1 _abg_tbr_mcl
+      1 _abg_scg
+      1 _abg_mcl_mbr_gni_fko
+      1 _abg_mbr_tbr_scg_ucr
+      1 _abg_mbr_fmr_ucr_scg
+      1 _abg_mbr_fmr_scg_ucr
+      1 _abg_mbr_fmr_scg
+      1 _abg_mbr_fmr_mcl
+      1 _abg_mbr_fmr_cwa_ucr_fko
+      1 _abg_mbr_fmr
+      1 _abg_fmr_fko
+      1 _abg_fko_nbr
+      1 _abg_cwa
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" | awk -F'/' '{print $NF}' |    grep "_abg" | gre
+p -io "\(_[a-z]\{3\}\)\+[.]jpg$" |    sed 's#[.]jpg$##g' | \
+>    grep "oic" | wc -l
+13
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" | awk -F'/' '{print $NF}' |    grep "_abg" | gre
+p -io "\(_[a-z]\{3\}\)\+[.]jpg$" |    sed 's#[.]jpg$##g' |    grep "oic" | sort
+| uniq -c | sort -rn
+     12 _abg_oic_nbr
+      1 _fko_abg_oic_nbr
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" | awk -F'/' '{print $NF}' |    grep "_abg" | gre
+p -io "\(_[a-z]\{3\}\)\+[.]jpg$" |    sed 's#[.]jpg$##g' |    grep "mmx" | sort
+| uniq -c | sort -rn
+      2 _abg_mmx_nbr
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" | awk -F'/' '{print $NF}' |    grep "_abg" | gre
+p -io "\(_[a-z]\{3\}\)\+[.]jpg$" |    sed 's#[.]jpg$##g' |    grep "mcl" | sort
+| uniq -c | sort -rn
+      3 _abg_mcl_fmr
+      1 _mcl_mbr_abg_fmr
+      1 _mcl_iac_fmr_abg
+      1 _mcl_fmr_abg_cwa_mbr
+      1 _mcl_fmr_abg
+      1 _mcl_abg_mbr_ucr_tbr_suh
+      1 _mcl_abg_mbr_fmr_scg
+      1 _mcl_abg_fmr_iac
+      1 _mcl_abg_fmr
+      1 _abg_tbr_mcl
+      1 _abg_mcl_mbr_gni_fko
+      1 _abg_mbr_fmr_mcl
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" | awk -F'/' '{print $NF}' |    grep "_abg" | gre
+p -io "\(_[a-z]\{3\}\)\+[.]jpg$" |    sed 's#[.]jpg$##g' |    grep "mcl" | grep
+"mbr" | sort | uniq -c | sort -rn
+      1 _mcl_mbr_abg_fmr
+      1 _mcl_fmr_abg_cwa_mbr
+      1 _mcl_abg_mbr_ucr_tbr_suh
+      1 _mcl_abg_mbr_fmr_scg
+      1 _abg_mcl_mbr_gni_fko
+      1 _abg_mbr_fmr_mcl
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ f25m3
+\(cwa\|fmr\|gni\|nbr\|orc\|scg\|spr\|tbr\|ucr\)
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" | \
+   awk -F'/' '{print $NF}' | \
+   grep "_abg" | \
+     grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" | \
+     sed 's#[.]jpg$##g' | \
+       grep "mcl" | grep "mbr" | \
+       grep -o "\(cwa\|fmr\|gni\|nbr\|orc\|scg\|spr\|tbr\|ucr\)" | head
+gni
+fmr
+scg
+fmr
+cwa
+fmr
+fmr
+ucr
+tbr
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" | \
+   awk -F'/' '{print $NF}' | \
+   grep "_abg" | \
+     grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" | \
+     sed 's#[.]jpg$##g' | \
+       grep "mcl" | grep "mbr" | \
+       sed 's#^\(_\(cwa\|fmr\|gni\|nbr\|orc\|scg\|spr\|tbr\|ucr\)\)##g" | head
+> ^C
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" |    awk -F'/' '{print $NF}' |    grep "_abg" |
+     grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" |      sed 's#[.]jpg$##g' |        grep
+ "mcl" | grep "mbr" |        sed 's#^\(_\(cwa\|fmr\|gni\|nbr\|orc\|scg\|spr\|tbr
+\|ucr\)\)##g' | head
+_abg_mcl_mbr_gni_fko
+_mcl_abg_mbr_fmr_scg
+_mcl_fmr_abg_cwa_mbr
+_abg_mbr_fmr_mcl
+_mcl_mbr_abg_fmr
+_mcl_abg_mbr_ucr_tbr_suh
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ f25a3
+\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|mmx\|nbr\|oic\|orc\|scg\|spr\|suh\|tbr
+\|ucr\)
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ f25m3
+\(cwa\|fmr\|gni\|nbr\|orc\|scg\|spr\|tbr\|ucr\)
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ cat > all.txt <<'EOF'
+> abg
+cwa
+fko
+fmr
+gni
+iac
+mbr
+mcl
+mmx
+nbr
+oic
+orc
+scg
+spr
+suh
+tbr
+ucr
+> EOF
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ cat all.txt
+abg
+cwa
+fko
+fmr
+gni
+iac
+mbr
+mcl
+mmx
+nbr
+oic
+orc
+scg
+spr
+suh
+tbr
+ucr
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ cat > mod.txt <<'EOF'
+cwa
+fmr
+gni
+nbr
+orc
+scg
+spr
+tbr
+ucr
+> EOF
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ cat mod.txt
+cwa
+fmr
+gni
+nbr
+orc
+scg
+spr
+tbr
+ucr
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ comm -23 all.txt mod.txt
+abg
+fko
+iac
+mbr
+mcl
+mmx
+oic
+suh
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ comm -23 all.txt mod.txt | sort > not.txt
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ cat not.txt
+abg
+fko
+iac
+mbr
+mcl
+mmx
+oic
+suh
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ type f25a3
+f25a3 is aliased to `fhtw2025all3lett'
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ source ~/.bballdave025_bash_aliases
+bash: /home/Anast/.bballdave025_bash_aliases: line 452: unexpected EOF while loo
+king for matching `''
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ source ~/.bballdave025_bash_aliases
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ f25n3
+\(abg\|fko\|iac\|mbr\|mcl\|mmx\|oic\|suh\)
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ echo $(!!)
+echo $(f25n3)
+\(abg\|fko\|iac\|mbr\|mcl\|mmx\|oic\|suh\)
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ echo -e $(f25n3)
+\(abg\|fko\|iac\|mbr\|mcl\|mmx\|oic\|suh\)
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ f25n3
+\(abg\|fko\|iac\|mbr\|mcl\|mmx\|oic\|suh\)
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ echo $(!!) | sed 's#\\##g'
+echo $(f25n3) | sed 's#\\##g'
+(abg|fko|iac|mbr|mcl|mmx|oic|suh)
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ f25n3 | tr -d '\\'
+(abg|fko|iac|mbr|mcl|mmx|oic|suh)
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$
+^C
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ ^C
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ ^C
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" | \
+   awk -F'/' '{print $NF}' | \
+   grep "_abg" | \
+     grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" | \
+     sed 's#[.]jpg$##g' | \
+       grep "mcl" | grep "mbr" | \
+       sed 's#\(abg\|fko\|iac\|mbr\|mcl\|mmx\|oic\|suh\)##g'
+____gni_
+____fmr_scg
+__fmr__cwa_
+___fmr_
+____fmr
+____ucr_tbr_
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" |    awk -F'/' '{print $NF}' |    grep "_abg" |
+     grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" |      sed 's#[.]jpg$##g' |        grep
+ "mcl" | grep "mbr" |        sed 's#\(abg\|fko\|iac\|mbr\|mcl\|mmx\|oic\|suh\)##
+g' | \
+>          tr -s _
+_gni_
+_fmr_scg
+_fmr_cwa_
+_fmr_
+_fmr
+_ucr_tbr_
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" |    awk -F'/' '{print $NF}' |    grep "_abg" |
+     grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" |      sed 's#[.]jpg$##g' |        grep
+ "mcl" | grep "mbr" |        sed 's#\(abg\|fko\|iac\|mbr\|mcl\|mmx\|oic\|suh\)##
+g' |          tr -s _ | sed 's#^_##g; s#_$##g' | tr _ ' '
+gni
+fmr scg
+fmr cwa
+fmr
+fmr
+ucr tbr
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" |    awk -F'/' '{print $NF}' |    grep "_abg" |
+     grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" |      sed 's#[.]jpg$##g' |        grep
+ "mcl" | grep "mbr" |        sed 's#\(abg\|fko\|iac\|mbr\|mcl\|mmx\|oic\|suh\)##
+g' |          tr -s _ | sed 's#^_##g; s#_$##g' | tr _ ' ' | tr '\n' '\0' | xargs
+ -I'{}' -0 bash -c 'orig="{}"; echo "${orig} | xargs -n1 | sort | xargs"'
+gni | xargs -n1 | sort | xargs
+fmr scg | xargs -n1 | sort | xargs
+fmr cwa | xargs -n1 | sort | xargs
+fmr | xargs -n1 | sort | xargs
+fmr | xargs -n1 | sort | xargs
+ucr tbr | xargs -n1 | sort | xargs
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" |    awk -F'/' '{print $NF}' |    grep "_abg" |
+     grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" |      sed 's#[.]jpg$##g' |        grep
+ "mcl" | grep "mbr" |        sed 's#\(abg\|fko\|iac\|mbr\|mcl\|mmx\|oic\|suh\)##
+g' |          tr -s _ | sed 's#^_##g; s#_$##g' | tr _ ' ' | tr '\n' '\0' | xargs
+ -I'{}' -0 bash -c 'orig="{}"; echo "${orig}" | xargs -n1 | sort | xargs'
+gni
+fmr scg
+cwa fmr
+fmr
+fmr
+tbr ucr
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" |    awk -F'/' '{print $NF}' |    grep "_abg" |
+     grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" |      sed 's#[.]jpg$##g' |        grep
+ "mcl" | grep "mbr" |        sed 's#\(abg\|fko\|iac\|mbr\|mcl\|mmx\|oic\|suh\)##
+g' |          tr -s _ | sed 's#^_##g; s#_$##g' | tr _ ' ' | tr '\n' '\0' | xargs
+ -I'{}' -0 echo "{}" | xargs -n1 | sort | xargs'
+> ^C
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" |    awk -F'/' '{print $NF}' |    grep "_abg" |
+     grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" |      sed 's#[.]jpg$##g' |        grep
+ "mcl" | grep "mbr" |        sed 's#\(abg\|fko\|iac\|mbr\|mcl\|mmx\|oic\|suh\)##
+g' |          tr -s _ | sed 's#^_##g; s#_$##g' | tr _ ' ' | tr '\n' '\0' | xargs
+ -I'{}' -0 echo "{}" | xargs -n1 | sort | xargs
+cwa fmr fmr fmr fmr gni scg tbr ucr
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" |    awk -F'/' '{print $NF}' |    grep "_abg" |
+     grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" |      sed 's#[.]jpg$##g' |        grep
+ "mcl" | grep "mbr" |        sed 's#\(abg\|fko\|iac\|mbr\|mcl\|mmx\|oic\|suh\)##
+g' |          tr -s _ | sed 's#^_##g; s#_$##g' | tr _ ' ' | tr '\n' '\0' | xargs
+ -I'{}' -0 bash -c 'orig="{}"; echo "${orig}" | xargs -n1 | sort | xargs'
+gni
+fmr scg
+cwa fmr
+fmr
+fmr
+tbr ucr
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ #  Need the `bash -c` for what I want.
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" |    awk -F'/' '{print $NF}' |    grep "_abg" |
+     grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" |      sed 's#[.]jpg$##g' |        grep
+ "mcl" | grep -v "mbr" | wc -l
+8
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" |    awk -F'/' '{print $NF}' |    grep "_abg" |
+     grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" |      sed 's#[.]jpg$##g' |        grep
+ "mcl" | grep -v "mbr"
+_mcl_abg_fmr_iac
+_mcl_iac_fmr_abg
+_mcl_abg_fmr
+_abg_mcl_fmr
+_mcl_fmr_abg
+_abg_mcl_fmr
+_abg_mcl_fmr
+_abg_tbr_mcl
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" |    awk -F'/' '{print $NF}' |    grep "_abg" |
+     grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" |      sed 's#[.]jpg$##g' |        grep
+ "mcl" | grep -v "mbr"  |        sed 's#\(abg\|fko\|iac\|mbr\|mcl\|mmx\|oic\|suh
+\)##g' |          tr -s _ | sed 's#^_##g; s#_$##g' | tr _ ' ' | tr '\n' '\0' | x
+args -I'{}' -0 bash -c 'orig="{}"; echo "${orig}" | xargs -n1 | sort | xargs'
+fmr
+fmr
+fmr
+fmr
+fmr
+fmr
+fmr
+tbr
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" |    awk -F'/' '{print $NF}' |    grep "_abg" |
+     grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" |      sed 's#[.]jpg$##g' |        grep
+ "mcl" | grep -v "mbr"  |        sed 's#\(abg\|fko\|iac\|mbr\|mcl\|mmx\|oic\|suh
+\)##g' |          tr -s _ | sed 's#^_##g; s#_$##g' | tr _ ' ' | tr '\n' '\0' | x
+args -I'{}' -0 bash -c 'orig="{}"; echo "${orig}" | xargs -n1 | sort | xargs' |
+sort
+fmr
+fmr
+fmr
+fmr
+fmr
+fmr
+fmr
+tbr
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" |    awk -F'/' '{print $NF}' |    grep "_abg" |
+     grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" |      sed 's#[.]jpg$##g' |        grep
+ "mcl" | grep -v "mbr"  |        sed 's#\(abg\|fko\|iac\|mbr\|mcl\|mmx\|oic\|suh
+\)##g' |          tr -s _ | sed 's#^_##g; s#_$##g' | tr _ ' ' | tr '\n' '\0' | x
+args -I'{}' -0 bash -c 'orig="{}"; echo "${orig}" | xargs -n1 | sort | xargs' |
+sort | uniq -c | sort -rc
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" |    awk -F'/' '{print $NF}' |    grep "_abg" |
+     grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" |      sed 's#[.]jpg$##g' |        grep
+ "mcl" | grep -v "mbr"  |        sed 's#\(abg\|fko\|iac\|mbr\|mcl\|mmx\|oic\|suh
+\)##g' |          tr -s _ | sed 's#^_##g; s#_$##g' | tr _ ' ' | tr '\n' '\0' | x
+args -I'{}' -0 bash -c 'orig="{}"; echo "${orig}" | xargs -n1 | sort | xargs' |
+sort | uniq -c
+      7 fmr
+      1 tbr
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" |    awk -F'/' '{print $NF}' |    grep "_abg" |
+     grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" |      sed 's#[.]jpg$##g' |        grep
+ "mcl" | grep -v "mbr"  |        sed 's#\(abg\|fko\|iac\|mbr\|mcl\|mmx\|oic\|suh
+\)##g' |          tr -s _ | sed 's#^_##g; s#_$##g' | tr _ ' ' | tr '\n' '\0' | x
+args -I'{}' -0 bash -c 'orig="{}"; echo "${orig}" | xargs -n1 | sort | xargs' |
+sort | uniq -c | sort -rn
+      7 fmr
+      1 tbr
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" | \
+    awk -F'/' '{print $NF}' | \
+      grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" | \
+        sed 's#[.]jpg$##g' | sort | uniq -c | \
+   wc -l  # Probably skip this. Might want `uniq` without `-c`.
+#                               Might want pipe to `uniq -rn`
+184
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" | \
+    awk -F'/' '{print $NF}' | \
+      grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" | \
+        sed 's#[.]jpg$##g' | sort | \
+   wc -l  # Probably skip this. Might want `uniq` without `-c`.
+#                               Might want pipe to `uniq -rn`
+3331
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ f25a3
+\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|mmx\|nbr\|oic\|orc\|scg\|spr\|suh\|tbr
+\|ucr\)
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" | grep _max
+./No_For_Binding_Reuse/e-codices_zbz-Ms-Heid-0052_0007r_maxCopy_oic_nbr.jpg
+./No_For_Binding_Reuse/e-codices_zbz-Ms-Heid-0052_0007v_maxCopy_oic_nbr.jpg
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" | \
+    awk -F'/' '{print $NF}' | \
+      grep -io "\(_\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|"\
+"mmx\|nbr\|oic\|orc\|scg\|spr\|suh\|tbr\|ucr\)\)\+" | \
+        sed 's#[.]jpg$##g' | \
+        tr -s '_' | \
+        sed 's#^_##g; s#_$##g' | \
+        tr _ ' ' | head
+mcl scg fko
+mcl scg
+scg
+scg
+mcl scg
+scg fko
+scg fko
+fko scg suh
+scg
+abg scg
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" |     awk -F'/' '{print $NF}' |       grep -io "
+\(_\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|""mmx\|nbr\|oic\|orc\|scg\|spr\|suh
+\|tbr\|ucr\)\)\+" |         sed 's#[.]jpg$##g' |         tr -s '_' |         sed
+ 's#^_##g; s#_$##g' |         tr _ ' ' | wc -l
+3331
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" |     awk -F'/' '{print $NF}' |       grep -io "
+\(_\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|""mmx\|nbr\|oic\|orc\|scg\|spr\|suh
+\|tbr\|ucr\)\)\+" |         sed 's#[.]jpg$##g' |         tr -s '_' |         sed
+ 's#^_##g; s#_$##g' |         tr _ ' ' | sort | uniq -c | wc -l
+184
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" | \
+    awk -F'/' '{print $NF}' | \
+      grep -io "\(_\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|"\
+"mmx\|nbr\|oic\|orc\|scg\|spr\|suh\|tbr\|ucr\)\)\+" | \
+        sed 's#[.]jpg$##g' | \
+        tr -s '_' | \
+        sed 's#^_##g; s#_$##g' | \
+        tr _ ' ' | \
+        sort | uniq -c | sort -rn | \
+   wc -l
+184
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" |     awk -F'/' '{print $NF}' |       grep -io "
+\(_\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|""mmx\|nbr\|oic\|orc\|scg\|spr\|suh
+\|tbr\|ucr\)\)\+" |         sed 's#[.]jpg$##g' |         tr -s '_' |         sed
+ 's#^_##g; s#_$##g' |         tr _ ' ' |         sort | uniq -c | sort -rn
+   1589 nbr
+    559 oic nbr
+    260 fko nbr
+     91 fmr
+     81 tbr
+     70 gni
+     67 scg
+     60 mmx nbr
+     53 iac nbr
+     39 orc
+     38 ucr
+     26 cwa
+     23 abg fmr
+     21 fko oic nbr
+     20 spr
+     15 mcl fmr
+     13 oic fko nbr
+     12 abg oic nbr
+     11 mcl scg
+     10 mcl tbr
+      8 mcl gni
+      8 mbr fmr scg
+      6 mcl ucr
+      6 fko tbr
+      5 tbr mcl
+      5 mmx fko nbr
+      5 mbr ucr scg
+      5 mbr ucr fmr
+      5 mbr scg ucr
+      5 abg mbr scg fmr
+      4 nbr fko
+      4 mbr ucr orc
+      4 mbr orc ucr
+      4 fmr fko
+      3 mcl orc
+      3 mbr ucr tbr suh
+      3 mbr ucr
+      3 mbr orc tbr
+      3 mbr fmr tbr
+      3 mbr cwa scg
+      3 fko mmx nbr
+      3 fko iac nbr
+      3 fko fmr
+      3 abg mcl fmr
+      2 scg mcl
+      2 scg fko
+      2 oic oic nbr
+      2 oic mmx nbr
+      2 mcl spr
+      2 mcl mbr ucr tbr suh
+      2 mcl mbr ucr suh tbr
+      2 mcl mbr orc ucr
+      2 mcl mbr fmr scg
+      2 mcl cwa
+      2 mbr ucr scg fko
+      2 mbr ucr fmr tbr
+      2 mbr ucr fmr suh
+      2 mbr tbr ucr
+      2 mbr fmr ucr
+      2 mbr fmr scg cwa
+      2 mbr fmr cwa ucr
+      2 iac tbr
+      2 iac oic nbr
+      2 iac fmr
+      2 fko spr
+      2 fko scg
+      2 fko orc
+      2 fko gni
+      2 abg ucr
+      2 abg tbr
+      2 abg mmx nbr
+      2 abg mbr ucr scg
+      2 abg mbr ucr fmr fko
+      1 ucr suh mcl
+      1 ucr mbr scg cwa
+      1 ucr fko iac
+      1 ucr fko
+      1 tbr fko
+      1 spr mbr orc
+      1 spr fko
+      1 orc mcl mbr ucr
+      1 orc mbr ucr
+      1 orc fko
+      1 oic oic
+      1 mmx nbr fko
+      1 mcl ucr fmr
+      1 mcl scg fko
+      1 mcl mbr ucr scg
+      1 mcl mbr ucr fmr suh
+      1 mcl mbr tbr ucr
+      1 mcl mbr scg ucr
+      1 mcl mbr scg cwa fko suh
+      1 mcl mbr fmr scg cwa
+      1 mcl mbr cwa fmr fko
+      1 mcl mbr abg fmr
+      1 mcl iac ucr
+      1 mcl iac fmr abg
+      1 mcl gni fko
+      1 mcl fmr fko
+      1 mcl fmr abg cwa mbr
+      1 mcl fmr abg
+      1 mcl fko ucr
+      1 mcl fko nbr
+      1 mcl fko fmr
+      1 mcl abg mbr ucr tbr suh
+      1 mcl abg mbr fmr scg
+      1 mcl abg fmr iac
+      1 mcl abg fmr
+      1 mbr ucr tbr suh scg
+      1 mbr ucr tbr fko
+      1 mbr ucr suh tbr fmr
+      1 mbr ucr suh tbr
+      1 mbr ucr suh orc
+      1 mbr ucr scg tbr suh
+      1 mbr ucr scg fmr
+      1 mbr ucr orc tbr
+      1 mbr ucr orc suh
+      1 mbr ucr orc scg
+      1 mbr ucr gni
+      1 mbr ucr fmr scg
+      1 mbr ucr cwa abg fmr
+      1 mbr tbr suh fmr
+      1 mbr tbr fmr
+      1 mbr tbr cwa fmr
+      1 mbr spr ucr
+      1 mbr spr orc
+      1 mbr scg spr
+      1 mbr scg orc ucr
+      1 mbr scg orc
+      1 mbr scg gni
+      1 mbr scg fmr
+      1 mbr scg
+      1 mbr orc ucr tbr
+      1 mbr orc ucr scg
+      1 mbr orc scg
+      1 mbr mcl fmr cwa
+      1 mbr fmr ucr scg
+      1 mbr fmr tbr cwa
+      1 mbr fmr scg cwa suh
+      1 mbr fmr fko
+      1 mbr fmr cwa fko
+      1 mbr fmr cwa
+      1 mbr fko suh fmr tbr ucr
+      1 mbr cwa ucr scg
+      1 mbr cwa ucr mcl
+      1 mbr cwa ucr fmr
+      1 mbr cwa ucr
+      1 mbr cwa scg fko
+      1 mbr cwa mcl fmr
+      1 mbr cwa fmr tbr
+      1 mbr cwa fmr
+      1 mbr abg tbr cwa
+      1 mbr abg suh tbr fmr
+      1 mbr abg scg fmr
+      1 mbr abg mbr fmr cwa tbr
+      1 mbr abg fmr ucr
+      1 mbr abg fmr scg cwa suh
+      1 mbr abg fmr scg
+      1 fmr suh
+      1 fko ucr
+      1 fko scg suh
+      1 fko nbr suh
+      1 fko nbr oic
+      1 fko mcl ucr
+      1 fko mcl tbr mbr scg
+      1 fko mcl tbr
+      1 fko mcl scg mbr ucr
+      1 fko mcl scg
+      1 fko mbr ucr spr
+      1 fko mbr orc ucr
+      1 fko abg oic nbr
+      1 abg tbr mcl
+      1 abg scg
+      1 abg mcl mbr gni fko
+      1 abg mbr tbr scg ucr
+      1 abg mbr fmr ucr scg
+      1 abg mbr fmr scg ucr
+      1 abg mbr fmr scg
+      1 abg mbr fmr mcl
+      1 abg mbr fmr cwa ucr fko
+      1 abg mbr fmr
+      1 abg fmr fko
+      1 abg fko nbr
+      1 abg cwa
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" | \
+    awk -F'/' '{print $NF}' | \
+      grep -io "\(_\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|"\
+"mmx\|nbr\|oic\|orc\|scg\|spr\|suh\|tbr\|ucr\)\)\+" | \
+        sed 's#[.]jpg$##g' | \
+        tr -s '_' | \
+        sed 's#^_##g; s#_$##g' | \
+        tr _ ' ' | \
+          tr '\n' '\0' | \
+          xargs -I'{}' -0 bash -c \
+          'orig="{}"; echo "${orig} | xargs -n1 | sort | xargs' | wc -l
+bash: -c: line 1: unexpected EOF while looking for matching `"'
+bash: -c: line 1: unexpected EOF while looking for matching `"'
+bash: -c: line 1: unexpected EOF while looking for matching `"'
+bash: -c: line 1: unexpected EOF while looking for matching `"'
+bash: -c: line 1: unexpected EOF while looking for matching `"'
+bash: -c: line 1: unexpected EOF while looking for matching `"'
+bash: -c: line 1: unexpected EOF while looking for matching `"'
+bash: -c: line 1: unexpected EOF while looking for matching `"'
+bash: -c: line 1: unexpected EOF while looking for matching `"'
+bash: -c: line 1: unexpected EOF while looking for matching `"'
+bash: -c: line 1: unexpected EOF while looking for matching `"'
+bash: -c: line 1: unexpected EOF while looking for matching `"'
+bash: -c: line 1: unexpected EOF while looking for matching `"'
+bash: -c: line 1: unexpected EOF while looking for matching `"'
+bash: -c: line 1: unexpected EOF while looking for matching `"'
+bash: -c: line 1: unexpected EOF while looking for matching `"'
+bash: -c: line 1: unexpected EOF while looking for matching `"'
+bash: -c: line 1: unexpected EOF while looking for matching `"'
+bash: -c: line 1: unexpected EOF while looking for matching `"'
+bash: -c: line 1: unexpected EOF while looking for matching `"'
+bash: -c: line 1: unexpected EOF while looking for matching `"'
+bash: -c: line 1: unexpected EOF while looking for matching `"'
+bash: -c: line 1: unexpected EOF while looking for matching `"'
+bash: -c: line 1: unexpected EOF while looking for matching `"'
+bash: -c: line 1: unexpected EOF while looking for matching `"'
+bash: -c: line 1: unexpected EOF while looking for matching `"'
+bash: -c: line 1: unexpected EOF while looking for matching `"'
+bash: -c: line 1: unexpected EOF while looking for matching `"'
+bash: -c: line 1: unexpected EOF while looking for matching `"'
+bash: -c: line 1: unexpected EOF while looking for matching `"'
+bash: -c: line 1: unexpected EOF while looking for matching `"'
+bash: -c: line 1: unexpected EOF while looking for matching `"'
+bash: -c: line 1: unexpected EOF while looking for matching `"'
+bash: -c: line 1: unexpected EOF while looking for matching `"'
+bash: -c: line 1: unexpected EOF while looking for matching `"'
+bash: -c: line 1: unexpected EOF while looking for matching `"'
+bash: -c: line 1: unexpected EOF while looking for matching `"'
+bash: -c: line 1: unexpected EOF while looking for matching `"'
+
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" | \
+    awk -F'/' '{print $NF}' | \
+      grep -io "\(_\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|"\
+"mmx\|nbr\|oic\|orc\|scg\|spr\|suh\|tbr\|ucr\)\)\+" | \
+        sed 's#[.]jpg$##g' | \
+        tr -s '_' | \
+        sed 's#^_##g; s#_$##g' | \
+        tr _ ' ' | \
+          tr '\n' '\0' | \
+          xargs -I'{}' -0 bash -c \
+          'orig="{}"; echo "${orig}" | xargs -n1 | sort | xargs' | wc -l
+3331
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ my_ts=$(ttdate)
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ trpdate
+Fri Jul 25 23:16:56 MDT 2025
+1753507016
+1753507016_2025-07-25T231656-0600
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ ttdate && \
+time \
+  find . -type f -iname "*.jpg" | \
+    awk -F'/' '{print $NF}' | \
+      grep -io "\(_\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|"\
+"mmx\|nbr\|oic\|orc\|scg\|spr\|suh\|tbr\|ucr\)\)\+" | \
+      sed 's#[.]jpg$##g;' > \
+   all_undrscr_linked_legal_label_combos_$(my_ts).lst \
+ && ttdatechk
+1753507286_2025-07-25T232126-0600
+bash: my_ts: command not found
+
+real    0m0.110s
+user    0m0.060s
+sys     0m0.168s
+1753507286_2025-07-25T232126-0600
+ExitedNormally
+1753507286_2025-07-25T232126-0600
+  (this may be a BONUS timestamp)
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ my_ts=$(ttdate)
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ ttdate && \
+time \
+  find . -type f -iname "*.jpg" | \
+    awk -F'/' '{print $NF}' | \
+      grep -io "\(_\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|"\
+"mmx\|nbr\|oic\|orc\|scg\|spr\|suh\|tbr\|ucr\)\)\+" | \
+      sed 's#[.]jpg$##g;' > \
+   all_undrscr_linked_legal_label_combos_$(my_ts).lst \
+ && ttdatechk
+1753507314_2025-07-25T232154-0600
+bash: my_ts: command not found
+
+real    0m0.101s
+user    0m0.076s
+sys     0m0.153s
+1753507314_2025-07-25T232154-0600
+ExitedNormally
+1753507314_2025-07-25T232154-0600
+  (this may be a BONUS timestamp)
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ ttdate && \
+time \
+  find . -type f -iname "*.jpg" | \
+    awk -F'/' '{print $NF}' | \
+      grep -io "\(_\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|"\
+"mmx\|nbr\|oic\|orc\|scg\|spr\|suh\|tbr\|ucr\)\)\+" | \
+      sed 's#[.]jpg$##g;' > \
+   all_undrscr_linked_legal_label_combos_${my_ts}.lst \
+ && ttdatechk
+1753507413_2025-07-25T232333-0600
+
+real    0m0.102s
+user    0m0.092s
+sys     0m0.091s
+1753507413_2025-07-25T232333-0600
+ExitedNormally
+1753507413_2025-07-25T232333-0600
+  (this may be a BONUS timestamp)
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ ls_name_and_size all_undrscr_linked_legal_label_combos_*
+24576 all_undrscr_linked_legal_label_combos_.lst
+24576 all_undrscr_linked_legal_label_combos_1753507300_2025-07-25T232140-0600.ls
+t
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ rm all_undrscr_linked_legal_label_combos_.lst
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ wc -l all_undrscr_linked_legal_label_combos_1753507300_2025-07-25T232140-0600.
+lst
+3331 all_undrscr_linked_legal_label_combos_1753507300_2025-07-25T232140-0600.lst
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ wc -l < all_undrscr_linked_legal_label_combos_1753507300_2025-07-25T232140-060
+0.lst
+3331
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ head all_undrscr_linked_legal_label_combos_1753507300_2025-07-25T232140-0600.l
+st
+_mcl_scg_fko
+_mcl_scg
+_scg
+_scg
+_mcl_scg
+_scg_fko
+_scg_fko
+_fko_scg_suh
+_scg
+_abg_scg
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ tail all_undrscr_linked_legal_label_combos_1753507300_2025-07-25T232140-0600.l
+st
+_mcl_ucr
+_ucr
+_ucr
+_ucr
+_ucr
+_ucr
+_ucr
+_ucr
+_ucr
+_ucr
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ ttdate && \
+time \
+  tr -s '_' < \
+    all_undrscr_linked_legal_label_combos_${my_ts}.lst | \
+      sed 's#^_##g; s#_$##g' | \
+        tr _ ' ' > \
+   all_space_sep_legal_label_combos_${my_ts}.lst \
+ && ttdatechk
+1753507528_2025-07-25T232528-0600
+
+real    0m0.048s
+user    0m0.015s
+sys     0m0.000s
+1753507529_2025-07-25T232529-0600
+ExitedNormally
+1753507529_2025-07-25T232529-0600
+  (this may be a BONUS timestamp)
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ wc -l < all_space_sep_legal_label_combos_1753507300_2025-07-25T232140-0600.lst
+
+3331
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ head all_space_sep_legal_label_combos_1753507300_2025-07-25T232140-0600.lst
+mcl scg fko
+mcl scg
+scg
+scg
+mcl scg
+scg fko
+scg fko
+fko scg suh
+scg
+abg scg
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ tail all_space_sep_legal_label_combos_1753507300_2025-07-25T232140-0600.lst
+mcl ucr
+ucr
+ucr
+ucr
+ucr
+ucr
+ucr
+ucr
+ucr
+ucr
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ ttdate && \
+time \
+  tr '_' ' ' < \
+    all_space_sep_legal_label_combos_${my_ts}.lst | \
+      xargs -I'{}' -0 bash -c '
+        orig="{}"
+        echo "${orig}" | xargs -n1 | sort | xargs
+      ' | sort | uniq -c | sort -rc | \
+   tee uniq_combo_sorted_legals_${my_ts}.lst \
+ && ttdatechk
+1753507676_2025-07-25T232756-0600
+sort: -:2: disorder:       1 nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+ nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr oic oic oic oic oic oic oic oic oic oic
+ oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+ oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+ oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+ oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+ oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+ oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+ oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+ oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+ oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+ oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+ oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+ oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+ oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+ oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+ oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+ oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+ oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+ oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+ oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+ oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+ oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+ oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+ oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+ oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+ oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+ oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+ oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+ oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+ oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+ oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+ oic oic oic oic oic oic oic orc orc orc orc orc orc orc orc orc orc orc orc orc
+ orc orc orc orc orc orc orc orc orc orc orc orc orc orc orc orc orc orc orc orc
+ orc orc orc orc orc orc orc orc orc orc orc orc orc orc orc orc orc orc orc orc
+ orc orc orc orc orc orc orc orc orc orc orc orc orc orc orc orc orc orc orc scg
+ scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg
+ scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg
+ scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg
+ scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg
+ scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg
+ scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg
+ scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg
+ scg scg scg scg scg scg scg scg scg scg scg scg scg spr spr spr spr spr spr spr
+ spr spr spr spr spr spr spr spr spr spr spr spr spr spr spr spr spr spr spr spr
+ spr spr spr suh suh suh suh suh suh suh suh suh suh suh suh suh suh suh suh suh
+ suh suh suh suh suh suh suh suh suh suh tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr
+ tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr
+ tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr
+ tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr
+ tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr
+ tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr
+ tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr
+ tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr ucr ucr ucr ucr
+ ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr
+ ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr
+ ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr
+ ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr
+ ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr
+ ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr
+ ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr
+
+real    2m9.529s
+user    0m22.818s
+sys     0m53.536s
+1753507806_2025-07-25T233006-0600
+ExitedNormally
+1753507806_2025-07-25T233006-0600
+  (this may be a BONUS timestamp)
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$  ttdate && \
+time \
+  tr '_' ' ' < \
+    all_space_sep_legal_label_combos_${my_ts}.lst | \
+      xargs -I'{}' -0 bash -c '
+        orig="{}"
+        echo "${orig}" | xargs -n1 | sort | xargs
+      ' | head && ttdatechk
+1753507993_2025-07-25T233313-0600
+abg abg abg abg abg abg abg abg abg abg abg abg abg abg abg abg abg abg abg abg
+abg abg abg abg abg abg abg abg abg abg abg abg abg abg abg abg abg abg abg abg
+abg abg abg abg abg abg abg abg abg abg abg abg abg abg abg abg abg abg abg abg
+abg abg abg abg abg abg abg abg abg abg abg abg abg abg abg abg abg abg abg abg
+abg abg abg cwa cwa cwa cwa cwa cwa cwa cwa cwa cwa cwa cwa cwa cwa cwa cwa cwa
+cwa cwa cwa cwa cwa cwa cwa cwa cwa cwa cwa cwa cwa cwa cwa cwa cwa cwa cwa cwa
+cwa cwa cwa cwa cwa cwa cwa cwa cwa cwa cwa cwa cwa cwa cwa cwa cwa cwa cwa cwa
+cwa cwa cwa fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko
+fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko
+fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko
+fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko
+fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko
+fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko
+fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko
+fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko
+fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko
+fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko
+fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko
+fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko
+fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko
+fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko
+fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko
+fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko
+fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko
+fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko fko
+fko fko fko fko fko fko fko fko fko fko fko fko fko fko fmr fmr fmr fmr fmr fmr
+fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr
+fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr
+fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr
+fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr
+fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr
+fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr
+fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr
+fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr
+fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr
+fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr
+fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr fmr gni gni gni
+gni gni gni gni gni gni gni gni gni gni gni gni gni gni gni gni gni gni gni gni
+gni gni gni gni gni gni gni gni gni gni gni gni gni gni gni gni gni gni gni gni
+gni gni gni gni gni gni gni gni gni gni gni gni gni gni gni gni gni gni gni gni
+gni gni gni gni gni gni gni gni gni gni gni gni gni gni gni gni gni gni gni gni
+gni iac iac iac iac iac iac iac iac iac iac iac iac iac iac iac iac iac iac iac
+iac iac iac iac iac iac iac iac iac iac iac iac iac iac iac iac iac iac iac iac
+iac iac iac iac iac iac iac iac iac iac iac iac iac iac iac iac iac iac iac iac
+iac iac iac iac iac iac iac mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr
+mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr
+mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr
+mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr
+mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr
+mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr
+mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr
+mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr mbr
+mbr mbr mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl
+mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl
+mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl
+mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl
+mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl
+mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mcl mmx mmx mmx mmx mmx mmx mmx
+mmx mmx mmx mmx mmx mmx mmx mmx mmx mmx mmx mmx mmx mmx mmx mmx mmx mmx mmx mmx
+mmx mmx mmx mmx mmx mmx mmx mmx mmx mmx mmx mmx mmx mmx mmx mmx mmx mmx mmx mmx
+mmx mmx mmx mmx mmx mmx mmx mmx mmx mmx mmx mmx mmx mmx mmx mmx mmx mmx mmx mmx
+mmx mmx mmx mmx mmx mmx nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr nbr
+nbr nbr nbr oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic oic
+orc orc orc orc orc orc orc orc orc orc orc orc orc orc orc orc orc orc orc orc
+orc orc orc orc orc orc orc orc orc orc orc orc orc orc orc orc orc orc orc orc
+orc orc orc orc orc orc orc orc orc orc orc orc orc orc orc orc orc orc orc orc
+orc orc orc orc orc orc orc orc orc orc orc orc scg scg scg scg scg scg scg scg
+scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg
+scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg
+scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg
+scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg
+scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg
+scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg
+scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg scg
+scg scg scg scg scg scg spr spr spr spr spr spr spr spr spr spr spr spr spr spr
+spr spr spr spr spr spr spr spr spr spr spr spr spr spr spr spr suh suh suh suh
+suh suh suh suh suh suh suh suh suh suh suh suh suh suh suh suh suh suh suh suh
+suh suh suh tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr
+tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr
+tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr
+tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr
+tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr
+tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr
+tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr tbr
+tbr tbr tbr tbr tbr tbr tbr tbr tbr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr
+ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr
+ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr
+ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr
+ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr
+ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr
+ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr
+ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr ucr
+
+real    2m7.878s
+user    0m23.244s
+sys     0m53.085s
+1753508121_2025-07-25T233521-0600
+ExitedNormally
+1753508121_2025-07-25T233521-0600
+  (this may be a BONUS timestamp)
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$  ttdate && time   tr '_' ' ' <     all_space_sep_legal_label_combos_${my_ts}.l
+st |       xargs -I'{}' -0 bash -c '
+        orig="{}"
+        echo "${orig}"' | head && ttdatechk
+1753508208_2025-07-25T233648-0600
+mcl scg fko
+mcl scg
+scg
+scg
+mcl scg
+scg fko
+scg fko
+fko scg suh
+scg
+abg scg
+xargs: bash: terminated by signal 13
+
+real    0m0.087s
+user    0m0.000s
+sys     0m0.105s
+1753508208_2025-07-25T233648-0600
+ExitedNormally
+1753508209_2025-07-25T233649-0600
+  (this may be a BONUS timestamp)
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$  ttdate && time   tr '_' ' ' <     all_space_sep_legal_label_combos_${my_ts}.l
+st |       xargs -I'{}' -0 bash -c '
+        orig="{}"; echo;
+        echo "${orig}"' | xargs -n1; echo "||||||"' | head -n 30 && ttdatechk
+> ^C
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$  ttdate && time   tr '_' ' ' <     all_space_sep_legal_label_combos_${my_ts}.l
+st |       xargs -I'{}' -0 bash -c '
+        orig="{}"; echo;
+        echo "${orig}" | xargs -n1; echo "||||||"' | head -n 30 && ttdatechk
+1753508320_2025-07-25T233840-0600
+
+mcl
+scg
+fko
+mcl
+scg
+scg
+scg
+mcl
+scg
+scg
+fko
+scg
+fko
+fko
+scg
+suh
+scg
+abg
+scg
+scg
+mbr
+fmr
+ucr
+scg
+mbr
+fmr
+scg
+scg
+scg
+xargs: echo: terminated by signal 13
+bash: line 3334: echo: write error: Permission denied
+
+real    0m0.890s
+user    0m0.259s
+sys     0m0.424s
+1753508320_2025-07-25T233840-0600
+ExitedNormally
+1753508320_2025-07-25T233840-0600
+  (this may be a BONUS timestamp)
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$  ttdate && time   tr '_' ' ' <     all_space_sep_legal_label_combos_${my_ts}.l
+st |       xargs -I'{}' -0 bash -c '
+        orig="{}"; echo "_____"; echo "${orig}"' | head -n 30 && ttdatechk
+1753508431_2025-07-25T234031-0600
+_____
+mcl scg fko
+mcl scg
+scg
+scg
+mcl scg
+scg fko
+scg fko
+fko scg suh
+scg
+abg scg
+scg
+mbr fmr ucr scg
+mbr fmr scg
+scg
+scg
+scg
+scg
+scg
+scg
+scg
+mcl scg
+scg
+scg
+fko scg
+scg
+mbr ucr orc scg
+scg
+scg
+scg
+xargs: bash: terminated by signal 13
+
+real    0m0.085s
+user    0m0.030s
+sys     0m0.075s
+1753508431_2025-07-25T234031-0600
+ExitedNormally
+1753508431_2025-07-25T234031-0600
+  (this may be a BONUS timestamp)
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" | \
+   awk -F'/' '{print $NF}' | \
+   grep "_abg" | \
+   grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" | \
+   sed 's#[.]jpg$##g' | \
+     tr -s '_' | sed 's#^_##g; s#_$##g' | tr _ ' ' | \
+       tr '\n' '\0' | \
+xargs -I'{}' -0 bash -c 'orig="{}"; echo "${orig}" | xargs -n1 | sort | xargs' |
+ head -n 30
+abg scg
+abg cwa
+abg fmr
+abg fmr
+abg fmr
+abg fmr
+abg fko fmr
+abg fmr iac mcl
+abg fmr iac mcl
+abg fmr
+abg fmr
+abg fmr
+abg fmr
+abg fmr mcl
+abg fmr
+abg fmr mbr
+abg fmr mcl
+abg fmr
+abg fmr
+abg fmr
+abg fmr
+abg fmr
+abg fmr mcl
+abg fmr mcl
+abg fmr
+abg fmr
+abg fmr
+abg fmr
+abg fmr
+abg fmr mcl
+xargs: echo: terminated by signal 13
+echo: write error: Permission denied
+echo: write error: Permission denied
+echo: write error: Permission denied
+echo: write error: Permission denied
+echo: write error: Permission denied
+echo: write error: Permission denied
+echo: write error: Permission denied
+echo: write error: Permission denied
+echo: write error: Permission denied
+echo: write error: Permission denied
+echo: write error: Permission denied
+echo: write error: Permission denied
+
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ ^C
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ ^C
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ ^C
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" |    awk -F'/' '{print $NF}' |    grep "_abg" |
+   grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" |    sed 's#[.]jpg$##g' |      tr -s '_'
+| sed 's#^_##g; s#_$##g' | tr _ ' ' |        tr '\n' '\0' | xargs -I'{}' -0 bash
+ -c 'orig="{}"; echo "${orig}" | xargs -n1 | sort | xargs' | sort | uniq
+abg cwa
+abg cwa fko fmr mbr ucr
+abg cwa fmr mbr mbr tbr
+abg cwa fmr mbr mcl
+abg cwa fmr mbr scg suh
+abg cwa fmr mbr ucr
+abg cwa mbr tbr
+abg fko fmr
+abg fko fmr mbr ucr
+abg fko gni mbr mcl
+abg fko nbr
+abg fko nbr oic
+abg fmr
+abg fmr iac mcl
+abg fmr mbr
+abg fmr mbr mcl
+abg fmr mbr mcl scg
+abg fmr mbr scg
+abg fmr mbr scg ucr
+abg fmr mbr suh tbr
+abg fmr mbr ucr
+abg fmr mcl
+abg mbr mcl suh tbr ucr
+abg mbr scg tbr ucr
+abg mbr scg ucr
+abg mcl tbr
+abg mmx nbr
+abg nbr oic
+abg scg
+abg tbr
+abg ucr
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ ttdate && \
+time \
+  tr '\n' '\0' < \
+    all_space_sep_legal_label_combos_${my_ts}.lst | \
+      xargs -I'{}' -0 bash -c '
+        orig="{}"
+        echo "${orig}" | xargs -n1 | sort | xargs
+      ' | sort | uniq -c | sort -rc | \
+   tee uniq_combo_sorted_legals_${my_ts}.lst \
+ && ttdatechk
+1753508908_2025-07-25T234828-0600
+sort: -:2: disorder:       1 abg cwa fko fmr mbr ucr
+
+real    9m17.378s
+user    3m10.909s
+sys     7m27.211s
+1753509465_2025-07-25T235745-0600
+ExitedNormally
+1753509465_2025-07-25T235745-0600
+  (this may be a BONUS timestamp)
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ ttdate && time   tr '\n' '\0' <     all_space_sep_legal_label_combos_${my_ts}.
+lst |       xargs -I'{}' -0 bash -c '
+        orig="{}"
+        echo "${orig}" | xargs -n1 | sort | xargs
+      ' | sort | uniq  |    tee uniq_combo_sorted_legals_${my_ts}.lst  && ttdate
+chk
+1753509680_2025-07-26T000120-0600
+abg cwa
+abg cwa fko fmr mbr ucr
+abg cwa fmr mbr mbr tbr
+abg cwa fmr mbr mcl
+abg cwa fmr mbr scg suh
+abg cwa fmr mbr ucr
+abg cwa mbr tbr
+abg fko fmr
+abg fko fmr mbr ucr
+abg fko gni mbr mcl
+abg fko nbr
+abg fko nbr oic
+abg fmr
+abg fmr iac mcl
+abg fmr mbr
+abg fmr mbr mcl
+abg fmr mbr mcl scg
+abg fmr mbr scg
+abg fmr mbr scg ucr
+abg fmr mbr suh tbr
+abg fmr mbr ucr
+abg fmr mcl
+abg mbr mcl suh tbr ucr
+abg mbr scg tbr ucr
+abg mbr scg ucr
+abg mcl tbr
+abg mmx nbr
+abg nbr oic
+abg scg
+abg tbr
+abg ucr
+cwa
+cwa fko fmr mbr
+cwa fko fmr mbr mcl
+cwa fko mbr mcl scg suh
+cwa fko mbr scg
+cwa fmr mbr
+cwa fmr mbr mcl
+cwa fmr mbr mcl scg
+cwa fmr mbr scg
+cwa fmr mbr scg suh
+cwa fmr mbr tbr
+cwa fmr mbr ucr
+cwa mbr mcl ucr
+cwa mbr scg
+cwa mbr scg ucr
+cwa mbr ucr
+cwa mcl
+fko fmr
+fko fmr mbr
+fko fmr mbr suh tbr ucr
+fko fmr mcl
+fko gni
+fko gni mcl
+fko iac nbr
+fko iac ucr
+fko mbr mcl scg tbr
+fko mbr mcl scg ucr
+fko mbr orc ucr
+fko mbr scg ucr
+fko mbr spr ucr
+fko mbr tbr ucr
+fko mcl nbr
+fko mcl scg
+fko mcl tbr
+fko mcl ucr
+fko mmx nbr
+fko nbr
+fko nbr oic
+fko nbr suh
+fko orc
+fko scg
+fko scg suh
+fko spr
+fko tbr
+fko ucr
+fmr
+fmr iac
+fmr mbr mcl scg
+fmr mbr mcl suh ucr
+fmr mbr scg
+fmr mbr scg ucr
+fmr mbr suh tbr
+fmr mbr suh tbr ucr
+fmr mbr suh ucr
+fmr mbr tbr
+fmr mbr tbr ucr
+fmr mbr ucr
+fmr mcl
+fmr mcl ucr
+fmr suh
+gni
+gni mbr scg
+gni mbr ucr
+gni mcl
+iac mcl ucr
+iac nbr
+iac nbr oic
+iac tbr
+mbr mcl orc ucr
+mbr mcl scg ucr
+mbr mcl suh tbr ucr
+mbr mcl tbr ucr
+mbr orc scg
+mbr orc scg ucr
+mbr orc spr
+mbr orc suh ucr
+mbr orc tbr
+mbr orc tbr ucr
+mbr orc ucr
+mbr scg
+mbr scg spr
+mbr scg suh tbr ucr
+mbr scg ucr
+mbr spr ucr
+mbr suh tbr ucr
+mbr tbr ucr
+mbr ucr
+mcl orc
+mcl scg
+mcl spr
+mcl suh ucr
+mcl tbr
+mcl ucr
+mmx nbr
+mmx nbr oic
+nbr
+nbr oic
+nbr oic oic
+oic oic
+orc
+scg
+spr
+tbr
+ucr
+
+real    8m11.232s
+user    2m49.679s
+sys     6m38.812s
+1753510172_2025-07-26T000932-0600
+ExitedNormally
+1753510172_2025-07-26T000932-0600
+  (this may be a BONUS timestamp)
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ ttdate && time   tr '\n' '\0' <     all_space_sep_legal_label_combos_${my_ts}.
+lst |       xargs -I'{}' -0 bash -c '
+        orig="{}"
+        echo "${orig}" | xargs -n1 | sort | xargs
+      ' | sort | uniq -c |    tee uniq_c_combo_sorted_legals_${my_ts}.lst  && tt
+datechk
+1753549124_2025-07-26T105844-0600
+      1 abg cwa
+      1 abg cwa fko fmr mbr ucr
+      1 abg cwa fmr mbr mbr tbr
+      1 abg cwa fmr mbr mcl
+      1 abg cwa fmr mbr scg suh
+      1 abg cwa fmr mbr ucr
+      1 abg cwa mbr tbr
+      1 abg fko fmr
+      2 abg fko fmr mbr ucr
+      1 abg fko gni mbr mcl
+      1 abg fko nbr
+      1 abg fko nbr oic
+     23 abg fmr
+      2 abg fmr iac mcl
+      1 abg fmr mbr
+      2 abg fmr mbr mcl
+      1 abg fmr mbr mcl scg
+      8 abg fmr mbr scg
+      2 abg fmr mbr scg ucr
+      1 abg fmr mbr suh tbr
+      1 abg fmr mbr ucr
+      5 abg fmr mcl
+      1 abg mbr mcl suh tbr ucr
+      1 abg mbr scg tbr ucr
+      2 abg mbr scg ucr
+      1 abg mcl tbr
+      2 abg mmx nbr
+     12 abg nbr oic
+      1 abg scg
+      2 abg tbr
+      2 abg ucr
+     26 cwa
+      1 cwa fko fmr mbr
+      1 cwa fko fmr mbr mcl
+      1 cwa fko mbr mcl scg suh
+      1 cwa fko mbr scg
+      2 cwa fmr mbr
+      2 cwa fmr mbr mcl
+      1 cwa fmr mbr mcl scg
+      2 cwa fmr mbr scg
+      1 cwa fmr mbr scg suh
+      3 cwa fmr mbr tbr
+      3 cwa fmr mbr ucr
+      1 cwa mbr mcl ucr
+      3 cwa mbr scg
+      2 cwa mbr scg ucr
+      1 cwa mbr ucr
+      2 cwa mcl
+      7 fko fmr
+      1 fko fmr mbr
+      1 fko fmr mbr suh tbr ucr
+      2 fko fmr mcl
+      2 fko gni
+      1 fko gni mcl
+      3 fko iac nbr
+      1 fko iac ucr
+      1 fko mbr mcl scg tbr
+      1 fko mbr mcl scg ucr
+      1 fko mbr orc ucr
+      2 fko mbr scg ucr
+      1 fko mbr spr ucr
+      1 fko mbr tbr ucr
+      1 fko mcl nbr
+      2 fko mcl scg
+      1 fko mcl tbr
+      2 fko mcl ucr
+      9 fko mmx nbr
+    264 fko nbr
+     35 fko nbr oic
+      1 fko nbr suh
+      3 fko orc
+      4 fko scg
+      1 fko scg suh
+      3 fko spr
+      7 fko tbr
+      2 fko ucr
+     91 fmr
+      2 fmr iac
+      2 fmr mbr mcl scg
+      1 fmr mbr mcl suh ucr
+      9 fmr mbr scg
+      3 fmr mbr scg ucr
+      1 fmr mbr suh tbr
+      1 fmr mbr suh tbr ucr
+      2 fmr mbr suh ucr
+      4 fmr mbr tbr
+      2 fmr mbr tbr ucr
+      7 fmr mbr ucr
+     15 fmr mcl
+      1 fmr mcl ucr
+      1 fmr suh
+     70 gni
+      1 gni mbr scg
+      1 gni mbr ucr
+      8 gni mcl
+      1 iac mcl ucr
+     53 iac nbr
+      2 iac nbr oic
+      2 iac tbr
+      3 mbr mcl orc ucr
+      2 mbr mcl scg ucr
+      4 mbr mcl suh tbr ucr
+      1 mbr mcl tbr ucr
+      2 mbr orc scg
+      3 mbr orc scg ucr
+      2 mbr orc spr
+      2 mbr orc suh ucr
+      3 mbr orc tbr
+      2 mbr orc tbr ucr
+      9 mbr orc ucr
+      1 mbr scg
+      1 mbr scg spr
+      2 mbr scg suh tbr ucr
+     10 mbr scg ucr
+      1 mbr spr ucr
+      4 mbr suh tbr ucr
+      2 mbr tbr ucr
+      3 mbr ucr
+      3 mcl orc
+     13 mcl scg
+      2 mcl spr
+      1 mcl suh ucr
+     15 mcl tbr
+      6 mcl ucr
+     60 mmx nbr
+      2 mmx nbr oic
+   1589 nbr
+    559 nbr oic
+      2 nbr oic oic
+      1 oic oic
+     39 orc
+     67 scg
+     20 spr
+     81 tbr
+     38 ucr
+
+real    8m52.907s
+user    3m6.381s
+sys     7m6.103s
+1753549657_2025-07-26T110737-0600
+ExitedNormally
+1753549657_2025-07-26T110737-0600
+  (this may be a BONUS timestamp)
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ ttdate &&\
+  time \
+find . -type f -iname "*.jpg" | \
+  awk -F'/' '{print $NF}' | \
+  grep "_abg" | \
+  grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" | \
+  sed 's#[.]jpg$##g' | \
+  tr -s '_' | sed 's#^_##g; s#_$##g' | tr _ ' ' | \
+    tr '\n' '\0' | \
+    xargs -I'{}' -0 bash -c '
+      orig="{}"; \
+      echo "${orig}" | xargs -n1 | sort | xargs' | \
+        sort | uniq | \
+   tee uniq_combo_1bigcmd_sorted_legals_${my_ts}.lst \
+ && ttdatechk
+1753551391_2025-07-26T113631-0600
+bash:  : command not found
+
+real    0m0.062s
+user    0m0.000s
+sys     0m0.046s
+
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ wc -l < uniq_combo_1bigcmd_sorted_legals_1753507300_2025-07-25T232140-0600.lst
+
+0
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ rm uniq_combo_1bigcmd_sorted_legals_1753507300_2025-07-25T232140-0600.lst
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" | \
+  awk -F'/' '{print $NF}' | \
+  grep "_abg" | \
+  grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" | \
+  sed 's#[.]jpg$##g' | \
+  tr -s '_' | sed 's#^_##g; s#_$##g' | tr _ ' ' | wc -l
+83
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ echo $my_ts
+1753507300_2025-07-25T232140-0600
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ ttdate &&\
+  time \
+find . -type f -iname "*.jpg" | \
+  awk -F'/' '{print $NF}' | \
+  grep "_abg" | \
+  grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" | \
+  sed 's#[.]jpg$##g' | \
+  tr -s '_' | sed 's#^_##g; s#_$##g' | tr _ ' ' | \
+    tr '\n' '\0' | \
+    xargs -I'{}' -0 bash -c '
+      orig="{}"; \
+      echo "${orig}"
+>     '
+1753551632_2025-07-26T114032-0600
+abg scg
+abg cwa
+abg fmr
+abg fmr
+abg fmr
+abg fmr
+abg fmr fko
+mcl abg fmr iac
+mcl iac fmr abg
+abg fmr
+abg fmr
+abg fmr
+abg fmr
+mcl abg fmr
+abg fmr
+abg mbr fmr
+abg mcl fmr
+abg fmr
+abg fmr
+abg fmr
+abg fmr
+abg fmr
+mcl fmr abg
+abg mcl fmr
+abg fmr
+abg fmr
+abg fmr
+abg fmr
+abg fmr
+abg mcl fmr
+abg fmr
+abg fmr
+abg fmr
+abg fmr
+mbr ucr cwa abg fmr
+abg mbr tbr scg ucr
+abg mcl mbr gni fko
+mbr abg mbr fmr cwa tbr
+abg mbr fmr ucr scg
+abg mbr ucr fmr fko
+mbr abg fmr scg cwa suh
+mcl abg mbr fmr scg
+mbr abg scg fmr
+mbr abg fmr scg
+abg mbr ucr fmr fko
+mcl fmr abg cwa mbr
+abg mbr fmr cwa ucr fko
+mbr abg fmr ucr
+mbr abg tbr cwa
+abg mbr ucr scg
+abg mbr scg fmr
+abg mbr fmr mcl
+abg mbr scg fmr
+abg mbr ucr scg
+abg mbr fmr scg ucr
+abg mbr scg fmr
+abg mbr fmr scg
+abg mbr scg fmr
+mcl mbr abg fmr
+abg mbr scg fmr
+mcl abg mbr ucr tbr suh
+mbr abg suh tbr fmr
+abg oic nbr
+abg fko nbr
+abg oic nbr
+abg oic nbr
+abg oic nbr
+abg mmx nbr
+abg oic nbr
+abg mmx nbr
+abg oic nbr
+abg oic nbr
+fko abg oic nbr
+abg oic nbr
+abg oic nbr
+abg oic nbr
+abg oic nbr
+abg oic nbr
+abg tbr
+abg tbr
+abg tbr mcl
+abg ucr
+abg ucr
+
+real    0m3.106s
+user    0m0.482s
+sys     0m1.915s
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" | \
+  awk -F'/' '{print $NF}' | \
+  grep "_abg" | \
+  grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" | \
+  sed 's#[.]jpg$##g' | \
+  tr -s '_' | sed 's#^_##g; s#_$##g' | tr _ ' ' | \
+    tr '\n' '\0' | \
+    xargs -I'{}' -0 bash -c '
+      orig="{}"; \
+      echo "${orig}" | xargs -n1 | sort | xargs
+    '
+abg scg
+abg cwa
+abg fmr
+abg fmr
+abg fmr
+abg fmr
+abg fko fmr
+abg fmr iac mcl
+abg fmr iac mcl
+abg fmr
+abg fmr
+abg fmr
+abg fmr
+abg fmr mcl
+abg fmr
+abg fmr mbr
+abg fmr mcl
+abg fmr
+abg fmr
+abg fmr
+abg fmr
+abg fmr
+abg fmr mcl
+abg fmr mcl
+abg fmr
+abg fmr
+abg fmr
+abg fmr
+abg fmr
+abg fmr mcl
+abg fmr
+abg fmr
+abg fmr
+abg fmr
+abg cwa fmr mbr ucr
+abg mbr scg tbr ucr
+abg fko gni mbr mcl
+abg cwa fmr mbr mbr tbr
+abg fmr mbr scg ucr
+abg fko fmr mbr ucr
+abg cwa fmr mbr scg suh
+abg fmr mbr mcl scg
+abg fmr mbr scg
+abg fmr mbr scg
+abg fko fmr mbr ucr
+abg cwa fmr mbr mcl
+abg cwa fko fmr mbr ucr
+abg fmr mbr ucr
+abg cwa mbr tbr
+abg mbr scg ucr
+abg fmr mbr scg
+abg fmr mbr mcl
+abg fmr mbr scg
+abg mbr scg ucr
+abg fmr mbr scg ucr
+abg fmr mbr scg
+abg fmr mbr scg
+abg fmr mbr scg
+abg fmr mbr mcl
+abg fmr mbr scg
+abg mbr mcl suh tbr ucr
+abg fmr mbr suh tbr
+abg nbr oic
+abg fko nbr
+abg nbr oic
+abg nbr oic
+abg nbr oic
+abg mmx nbr
+abg nbr oic
+abg mmx nbr
+abg nbr oic
+abg nbr oic
+abg fko nbr oic
+abg nbr oic
+abg nbr oic
+abg nbr oic
+abg nbr oic
+abg nbr oic
+abg tbr
+abg tbr
+abg mcl tbr
+abg ucr
+abg ucr
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" | \
+  awk -F'/' '{print $NF}' | \
+  grep "_abg" | \
+  grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" | \
+  sed 's#[.]jpg$##g' | \
+  tr -s '_' | sed 's#^_##g; s#_$##g' | tr _ ' ' | \
+    tr '\n' '\0' | \
+    xargs -I'{}' -0 bash -c '
+      orig="{}"; \
+      echo "${orig}" | xargs -n1 | sort | xargs
+    ' | sort | uniq
+abg cwa
+abg cwa fko fmr mbr ucr
+abg cwa fmr mbr mbr tbr
+abg cwa fmr mbr mcl
+abg cwa fmr mbr scg suh
+abg cwa fmr mbr ucr
+abg cwa mbr tbr
+abg fko fmr
+abg fko fmr mbr ucr
+abg fko gni mbr mcl
+abg fko nbr
+abg fko nbr oic
+abg fmr
+abg fmr iac mcl
+abg fmr mbr
+abg fmr mbr mcl
+abg fmr mbr mcl scg
+abg fmr mbr scg
+abg fmr mbr scg ucr
+abg fmr mbr suh tbr
+abg fmr mbr ucr
+abg fmr mcl
+abg mbr mcl suh tbr ucr
+abg mbr scg tbr ucr
+abg mbr scg ucr
+abg mcl tbr
+abg mmx nbr
+abg nbr oic
+abg scg
+abg tbr
+abg ucr
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" |   awk -F'/' '{print $NF}' |   grep "_abg" |
+grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" |   sed 's#[.]jpg$##g' |   tr -s '_' | sed '
+s#^_##g; s#_$##g' | tr _ ' ' |     tr '\n' '\0' |     xargs -I'{}' -0 bash -c '
+      orig="{}"; \
+      echo "${orig}" | xargs -n1 | sort | xargs
+    ' | sort | uniq | \
+>    tee uniq_combo_1bigcmd_sorted_legals_${my_ts}.lst
+abg cwa
+abg cwa fko fmr mbr ucr
+abg cwa fmr mbr mbr tbr
+abg cwa fmr mbr mcl
+abg cwa fmr mbr scg suh
+abg cwa fmr mbr ucr
+abg cwa mbr tbr
+abg fko fmr
+abg fko fmr mbr ucr
+abg fko gni mbr mcl
+abg fko nbr
+abg fko nbr oic
+abg fmr
+abg fmr iac mcl
+abg fmr mbr
+abg fmr mbr mcl
+abg fmr mbr mcl scg
+abg fmr mbr scg
+abg fmr mbr scg ucr
+abg fmr mbr suh tbr
+abg fmr mbr ucr
+abg fmr mcl
+abg mbr mcl suh tbr ucr
+abg mbr scg tbr ucr
+abg mbr scg ucr
+abg mcl tbr
+abg mmx nbr
+abg nbr oic
+abg scg
+abg tbr
+abg ucr
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" | \
+  awk -F'/' '{print $NF}' | \
+  grep "_abg" | \
+  grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" | \
+  sed 's#[.]jpg$##g' | \
+  tr -s '_' | sed 's#^_##g; s#_$##g' | tr _ ' ' | \
+    tr '\n' '\0' | \
+    xargs -I'{}' -0 bash -c '
+      orig="{}"; \
+      echo "${orig}" | xargs -n1 | sort | xargs
+    ' | sort | uniq | \
+   tee uniq_combo_1bigcmd_sorted_legals_${my_ts}.lst \
+ && ttdatechk
+abg cwa
+abg cwa fko fmr mbr ucr
+abg cwa fmr mbr mbr tbr
+abg cwa fmr mbr mcl
+abg cwa fmr mbr scg suh
+abg cwa fmr mbr ucr
+abg cwa mbr tbr
+abg fko fmr
+abg fko fmr mbr ucr
+abg fko gni mbr mcl
+abg fko nbr
+abg fko nbr oic
+abg fmr
+abg fmr iac mcl
+abg fmr mbr
+abg fmr mbr mcl
+abg fmr mbr mcl scg
+abg fmr mbr scg
+abg fmr mbr scg ucr
+abg fmr mbr suh tbr
+abg fmr mbr ucr
+abg fmr mcl
+abg mbr mcl suh tbr ucr
+abg mbr scg tbr ucr
+abg mbr scg ucr
+abg mcl tbr
+abg mmx nbr
+abg nbr oic
+abg scg
+abg tbr
+abg ucr
+1753551819_2025-07-26T114339-0600
+ExitedNormally
+1753551819_2025-07-26T114339-0600
+  (this may be a BONUS timestamp)
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ type ttdate
+ttdate is aliased to `date +'%s_%Y-%m-%dT%H%M%S%z''
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ type date
+date is hashed (/usr/bin/date)
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ ttdate && \
+  time \
+find . -type f -iname "*.jpg" | \
+  awk -F'/' '{print $NF}' | \
+  grep "_abg" | \
+  grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" | \
+  sed 's#[.]jpg$##g' | \
+  tr -s '_' | sed 's#^_##g; s#_$##g' | tr _ ' ' | \
+    tr '\n' '\0' | \
+    xargs -I'{}' -0 bash -c '
+      orig="{}"; \
+      echo "${orig}" | xargs -n1 | sort | xargs
+    ' | sort | uniq | \
+   tee uniq_combo_1bigcmd_sorted_legals_${my_ts}.lst \
+ && ttdatechk
+1753551879_2025-07-26T114439-0600
+abg cwa
+abg cwa fko fmr mbr ucr
+abg cwa fmr mbr mbr tbr
+abg cwa fmr mbr mcl
+abg cwa fmr mbr scg suh
+abg cwa fmr mbr ucr
+abg cwa mbr tbr
+abg fko fmr
+abg fko fmr mbr ucr
+abg fko gni mbr mcl
+abg fko nbr
+abg fko nbr oic
+abg fmr
+abg fmr iac mcl
+abg fmr mbr
+abg fmr mbr mcl
+abg fmr mbr mcl scg
+abg fmr mbr scg
+abg fmr mbr scg ucr
+abg fmr mbr suh tbr
+abg fmr mbr ucr
+abg fmr mcl
+abg mbr mcl suh tbr ucr
+abg mbr scg tbr ucr
+abg mbr scg ucr
+abg mcl tbr
+abg mmx nbr
+abg nbr oic
+abg scg
+abg tbr
+abg ucr
+
+real    0m19.786s
+user    0m6.058s
+sys     0m14.507s
+1753551899_2025-07-26T114459-0600
+ExitedNormally
+1753551899_2025-07-26T114459-0600
+  (this may be a BONUS timestamp)
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ #  I have not idea from whence came that `:` error. Also, it seems my
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ #+ CPU was doing something in the background last night, as we're getting
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ #+ 19 seconds on the one big command.
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ diff uniq_c
+uniq_c_combo_sorted_legals_1753507300_2025-07-25T232140-0600.lst
+uniq_combo_1bigcmd_sorted_legals_1753507300_2025-07-25T232140-0600.lst
+uniq_combo_sorted_legals_1753507300_2025-07-25T232140-0600.lst
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ diff uniq_combo_sorted_legals_1753507300_2025-07-25T232140-0600.lst uniq_combo
+_1bigcmd_sorted_legals_1753507300_2025-07-25T232140-0600.lst | wc -l
+105
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ diff uniq_combo_sorted_legals_1753507300_2025-07-25T232140-0600.lst uniq_combo
+_1bigcmd_sorted_legals_1753507300_2025-07-25T232140-0600.lst
+32,135d31
+< cwa
+< cwa fko fmr mbr
+< cwa fko fmr mbr mcl
+< cwa fko mbr mcl scg suh
+< cwa fko mbr scg
+< cwa fmr mbr
+< cwa fmr mbr mcl
+< cwa fmr mbr mcl scg
+< cwa fmr mbr scg
+< cwa fmr mbr scg suh
+< cwa fmr mbr tbr
+< cwa fmr mbr ucr
+< cwa mbr mcl ucr
+< cwa mbr scg
+< cwa mbr scg ucr
+< cwa mbr ucr
+< cwa mcl
+< fko fmr
+< fko fmr mbr
+< fko fmr mbr suh tbr ucr
+< fko fmr mcl
+< fko gni
+< fko gni mcl
+< fko iac nbr
+< fko iac ucr
+< fko mbr mcl scg tbr
+< fko mbr mcl scg ucr
+< fko mbr orc ucr
+< fko mbr scg ucr
+< fko mbr spr ucr
+< fko mbr tbr ucr
+< fko mcl nbr
+< fko mcl scg
+< fko mcl tbr
+< fko mcl ucr
+< fko mmx nbr
+< fko nbr
+< fko nbr oic
+< fko nbr suh
+< fko orc
+< fko scg
+< fko scg suh
+< fko spr
+< fko tbr
+< fko ucr
+< fmr
+< fmr iac
+< fmr mbr mcl scg
+< fmr mbr mcl suh ucr
+< fmr mbr scg
+< fmr mbr scg ucr
+< fmr mbr suh tbr
+< fmr mbr suh tbr ucr
+< fmr mbr suh ucr
+< fmr mbr tbr
+< fmr mbr tbr ucr
+< fmr mbr ucr
+< fmr mcl
+< fmr mcl ucr
+< fmr suh
+< gni
+< gni mbr scg
+< gni mbr ucr
+< gni mcl
+< iac mcl ucr
+< iac nbr
+< iac nbr oic
+< iac tbr
+< mbr mcl orc ucr
+< mbr mcl scg ucr
+< mbr mcl suh tbr ucr
+< mbr mcl tbr ucr
+< mbr orc scg
+< mbr orc scg ucr
+< mbr orc spr
+< mbr orc suh ucr
+< mbr orc tbr
+< mbr orc tbr ucr
+< mbr orc ucr
+< mbr scg
+< mbr scg spr
+< mbr scg suh tbr ucr
+< mbr scg ucr
+< mbr spr ucr
+< mbr suh tbr ucr
+< mbr tbr ucr
+< mbr ucr
+< mcl orc
+< mcl scg
+< mcl spr
+< mcl suh ucr
+< mcl tbr
+< mcl ucr
+< mmx nbr
+< mmx nbr oic
+< nbr
+< nbr oic
+< nbr oic oic
+< oic oic
+< orc
+< scg
+< spr
+< tbr
+< ucr
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ head uniq_combo_sorted_legals_1753507300_2025-07-25T232140-0600.lst
+abg cwa
+abg cwa fko fmr mbr ucr
+abg cwa fmr mbr mbr tbr
+abg cwa fmr mbr mcl
+abg cwa fmr mbr scg suh
+abg cwa fmr mbr ucr
+abg cwa mbr tbr
+abg fko fmr
+abg fko fmr mbr ucr
+abg fko gni mbr mcl
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ head uniq_combo_1bigcmd_sorted_legals_1753507300_2025-07-25T232140-0600.lst
+abg cwa
+abg cwa fko fmr mbr ucr
+abg cwa fmr mbr mbr tbr
+abg cwa fmr mbr mcl
+abg cwa fmr mbr scg suh
+abg cwa fmr mbr ucr
+abg cwa mbr tbr
+abg fko fmr
+abg fko fmr mbr ucr
+abg fko gni mbr mcl
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ tail uniq_combo_sorted_legals_1753507300_2025-07-25T232140-0600.lst
+mmx nbr oic
+nbr
+nbr oic
+nbr oic oic
+oic oic
+orc
+scg
+spr
+tbr
+ucr
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ tail uniq_combo_1bigcmd_sorted_legals_1753507300_2025-07-25T232140-0600.lst
+abg fmr mcl
+abg mbr mcl suh tbr ucr
+abg mbr scg tbr ucr
+abg mbr scg ucr
+abg mcl tbr
+abg mmx nbr
+abg nbr oic
+abg scg
+abg tbr
+abg ucr
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ wc -l < uniq_combo_sorted_legals_1753507300_2025-07-25T232140-0600.lst
+135
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ wc -l uniq_combo_1bigcmd_sorted_legals_1753507300_2025-07-25T232140-0600.lst
+31 uniq_combo_1bigcmd_sorted_legals_1753507300_2025-07-25T232140-0600.lst
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ wc -l < uniq_combo_1bigcmd_sorted_legals_1753507300_2025-07-25T232140-0600.lst
+
+31
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ comm -13 uniq_combo_sorted_legals_1753507300_2025-07-25T232140-0600.lst uniq_c
+ombo_1bigcmd_sorted_legals_1753507300_2025-07-25T232140-0600.lst | wc -l
+0
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ comm -23 uniq_combo_sorted_legals_1753507300_2025-07-25T232140-0600.lst uniq_c
+ombo_1bigcmd_sorted_legals_1753507300_2025-07-25T232140-0600.lst | wc -l
+104
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ #  Found it! The 1bigcmd has an extra `grep "_abg"`
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ ttdate && \
+  time \
+find . -type f -iname "*.jpg" | \
+  awk -F'/' '{print $NF}' | \
+  grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" | \
+  sed 's#[.]jpg$##g' | \
+  tr -s '_' | sed 's#^_##g; s#_$##g' | tr _ ' ' | \
+    tr '\n' '\0' | \
+    xargs -I'{}' -0 bash -c '
+      orig="{}"; \
+      echo "${orig}" | xargs -n1 | sort | xargs
+    ' | sort | uniq | \
+   tee uniq_combo_1bigcmd_sorted_legals_${my_ts}.lst \
+ && ttdatechk
+1753552511_2025-07-26T115511-0600
+,vnl;'.;'
+
+'f
+bv
+
+'nb/Vb.';..;d?w"          \
+rwe'[g;.,.,mj        abg cwa
+abg cwa fko fmr mbr ucr
+abg cwa fmr mbr mbr tbr
+abg cwa fmr mbr mcl
+abg cwa fmr mbr scg suh
+abg cwa fmr mbr ucr
+abg cwa mbr tbr
+abg fko fmr
+abg fko fmr mbr ucr
+abg fko gni mbr mcl
+abg fko nbr
+abg fko nbr oic
+abg fmr
+abg fmr iac mcl
+abg fmr mbr
+abg fmr mbr mcl
+abg fmr mbr mcl scg
+abg fmr mbr scg
+abg fmr mbr scg ucr
+abg fmr mbr suh tbr
+abg fmr mbr ucr
+abg fmr mcl
+abg mbr mcl suh tbr ucr
+abg mbr scg tbr ucr
+abg mbr scg ucr
+abg mcl tbr
+abg mmx nbr
+abg nbr oic
+abg scg
+abg tbr
+abg ucr
+cwa
+cwa fko fmr mbr
+cwa fko fmr mbr mcl
+cwa fko mbr mcl scg suh
+cwa fko mbr scg
+cwa fmr mbr
+cwa fmr mbr mcl
+cwa fmr mbr mcl scg
+cwa fmr mbr scg
+cwa fmr mbr scg suh
+cwa fmr mbr tbr
+cwa fmr mbr ucr
+cwa mbr mcl ucr
+cwa mbr scg
+cwa mbr scg ucr
+cwa mbr ucr
+cwa mcl
+fko fmr
+fko fmr mbr
+fko fmr mbr suh tbr ucr
+fko fmr mcl
+fko gni
+fko gni mcl
+fko iac nbr
+fko iac ucr
+fko mbr mcl scg tbr
+fko mbr mcl scg ucr
+fko mbr orc ucr
+fko mbr scg ucr
+fko mbr spr ucr
+fko mbr tbr ucr
+fko mcl nbr
+fko mcl scg
+fko mcl tbr
+fko mcl ucr
+fko mmx nbr
+fko nbr
+fko nbr oic
+fko nbr suh
+fko orc
+fko scg
+fko scg suh
+fko spr
+fko tbr
+fko ucr
+fmr
+fmr iac
+fmr mbr mcl scg
+fmr mbr mcl suh ucr
+fmr mbr scg
+fmr mbr scg ucr
+fmr mbr suh tbr
+fmr mbr suh tbr ucr
+fmr mbr suh ucr
+fmr mbr tbr
+fmr mbr tbr ucr
+fmr mbr ucr
+fmr mcl
+fmr mcl ucr
+fmr suh
+gni
+gni mbr scg
+gni mbr ucr
+gni mcl
+iac mcl ucr
+iac nbr
+iac nbr oic
+iac tbr
+mbr mcl orc ucr
+mbr mcl scg ucr
+mbr mcl suh tbr ucr
+mbr mcl tbr ucr
+mbr orc scg
+mbr orc scg ucr
+mbr orc spr
+mbr orc suh ucr
+mbr orc tbr
+mbr orc tbr ucr
+mbr orc ucr
+mbr scg
+mbr scg spr
+mbr scg suh tbr ucr
+mbr scg ucr
+mbr spr ucr
+mbr suh tbr ucr
+mbr tbr ucr
+mbr ucr
+mcl orc
+mcl scg
+mcl spr
+mcl suh ucr
+mcl tbr
+mcl ucr
+mmx nbr
+mmx nbr oic
+nbr
+nbr oic
+nbr oic oic
+oic oic
+orc
+scg
+spr
+tbr
+ucr
+
+real    9m21.660s
+user    3m14.462s
+sys     7m28.367s
+1753553073_2025-07-26T120433-0600
+ExitedNormally
+1753553073_2025-07-26T120433-0600
+  (this may be a BONUS timestamp)
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ ,vnl;'.;'
+bash: ,vnl: command not found
+bash: .;: command not found
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ 'f
+> bv
+>
+> 'nb/Vb.';..;d?w"
+> 'f
+bv
+
+'nb/Vb.';..;d?w"\
+bash: f
+bv
+
+nb/Vb.;..;d?w"
+f: No such file or directory
+bash: bv: command not found
+> rwe'[g;.,.,mj        ^C
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ ^C
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ ^C
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ ^C
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ #  Looks like George (the cat) or Julie got on the keyboard. I'm leaning
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ #+ towards George, since Julie hasn't shown much curiousity towards the
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ #+ keyboard, lately, but George (a very scientific cat, just like the rest
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ #+ of his family) is still curious about EVERYTHING!
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ #  Anyway, taking out that command makes us match (and added the extra time
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ #+ that was there, before).
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ I'll finish up this work log, then get GitHub updated, take myu
+> ^C
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ ^C
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ # External hard drive, and work on this at Grandma and Grandpa's.
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classi
+fied_-_Almost_Just_3lett_FS_-_Combined
+$ exit
+exit
+
+Script done on 2025-07-26 12:25:29-06:00 [COMMAND_EXIT_CODE="130"]
+

@@ -1,0 +1,626 @@
+Script started on 2025-07-24 20:20:17-06:00 [TERM="xterm" TTY="/dev/pty0" COLUMN
+S="80" LINES="42"]
+
+bballdave025@MY-MACHINE ~
+$ cat >/dev/null <<'EOF'
+
+Today, we'll finish some sanity checks on the classification combinations.
+I also hope to start getting the yes/no for the 9 singlebinary 
+classifications
+that will be done. That's ...
+
+(cwa|fmr|gni|nbr|orc|scg|spr|tbr|ucr)
+
+i.e.
+
+(I was going to say these would be abbreviated directory names, but it
+might just be nicer to leave these as they are)
+
+Doing a new heredoc to make sure I don't go past the number of lines
+the current terminal window can hold.
+
+EOF
+
+bballdave025@MY-MACHINE ~
+$ cat >/dev/null <<'EOF'
+
+So, the nice abbreviated view of the 9 binary classifications
+
+yes_cwa   no_cwa
+yes_fmr   no_fmr
+yes_gni   no_gni
+yes_nbr   no_nbr
+yes_orc   no_orc
+yes_scg   no_scg
+yes_spr   no_spr
+yes_tbr   no_tbr
+yes_ucr   no_ucr
+
+(Oh, by the way, I _did_ use Notepad++ regexes to get those.)
+
+EOF
+
+bballdave025@MY-MACHINE ~
+$ cat >/dev/null <<'EOF'
+
+The 10th classification, which is also binary (I don't know why I didn't
+think of that when coming up with the designation, "9 binary
+classifications"),        is yes_reuse   no_reuse
+
+I shall (or at least should) heretofore say
+9 single-reuse-type binary classifications
+and
+1 combined-reuse-types binary classifications
+
+So, the 9 single-reuse-type binary classifications are
+
+yes_cwa   no_cwa
+yes_fmr   no_fmr
+yes_gni   no_gni
+yes_nbr   no_nbr
+yes_orc   no_orc
+yes_scg   no_scg
+yes_spr   no_spr
+yes_tbr   no_tbr
+yes_ucr   no_ucr
+
+and the 1 combined classification (I think I might say single/multi, like
+at Amazon Shirts) is
+
+yes_reuse   no_reuse
+
+EOF
+
+bballdave025@MY-MACHINE ~
+$ #  All right, I probably should have started with this - ironing out the
+
+bballdave025@MY-MACHINE ~
+$ #+ ~/.bashrc aliases. (Yes, it's more complicated, no I'm not going to.)
+
+bballdave025@MY-MACHINE ~
+$
+
+bballdave025@MY-MACHINE ~
+$ #  Okay, maybe I'll look at the sequence of how things are called.
+
+bballdave025@MY-MACHINE ~
+$ grep -C 1 "[.][ ][
+> `^C
+
+bballdave025@MY-MACHINE ~
+$ ^C
+
+bballdave025@MY-MACHINE ~
+$ ^C
+
+bballdave025@MY-MACHINE ~
+$ grep -C 1 "[.][ ][~]/[.]bashrc" ~/.bash_profile
+if [ -f ~/.bashrc ]; then
+        . ~/.bashrc
+fi
+
+bballdave025@MY-MACHINE ~
+$ grep -C 1 "^  source.*bash_aliases" .bashrc
+if [ -f "${HOME}/.bash_aliases" ]; then
+  source "${HOME}/.bash_aliases"
+fi
+
+bballdave025@MY-MACHINE ~
+$ grep -C 1 "^[^#].*source.*bball.*alias" ~/.bash_aliases
+if [ -f "${HOME}/.bballdave025_bash_aliases" ]; then
+  source "${HOME}/.bballdave025_bash_aliases"
+fi
+
+bballdave025@MY-MACHINE ~
+$
+
+bballdave025@MY-MACHINE ~
+$ tail -n 20 "${HOME}/.bballdave025_bash_aliases"
+alias cmds4checkfnames=cfcf
+alias cfsquared=cfcf
+alias c4cf=cfcf
+
+
+
+
+## Used classifications for FHTW-2025, greppable (BRE)
+alias fhtw2025all3lett='echo "\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|mmx\|nbr\|oic\|orc\|scg\|spr\|suh\|tbr\|ucr\)"'
+alias f25a3='fhtw2025all3lett'
+
+
+
+
+##  Classifications used by Reuse Model for FHTW 2025,
+##+ greppable (BRE)
+alias fhtw2025model3lett=\
+'echo "\(cwa\|fmr\|gni\|nbr\|orc\|scg\|spr\|tbr\|ucr\)"'
+alias f25m3='fhtw2025model3lett'
+
+
+bballdave025@MY-MACHINE ~
+$ cp .bballdave025_bash_aliases .important_backups/.bballdave025_bash_aliases.$(ttdate).bak
+
+bballdave025@MY-MACHINE ~
+$ find /home/${USER}/.important_backups/ -type f -iname "*bballdave025_bash_aliases.*[.]bak | wc -l
+> ^C
+
+bballdave025@MY-MACHINE ~
+$ find /home/${USER}/.important_backups/ -type f -iname "*bballdave025_bash_aliases.*[.]bak" | wc -l
+13
+
+bballdave025@MY-MACHINE ~
+$ find /home/${USER}/.important_backups/ -type f -iname "*bballdave025_bash_aliases.*[.]bak" | sort
+/home/bballdave025/.important_backups/.bballdave025_bash_aliases.1749392001_2025-06-08T081321-0600.bak
+/home/bballdave025/.important_backups/.bballdave025_bash_aliases.1750190354_2025-06-17T135914-0600.bak
+/home/bballdave025/.important_backups/.bballdave025_bash_aliases.1750261915_2025-06-18T095155-0600.bak
+/home/bballdave025/.important_backups/.bballdave025_bash_aliases.1751032075_2025-06-27T074755-0600.bak
+/home/bballdave025/.important_backups/.bballdave025_bash_aliases.1751035507_2025-06-27T084507-0600.fnames-type-1.bak
+/home/bballdave025/.important_backups/.bballdave025_bash_aliases.1752518372_2025-07-14T123932-0600.bak
+/home/bballdave025/.important_backups/.bballdave025_bash_aliases.1752524886_2025-07-14T142806-0600.bak
+/home/bballdave025/.important_backups/.bballdave025_bash_aliases.1752947051_2025-07-19T114411-0600.bak
+/home/bballdave025/.important_backups/.bballdave025_bash_aliases.1753336152_2025-07-23T234912-0600.bak
+/home/bballdave025/.important_backups/.bballdave025_bash_aliases.1753337144_2025-07-24T000544-0600.bak
+/home/bballdave025/.important_backups/.bballdave025_bash_aliases.1753337900_2025-07-24T001820-0600.bak
+/home/bballdave025/.important_backups/.bballdave025_bash_aliases.1753411166_2025-07-24T203926-0600.bak
+/home/bballdave025/.important_backups/.bballdave025_bash_aliases.dwb.orig.1748303126_2025-05-26T174526-0600.bak
+
+bballdave025@MY-MACHINE ~
+$ find .important_backups/ -type f -iname "*bballdave025_bash_aliases.*[.]bak" | sort | tail -n 2 | head -n 1
+.important_backups/.bballdave025_bash_aliases.1753411166_2025-07-24T203926-0600.bak
+
+bballdave025@MY-MACHINE ~
+$ pre4diff=$(!!)
+pre4diff=$(find .important_backups/ -type f -iname "*bballdave025_bash_aliases.*[.]bak" | sort | tail -n 2 | head -n 1)
+
+bballdave025@MY-MACHINE ~
+$ echo "${pre4diff}"
+.important_backups/.bballdave025_bash_aliases.1753411166_2025-07-24T203926-0600.bak
+
+bballdave025@MY-MACHINE ~
+$ #  I love bang bang ( `!!` )
+
+bballdave025@MY-MACHINE ~
+$
+
+bballdave025@MY-MACHINE ~
+$ #  I'll do this in  vim  in another terminal; I don't want to do my tests
+
+bballdave025@MY-MACHINE ~
+$ #+ of how this new logging/cleaning method works on this terminal session.
+
+bballdave025@MY-MACHINE ~
+$ #  (Other terminal)  vim .bballdave025_bash_aliases
+
+bballdave025@MY-MACHINE ~
+$ echo "what\windows\problems\sarcasm" | grep -o '[\]'
+\
+\
+\
+
+bballdave025@MY-MACHINE ~
+$ echo "/pattern?/what\windows\problems\sarcasm/forward/slash/good" | grep -o '[\/]'
+/
+/
+\
+\
+\
+/
+/
+/
+
+bballdave025@MY-MACHINE ~
+$ cat >/dev/null <<'EOF'
+> ^C
+
+bballdave025@MY-MACHINE ~
+$ cat >list1 <<'EOF'
+[,],~,@,#,$,%,^,&,|,/,),(,},{,[,*,?,>,<,;,:,",`,'
+EOF
+
+bballdave025@MY-MACHINE ~
+$ cat >list2 <<'EOF'
+~,`,!,@,#,$,%,^,&,/,),(,],[,},{,*,?,>,<,;,:,',",|,\
+EOF
+
+bballdave025@MY-MACHINE ~
+$ tr ',' '\n' list1
+tr: extra operand ‘list1’
+Try 'tr --help' for more information.
+
+bballdave025@MY-MACHINE ~
+$ tr ',' '\n' < list1
+[
+]
+~
+@
+#
+$
+%
+^
+&
+|
+/
+)
+(
+}
+{
+[
+*
+?
+>
+<
+;
+:
+"
+`
+'
+
+bballdave025@MY-MACHINE ~
+$ tr ',' '\n' < list1 | wc -l
+25
+
+bballdave025@MY-MACHINE ~
+$ tr ',' '\n' < list2 | wc -l
+26
+
+bballdave025@MY-MACHINE ~
+$ tr ',' '\n' < list1 | sort
+"
+#
+$
+%
+&
+'
+(
+)
+*
+/
+:
+;
+<
+>
+?
+@
+[
+[
+]
+^
+`
+{
+|
+}
+~
+
+bballdave025@MY-MACHINE ~
+$ tr ',' '\n' < list2 | sort
+!
+"
+#
+$
+%
+&
+'
+(
+)
+*
+/
+:
+;
+<
+>
+?
+@
+[
+\
+]
+^
+`
+{
+|
+}
+~
+
+bballdave025@MY-MACHINE ~
+$ echo -e "hey\x21"
+hey!
+
+bballdave025@MY-MACHINE ~
+$ echo -e "hey\x21" | grep '[!]'
+hey!
+
+bballdave025@MY-MACHINE ~
+$ echo -e "hey\x21" | grep -o '[!]'
+!
+
+bballdave025@MY-MACHINE ~
+$ echo -e "\x21" >> list1
+
+bballdave025@MY-MACHINE ~
+$ tail list1
+[,],~,@,#,$,%,^,&,|,/,),(,},{,[,*,?,>,<,;,:,",`,'
+!
+
+bballdave025@MY-MACHINE ~
+$ tr -d '\n' < list1 > tmp && mv tmp list1
+
+bballdave025@MY-MACHINE ~
+$ tail list1
+[,],~,@,#,$,%,^,&,|,/,),(,},{,[,*,?,>,<,;,:,",`,'!
+bballdave025@MY-MACHINE ~
+$ tr ',' '\n' < list1 | sort
+"
+#
+$
+%
+&
+'!
+(
+)
+*
+/
+:
+;
+<
+>
+?
+@
+[
+[
+]
+^
+`
+{
+|
+}
+~
+
+bballdave025@MY-MACHINE ~
+$ echo "'!" | xxd
+00000000: 2721 0a                                  '!.
+
+bballdave025@MY-MACHINE ~
+$ type xxd
+xxd is /usr/bin/xxd
+
+bballdave025@MY-MACHINE ~
+$ sed 's#\(['"'"']\)\([!]\)#\1,\2#' list1
+[,],~,@,#,$,%,^,&,|,/,),(,},{,[,*,?,>,<,;,:,",`,',!
+bballdave025@MY-MACHINE ~
+$ sed -i 's#\(['"'"']\)\([!]\)#\1,\2#' list1
+
+bballdave025@MY-MACHINE ~
+$ tr ',' '\n' < list1 | sort | tee list1vert
+!
+"
+#
+$
+%
+&
+'
+(
+)
+*
+/
+:
+;
+<
+>
+?
+@
+[
+[
+]
+^
+`
+{
+|
+}
+~
+
+bballdave025@MY-MACHINE ~
+$ tr ',' '\n' < list2 | sort | tee list2vert
+!
+"
+#
+$
+%
+&
+'
+(
+)
+*
+/
+:
+;
+<
+>
+?
+@
+[
+\
+]
+^
+`
+{
+|
+}
+~
+
+bballdave025@MY-MACHINE ~
+$ diff list1vert list2vert | wc -l
+4
+
+bballdave025@MY-MACHINE ~
+$ diff list1vert list2vert
+19c19
+< [
+---
+> \
+
+bballdave025@MY-MACHINE ~
+$ cat list1
+[,],~,@,#,$,%,^,&,|,/,),(,},{,[,*,?,>,<,;,:,",`,',!
+bballdave025@MY-MACHINE ~
+$ cat list2
+~,`,!,@,#,$,%,^,&,/,),(,],[,},{,*,?,>,<,;,:,',",|,\
+
+bballdave025@MY-MACHINE ~
+$ #  I don't know exactly how the '\' in list1 became a ']' in list1vert,
+
+bballdave025@MY-MACHINE ~
+$ #+ but it's a backslash (escape character)
+
+bballdave025@MY-MACHINE ~
+$ #  Oh, I see. I put the grouping '[' as part of the group, and so didn't
+
+bballdave025@MY-MACHINE ~
+$ #+ see the difference in number. I added the backslash into the thing
+
+bballdave025@MY-MACHINE ~
+$ #+ called from .bashrc, but didn't add it here due to the number.
+
+bballdave025@MY-MACHINE ~
+$ sed 's#^..##' list1
+],~,@,#,$,%,^,&,|,/,),(,},{,[,*,?,>,<,;,:,",`,',!
+bballdave025@MY-MACHINE ~
+$ sed -i 's#^..##' list1
+
+bballdave025@MY-MACHINE ~
+$ sed 's#/#\/#' list1
+],~,@,#,$,%,^,&,|,/,),(,},{,[,*,?,>,<,;,:,",`,',!
+bballdave025@MY-MACHINE ~
+$ sed 's#/#\\,/#' list1
+],~,@,#,$,%,^,&,|,\,/,),(,},{,[,*,?,>,<,;,:,",`,',!
+bballdave025@MY-MACHINE ~
+$ sed -i 's#/#\\,/#' list1
+
+bballdave025@MY-MACHINE ~
+$ tput cols
+80
+
+bballdave025@MY-MACHINE ~
+$ tr ',' '\n' < list1 | sort | tee list1vert
+!
+"
+#
+$
+%
+&
+'
+(
+)
+*
+/
+:
+;
+<
+>
+?
+@
+[
+\
+]
+^
+`
+{
+|
+}
+~
+
+bballdave025@MY-MACHINE ~
+$ tr ',' '\n' < list2 | sort | tee list2vert
+!
+"
+#
+$
+%
+&
+'
+(
+)
+*
+/
+:
+;
+<
+>
+?
+@
+[
+\
+]
+^
+`
+{
+|
+}
+~
+
+bballdave025@MY-MACHINE ~
+$ diff list1vert list2vert | wc -l
+0
+
+bballdave025@MY-MACHINE ~
+$ #  Hooray! I've got all desired characters!
+
+bballdave025@MY-MACHINE ~
+$
+
+bballdave025@MY-MACHINE ~
+$
+
+bballdave025@MY-MACHINE ~
+$ #  I left this here while looking for what was a TINN debugging solution.
+
+bballdave025@MY-MACHINE ~
+$ checksituation
+
+ Current date/time is
+Fri Jul 25 17:51:53 MDT 2025
+1753487513
+1753487513_2025-07-25T175153-0600
+
+ Current directory ( pwd ) is
+/home/bballdave025
+
+
+bballdave025@MY-MACHINE ~
+$ #  I would continue with this, but I want to have the stuff at the
+
+bballdave025@MY-MACHINE ~
+$ #+ beginning at quick reference.
+
+bballdave025@MY-MACHINE ~
+$ exit
+exit
+Script done.
+The cleaned terminal I/O log now at
+  '/home/bballdave025/work_logs/Lab_Notebook_bballdave025_1753410017_2025-07-24T202017-0600_clean.log'
+The raw output of  script  still exists; remove if desired with
+  rm -f /home/bballdave025/work_logs/Lab_Notebook_bballdave025_1753410017_2025-07-24T202017-0600.log
+
+
+bballdave025@MY-MACHINE ~
+$ #
+#  That one got messed up, somehow. Luckily, I still had the terminal
+#+ open and could copy/paste. (The raw output from `script` looked complete,
+#+ but copy/paste was much easier than programmatically cleaning it.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

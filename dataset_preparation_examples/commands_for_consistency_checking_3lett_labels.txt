@@ -1,0 +1,419 @@
+######## GETTING ALL CANDIDATE CLASSIFICATIONS THAT FOLLOW 
+######## THE 3-LETTER PART OF NAMING RULES
+####BEGIN <1>#############################################################
+# For any directory, get the underscore-linked 3lett
+#
+###  For the following command, just take off the (`uniq -c) to get
+###  all candidates for all filenames (probably want to append
+###  ` | wc -l` count
+$ # COUNT OF NOT-UNIQ-ED LIST, (`wc -l`) count and (`-c`) COUNT
+$ find . -type f -iname "*.jpg" | \
+    awk -F'/' '{print $NF}' | \
+      grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" | \
+      sed 's#[.]jpg$##g' | \
+        sort | uniq -c | \
+   wc -l
+$ # UNIQ LIST WITH (`wc -l`) COUNT 
+$ find . -type f -iname "*.jpg" | \
+    awk -F'/' '{print $NF}' | \
+      grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" | \
+      sed 's#[.]jpg$##g' | \
+        sort | uniq -c | \
+   wc -l
+$ # UNIQ LIST (`-c` COUNT), SHOWING ALL OF THEM
+$ find . -type f -iname "*.jpg" | \
+    awk -F'/' '{print $NF}' | \
+      grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" | \
+      sed 's#[.]jpg$##g' | \
+        sort | uniq -c | sort -rn
+
+#+ other of the additions below can be tagged on (like getting
+#+ unique sorted combinations of legal-at-least-having-three-letters-rule
+#+ classifications.
+
+#  Doing this either yesterday (2025-07-24) or the day before,
+#+ I found a few mispellings, one filename that had 'max' (as
+#+ in maxCopy or maxRes without the second part, and one other
+#+ thing that needed changing, I believe.
+####ENDOF <1>#######(all candidate classifications following 3lett rule###
+
+######## GETTING ALL CLASSIFICATIONS THAT FOLLOW NAMING RULES ############
+####BEGIN <2>#############################################################
+#+ For any directory, get all rule-following 3lett ...
+######BEGIN <2.1>#########################################################
+#+ ... start by get all the underscore-linked 3lett (with no `uniq`)
+$ #
+#  (`wc -l`) COUNT (for this one, you ONLY want to do the (`wc -l`) 
+#+ count (unless you want classification part of ####ALL#### files) - 
+#+ just added ` | wc -l`
+$ find . -type f -iname "*.jpg" | \
+    awk -F'/' '{print $NF}' | \
+      grep -io "\(_\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|"\
+"mmx\|nbr\|oic\|orc\|scg\|spr\|suh\|tbr\|ucr\)\)\+" | \
+        sed 's#[.]jpg$##g' | sort | \
+   wc -l
+$ #
+#  COUNT NUMBER OF almost-UNIQUE COMBINATIONS (this is not the place
+#+ We don't have to do that here, as there isn't a fixed order.
+#+ Later, we'll alphabetically sort the classes and find unique combos)
+$ find . -type f -iname "*.jpg" | \
+    awk -F'/' '{print $NF}' | \
+      grep -io "\(_\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|"\
+"mmx\|nbr\|oic\|orc\|scg\|spr\|suh\|tbr\|ucr\)\)\+" | \
+        sed 's#[.]jpg$##g' | sort | uniq -c | \
+   wc -l  # Probably skip this. Might want `uniq` without `-c`.
+#                               Might want without `uniq -c` (match n_files)
+#                               Might want pipe to `uniq -rn`
+#
+######ENDOF <2.1>#########(all name-rule-following 3lett undsc-linked)####
+#
+######BEGIN <2.2>#########################################################
+$ ####
+####  COUNT NUMBER OF UNDERSCORE-LESS CLASS COMBINATIONS (PRE COMBO SORT)
+####+ (IF THIS NUMBER ISN'T TO BIG
+$ 
+$ #  GET THE UNIQUE, UNDERSCORE-LESS, PRE-COMBO-SORT COMBINATIONS
+$ #+  COUNT first (`wc -l` COUNT)
+$ ttdate && \
+time \
+  find . -type f -iname "*.jpg" | \
+    awk -F'/' '{print $NF}' | \
+      grep -io "\(_\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|"\
+"mmx\|nbr\|oic\|orc\|scg\|spr\|suh\|tbr\|ucr\)\)\+" | \
+        sed 's#[.]jpg$##g' | \
+        tr -s '_' | \
+        sed 's#^_##g; s#_$##g' | \
+        tr _ ' ' | \
+        sort | uniq | \
+   wc -l \
+ && ttdatechk
+$ ####
+####  THIS NEXT ONE IS ONE YOU ACTUALLY MIGHT _NOT_ WANT TO SKIP THE
+####+ OUTPUT, DUE TO THE FACT THAT IT WILL
+####+ SHOW THE almost-UNIQUE CLASSIFICATION PART OF FILES 
+####+ (W/O UNDERSCORES)
+#  SHOW (IF THE COUNT ISN'T TOO CRAZY) - REM. THIS IS PRE-COMBO-SORT
+#+ (MEANING THERE COULD STILL BE, e.g. 'mcl ucr' and 'ucr mcl' showing
+#+ up differently)
+$ ttdate && \
+time \
+  find . -type f -iname "*.jpg" | \
+    awk -F'/' '{print $NF}' | \
+      grep -io "\(_\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|"\
+"mmx\|nbr\|oic\|orc\|scg\|spr\|suh\|tbr\|ucr\)\)\+" | \
+        sed 's#[.]jpg$##g' | \
+        tr -s '_' | \
+        sed 's#^_##g; s#_$##g' | \
+        tr _ ' ' | \
+        sort | uniq \
+ && ttdatechk
+$ #
+#  Same, but with number (i.e. `-c` count) of each 
+#+ pre-combo-sort combinations
+$ ttdate && \
+time \
+  find . -type f -iname "*.jpg" | \
+    awk -F'/' '{print $NF}' | \
+      grep -io "\(_\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|"\
+"mmx\|nbr\|oic\|orc\|scg\|spr\|suh\|tbr\|ucr\)\)\+" | \
+        sed 's#[.]jpg$##g' | \
+        tr -s '_' | \
+        sed 's#^_##g; s#_$##g' | \
+        tr _ ' ' | \
+        sort | uniq -c | sort -rn \
+ && ttdatechk
+$
+$ # LIST UNIQUE COMBO-SORTED COMBINATIONS OF LEGAL CLASS COMBOS
+### THIS COMMAND IS LIKELY MORE EFFICIENT AND USEFUL IF YOU USE
+### INTERMEDIARY FILES
+#  Now, without the `wc -l` option (you can do that yourself),
+#+ the combination sort, e.g. 'mcl ucr' and 'ucr mcl' will both
+#+ become `mcl urc` and won't be considered or grouped separately.
+#+ note that taking out the `bash -c` for the first  xargs
+#+ (i.e. doing   `xargs -I'{}' -0 echo "{}" | xargs -n1 | sort | xargs` )
+#+ will result in a list with one word on each line. To get the
+#+ whole combination of labels, keep in the `bash -c`
+$ ttdate && \
+time \
+  find . -type f -iname "*.jpg" | \
+    awk -F'/' '{print $NF}' | \
+      grep -io "\(_\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|"\
+"mmx\|nbr\|oic\|orc\|scg\|spr\|suh\|tbr\|ucr\)\)\+" | \
+        sed 's#[.]jpg$##g' | \
+        tr -s '_' | \
+        sed 's#^_##g; s#_$##g' | \
+        tr _ ' ' | \
+          tr '\n' '\0' | \
+          xargs -I'{}' -0 bash -c \
+          'orig="{}"; echo "${orig}" | xargs -n1 | sort | xargs' \
+            sort | uniq \
+ && ttdatechk
+#      Might want         `uniq -c`
+#      Might want without `uniq` (match n_files), but use `wc -l`
+#      Might want pipe `uniq -c` to `uniq -rn`
+$     #
+#  creating intermediary lists of results can cut computational time
+#+ due to not spawning sub-shells.
+#+ 
+$ my_ts=$(ttdate)
+$ #
+#  The `time` at the beginning of each following commands, along with 
+#+ the `ttdate` and `ttdatechk`, are not
+#+ necessary, but I use it to do my own comparisons.
+$ ttdate && \
+time \
+  find . -type f -iname "*.jpg" | \
+    awk -F'/' '{print $NF}' | \
+      grep -io "\(_\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|"\
+"mmx\|nbr\|oic\|orc\|scg\|spr\|suh\|tbr\|ucr\)\)\+" | \
+      sed 's#[.]jpg$##g;' > \
+   all_undrscr_linked_legal_label_combos_${my_ts}.lst \
+ && ttdatechk
+$ ttdate && \
+time \
+  tr -s '_' < \
+    all_undrscr_linked_legal_label_combos_${my_ts}.lst | \
+      sed 's#^_##g; s#_$##g' | \
+        tr '_' ' ' > \
+   all_space_sep_legal_label_combos_${my_ts}.lst \
+ && ttdatechk
+$ ttdate && \
+time \
+  tr '\n' '\0' < \
+    all_space_sep_legal_label_combos_${my_ts}.lst | \
+      xargs -I'{}' -0 bash -c '
+        orig="{}"
+        echo "${orig}" | xargs -n1 | sort | xargs
+      ' | sort | uniq -c | sort -rc | \
+   tee uniq_combo_sorted_legals_${my_ts}.lst \
+ && ttdatechk
+#    Might want `uniq` (without `-c`)
+#    Might want without `uniq` (match n_files), but use `wc -l`
+#    Might want to see without piping `uniq -c` to `uniq -rn`
+#  Useful to add ' | tee uniq_combo_sorted_count_legals_${my_ts}.lst'
+#+ with the original ` | uniq -c | sort -rc`
+#  This also gives you starting points for other pipelines that you'll
+#+ have to reason out on your own.
+#
+
+# For debugging what's above
+ttdate && \
+  time \
+find . -type f -iname "*.jpg" | \
+  awk -F'/' '{print $NF}' | \
+  grep "_abg" | \
+  grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" | \
+  sed 's#[.]jpg$##g' | \
+    tr -s '_' | sed 's#^_##g; s#_$##g' | tr _ ' ' | \
+      tr '\n' '\0' | \
+      xargs -I'{}' -0 bash -c '
+        orig="{}"; \
+        echo "${orig}" | xargs -n1 | sort | xargs'
+
+$ find . -type f -iname "*.jpg" |    awk -F'/' '{print $NF}' |    grep "_abg" |    grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" |    sed 's#[.]jpg$##g' |      tr -s '_' | sed 's#^_##g; s#_$##g' | tr _ ' ' |        tr '\n' '\0' | xargs -I'{}' -0 bash -c 'orig="{}"; echo "${orig}" | xargs -n1 | sort | xargs' | sort | uniq
+
+$ ttdate &&\
+  time \
+find . -type f -iname "*.jpg" | \ 
+  awk -F'/' '{print $NF}' | \
+  grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" | \
+  sed 's#[.]jpg$##g' | \
+  tr -s '_' | sed 's#^_##g; s#_$##g' | tr _ ' ' | \
+    tr '\n' '\0' | \
+    xargs -I'{}' -0 bash -c '
+      orig="{}"; \
+      echo "${orig}" | xargs -n1 | sort | xargs' | \
+        sort | uniq | \
+   tee uniq_combo_1bigcmd_sorted_legals_${my_ts}.lst \
+ && ttdatechk
+
+ttdate && \
+  time \
+tr '\n' '\0' < \
+  all_space_sep_legal_label_combos_${my_ts}.lst | \
+    xargs -I'{}' -0 bash -c '
+        orig="{}"
+        echo "${orig}" | xargs -n1 | sort | xargs
+    ' | sort | uniq -c | \
+   tee uniq_c_combo_sorted_legals_${my_ts}.lst \
+ && ttdatechk
+
+#
+#
+#+ Search for the 3lett in legal naming, count, then compare to
+#+ a simple search, count. Compare the countings. Find reasons for
+#+ any acceptable discrepancies. Fix/check out the others.
+#
+#+   Not necessarily from the same base search, but maybe hinted at by
+#+   the count compare
+#+ Look for any not 3lett after a one-legal 3lett (there could be doc 
+#+ names, but every one of them should be accounted for)
+#
+######## GETTING ALL NAME-RULE-FOLLOWING CLASSIFICATIONS W/1 OF 'f25m3'
+#+ Very closely related to just-follow-naming-rules, but not the same search
+
+
+########    MULTIPLE CLASSES stuff
+#+ For any directory (the directory with everything sorted or any of the
+#+ single directories), get all the `mcl` entries. (0)
+#+ With the underscores and all other 3lett
+$ find . -type f -iname "*.jpg" | \
+    awk -F'/' '{print $NF}' | \
+      grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" | \
+      sed 's#[.]jpg$##g' | \
+        grep "mcl"
+#+ These should all either:
+#+   1. Have one and only one yes-binary-model classification, 'f25m3'.
+#+      in which case there should not be an 'mbr'
+ $ # FIND THE ONE AND ONLY ONE SINGLE CLASSIFICATION (GOOD)
+ $ find . -type f -iname "*.jpg" | \
+     awk -F'/' '{print $NF}' | \
+       grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" | \
+       sed 's#[.]jpg$##g' | \
+         grep "mcl" | grep -v "mbr" |
+           grep ""
+ $ # FIND THOSE WITHOUT ACCOMPANYING SINGLE
+ $ find . -type f -iname "*.jpg" | \
+     awk -F'/' '{print $NF}' | \
+       grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" | \
+       sed 's#[.]jpg$##g' | \
+         grep "mcl" |
+#+   2. Have 'mbr' and more than one yes-binary-model classification.
+  $ # FIND ANY THAT HAVE 'mbr', NO MATTER WHAT ELSE (GOOD|BAD)
+  $ 
+  $ # FIND ANY THAT DO NOT HAVE ANY 
+  $ # FIND THE OTHER SINGLE(S) (NO MATTER WHAT ELSE) (GOOD|BAD)
+  $
+  $ # FIND THE OTHER SINGLES (WHEN THERE ARE AT LEAST TWO) (GOOD)
+  $ find . -type f -iname "*.jpg" | \
+      awk -F'/' '{print $NF}' | \
+        grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" | \
+        sed 's#[.]jpg$##g' | \
+          grep "mcl" | grep 'mbr'
+ $ # FIND THE OTHER SINGLE (WHEN ONLY ONE SINGLE) (BAD)
+ $
+#+   What else is expected?
+#+     
+#+   What else is allowed?
+#+     3. 'fko', 'iac', and 'suh' can always be there
+#+     4. 'abg' can be there 
+#+   What is not allowed?
+#+     5. 'nbr', 'oic', 'mmx'
+#+     6. just the 'mcl' alone
+#+   7. Have only one of 'f25m3'
+ $ # FIND THE ONE (GOOD)
+ $ find . -type f -iname "*.jpg" | \
+    awk -F'/' '{print $NF}' | \
+      grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" | \
+      sed 's#[.]jpg$##g' | \
+        grep "mcl" | grep -v 'mbr'
+$ # FIND OUT IF THERE ARE MORE THAN ONE (BAD
+#+   What else is expected?
+#+     
+#+   What else is allowed?
+#+     3. 'fko', 'iac', and 'suh' can always be there
+ 
+#+     4. 'abg' can be there 
+#+   What is not allowed?
+#+     5. 'nbr', 'oic', 'mmx'
+#+     6. just the 'mcl' alone
+#  For any directory (the directory with everything sorted or any of the
+#+ single directories), get all the `mbr` entries. (0)
+#+ These should all:
+#+   1. have more than one yes-binary-model classification
+#+   2. for now, be in the Multiple_Binding_Reuse_Classes directory
+#+   What else is allowed?
+#+     2. 'fko', 'iac', and 'suh' can always be there
+#+     3. 'abg' can be there
+#+   What is not allowed?
+#+     4. 'nbr', 'oic', 'mmx'
+#+     5. None of these can be in the Multiple_Classes folder
+#+     6. Just the 'mbr', alone
+
+
+#  For any directory (the directory with everything sorted or any of the
+#+ single directories), get all the `abg` entries. (0)
+#+ These should all:
+#+   1. Have at least one other classification
+#+     What can these be?
+#+
+#+   What else is allowed?
+#+     a. 'fko', 'iac', and 'suh' can always be there
+#+     b. 
+#+   What is not allowed?
+#+     c. 
+#+     d. Just the 'abg', alone
+
+
+
+#  Which folders should always be empty after complete  (forget comment)
+Across_Book_Gutter_Reuse        (in the future, Across_Book_Gutter)
+
+
+
+
+
+
+
+
+
+#  Let's think of all those that can't be alone
+
+abg
+mbr
+mcl
+
+
+####BEGIN <n>###########################################################
+#  Let's think of all the illegal combinations (forget comment style for now)
+
+mcl   nbr
+      oic
+      mmx
+mbr   nbr
+      oic
+      mmx
+
+
+# IF THERE'S NOT AN mbr
+f25m3 f25m3 #  note that this is the case even if it's the same element
+            #+ since we don't want it duplicated
+
+
+####ENDOF <n>############### (illlegal combinations) #####
+
+#  Let's think of all the always-together combos (forget comment style for now)
+      Pairs
+      1. Those that cannot have other classifications (might not be any)
+      
+      2. Those that can only have the 'can always be there' (CABT): 
+         'fko','iac','suh'
+        Pairs
+          oic nbr
+            What else is legal with this pair (besides the CABT)
+            a.
+            b.
+            What is illegal with this pair
+            a. (too many)
+          mmx nbr
+            What else is legal with this pair (besides the CABT)
+            a.
+            b.
+            What else is illegal with this pair
+            a. too many
+          
+        Triplets (might not be any)
+        
+        Quartets or more (I doubt it)
+        
+      3. Those have, as their pair, one or more (all >0 must be possible)
+         members of a class list (such as that seen in 'f25a3', 'f25m3'      
+         and 'f25n3`)
+        mbr f23m3(>1)
+      
+
+
+
+
+
+

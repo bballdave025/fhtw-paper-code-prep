@@ -123,7 +123,7 @@ $ ## RIGHT ONE COMING, I THINK
 
 bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
 $ ttdate && \
-  time \
+   time \
     identify -format "
       \n\n%f\n%[magick] %[colorspace] %[type] \
               %[extension] %[bit-depth] %[channels]\n" \
@@ -146,7 +146,7 @@ $ grep JPEG fs_watermarks_etc_pre_conversion_${my_ts}.out | wc -l
 
 bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
 $ grep JPEG fs_watermarks_etc_pre_conversion_${my_ts}.out | \
->   sort | uniq -c  # I don't even care if I get all 14
+    sort | uniq -c  # I don't even care if I get all 14
      14 JPEG Gray Grayscale jpg 8 gray
 
 bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
@@ -434,28 +434,6 @@ $ ttdate && \
       \n\n%f\n%[magick] %[colorspace] %[type] \
               %[extension] %[bit-depth] %[channels]\n" \
           *.jpg | tr -s ' ' \
-        > fs_watermarks_etc_post_${my_ts}.out \
-    && ttdatechk
-1753240513_2025-07-22T211513-0600
-
-real    0m3.699s
-user    0m8.234s
-sys     0m1.108s
-1753240517_2025-07-22T211517-0600
-ExitedNormally
-1753240517_2025-07-22T211517-0600
-  (this may be a BONUS timestamp)
-
-bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
-$ rm fs_watermarks_etc_post_1753209154_2025-07-22T123234-0600.out
-
-bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
-$ ttdate && \
- time \
-    identify -format "
-      \n\n%f\n%[magick] %[colorspace] %[type] \
-              %[extension] %[bit-depth] %[channels]\n" \
-          *.jpg | tr -s ' ' \
         > fs_watermarks_etc_post_conversion_${my_ts}.out \
     && ttdatechk
 1753240737_2025-07-22T211857-0600
@@ -475,7 +453,7 @@ fs_watermarks_etc_pre_conversion_1753209154_2025-07-22T123234-0600.out
 
 bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
 $ grep -i jpeg \
->   fs_watermarks_etc_post_conversion_${my_ts}.out | wc -l
+    fs_watermarks_etc_post_conversion_${my_ts}.out | sort | uniq -c
 14
 
 bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/FS_watermarks
