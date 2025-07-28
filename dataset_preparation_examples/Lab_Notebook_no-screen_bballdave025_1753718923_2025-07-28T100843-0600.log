@@ -1,0 +1,154 @@
+Lab_Notebook_bballdave025_1753718923_2025-07-28T100843-0600
+
+
+Finding the reason for that one sort error.
+
+
+
+
+Look at combo-sorted `uniq -c` output, see how many of each problem
+I'm Looking at (Looking across at Yesterday's Lab Notebook.
+
+
+
+      1 abg cwa
+      1 abg cwa fko fmr mbr ucr
+      1 abg cwa fmr mbr mbr tbr
+      1 abg cwa fmr mbr mcl
+      1 abg cwa fmr mbr scg suh
+      1 abg cwa fmr mbr ucr
+      1 abg cwa mbr tbr
+      1 abg fko fmr
+      2 abg fko fmr mbr ucr
+      1 abg fko gni mbr mcl
+      1 abg fko nbr
+      1 abg fko nbr oic
+     23 abg fmr
+      2 abg fmr iac mcl
+      1 abg fmr mbr               # PROBLEM (mbr+1*{f25m3})
+      2 abg fmr mbr mcl           # PROBLEM (mbr+1*{f25m3})
+      1 abg fmr mbr mcl scg
+      8 abg fmr mbr scg
+      2 abg fmr mbr scg ucr
+      1 abg fmr mbr suh tbr
+      1 abg fmr mbr ucr
+      5 abg fmr mcl
+      1 abg mbr mcl suh tbr ucr
+      1 abg mbr scg tbr ucr
+      2 abg mbr scg ucr
+      1 abg mcl tbr
+      2 abg mmx nbr
+     12 abg nbr oic
+      1 abg scg
+      2 abg tbr
+      2 abg ucr
+     26 cwa
+      1 cwa fko fmr mbr
+      1 cwa fko fmr mbr mcl
+      1 cwa fko mbr mcl scg suh
+      1 cwa fko mbr scg
+      2 cwa fmr mbr
+      2 cwa fmr mbr mcl
+      1 cwa fmr mbr mcl scg
+      2 cwa fmr mbr scg
+      1 cwa fmr mbr scg suh
+      3 cwa fmr mbr tbr
+      3 cwa fmr mbr ucr
+      1 cwa mbr mcl ucr
+      3 cwa mbr scg
+      2 cwa mbr scg ucr
+      1 cwa mbr ucr
+      2 cwa mcl
+      7 fko fmr
+      1 fko fmr mbr
+      1 fko fmr mbr suh tbr ucr
+      2 fko fmr mcl
+      2 fko gni
+      1 fko gni mcl
+      3 fko iac nbr
+      1 fko iac ucr
+      1 fko mbr mcl scg tbr
+      1 fko mbr mcl scg ucr
+      1 fko mbr orc ucr
+      2 fko mbr scg ucr
+      1 fko mbr spr ucr
+      1 fko mbr tbr ucr
+      1 fko mcl nbr
+      2 fko mcl scg
+      1 fko mcl tbr
+      2 fko mcl ucr
+      9 fko mmx nbr
+    264 fko nbr
+     35 fko nbr oic
+      1 fko nbr suh
+      3 fko orc
+      4 fko scg
+      1 fko scg suh
+      3 fko spr
+      7 fko tbr
+      2 fko ucr
+     91 fmr
+      2 fmr iac
+      2 fmr mbr mcl scg
+      1 fmr mbr mcl suh ucr
+      9 fmr mbr scg
+      3 fmr mbr scg ucr
+      1 fmr mbr suh tbr
+      1 fmr mbr suh tbr ucr
+      2 fmr mbr suh ucr
+      4 fmr mbr tbr
+      2 fmr mbr tbr ucr
+      7 fmr mbr ucr
+     15 fmr mcl
+      1 fmr mcl ucr
+      1 fmr suh
+     70 gni
+      1 gni mbr scg
+      1 gni mbr ucr
+      8 gni mcl
+      1 iac mcl ucr
+     53 iac nbr
+      2 iac nbr oic
+      2 iac tbr
+      3 mbr mcl orc ucr
+      2 mbr mcl scg ucr
+      4 mbr mcl suh tbr ucr
+      1 mbr mcl tbr ucr
+      2 mbr orc scg
+      3 mbr orc scg ucr
+      2 mbr orc spr
+      2 mbr orc suh ucr
+      3 mbr orc tbr
+      2 mbr orc tbr ucr
+      9 mbr orc ucr
+      1 mbr scg
+      1 mbr scg spr
+      2 mbr scg suh tbr ucr
+     10 mbr scg ucr
+      1 mbr spr ucr
+      4 mbr suh tbr ucr
+      2 mbr tbr ucr
+      3 mbr ucr
+      3 mcl orc
+     13 mcl scg
+      2 mcl spr
+      1 mcl suh ucr
+     15 mcl tbr
+      6 mcl ucr
+     60 mmx nbr
+      2 mmx nbr oic
+   1589 nbr
+    559 nbr oic
+      2 nbr oic oic
+      1 oic oic
+     39 orc
+     67 scg
+     20 spr
+     81 tbr
+     38 ucr
+
+
+
+So, our error has got to be from this file and the `sort -rn`
+
+... or something unknown that I did yesterday.  It works.

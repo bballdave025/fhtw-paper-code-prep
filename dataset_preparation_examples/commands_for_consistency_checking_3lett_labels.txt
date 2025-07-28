@@ -155,7 +155,34 @@ $     #
 #  creating intermediary lists of results can cut computational time
 #+ due to not spawning sub-shells.
 #+ 
-$ my_ts=$(ttdate)
+#################################################
+#  With intermediary files, complete to uniq 
+#+ with freq
+#+ 
+$ my_ts=$(ttdate)  # Keep this timestamp with all files 
+$ ttdate && \
+  time \
+find . -type f -iname "*.jpg" | \
+    awk -F'/' '{print $NF}' | \
+      grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" | \
+      sed 's#[.]jpg$##g' | \
+        sort | uniq \
+   > undrscr_linkd_3lett_candidates_uniq_${my_ts}.lst
+ && ttdatechk
+$ #
+#  Show that we get pairs of really-unique classifications with differing
+#+ order of labeling
+$ #  Example to show process (now done manually)
+$ grep -P \
+  "(_fko_(cwa|fmr|gni|nbr|orc|scg|spr|tbr|ucr))|(_\2_fko)" \
+    undrscr_linkd_3lett_candidates_uniq_${my_ts}.lst | wc -l
+17
+$ $ grep -P \
+  "(_fko_(cwa|fmr|gni|nbr|orc|scg|spr|tbr|ucr))|(_\2_fko)" \   undrscr_linkd_3lett_candidates_uniq_undrscr_linkd_3lett_candidates_uniq_${my_ts}.lst.lst
+
+$ grep "_fko_fmr\|_fmr_fko" \
+    undrscr_linkd_3lett_candidates_uniq_1753507300_2025-07-25T232140-0600.lst | wc -l
+
 $ #
 #  The `time` at the beginning of each following commands, along with 
 #+ the `ttdate` and `ttdatechk`, are not
@@ -170,16 +197,16 @@ time \
    all_undrscr_linked_legal_label_combos_${my_ts}.lst \
  && ttdatechk
 $ ttdate && \
-time \
-  tr -s '_' < \
+  time \
+tr -s '_' < \
     all_undrscr_linked_legal_label_combos_${my_ts}.lst | \
       sed 's#^_##g; s#_$##g' | \
         tr '_' ' ' > \
    all_space_sep_legal_label_combos_${my_ts}.lst \
  && ttdatechk
 $ ttdate && \
-time \
-  tr '\n' '\0' < \
+  time \
+tr '\n' '\0' < \
     all_space_sep_legal_label_combos_${my_ts}.lst | \
       xargs -I'{}' -0 bash -c '
         orig="{}"
@@ -209,13 +236,14 @@ find . -type f -iname "*.jpg" | \
       tr '\n' '\0' | \
       xargs -I'{}' -0 bash -c '
         orig="{}"; \
-        echo "${orig}" | xargs -n1 | sort | xargs' \
+        echo "${orig}" | xargs -n1 | sort | xargs
+      ' \
  && ttdatechk
 
 ##### -v- The final 1bigccommand -v- #####
 $ ttdate &&\
   time \
-find . -type f -iname "*.jpg" | \ 
+find . -type f -iname "*.jpg" | \
   awk -F'/' '{print $NF}' | \
   grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" | \
   sed 's#[.]jpg$##g' | \
@@ -223,12 +251,12 @@ find . -type f -iname "*.jpg" | \
     tr '\n' '\0' | \
     xargs -I'{}' -0 bash -c '
       orig="{}"; \
-      echo "${orig}" | xargs -n1 | sort | xargs' | \
-        sort | uniq | \
+      echo "${orig}" | xargs -n1 | sort | xargs
+    ' | sort | uniq | \
    tee uniq_combo_1bigcmd_sorted_legals_${my_ts}.lst \
  && ttdatechk
 
-##### -v- NOTE: just the last step of the 
+##### -v- NOTE: just the last step of the -v- #####
 ttdate && \
   time \
 tr '\n' '\0' < \
@@ -273,33 +301,54 @@ tr '\n' '\0' < \
 $_    $ comm -23 file_BIG file_DS > all_in_the_wild_possibilities_${my_tw}.lst
 
 
-
+##########################################################################
 ########    MULTIPLE CLASSES stuff
 #+ For any directory (the directory with everything sorted or any of the
-#+ single directories), get all the `mcl` entries. (0)
-#+ With the underscores and all other 3lett
+#+ single directories), get all the `mcl` entries. (point the 0th)
+#+ With the underscores and legal classifications. PROBABLY DO ` | wc -l`
 $ find . -type f -iname "*.jpg" | \
     awk -F'/' '{print $NF}' | \
-      grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" | \
+      grep -io "\(_\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|"\
+"mmx\|nbr\|oic\|orc\|scg\|spr\|suh\|tbr\|ucr\)\)\+[.]jpg$" | \
       sed 's#[.]jpg$##g' | \
         grep "mcl"
 #+ These should all either:
 #+   1. Have one and only one yes-binary-model classification, 'f25m3'.
 #+      in which case there should not be an 'mbr'
- $ # FIND THE ONE AND ONLY ONE SINGLE CLASSIFICATION (GOOD)
+#+ # FIND ANY WITH MORE THAN ONE CLASSIFICATION (and no 'mbr') (BAD)
  $ find . -type f -iname "*.jpg" | \
      awk -F'/' '{print $NF}' | \
-       grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" | \
+       grep -io "\(_\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|"\
+"mmx\|nbr\|oic\|orc\|scg\|spr\|suh\|tbr\|ucr\)\)\+[.]jpg$" | \
        sed 's#[.]jpg$##g' | \
          grep "mcl" | grep -v "mbr" |
-           grep ""
- $ # FIND THOSE WITHOUT ACCOMPANYING SINGLE
+           grep -P '(?<!_(cwa|fmr|gni|nbr|orc|scg|spr|tbr|ucr))'\
+'(cwa|fmr|gni|nbr|orc|scg|spr|tbr|ucr)'\
+'(?=_(cwa|fmr|gni|nbr|orc|scg|spr|tbr|ucr))'
+ $ #
+ #  FIND THE ONE AND ONLY ONE SINGLE CLASSIFICATION 
+ #+ (with no 'mbr') (GOOD)
  $ find . -type f -iname "*.jpg" | \
      awk -F'/' '{print $NF}' | \
-       grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" | \
+       grep -io "\(_\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|"\
+"mmx\|nbr\|oic\|orc\|scg\|spr\|suh\|tbr\|ucr\)\)\+[.]jpg$" | \
        sed 's#[.]jpg$##g' | \
-         grep "mcl" |
+         grep "mcl" | grep -v "mbr" |
+           grep -P '(?<!_(cwa|fmr|gni|nbr|orc|scg|spr|tbr|ucr))'
+'_(cwa|fmr|gni|nbr|orc|scg|spr|tbr|ucr)'\
+'(?!_(cwa|fmr|gni|nbr|orc|scg|spr|tbr|ucr))' \
+           
+ $ # FIND THOSE WITHOUT ACCOMPANYING SINGLE (and no 'mbr')
+ $ find . -type f -iname "*.jpg" | \
+     awk -F'/' '{print $NF}' | \
+       grep -io "\(_\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|"\
+"mmx\|nbr\|oic\|orc\|scg\|spr\|suh\|tbr\|ucr\)\)\+[.]jpg$" | \
+       sed 's#[.]jpg$##g' | \
+         grep "mcl" | grep -v "mbr" | \
+         grep -v "\(cwa\|fmr\|gni\|nbr\|orc\|scg\|spr\|tbr\|ucr\)" 
 #+   2. Have 'mbr' and more than one yes-binary-model classification.
+#+   (NOTE TO SELF: JUST GO TO THE MBR SECTION FOR THESE, AFTER CHECKING
+#+    THAT ALL THE 'mcl's satisfy either 1 or 2)
   $ # FIND ANY THAT HAVE 'mbr', NO MATTER WHAT ELSE (GOOD|BAD)
   $ 
   $ # FIND ANY THAT DO NOT HAVE ANY 
@@ -310,7 +359,8 @@ $ find . -type f -iname "*.jpg" | \
       awk -F'/' '{print $NF}' | \
         grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" | \
         sed 's#[.]jpg$##g' | \
-          grep "mcl" | grep 'mbr'
+          grep "mcl" | grep 'mbr' | \
+          
  $ # FIND THE OTHER SINGLE (WHEN ONLY ONE SINGLE) (BAD)
  $
 #+   What else is expected?
@@ -327,7 +377,7 @@ $ find . -type f -iname "*.jpg" | \
     awk -F'/' '{print $NF}' | \
       grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" | \
       sed 's#[.]jpg$##g' | \
-        grep "mcl" | grep -v 'mbr'
+        grep "mcl" | grep -v 'mbr' \
 $ # FIND OUT IF THERE ARE MORE THAN ONE (BAD
 #+   What else is expected?
 #+     
@@ -367,7 +417,27 @@ $ # FIND OUT IF THERE ARE MORE THAN ONE (BAD
 
 
 
-#  Which folders should always be empty after complete  (forget comment)
+
+
+##########################################################################
+########    MULTIPLE BINDING REUSE stuff
+#+ For any directory (the directory with everything sorted or any of the
+#+ single directories), get all the `mbr` entries. (point the 0th)
+#+ With the underscores and legal classifications
+$ find . -type f -iname "*.jpg" | \
+    awk -F'/' '{print $NF}' | \
+      grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" | \
+      sed 's#[.]jpg$##g' | \
+        grep "mbr"
+$ 
+$
+#+
+#+
+
+
+
+
+#  Which folders should always be empty after complete
 Across_Book_Gutter_Reuse        (in the future, Across_Book_Gutter)
 
 
@@ -379,14 +449,21 @@ Across_Book_Gutter_Reuse        (in the future, Across_Book_Gutter)
 
 
 #  Let's think of all those that can't be alone
-
+class    specific class that has to be there (but might not be the only one)     
+--------+-------------------------------------------------------------------
 abg
 mbr
 mcl
+oic      nbr
+mmx      nbr
+
+
+
 
 
 ####BEGIN <n>###########################################################
-#  Let's think of all the illegal combinations (forget comment style for now)
+#  Let's think of all the illegal combinations 
+#  (forget comment style for now)
 
 mcl   nbr
       oic
@@ -394,6 +471,9 @@ mcl   nbr
 mbr   nbr
       oic
       mmx
+
+abg   #<I guess noi would work here, but I'm not using that one in>
+      #<this study.> 
 
 
 # IF THERE'S NOT AN mbr

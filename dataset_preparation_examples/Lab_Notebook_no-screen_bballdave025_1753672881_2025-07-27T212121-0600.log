@@ -1,0 +1,175 @@
+Lab_Notebook_bballdave025_1753672881_2025-07-27T212121-0600.log
+
+##########################################################################
+Note that inconsistencies or need-to-check consistencies are being
+put in `commands_for_consistency_checking_3lett_labels.txt'
+
+
+
+##########################################################################
+Thrown flags for later checks (so maybe, to take the analogy further,
+thrown flags that need fines.
+
+'_mbr_fmr_fko'  # 'mbr' needs two or more from 'f25m3' (binding reuse)
+
+
+
+Alphabetically sorted 
+
+```
+
+###################################
+#  Don't need to do this check    #
+#+ manually, but I'm waiting for  #
+#+ the next 9-minute thing        #
+#+ I'm sure I'll miss some;       #
+#+ that's okay                    #
+###################################
+abg cwa
+abg cwa fko fmr mbr ucr
+abg cwa fmr mbr mbr tbr
+abg cwa fmr mbr mcl
+abg cwa fmr mbr scg suh
+abg cwa fmr mbr ucr
+abg cwa mbr tbr
+abg fko fmr
+abg fko fmr mbr ucr
+abg fko gni mbr mcl
+abg fko nbr
+abg fko nbr oic
+abg fmr
+abg fmr iac mcl
+abg fmr mbr                       # PROBLEM (mbr+1)
+abg fmr mbr mcl                   # PROBLEM (mbr+1)
+abg fmr mbr mcl scg
+abg fmr mbr scg
+abg fmr mbr scg ucr
+abg fmr mbr suh tbr
+abg fmr mbr ucr
+abg fmr mcl
+abg mbr mcl suh tbr ucr
+abg mbr scg tbr ucr
+abg mbr scg ucr
+abg mcl tbr
+abg mmx nbr
+abg nbr oic
+abg scg
+abg tbr
+abg ucr
+cwa
+cwa fko fmr mbr
+cwa fko fmr mbr mcl
+cwa fko mbr mcl scg suh
+cwa fko mbr scg
+cwa fmr mbr
+cwa fmr mbr mcl
+cwa fmr mbr mcl scg
+cwa fmr mbr scg
+cwa fmr mbr scg suh
+cwa fmr mbr tbr
+cwa fmr mbr ucr
+cwa mbr mcl ucr
+cwa mbr scg
+cwa mbr scg ucr
+cwa mbr ucr
+cwa mcl
+fko fmr
+fko fmr mbr                       # PROBLEM (mbr+1)
+fko fmr mbr suh tbr ucr
+fko fmr mcl
+fko gni
+fko gni mcl
+fko iac nbr
+fko iac ucr
+fko mbr mcl scg tbr
+fko mbr mcl scg ucr
+fko mbr orc ucr
+fko mbr scg ucr
+fko mbr spr ucr
+fko mbr tbr ucr
+fko mcl nbr
+fko mcl scg
+fko mcl tbr
+fko mcl ucr
+fko mmx nbr
+fko nbr
+fko nbr oic
+fko nbr suh
+fko orc
+fko scg
+fko scg suh
+fko spr
+fko tbr
+fko ucr
+fmr
+fmr iac
+fmr mbr mcl scg
+fmr mbr mcl suh ucr
+fmr mbr scg
+fmr mbr scg ucr
+fmr mbr suh tbr
+fmr mbr suh tbr ucr
+fmr mbr suh ucr
+fmr mbr tbr
+fmr mbr tbr ucr
+fmr mbr ucr
+fmr mcl
+fmr mcl ucr
+fmr suh
+gni
+gni mbr scg
+gni mbr ucr
+gni mcl
+iac mcl ucr
+iac nbr
+iac nbr oic
+iac tbr
+mbr mcl orc ucr
+mbr mcl scg ucr
+mbr mcl suh tbr ucr
+mbr mcl tbr ucr
+mbr orc scg
+mbr orc scg ucr
+mbr orc spr
+mbr orc suh ucr
+mbr orc tbr
+mbr orc tbr ucr
+mbr orc ucr
+mbr scg                           # PROBLEM (mbr+1)
+mbr scg spr
+mbr scg suh tbr ucr
+mbr scg ucr
+mbr spr ucr
+mbr suh tbr ucr
+mbr tbr ucr
+mbr ucr                           # PROBLEM (mbr+1)
+mcl orc                           # PROBLEM (mbr+1)
+mcl scg                           # PROBLEM (mbr+1)
+mcl spr                           # PROBLEM (mbr+1)
+mcl suh ucr
+mcl tbr
+mcl ucr
+mmx nbr
+mmx nbr oic                       # PROBLEM (nbr+oic) minor
+nbr
+nbr oic
+nbr oic oic                       # PROBLEM (double oic)
+oic oic                           # PROBLEM (double oic, no nbr)
+orc
+scg
+spr
+tbr
+ucr
+```
+
+Do a `grep -v "<list from f25m3>"`
+
+
+
+Oops, that was an older file, though I think it will have the same problems,
+but I'm not going to search for it.
+
+
+
+
+
