@@ -256,6 +256,7 @@ find . -type f -iname "*.jpg" | \
    tee uniq_combo_1bigcmd_sorted_legals_${my_ts}.lst \
  && ttdatechk
 
+<strike>
 ##### -v- NOTE: just the last step of the -v- #####
 ttdate && \
   time \
@@ -267,6 +268,8 @@ tr '\n' '\0' < \
     ' | sort | uniq -c | \
    tee uniq_c_combo_sorted_legals_${my_ts}.lst \
  && ttdatechk
+</strike>
+
 
 #
 #
@@ -472,8 +475,8 @@ mbr   nbr
       oic
       mmx
 
-abg   #<I guess noi would work here, but I'm not using that one in>
-      #<this study.> 
+abg   #<I guess noi would work here, but I'm not using that one in
+      # this study.> 
 
 
 # IF THERE'S NOT AN mbr
@@ -512,6 +515,16 @@ f25m3 f25m3 #  note that this is the case even if it's the same element
          and 'f25n3`)
         mbr f23m3(>1)
       
+
+
+
+
+
+
+
+
+
+
 
 
 

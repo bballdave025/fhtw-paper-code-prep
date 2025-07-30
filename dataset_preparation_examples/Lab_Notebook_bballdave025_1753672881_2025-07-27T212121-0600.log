@@ -143,14 +143,14 @@ mbr spr ucr
 mbr suh tbr ucr
 mbr tbr ucr
 mbr ucr                           # PROBLEM (mbr+1)
-mcl orc                           # PROBLEM (mbr+1)
-mcl scg                           # PROBLEM (mbr+1)
-mcl spr                           # PROBLEM (mbr+1)
+mcl orc
+mcl scg
+mcl spr
 mcl suh ucr
 mcl tbr
 mcl ucr
 mmx nbr
-mmx nbr oic                       # PROBLEM (nbr+oic) minor
+mmx nbr oic                       # PROBLEM (mmx+oic) minor
 nbr
 nbr oic
 nbr oic oic                       # PROBLEM (double oic)
@@ -169,6 +169,118 @@ Do a `grep -v "<list from f25m3>"`
 Oops, that was an older file, though I think it will have the same problems,
 but I'm not going to search for it.
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ ttdate && time grep -iIRHn " mv " ~/work_logs/ > ~/find_already_filtered_from_classify_$(ttdate).lst && ttdatechk
+1753726487_2025-07-28T121447-0600
+
+real    0m0.441s
+user    0m0.359s
+sys     0m0.061s
+1753726487_2025-07-28T121447-0600
+ExitedNormally
+1753726487_2025-07-28T121447-0600
+  (this may be a BONUS timestamp)
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ wc -l < ~/find_already_filtered_from_classify_1753726
+find_already_filtered_from_classify_1753726379_2025-07-28T121259-0600.lst
+find_already_filtered_from_classify_1753726487_2025-07-28T121447-0600.lst
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ wc -l < ~/find_already_filtered_from_classify_1753726487_2025-07-28T121447-0600.lst
+225
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ #  Open in another window
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ #  Wait, I know there was a change with "max"
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ ttdate && time grep -iIRHn " mv .*max" ~/work_logs/ > ~/find_already_filtered_from_classify_$(ttdate).lst && ttdatechk
+1753726553_2025-07-28T121553-0600
+
+real    0m0.453s
+user    0m0.374s
+sys     0m0.046s
+1753726554_2025-07-28T121554-0600
+ExitedNormally
+1753726554_2025-07-28T121554-0600
+  (this may be a BONUS timestamp)
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ wc -l < ~/find_already_filtered_from_classify_1753726
+find_already_filtered_from_classify_1753726379_2025-07-28T121259-0600.lst
+find_already_filtered_from_classify_1753726487_2025-07-28T121447-0600.lst
+find_already_filtered_from_classify_1753726553_2025-07-28T121553-0600.lst
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ wc -l < ~/find_already_filtered_from_classify_1753726553_2025-07-28T121553-0600.lst
+2
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ cat ~/find_already_filtered_from_classify_1753726553_2025-07-28T121553-0600.lst
+/home/Anast/work_logs/Lab_Notebook_Anast_1753329287_2025-07-23T215447-0600.log:1306:$./No_For_Binding_Reuse/e-codices_zbz-Ms-Heid-0052_0007r_max_oic_nbr.jpg ./No_For_Binding_Reuse/e-codices_zbz-Ms-Heid-0052_0007r_maxCopy_oic_nbr.jpg
+/home/Anast/work_logs/Lab_Notebook_Anast_1753329287_2025-07-23T215447-0600_clean.log:921:$ mv ./No_For_Binding_Reuse/e-codices_zbz-Ms-Heid-0052_0007r_max_oic_nbr.jpg ./No_For_Binding_Reuse/e-codices_zbz-Ms-Heid-0052_0007r_maxCopy_oic_nbr.jpg
+
+Anast@DESKTOP-O7KM5A5 /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ type npp
+bash: type: npp: not found
 
 
 

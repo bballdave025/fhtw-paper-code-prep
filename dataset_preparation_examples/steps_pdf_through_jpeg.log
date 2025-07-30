@@ -239,7 +239,7 @@ $ cat >/dev/null <<'EOF'
 #  You can also copy a bit of the first stuff in conda;
 #+ here it is, this time.
 
-(base) C:\Users\Anast>cd C:\David\FHTW-2025-All_-_move_2024_get_new\Tools
+(base) C:\Users\bballdave025>cd C:\David\FHTW-2025-All_-_move_2024_get_new\Tools
 
 (base) C:\David\FHTW-2025-All_-_move_2024_get_new\Tools>conda activate find-binding-and-unwind
 
@@ -254,7 +254,7 @@ $ cat >/dev/null <<'EOF'
 #  You can also copy and paste some of the output, if you'd like.
 #+ I'll include a bit of what's before; in fact, I'll include all of it.
 
-(base) C:\Users\Anast>cd C:\David\FHTW-2025-All_-_move_2024_get_new\Tools
+(base) C:\Users\bballdave025>cd C:\David\FHTW-2025-All_-_move_2024_get_new\Tools
 
 (base) C:\David\FHTW-2025-All_-_move_2024_get_new\Tools>conda activate find-binding-and-unwind
 
@@ -382,7 +382,7 @@ $ find . -type f -iname "*.png" | \
       grep -P "[\x00-\x08\x0B-\x0C\x0E-\x1F\x7F]" | \
         wc -l
 $ #  More portable (BUT EXCLUDES NULL)
-$ find . -type f -iname "*.png" | \
+$ find . -type f -iname "*.jpg" | \
     awk -F'/' '{print $NF}' | \
       LC_ALL=C grep $'[\001-\010\013-\014\016-\037\177]' | \
         wc -l
@@ -390,14 +390,14 @@ $ #
 #  Any with undesired space-y (still printable --
 #+ but control) tab, line feed, carriage return, space
 #+ (is that all?)
-$ find . -type f -iname "*.png" | \
+$ find . -type f -iname "*.jpg" | \
     awk -F'/' '{print $NF}' | \
       grep -P "[\x09-\x10\x0B\x0D\x20]" | \
         wc -l
 $ #  More portable
-$ find . -type f -iname "*.png" | \
+$ find . -type f -iname "*.jpg" | \
     awk -F'/' '{print $NF}' | \
-      LC_ALL=C grep "[\011-\020\013\015\040]" | \
+      LC_ALL=C grep $'[\011-\020\013\015\040]' | \
         wc -l
 $ cat > /dev/null <<'EOF'
 
@@ -479,9 +479,9 @@ $ find . -type f -iname "*.png" | \
     awk -F'/' '{print $NF}' | \
       grep -v -P "[\x00-\x7F]" | wc -l
 $ #  More portable
-$ find . -type f -iname "*.png" | \
+$ find . -type f -iname "*.jpg" | \
     awk -F'/' '{print $NF}' | \
-      LC_ALL=C grep -v "[\001-\177]" | wc -l
+      LC_ALL=C grep -v $'[\001-\177]' | wc -l
 $ #OR (and I should check which is faster, of if they're equivalent)
 $ find . -type f -iname "*.png" | \
     awk -F'/' '{print $NF}' | \

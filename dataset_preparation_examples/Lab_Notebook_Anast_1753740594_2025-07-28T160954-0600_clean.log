@@ -1,0 +1,1330 @@
+Script started on 2025-07-28 16:09:54-06:00 [TERM="xterm" TTY="/dev/pty0" COLUMNS="80" LINES="81"]
+
+bballdave025@MY-MACHINE ~
+$ checksituation
+
+ Current date/time is
+Mon Jul 28 16:09:58 MDT 2025
+1753740598
+1753740598_2025-07-28T160958-0600
+
+ Current directory ( pwd ) is
+/home/bballdave025
+
+
+bballdave025@MY-MACHINE ~
+$ cat >/dev/null <<'EOF'
+>   
+> I'm going to "put back" some of the bad files that were already
+> filtered out (the ones with misspelled classifications and the
+> one that had "max" instead of [something like] "maxRes". Note that
+> ). Scratch the "Note that" for a second. I started with 3331, so
+> all the filtering was just renaming files.
+>   
+> I was thinking of putting in a couple of files with names having
+> spaces or non-ascii or other characters on my no-no list, but this
+> would require converting (and maybe even extracting) a few new
+> files, and I just want to go forward.
+>   
+> First, I'm going to finish finding the files that were renamed. Oh,
+> I guess I can stay at 3331, I just need to rename them back.
+>   
+> EOF
+
+bballdave025@MY-MACHINE ~
+$ cat >/dev/null <<'EOF'
+> Okay, the list and count of the pre-renamed files (and other files) was
+>   
+>   
+>      83 abg
+>      59 cwa
+>       1 cwr
+>     371 fko
+>     223 fmr
+>      84 gni
+>      66 iac
+>       1 max
+>     155 mbr
+>     111 mcl
+>      73 mmx
+>    2596 nbr
+>       1 noi
+>     617 oic
+>      72 orc
+>     154 scg
+>      30 spr
+>      21 suh
+>     146 tbr
+>     144 ucr
+>       5 une
+>   
+> and the reult of f25m3 is
+> (cwa|fmr|gni|nbr|orc|scg|spr|tbr|ucr)
+>   
+> EOF
+
+bballdave025@MY-MACHINE ~
+$
+
+bballdave025@MY-MACHINE ~
+$ cat >/dev/null <<'EOF'
+>   
+> (paraphrasing and clarifying my notes)
+>   
+> 'cwr' is extra, likely a mis-typing of 'cwa' (I let myself classify without
+>                                               using CC4T.)
+> 'max' is extra, at first I thought it would be a misspelling of 'mmx', but
+>       it was just a file whose pre-classification root ended in 'max'. It
+>       has a buddy whose filename ended in '_maxCopy'.
+> N.B. By "extra", I mean that it's in my list, but not in {f25m3}
+> 'une' is extra, and that was my first idea for 'suh'. 'une' was for
+>       "UNEasy with positive", but I figured I could have a wider net (that
+>       was still useful), "Somewhat Uneasy with classification - or Hard".
+>       That one came out as 'suh'
+> 'noi' is extra, but on my master class list standing for
+>       "Nothing Of Interest", the 3lett for the "Nothing_Interesting" dir.
+>       I decided not to use it, because the Fragmentology paper could change
+>       what seems "interesting".
+>   
+> EOF
+
+bballdave025@MY-MACHINE ~
+$ cat >/dev/null <<'EOF'
+>   
+> Here's one useful command and output from the 2025-07-23 Lab Notebook:
+>   
+>   
+> $ find . -type f -iname "*.jpg" | grep "_cwr\|_max\|une\|noi"
+> ./Connecting_or_Guard_Reuse/BnF_-_Ms-Grec-487_00077_fko_scg_une.jpg
+> ./Front-back_Matter_Reuse/Bodl_-_Queen-s-College-MS-305_00760_fmr_une.jpg
+> ./Multiple_Binding_Reuse_Classes/Bodl_-_Bodleian-Library-MS-Hamilton-2_00005_mbr_fmr_scg_cwa_une.jpg
+> ./Multiple_Binding_Reuse_Classes/Bodl_-_Bodleian-Library-MS-Hamilton-2_00006_mbr_abg_fmr_scg_cwa_une.jpg
+> ./Multiple_Binding_Reuse_Classes/FamilySearch_-_DGS007712980_00412_mcl_mbr_scg_cwr_fko.jpg
+> ./No_For_Binding_Reuse/BnF_-_FragmentsAugustinus_colorLatin9377_00217_noi_nbr.jpg
+> ./No_For_Binding_Reuse/e-codices_zbz-Ms-Heid-0052_0007r_max_oic_nbr.jpg
+> ./No_For_Binding_Reuse/e-codices_zbz-Ms-Heid-0052_0007v_maxCopy_oic_nbr.jpg
+> ./No_For_Binding_Reuse/StaatsbibBamberg_-_Msc-Patr-5_00002_fko_nbr_une.jpg
+>   
+> I'll do a new heredoc comment for the moves that were made. 8 in total.
+>   
+> EOF
+
+bballdave025@MY-MACHINE ~
+$ cat >/dev/null <<'EOF'
+>   
+> (These have the oopsies fixed, or they should)
+>   
+> $ mv \
+>   ./Connecting_or_Guard_Reuse/BnF_-_Ms-Grec-487_00077_fko_scg_une.jpg \
+>   ./Connecting_or_Guard_Reuse/BnF_-_Ms-Grec-487_00077_fko_scg_suh.jpg
+> $ mv \
+>   ./Front-back_Matter_Reuse/Bodl_-_Queen-s-College-MS-305_00760_fmr_une.jpg \
+>   ./Front-back_Matter_Reuse/Bodl_-_Queen-s-College-MS-305_00760_fmr_suh.jpg
+> $ mv \
+>   "./Multiple_Binding_Reuse_Classes/"\
+> "Bodl_-_Bodleian-Library-MS-Hamilton-2_00005_mbr_fmr_scg_cwa_une.jpg" \
+>   "./Multiple_Binding_Reuse_Classes/"\
+> "Bodl_-_Bodleian-Library-MS-Hamilton-2_00005_mbr_fmr_scg_cwa_suh.jpg"
+> $ mv \
+>   "./Multiple_Binding_Reuse_Classes/Bodl_-_Bodleian-Library-"\
+> "MS-Hamilton-2_00006_mbr_abg_fmr_scg_cwa_une.jpg \
+>   "./Multiple_Binding_Reuse_Classes/Bodl_-_Bodleian-Library-"\
+> "MS-Hamilton-2_00006_mbr_abg_fmr_scg_cwa_suh.jpg
+> $ mv \
+>  ./No_For_Binding_Reuse/StaatsbibBamberg_-_Msc-Patr-5_00002_fko_nbr_une.jpg \
+>  ./No_For_Binding_Reuse/StaatsbibBamberg_-_Msc-Patr-5_00002_fko_nbr_suh.jpg
+> (the 5 'une'). Now for 1 'cwr', 1 'max', and 1 'noi'.
+> $ mv \
+>     "./Multiple_Binding_Reuse_Classes/"\
+> "FamilySearch_-_DGS007712980_00412_mcl_mbr_scg_cwr_fko.jpg" \
+>     "./Multiple_Binding_Reuse_Classes/"\
+> "FamilySearch_-_DGS007712980_00412_mcl_mbr_scg_cwa_fko_suh.jpg"
+> $ mv \
+>   ./No_For_Binding_Reuse/e-codices_zbz-Ms-Heid-0052_0007r_max_oic_nbr.jpg \
+>   ./No_For_Binding_Reuse/e-codices_zbz-Ms-Heid-0052_0007r_maxCopy_oic_nbr.jpg
+> $ mv \
+>     "./No_For_Binding_Reuse/BnF_-_FragmentsAugustinus_"\
+> "colorLatin9377_00217_noi_nbr.jpg" \
+>     "./No_For_Binding_Reuse/BnF_-_FragmentsAugustinus_"\
+> "colorLatin9377_00217_nbr.jpg"
+>   
+> EOF
+
+bballdave025@MY-MACHINE ~
+$ #
+#  Time to switch them back.  Oh, I can also make examples for the no-nos
+#+ (no-no characters) in filenames by just renaming some already-good ones.
+#+ Add a space in one or two, add, IDK, an @ or # into a couple, and some
+#+ higher unicode, perhaps.
+
+bballdave025@MY-MACHINE ~
+$ echo -e "\U0000261e"
+☞
+
+bballdave025@MY-MACHINE ~
+$ #  Manicule.  Oh yeah!
+
+bballdave025@MY-MACHINE ~
+$ cat >/dev/null <<'EOF'
+>   
+> BesanconBibMun_-_color-MS0716_00122_mbr_ucr_orc.jpg
+> FamilySearch_-_DGS102439140_00014_ucr_suh_mcl.jpg
+> FamilySearch_-_DGS004321721_00066_oic_nbr.jpg
+> BnF-BibArsenal_-_Ms-87_00203_oic_nbr.jpg
+> FamilySearch_-_DGS008268002_00568_scg.jpg
+> Bodleian-Library-MS-Add-A-263_00137_oic_nbr.jpg
+> FamilySearch_-_DGS004459005_00069_mbr_mcl_fmr_cwa.jpg
+>   
+> EOF
+
+bballdave025@MY-MACHINE ~
+$ #  Some more.
+
+bballdave025@MY-MACHINE ~
+$ cat >/dev/null <<'EOF'
+>   
+>   BibliothequesMediathequesDeMetz_-_Ms464_00092_0047B_oic_nbr.jpg
+>   UnivBologna-SistemaMusealeDAteneo-AlmaMaterStudiorum_-_ErbarioAldrovandi-Vol-VI-60001_orc.jpg
+>   FamilySearch_-_DGS004763803_00695_oic_nbr.jpg
+>   
+> EOF
+
+bballdave025@MY-MACHINE ~
+$ echo "Family~Search_-_DGS005141812-ꝯ_00004_oic_nbr.jpg"
+Family~Search_-_DGS005141812-ꝯ_00004_oic_nbr.jpg
+
+bballdave025@MY-MACHINE ~
+$ echo "'FamilySearch="iħm xm ⁊ d"_-_DGS004459005_00069_mbr_mcl_fmr_cwa.jpg'"
+'FamilySearch=iħm xm ⁊ d_-_DGS004459005_00069_mbr_mcl_fmr_cwa.jpg'
+
+bballdave025@MY-MACHINE ~
+$ echo "ℏ"
+ℏ
+
+bballdave025@MY-MACHINE ~
+$ cd /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined/
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ checksituation
+
+ Current date/time is
+Mon Jul 28 19:38:05 MDT 2025
+1753753085
+1753753085_2025-07-28T193805-0600
+
+ Current directory ( pwd ) is
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f | wc -l
+3331
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ time find . -type f | wc -l
+3331
+
+real    0m0.059s
+user    0m0.015s
+sys     0m0.030s
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ ttdate && \
+  time \
+find . -type f -print0 | xargs -I'{}' -0 echo "{}" | wc -l \
+ && ttdatechk
+1753753264_2025-07-28T194104-0600
+3331
+
+real    1m29.103s
+user    0m16.118s
+sys     0m38.776s
+1753753353_2025-07-28T194233-0600
+ExitedNormally
+1753753353_2025-07-28T194233-0600
+  (this may be a BONUS timestamp)
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ ttdate && \
+  time \
+find . -type f -print0 | xargs -I'{}' -0 bash -c 'echo "{}"' | wc -l \
+ && ttdatechk
+1753753404_2025-07-28T194324-0600
+3331
+
+real    2m18.448s
+user    0m31.318s
+sys     1m14.707s
+1753753543_2025-07-28T194543-0600
+ExitedNormally
+1753753543_2025-07-28T194543-0600
+  (this may be a BONUS timestamp)
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ #
+#####################################################
+#####################################################
+#####################################################
+#####################################################
+#####################################################
+#####################################################
+#####################################################
+#####################################################
+## MOVING GOOD TO BAD (TO TEST EVERYTHING)         ##
+#####################################################
+#####################################################
+#####################################################
+#####################################################
+#####################################################
+#####################################################
+#####################################################
+#####################################################
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ mv \
+  ./Connecting_or_Guard_Reuse/BnF_-_Ms-Grec-487_00077_fko_scg_suh.jpg \
+  ./Connecting_or_Guard_Reuse/BnF_-_Ms-Grec-487_00077_fko_scg_une.jpg
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ mv \
+  ./Front-back_Matter_Reuse/Bodl_-_Queen-s-College-MS-305_00760_fmr_suh.jpg \
+  ./Front-back_Matter_Reuse/Bodl_-_Queen-s-College-MS-305_00760_fmr_une.jpg
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ mv \
+  "./Multiple_Binding_Reuse_Classes/"\
+"Bodl_-_Bodleian-Library-MS-Hamilton-2_00005_mbr_fmr_scg_cwa_suh.jpg" \
+  "./Multiple_Binding_Reuse_Classes/"\
+"Bodl_-_Bodleian-Library-MS-Hamilton-2_00005_mbr_fmr_scg_cwa_une.jpg"
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ mv \
+  "./Multiple_Binding_Reuse_Classes/Bodl_-_Bodleian-Library-"\
+"MS-Hamilton-2_00006_mbr_abg_fmr_scg_cwa_suh.jpg" \
+  "./Multiple_Binding_Reuse_Classes/Bodl_-_Bodleian-Library-"\
+"MS-Hamilton-2_00006_mbr_abg_fmr_scg_cwa_une.jpg"
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ mv \
+ ./No_For_Binding_Reuse/StaatsbibBamberg_-_Msc-Patr-5_00002_fko_nbr_suh.jpg \
+ ./No_For_Binding_Reuse/StaatsbibBamberg_-_Msc-Patr-5_00002_fko_nbr_une.jpg
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ mv \
+    "./Multiple_Binding_Reuse_Classes/"\
+"FamilySearch_-_DGS007712980_00412_mcl_mbr_scg_cwa_fko_suh.jpg" \
+    "./Multiple_Binding_Reuse_Classes/"\
+"FamilySearch_-_DGS007712980_00412_mcl_mbr_scg_cwr_fko.jpg"
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ mv \
+  ./No_For_Binding_Reuse/e-codices_zbz-Ms-Heid-0052_0007r_maxCopy_oic_nbr.jpg \
+  ./No_For_Binding_Reuse/e-codices_zbz-Ms-Heid-0052_0007r_max_oic_nbr.jpg
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ mv \
+    "./No_For_Binding_Reuse/BnF_-_FragmentsAugustinus_"\
+"colorLatin9377_00217_nbr.jpg" \
+    "./No_For_Binding_Reuse/BnF_-_FragmentsAugustinus_"\
+"colorLatin9377_00217_noi_nbr.jpg"
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" | wc -l
+3331
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ mv \
+  "./Multiple_Binding_Reuse_Classes/BesanconBibMun_-_color-"\
+"MS0716_00122_mbr_ucr_orc.jpg" \
+  "./Multiple_Binding_Reuse_Classes/"\
+'Besançon Bibliothèqe Municiπale_-_color-'\
+'MS¶0716_00122_mbr_ucr_orc.jpg'
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ mv \
+  ./Under_Cover_Reuse/FamilySearch_-_DGS102439140_00014_ucr_suh_mcl.jpg \
+  ./Under_Cover_Reuse/'FamilySearch_-_DGS102439140☞00014_ucr_suh_mcl.jpg'
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "FamilySearch*102439140*14_*.jpg"
+./Under_Cover_Reuse/FamilySearch_-_DGS102439140☞00014_ucr_suh_mcl.jpg
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ mv \
+  ./No_For_Binding_Reuse/FamilySearch_-_DGS004321721_00066_oic_nbr.jpg \
+  ./No_For_Binding_Reuse/'FamilɤSearchɟ_—_DGS004321721&_00066@_oic_nbr.jpg'
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ mv \
+  ./No_For_Binding_Reuse/BnF-BibArsenal_-_Ms-87_00203_oic_nbr.jpg \
+  ./No_For_Binding_Reuse/'BnF-BiɓArsenal_-_Ms-87_00203_oic_nbr.jpg'
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ mv \
+./Connecting_or_Guard_Reuse/FamilySearch_-_DGS008268002_00568_scg.jpg \
+./Connecting_or_Guard_Reuse/'FamilySearch_-_DGS Бъ 008268002_00568_scg.jpg'
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ mv \
+ ./No_For_Binding_Reuse/Bodleian-Library-MS-Add-A-263_00137_oic_nbr.jpg \
+ ./No_For_Binding_Reuse/'Bodleian-Library?-MS-(AddAæ)-263°_00137_oic_nbr.jpg'
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ mv \
+  "./Multiple_Binding_Reuse_Classes/FamilySearch"\
+"_-_DGS004459005_00069_mbr_mcl_fmr_cwa.jpg" \
+"./Multiple_Binding_Reuse_Classes/"\
+'FamilySearch="iħm xm ⁊ d"_-_'\
+'DGS004459005_00069_mbr_mcl_fmr_cwa.jpg'
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ mv \
+  "./No_For_Binding_Reuse/BibliothequesMediathequesDeMetz_-_"\
+"Ms464_00092_0047B_oic_nbr.jpg" \
+  "./No_For_Binding_Reuse/"\
+'BiblioþequesMediathequesDeMetz'\
+'_-_Ms № 464_00092_0047B_oic_nbr.jpg'
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ mv \
+  ./No_For_Binding_Reuse/FamilySearch_-_DGS005141812_00004_oic_nbr.jpg \
+  ./No_For_Binding_Reuse/'Family~Search_-_DGS005141812-ꝯ_00004_oic_nbr.jpg'
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ mv \
+  "./Outside_Cover_Reuse/UnivBologna-SistemaMusealeDAteneo-"\
+"AlmaMaterStudiorum_-_ErbarioAldrovandi-Vol-VI-60001_orc.jpg" \
+  "./Outside_Cover_Reuse/UnivBologna-"\
+"SistemaMusealed'Ateneo-AlmaMaterStudiorum_-_"\
+'ErbarioAldrovandi-Vol-ᴠɪ-60001_orc.jpg'
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ mv \
+  ./No_For_Binding_Reuse/FamilySearch_-_DGS004763803_00695_oic_nbr.jpg \
+  ./No_For_Binding_Reuse/'FamilySearcℏ_-_DGS004763803_00695_oic_nbr.jpg'
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ mv \
+  "./Multiple_Binding_Reuse_Classes/"\
+"FamilySearch_-_DGS008279842_00131_fko_mbr_orc_ucr.jpg" \
+  './Multiple_Binding_Reuse_Classes/'\
+'FamilySearch_-_DGS008279842_00131%fko_mbr_orc_ucr.jpg'
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ mv \
+  ./No_For_Binding_Reuse/Leiden_-_DeSobrietate_BPL190_00052_nbr.jpg \
+  ./No_For_Binding_Reuse/'Leiden_-_DeSobrietate&BPL190_00052_nbr.jpg'
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" | wc -l
+3331
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ #  Good.
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ checksituation
+
+ Current date/time is
+Mon Jul 28 20:17:24 MDT 2025
+1753755444
+1753755444_2025-07-28T201724-0600
+
+ Current directory ( pwd ) is
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ #
+#  Now, about 1753855511_2025-07-30T000511-0600, I'm putting in one more
+#+ for a closer approach to hard-name completeness.
+#+ You shouldn't see it on this example (in this file), but it should
+#+ be there to check tomorrow.
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ mv \
+    "Spine_Protection_Reuse/"\
+"Heidelberg_-_WappenlisteAebteSalem_salMsUnkn-1876_00001_spr.jpg" \
+    "Spine_Protection_Reuse/"\
+"Heidelberg_-_'British quote marks'WappenlisteAebteSalem_"\
+"salMsUnkn-1876_00001_spr.jpg"
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ #
+################################################################
+################################################################
+###################                    #########################
+##                  (HOPEFULLY) FULL                          ##
+#   FILENAME (CHARACTER) AND CLASSIFICATION (3lett SPECIFICS)  #
+#              ====####################====                    #
+#              ++++ CONSISTENCY CHECKS ++++                    #
+#              ====####################====                    #
+##               STILL WITH SOME LEARNING                     ##
+###################                    #########################
+################################################################
+################################################################
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ checksituation
+
+ Current date/time is
+Mon Jul 28 20:17:42 MDT 2025
+1753755462
+1753755462_2025-07-28T201742-0600
+
+ Current directory ( pwd ) is
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ cat >/dev/null <<'EOF'
+>   Family History Technology Workshop, 2024 and especially 2025
+>   Maniscript &c Reuse in Bindings
+>   Fragmentology journal
+>   academia.edu
+>   David BLACK
+>   Keith PRISBREY
+>   Information-bearing Writing Surfaces Reused for Binding -
+>      Including Holding Things Together, Covering, and Protecting
+>      Codex Books  (strike out the "Things" in the last like)
+>   Special focus on finding details of such fragment reuse in the
+>   collection at FamilySearch.org
+>   Also looking through many online University Libraries, State
+>   Libraries, Archives at Country, Region, County, Municipality, City, etc.
+>   Levels (especially those that allow easy download, especially as PDF)
+> EOF
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ type ttdate
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ my_ts=$(ttdate)
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ #  Good test to start out with. I don't want any "^.*[.]jpeg$" files.
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpeg" | awk -F'/' '{print $NF}' | wc -c  # want 0
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ locale
+LANG=
+LC_CTYPE="en_US.UTF-8"
+LC_NUMERIC="C.UTF-8"
+LC_TIME="C.UTF-8"
+LC_COLLATE="C.UTF-8"
+LC_MONETARY="C.UTF-8"
+LC_MESSAGES="C.UTF-8"
+LC_ALL=
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ #  Any filenames with non-printable ASCII? (Control characters)
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f | awk -F'/' '{print $NF}' | \
+    LC_ALL=C grep -P "[\x00-\x08\x0B-\x0C\x0E-\x1F\x7F]" | wc -l
+0
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ cat > /dev/null <<'EOF'
+>   
+>   Portable, octal version, but with no check for null byte
+>   
+> $ #  Any filenames with non-printable ASCII? (Control characters)
+> $ find . -type f | awk -F'/' '{print $NF}' | \
+>     LC_ALL=C grep $'[\001-\010\013-\014\016-\037\177]' | \
+>       wc -l
+>EOF
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ #
+#  Any w/undesired space-y (still 'printable' in that they show up, but
+#+ control-ly) tab, line feed, carriage return, space, ...
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f | awk -F'/' '{print $NF}' | \
+    LC_ALL=C grep -P "[\x09-\x0A\x0D\x20]" | wc -l
+4
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ cat > /dev/null <<'EOF'
+>   
+>   Portable, octal version
+> $ #
+> #  Any with undesired space-y (still 'printable' in that they show
+> #+ up, but control-y), tab, line feed, carriage return, space?
+> #+ ( I don't include:
+> #+        VERTICAL TAB  -  \x0B , \013 ;
+> #+   or   FORM FEED     -  \x0C , \014 ;
+> #+   I guess they're technically in the same group, but I don't
+> #+   run into them nearly as often, so I put them in the
+> #+   general control character group.)
+> $ find . -type f | awk -F'/' '{print $NF}' | \
+>     LC_ALL=C grep $'[\011-\012\015\040]' | wc -l
+>
+> EOF
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ #  Any non-ASCII characters?
+
+$ cat >/dev/null <<'EOF'
+>   
+>  Way 1, doesn't show characters, but shows how many bytes each 
+>  character has in a cool way.
+>   
+> 'EOF'
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f | awk -F'/' '{print $NF}' | \
+LC_ALL=C grep -P "[^\x00-\x7F]" | wc -l
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ cat > /dev/null <<'EOF'
+>   
+>   Portable, octal way. Note no check for null byte
+>   
+> $ find . -type f | awk -F'/' '{print $NF}' | \
+>     LC_ALL=C grep $'[^\001-\177]' | wc -l
+>   
+> EOF
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ cat > /dev/null <<'EOF'
+>   
+>  Way 3, shows the glyphs for characters, as long as your terminal is set
+>  up for UTF-8.  (Unifont will show everything.)
+>   
+> 'EOF'
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f | awk -F'/' '{print $NF}' | \
+    LC_ALL=C grep -P "[\x80-\xFF]"
+
+$ cat > /dev/null <<'EOF'
+>   
+>   Portable, octal way.
+> $ find . -type f | awk -F'/' '{print $NF}' | \
+>     LC_ALL=C grep $'[\180-\377]' | wc -l
+>   
+> EOF
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ #  Any undesired, printable ASCII characters? (Dave's no-nos)
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f | awk -F'/' '{print $NF}' | \
+    grep '[] ~!@#$%^&|\/)(}{[*?><;:"`'"'"']' | wc -l
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ #
+##------------------------
+##  START: examples
+##------------------
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ ref="https://web.archive.org/web/20250702150044/"\
+"https://stackoverflow.com/questions/3001177/"\
+"how-do-i-grep-for-all-non-ascii-characters"
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ echo $ref
+https://web.archive.org/web/20250702150044/https://stackoverflow.com/questions/3001177/how-do-i-grep-for-all-non-ascii-characters
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" | LC_ALL=C grep --color='auto' -P -n "[^\x00-\x7F]" | wc -l
+11
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ #
+################################################################
+################################################################
+##    BIG GOOD ONE   (better one testing if 0x80-0xFF coming  ##
+################################################################
+################################################################
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" | LC_ALL=C grep --color='auto' -P -n "[^\x00-\x7F]"
+21:./Connecting_or_Guard_Reuse/FamilySearch_-_DGS �������� 008268002_00568_scg.jpg
+363:./Multiple_Binding_Reuse_Classes/Besan��on Biblioth��qe Munici��ale_-_color-MS��0716_00122_mbr_ucr_orc.jpg
+401:./Multiple_Binding_Reuse_Classes/FamilySearch="i��m xp��m ��� dm��"_-_DGS004459005_00069_mbr_mcl_fmr_cwa.jpg
+599:./No_For_Binding_Reuse/Biblio��equesMediathequesDeMetz_-_Ms ��� 464_00092_0047B_oic_nbr.jpg
+684:./No_For_Binding_Reuse/BnF-Bi��Arsenal_-_Ms-87_00203_oic_nbr.jpg
+1084:./No_For_Binding_Reuse/Bodleian-Library?-MS-(AddA��)-263��_00137_oic_nbr.jpg
+1929:./No_For_Binding_Reuse/FamilySearc���_-_DGS004763803_00695_oic_nbr.jpg
+1930:./No_For_Binding_Reuse/Family~Search_-_DGS005141812-���_00004_oic_nbr.jpg
+1931:./No_For_Binding_Reuse/Famil��Search��_���_DGS004321721&_00066@_oic_nbr.jpg3124:./Outside_Cover_Reuse/UnivBologna-SistemaMusealed'Ateneo-AlmaMaterStudiorum_-_ErbarioAldrovandi-Vol-�����-60001_orc.jpg
+3310:./Under_Cover_Reuse/FamilySearch_-_DGS102439140���00014_ucr_suh_mcl.jpg
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ #  Ooh, look! You can see how many bytes each character has!
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" | awk -F'/' '{print $NF}' | LC_ALL=C grep -P "[\x80-\xFF]" | wc -l
+11
+
+$ #
+################################################################
+################################################################
+##                                                            ##
+#                    BEST NON-ASCII ONE                        #
+##                                                            ##
+################################################################
+################################################################
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" | awk -F'/' '{print $NF}' | LC_ALL=C grep -P "[\x80-\xFF]"
+FamilySearch_-_DGS Бъ 008268002_00568_scg.jpg
+Besançon Bibliothèqe Municiπale_-_color-MS¶0716_00122_mbr_ucr_orc.jpg
+FamilySearch="iħm xm ⁊ d"_-_DGS004459005_00069_mbr_mcl_fmr_cwa.jpg
+BiblioþequesMediathequesDeMetz_-_Ms № 464_00092_0047B_oic_nbr.jpg
+BnF-BiɓArsenal_-_Ms-87_00203_oic_nbr.jpg
+Bodleian-Library?-MS-(AddAæ)-263°_00137_oic_nbr.jpg
+FamilySearcℏ_-_DGS004763803_00695_oic_nbr.jpg
+Family~Search_-_DGS005141812-ꝯ_00004_oic_nbr.jpg
+FamilɤSearchɟ_—_DGS004321721&_00066@_oic_nbr.jpg
+UnivBologna-SistemaMusealed'Ateneo-AlmaMaterStudiorum_-_ErbarioAldrovandi-Vol-ᴠɪ-60001_orc.jpg
+FamilySearch_-_DGS102439140☞00014_ucr_suh_mcl.jpg
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" | LC_ALL=C grep --color='auto' -P -b "[\x00-\x7F]" | wc -l
+3331
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ #  Non-printable
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f | awk -F'/' '{print $NF}' | \
+    LC_ALL=C grep -P "[\x00-\x08\x0B-\x0C\x0E-\x1F\x7F]" | wc -l
+0
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ #  Printable space-y
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f | awk -F'/' '{print $NF}' | \
+    LC_ALL=C grep -P "[\x09-\x0A\x0D\x20]" | wc -l
+4
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f | awk -F'/' '{print $NF}' |   LC_ALL=C grep -P "[^\x00-\x7F]" | wc -l
+11
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ #  Any undesired, printable ASCII characters?
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f | awk -F'/' '{print $NF}' | \
+    grep '[] ~!@#$%^&|\/)(}{[*?><;:"`'"'"']' | wc -l
+10
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f | awk -F'/' '{print $NF}' |     grep '[] ~!@#$%^&|\/)(}{[*?><;:"`'"'"']'
+FamilySearch_-_DGS Бъ 008268002_00568_scg.jpg
+Besançon Bibliothèqe Municiπale_-_color-MS¶0716_00122_mbr_ucr_orc.jpg
+FamilySearch="iħm xm ⁊ d"_-_DGS004459005_00069_mbr_mcl_fmr_cwa.jpg
+FamilySearch_-_DGS008279842_00131%fko_mbr_orc_ucr.jpg
+BiblioþequesMediathequesDeMetz_-_Ms № 464_00092_0047B_oic_nbr.jpg
+Bodleian-Library?-MS-(AddAæ)-263°_00137_oic_nbr.jpg
+Family~Search_-_DGS005141812-ꝯ_00004_oic_nbr.jpg
+FamilɤSearchɟ_—_DGS004321721&_00066@_oic_nbr.jpg
+Leiden_-_DeSobrietate&BPL190_00052_nbr.jpg
+UnivBologna-SistemaMusealed'Ateneo-AlmaMaterStudiorum_-_ErbarioAldrovandi-Vol-ᴠɪ-60001_orc.jpg
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ #  Printable space-y
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f | awk -F'/' '{print $NF}' |   LC_ALL=C grep -P "[\x09-\x10\x0B\x0D\x20]"
+FamilySearch_-_DGS Бъ 008268002_00568_scg.jpg
+Besançon Bibliothèqe Municiπale_-_color-MS¶0716_00122_mbr_ucr_orc.jpg
+FamilySearch="iħm xm ⁊ d"_-_DGS004459005_00069_mbr_mcl_fmr_cwa.jpg
+BiblioþequesMediathequesDeMetz_-_Ms № 464_00092_0047B_oic_nbr.jpg
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ #  Non-ASCII
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" | awk -F'/' '{print $NF}' | LC_ALL=C grep -P "[\x80-\xFF]"
+FamilySearch_-_DGS Бъ 008268002_00568_scg.jpg
+Besançon Bibliothèqe Municiπale_-_color-MS¶0716_00122_mbr_ucr_orc.jpg
+FamilySearch="iħm xm ⁊ d"_-_DGS004459005_00069_mbr_mcl_fmr_cwa.jpg
+BiblioþequesMediathequesDeMetz_-_Ms № 464_00092_0047B_oic_nbr.jpg
+BnF-BiɓArsenal_-_Ms-87_00203_oic_nbr.jpg
+Bodleian-Library?-MS-(AddAæ)-263°_00137_oic_nbr.jpg
+FamilySearcℏ_-_DGS004763803_00695_oic_nbr.jpg
+Family~Search_-_DGS005141812-ꝯ_00004_oic_nbr.jpg
+FamilɤSearchɟ_—_DGS004321721&_00066@_oic_nbr.jpg
+UnivBologna-SistemaMusealed'Ateneo-AlmaMaterStudiorum_-_ErbarioAldrovandi-Vol-ᴠɪ-60001_orc.jpg
+FamilySearch_-_DGS102439140☞00014_ucr_suh_mcl.jpg
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ #
+##------------------
+##  ENDOF: examples
+##------------------------
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ #  So ... let's do them all with the intermediate file
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ #
+################################################
+################################################
+## RESTART
+################################################
+################################################
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ checksituation
+
+ Current date/time is
+Mon Jul 28 22:27:20 MDT 2025
+1753763240
+1753763240_2025-07-28T222720-0600
+
+ Current directory ( pwd ) is
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -not -iname "*.jpg" | wc -l
+0
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ #  Clear of other filenames
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ #  DWB no-nos
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ #find . -type f | awk -F'/' '{print $NF}' | grep '[] ~!@#$%^&|\/)(}{[*?><;:"`'"'"']' | tr '\n' '\0' | xargs -I'{}' -0 printf "%s\n" "{}" > all_non_expanded_dwb_no_no_files_${my_ts}.lst
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ #find . -type f | awk -F'/' '{print $NF}' | grep '[] ~!@#$%^&|\/)(}{[*?><;:"`'"'"']' | wc -l
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f | awk -F'/' '{print $NF}' | grep '[] ~!@#$%^&|\/)(}{[*?><;:"`'"'"']' | wc -l
+10
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f | awk -F'/' '{print $NF}' | grep '[] ~!@#$%^&|\/)(}{[*?><;:"`'"'"']'
+FamilySearch_-_DGS Бъ 008268002_00568_scg.jpg
+Besançon Bibliothèqe Municiπale_-_color-MS¶0716_00122_mbr_ucr_orc.jpg
+FamilySearch="iħm xm ⁊ d"_-_DGS004459005_00069_mbr_mcl_fmr_cwa.jpg
+FamilySearch_-_DGS008279842_00131%fko_mbr_orc_ucr.jpg
+BiblioþequesMediathequesDeMetz_-_Ms № 464_00092_0047B_oic_nbr.jpg
+Bodleian-Library?-MS-(AddAæ)-263°_00137_oic_nbr.jpg
+Family~Search_-_DGS005141812-ꝯ_00004_oic_nbr.jpg
+FamilɤSearchɟ_—_DGS004321721&_00066@_oic_nbr.jpg
+Leiden_-_DeSobrietate&BPL190_00052_nbr.jpg
+UnivBologna-SistemaMusealed'Ateneo-AlmaMaterStudiorum_-_ErbarioAldrovandi-Vol-ᴠɪ-60001_orc.jpg
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f | awk -F'/' '{print $NF}' | grep '[] ~!@#$%^&|\/)(}{[*?><;:"`'"'"']' | tr '\n' '\0' | xargs -I'{}' -0 printf "%s\n" "{}" > all_non_expanded_dwb_no_no_files_${my_ts}.lst
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ wc -l < all_non_expanded_dwb_no_no_files_1753756255_2025-07-28T203055-0600.lst
+
+10
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ cat all_non_expanded_dwb_no_no_files_1753756255_2025-07-28T203055-0600.lst
+FamilySearch_-_DGS Бъ 008268002_00568_scg.jpg
+Besançon Bibliothèqe Municiπale_-_color-MS¶0716_00122_mbr_ucr_orc.jpg
+FamilySearch="iħm xm ⁊ d"_-_DGS004459005_00069_mbr_mcl_fmr_cwa.jpg
+FamilySearch_-_DGS008279842_00131%fko_mbr_orc_ucr.jpg
+BiblioþequesMediathequesDeMetz_-_Ms № 464_00092_0047B_oic_nbr.jpg
+Bodleian-Library?-MS-(AddAæ)-263°_00137_oic_nbr.jpg
+Family~Search_-_DGS005141812-ꝯ_00004_oic_nbr.jpg
+FamilɤSearchɟ_—_DGS004321721&_00066@_oic_nbr.jpg
+Leiden_-_DeSobrietate&BPL190_00052_nbr.jpg
+UnivBologna-SistemaMusealed'Ateneo-AlmaMaterStudiorum_-_ErbarioAldrovandi-Vol-ᴠɪ-60001_orc.jpg
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ while IFS= read -r line; do fname="${line}"; find . -type f | grep "${line}"; done < all_non_expanded_dwb_no_no_files_1753756255_2025-07-28T203055-0600.lst
+./Connecting_or_Guard_Reuse/FamilySearch_-_DGS Бъ 008268002_00568_scg.jpg
+./Multiple_Binding_Reuse_Classes/Besançon Bibliothèqe Municiπale_-_color-MS¶0716_00122_mbr_ucr_orc.jpg
+./Multiple_Binding_Reuse_Classes/FamilySearch="iħm xm ⁊ d"_-_DGS004459005_0006
+9_mbr_mcl_fmr_cwa.jpg
+./Multiple_Binding_Reuse_Classes/FamilySearch_-_DGS008279842_00131%fko_mbr_orc_ucr.jpg
+./No_For_Binding_Reuse/BiblioþequesMediathequesDeMetz_-_Ms № 464_00092_0047B_oic_nbr.jpg
+./No_For_Binding_Reuse/Bodleian-Library?-MS-(AddAæ)-263°_00137_oic_nbr.jpg
+./No_For_Binding_Reuse/Family~Search_-_DGS005141812-ꝯ_00004_oic_nbr.jpg
+./No_For_Binding_Reuse/FamilɤSearchɟ_—_DGS004321721&_00066@_oic_nbr.jpg
+./No_For_Binding_Reuse/Leiden_-_DeSobrietate&BPL190_00052_nbr.jpg
+./Outside_Cover_Reuse/UnivBologna-SistemaMusealed'Ateneo-AlmaMaterStudiorum_-_ErbarioAldrovandi-Vol-ᴠɪ-60001_orc.jpg
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ while IFS= read -r line; do fname="${line}"; find . -type f | grep "${line}"; done < all_non_expanded_dwb_no_no_files_1753756255_2025-07-28T203055-0600.lst | wc -l
+10
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ while IFS= read -r line; do fname="${line}"; find "$(pwd)" -type f | grep "${line}"; done < all_non_expanded_dwb_no_no_files_1753756255_2025-07-28T203055-0600.lst
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined/Connecting_or_Guard_Reuse/FamilySearch_-_DGS Бъ 008268002_00568_scg.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined/Multiple_Binding_Reuse_Classes/Besançon Bibliothèqe Municiπale_-_color-MS¶0716_00122_mbr_ucr_orc.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined/Multiple_Binding_Reuse_Classes/FamilySearch="iħm xm ⁊ d"_-_DG
+S004459005_00069_mbr_mcl_fmr_cwa.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined/Multiple_Binding_Reuse_Classes/FamilySearch_-_DGS008279842_00131%fko_mbr_orc_ucr.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined/No_For_Binding_Reuse/BiblioþequesMediathequesDeMetz_-_Ms № 464_00092_0047B_oic_nbr.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined/No_For_Binding_Reuse/Bodleian-Library?-MS-(AddAæ)-263°_00137_oic_nbr.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined/No_For_Binding_Reuse/Family~Search_-_DGS005141812-ꝯ_00004_oic_nbr.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined/No_For_Binding_Reuse/FamilɤSearchɟ_—_DGS004321721&_00066@_oic_nbr.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined/No_For_Binding_Reuse/Leiden_-_DeSobrietate&BPL190_00052_nbr.jpg/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined/Outside_Cover_Reuse/UnivBologna-SistemaMusealed'Ateneo-AlmaMaterStudiorum_-_ErbarioAldrovandi-Vol-ᴠɪ-60001_orc.jpg
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ while IFS= read -r line; do fname="${line}"; find "$(pwd)" -type f | grep "${line}"; done < all_non_expanded_dwb_no_no_files_1753756255_2025-07-28T203055-0600.lst | wc -l
+10
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ while IFS= read -r line; do fname="${line}"; find "$(pwd)" -type f | grep "${line}"; done < all_non_expanded_dwb_no_no_files_1753756255_2025-07-28T203055-0600.lst > all_full_path_dwb_no_no_files_${my_ts}.lst
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ while IFS= read -r line; do fname="${line}"; find . -type f | grep "${line}"; done < all_non_expanded_dwb_no_no_files_1753756255_2025-07-28T203055-0600.lst > all_rel_path_dwb_no_no_files_${my_ts}.lst
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ wc -l < all_rel_path_dwb_no_no_files_1753756255_2025-07-28T203055-0600.lst
+10
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ #
+################################################
+################################################
+################################################
+################################################
+################################################
+################################################
+## ##start BAD. 
+##
+## VERY BAD. JUST SO YOU'LL KNOW
+## NOT TO DO THIS IF YOU'RE DEALING
+## WITH CRAZY FILENAMES.
+## DON'T WORRY ABOUT ENTERING
+## ANYTHING UNTIL YOU SE A THING
+## LIKE THIS WITH THE en-d-of
+################################################
+################################################
+################################################
+################################################
+################################################
+################################################
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f | awk -F'/' '{print $NF}' | grep '[] ~!@#$%^&|\/)(}{[*?><;:"`'"'"']' | tr '\n' '\0' | xargs -I'{}' -0 bash -c 'orig=$(printf "%s" "{}"); find . -type f | grep "${orig}"'
+./Connecting_or_Guard_Reuse/FamilySearch_-_DGS Бъ 008268002_00568_scg.jpg
+./Multiple_Binding_Reuse_Classes/Besançon Bibliothèqe Municiπale_-_color-MS¶0716_00122_mbr_ucr_orc.jpg
+./Multiple_Binding_Reuse_Classes/FamilySearch_-_DGS008279842_00131%fko_mbr_orc_ucr.jpg
+./No_For_Binding_Reuse/BiblioþequesMediathequesDeMetz_-_Ms № 464_00092_0047B_oic_nbr.jpg
+./No_For_Binding_Reuse/Bodleian-Library?-MS-(AddAæ)-263°_00137_oic_nbr.jpg
+./No_For_Binding_Reuse/Family~Search_-_DGS005141812-ꝯ_00004_oic_nbr.jpg
+./No_For_Binding_Reuse/FamilɤSearchɟ_—_DGS004321721&_00066@_oic_nbr.jpg
+./No_For_Binding_Reuse/Leiden_-_DeSobrietate&BPL190_00052_nbr.jpg
+./Outside_Cover_Reuse/UnivBologna-SistemaMusealed'Ateneo-AlmaMaterStudiorum_-_ErbarioAldrovandi-Vol-ᴠɪ-60001_orc.jpg
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ #  I didn't notice the first time, but we're missing one
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f | awk -F'/' '{print $NF}' | grep '[] ~!@#$%^&|\/)(}{[*?><;:"`'"'"']' | tr '\n' '\0' | xargs -I'{}' -0 bash -c 'orig=$(printf "%s" "{}"); find . -type f | grep "${orig}"' | wc -l
+9
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ cp all_rel_path_dwb_no_no_files_1753756255_2025-07-28T203055-0600.lst right1
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f | awk -F'/' '{print $NF}' | grep '[] ~!@#$%^&|\/)(}{[*?><;:"`'"'"']' | tr '\n' '\0' | xargs -I'{}' -0 bash -c 'orig=$(printf "%s" "{}"); find . -type f | grep "${orig}"' > other1
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ diff <(sort right1) <(sort other1)
+3d2
+< ./Multiple_Binding_Reuse_Classes/FamilySearch="iħm xm ⁊ d"_-_DGS004459005_00
+069_mbr_mcl_fmr_cwa.jpg
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ rm right1  other1
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ #
+################################################
+################################################
+################################################
+################################################
+################################################
+################################################
+## ##endof: BAD. 
+################################################
+################################################
+################################################
+################################################
+################################################
+################################################
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -not -iname "*.jpg"
+./all_full_path_dwb_no_no_files_1753756255_2025-07-28T203055-0600.lst
+./all_non_expanded_dwb_no_no_files_1753756255_2025-07-28T203055-0600.lst
+./all_rel_path_dwb_no_no_files_1753756255_2025-07-28T203055-0600.lst
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ cp all_full_path_dwb_no_no_files_1753756255_2025-07-28T203055-0600.lst all_full_path_need_change_files_${my_ts}.lst
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ #  Non-ASCII
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" | awk -F'/' '{print $NF}' | LC_ALL=C grep -P "[\x80-\xFF]"
+FamilySearch_-_DGS Бъ 008268002_00568_scg.jpg
+Besançon Bibliothèqe Municiπale_-_color-MS¶0716_00122_mbr_ucr_orc.jpg
+FamilySearch="iħm xm ⁊ d"_-_DGS004459005_00069_mbr_mcl_fmr_cwa.jpg
+BiblioþequesMediathequesDeMetz_-_Ms № 464_00092_0047B_oic_nbr.jpg
+BnF-BiɓArsenal_-_Ms-87_00203_oic_nbr.jpg
+Bodleian-Library?-MS-(AddAæ)-263°_00137_oic_nbr.jpg
+FamilySearcℏ_-_DGS004763803_00695_oic_nbr.jpg
+Family~Search_-_DGS005141812-ꝯ_00004_oic_nbr.jpg
+FamilɤSearchɟ_—_DGS004321721&_00066@_oic_nbr.jpg
+UnivBologna-SistemaMusealed'Ateneo-AlmaMaterStudiorum_-_ErbarioAldrovandi-Vol-ᴠɪ-60001_orc.jpg
+FamilySearch_-_DGS102439140☞00014_ucr_suh_mcl.jpg
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" | awk -F'/' '{print $NF}' | LC_ALL=C grep -P "[\x80-\xFF]" | tr '\n' '\0' | xargs -I'{}' -0 printf "%s\n" "{}" > all_non_expanded_non_ascii_no_no_files_${my_ts}.lst
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -iname "*.jpg" | awk -F'/' '{print $NF}' | LC_ALL=C grep -P "[\x80-\xFF]" | wc -l
+11
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ wc -l < all_non_expanded_non_ascii_no_no_files_1753756255_2025-07-28T203055-0600.lst
+11
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ cat all_non_expanded_non_ascii_no_no_files_1753756255_2025-07-28T203055-0600.lst
+FamilySearch_-_DGS Бъ 008268002_00568_scg.jpg
+Besançon Bibliothèqe Municiπale_-_color-MS¶0716_00122_mbr_ucr_orc.jpg
+FamilySearch="iħm xm ⁊ d"_-_DGS004459005_00069_mbr_mcl_fmr_cwa.jpg
+BiblioþequesMediathequesDeMetz_-_Ms № 464_00092_0047B_oic_nbr.jpg
+BnF-BiɓArsenal_-_Ms-87_00203_oic_nbr.jpg
+Bodleian-Library?-MS-(AddAæ)-263°_00137_oic_nbr.jpg
+FamilySearcℏ_-_DGS004763803_00695_oic_nbr.jpg
+Family~Search_-_DGS005141812-ꝯ_00004_oic_nbr.jpg
+FamilɤSearchɟ_—_DGS004321721&_00066@_oic_nbr.jpg
+UnivBologna-SistemaMusealed'Ateneo-AlmaMaterStudiorum_-_ErbarioAldrovandi-Vol-ᴠɪ-60001_orc.jpg
+FamilySearch_-_DGS102439140☞00014_ucr_suh_mcl.jpg
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ while IFS= read -r line; do fname="${line}"; find . -type f | grep "${line}"; done < all_non_expanded_non_ascii_no_no_files_1753756255_2025-07-28T203055-0600.lst
+./Connecting_or_Guard_Reuse/FamilySearch_-_DGS Бъ 008268002_00568_scg.jpg
+./Multiple_Binding_Reuse_Classes/Besançon Bibliothèqe Municiπale_-_color-MS¶0716_00122_mbr_ucr_orc.jpg
+./Multiple_Binding_Reuse_Classes/FamilySearch="iħm xm ⁊ d"_-_DGS004459005_0006
+9_mbr_mcl_fmr_cwa.jpg
+./No_For_Binding_Reuse/BiblioþequesMediathequesDeMetz_-_Ms № 464_00092_0047B_oic_nbr.jpg
+./No_For_Binding_Reuse/BnF-BiɓArsenal_-_Ms-87_00203_oic_nbr.jpg
+./No_For_Binding_Reuse/Bodleian-Library?-MS-(AddAæ)-263°_00137_oic_nbr.jpg
+./No_For_Binding_Reuse/FamilySearcℏ_-_DGS004763803_00695_oic_nbr.jpg
+./No_For_Binding_Reuse/Family~Search_-_DGS005141812-ꝯ_00004_oic_nbr.jpg
+./No_For_Binding_Reuse/FamilɤSearchɟ_—_DGS004321721&_00066@_oic_nbr.jpg
+./Outside_Cover_Reuse/UnivBologna-SistemaMusealed'Ateneo-AlmaMaterStudiorum_-_ErbarioAldrovandi-Vol-ᴠɪ-60001_orc.jpg
+./Under_Cover_Reuse/FamilySearch_-_DGS102439140☞00014_ucr_suh_mcl.jpg
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ while IFS= read -r line; do fname="${line}"; find . -type f | grep "${line}"; done < all_non_expanded_non_ascii_no_no_files_1753756255_2025-07-28T203055-0600.lst | wc -l
+11
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ while IFS= read -r line; do fname="${line}"; find $(pwd) -type f | grep "${line}"; done < all_non_expanded_non_ascii_no_no_files_1753756255_2025-07-28T203055-0600.lst | wc -l
+11
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ while IFS= read -r line; do fname="${line}"; find $(pwd) -type f | grep "${line}"; done < all_non_expanded_non_ascii_no_no_files_1753756255_2025-07-28T203055-0600.lst
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined/Connecting_or_Guard_Reuse/FamilySearch_-_DGS Бъ 008268002_00568_scg.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined/Multiple_Binding_Reuse_Classes/Besançon Bibliothèqe Municiπale_-_color-MS¶0716_00122_mbr_ucr_orc.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined/Multiple_Binding_Reuse_Classes/FamilySearch="iħm xm ⁊ d"_-_DG
+S004459005_00069_mbr_mcl_fmr_cwa.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined/No_For_Binding_Reuse/BiblioþequesMediathequesDeMetz_-_Ms № 464_00092_0047B_oic_nbr.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined/No_For_Binding_Reuse/BnF-BiɓArsenal_-_Ms-87_00203_oic_nbr.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined/No_For_Binding_Reuse/Bodleian-Library?-MS-(AddAæ)-263°_00137_oic_nbr.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined/No_For_Binding_Reuse/FamilySearcℏ_-_DGS004763803_00695_oic_nbr.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined/No_For_Binding_Reuse/Family~Search_-_DGS005141812-ꝯ_00004_oic_nbr.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined/No_For_Binding_Reuse/FamilɤSearchɟ_—_DGS004321721&_00066@_oic_nbr.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined/Outside_Cover_Reuse/UnivBologna-SistemaMusealed'Ateneo-AlmaMaterStudiorum_-_ErbarioAldrovandi-Vol-ᴠɪ-60001_orc.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined/Under_Cover_Reuse/FamilySearch_-_DGS102439140☞00014_ucr_suh_mcl.jpg
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ while IFS= read -r line; do fname="${line}"; find $(pwd) -type f | grep "${line}"; done < all_non_expanded_non_ascii_no_no_files_1753756255_2025-07-28T203055-0600.lst > all_full_path_non_ascii_no_no_files_${my_ts}.lst
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ wc -l < all_full_path_non_ascii_no_no_files_1753756255_2025-07-28T203055-0600.lst
+11
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ while IFS= read -r line; do fname="${line}"; find . -type f | grep "${line}"; done < all_non_expanded_non_ascii_no_no_files_1753756255_2025-07-28T203055-0600.lst > all_rel_path_non_ascii_no_no_files_${my_ts}.lst
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ wc -l < all_rel_path_non_ascii_no_no_files_1753756255_2025-07-28T203055-0600.lst
+11
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -not -iname "*.jpg"
+./all_full_path_dwb_no_no_files_1753756255_2025-07-28T203055-0600.lst
+./all_full_path_need_change_files_1753756255_2025-07-28T203055-0600.lst
+./all_full_path_non_ascii_no_no_files_1753756255_2025-07-28T203055-0600.lst
+./all_non_expanded_dwb_no_no_files_1753756255_2025-07-28T203055-0600.lst
+./all_non_expanded_non_ascii_no_no_files_1753756255_2025-07-28T203055-0600.lst
+./all_rel_path_dwb_no_no_files_1753756255_2025-07-28T203055-0600.lst
+./all_rel_path_non_ascii_no_no_files_1753756255_2025-07-28T203055-0600.lst
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ cat all_full_path_non_ascii_no_no_files_1753756255_2025-07-28T203055-0600.lst
+>> all_full_path_need_change_files_1753756255_2025-07-28T203055-0600.lst
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ wc -l < all_full_path_need_change_files_1753756255_2025-07-28T203055-0600.lst
+21
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ # that's 10+11
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ sort all_full_path_n
+all_full_path_need_change_files_1753756255_2025-07-28T203055-0600.lst
+all_full_path_non_ascii_no_no_files_1753756255_2025-07-28T203055-0600.lst
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ sort -u all_full_path_need_change_files_1753756255_2025-07-28T203055-0600.lst > tmpf && mv tmpf all_full_path_need_change_files_1753756255_2025-07-28T203055-0600.lst
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ wc -l < all_full_path_need_change_files_1753756255_2025-07-28T203055-0600.lst
+13
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ #  So, we added 3
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ comm -23 <(sort all_full_path_non_ascii_no_no_files_1753756255_2025-07-28T203055-0600.lst) <(sort all_full_path_dwb_no_no_files_1753756255_2025-07-28T203055-0600.lst)
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined/No_For_Binding_Reuse/BnF-BiɓArsenal_-_Ms-87_00203_oic_nbr.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined/No_For_Binding_Reuse/FamilySearcℏ_-_DGS004763803_00695_oic_nbr.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined/Under_Cover_Reuse/FamilySearch_-_DGS102439140☞00014_ucr_suh_mcl.jpg
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ comm -13 <(sort all_full_path_non_ascii_no_no_files_1753756255_2025-07-28T203055-0600.lst) <(sort all_full_path_dwb_no_no_files_1753756255_2025-07-28T203055-0600.lst)
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined/Multiple_Binding_Reuse_Classes/FamilySearch_-_DGS008279842_00131%fko_mbr_orc_ucr.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined/No_For_Binding_Reuse/Leiden_-_DeSobrietate&BPL190_00052_nbr.jpg
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ comm -23 <(sort all_full_path_non_ascii_no_no_files_1753756255_2025-07-28T203055-0600.lst) <(sort all_full_path_dwb_no_no_files_1753756255_2025-07-28T203055-0600.lst) | wc -l
+3
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ #
+#  Oops, I already did that one. The next one will tell us how many are in
+#+ common
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ comm -12 <(sort all_full_path_non_ascii_no_no_files_1753756255_2025-07-28T203055-0600.lst) <(sort all_full_path_dwb_no_no_files_1753756255_2025-07-28T203055-0600.lst) | wc -l
+8
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ #  8 in common
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ #  Non-printable
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f | awk -F'/' '{print $NF}' |   LC_ALL=C grep -P "[\x00-\x08\x0B-\x0C\x0E-\x1F\x7F]" | wc -l
+0
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ #  Let's go through the steps, anyway.
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f | awk -F'/' '{print $NF}' |   LC_ALL=C grep -P "[\x00-\x08\x0B-\x0C\x0E-\x1F\x7F]" | tr '\n' '\0' | xargs -I'{}' -0 printf "%s\n" "{}" > all_non_expanded_non_printable_no_no_files_${my_ts}.lst
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ wc -l < all_non_expanded_non_printable_no_no_files_1753756255_2025-07-28T203055-0600.lst
+0
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ cat all_non_expanded_non_printable_no_no_files_1753756255_2025-07-28T203055-0600.lst
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ while IFS= read -r line; do fname="${line}"; find . -type f | grep "${line}"; done < all_non_expanded_non_printable_no_no_files_1753756255_2025-07-28T203055-0600.lst
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ while IFS= read -r line; do fname="${line}"; find . -type f | grep "${line}"; done < all_non_expanded_non_printable_no_no_files_1753756255_2025-07-28T203055-0600.lst | wc -l
+0
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ while IFS= read -r line; do fname="${line}"; find . -type f | grep "${line}"; done < all_non_expanded_non_printable_no_no_files_1753756255_2025-07-28T203055-0600.lst > all_rel_path_non_printable_no_no_files_${my_ts}.lst
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ wc -l < all_rel_path_non_printable_no_no_files_1753756255_2025-07-28T203055-0600.lst
+0
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ while IFS= read -r line; do fname="${line}"; find $(pwd) -type f | grep "${line}"; done < all_non_expanded_non_printable_no_no_files_1753756255_2025-07-28T203055-0600.lst > all_full_path_non_printable_no_no_files_${my_ts}.lst
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ wc -l < all_full_path_non_printable_no_no_files_1753756255_2025-07-28T203055-0600.lst
+0
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ #  Printable space-y
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f | awk -F'/' '{print $NF}' |   LC_ALL=C grep -P "[\x09-\x10\x0B\x0D\x20]" | wc -l
+4
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f | awk -F'/' '{print $NF}' |   LC_ALL=C grep -P "[\x09-\x10\x0B\x0D\x20]"
+FamilySearch_-_DGS Бъ 008268002_00568_scg.jpg
+Besançon Bibliothèqe Municiπale_-_color-MS¶0716_00122_mbr_ucr_orc.jpg
+FamilySearch="iħm xm ⁊ d"_-_DGS004459005_00069_mbr_mcl_fmr_cwa.jpg
+BiblioþequesMediathequesDeMetz_-_Ms № 464_00092_0047B_oic_nbr.jpg
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f | awk -F'/' '{print $NF}' |   LC_ALL=C grep -P "[\x09-\x10\x0B\x0D\x20]" | tr '\n' '\0' | xargs -I'{}' -0 printf "%s\n" "{}" > all_non_expanded_printable_spacey_control_no_no_files_${my_ts}.lst
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ wc -l < all_non_expanded_printable_spacey_control_no_no_files_1753756255_2025-07-28T203055-0600.lst
+4
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ cat all_non_expanded_printable_spacey_control_no_no_files_1753756255_2025-07-28T203055-0600.lst
+FamilySearch_-_DGS Бъ 008268002_00568_scg.jpg
+Besançon Bibliothèqe Municiπale_-_color-MS¶0716_00122_mbr_ucr_orc.jpg
+FamilySearch="iħm xm ⁊ d"_-_DGS004459005_00069_mbr_mcl_fmr_cwa.jpg
+BiblioþequesMediathequesDeMetz_-_Ms № 464_00092_0047B_oic_nbr.jpg
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ while IFS= read -r line; do fname="${line}"; find . -type f | grep "${line}"; done < all_non_expanded_printable_spacey_control_no_no_files_1753756255_2025-07-28T203055-0600.lst
+./Connecting_or_Guard_Reuse/FamilySearch_-_DGS Бъ 008268002_00568_scg.jpg
+./Multiple_Binding_Reuse_Classes/Besançon Bibliothèqe Municiπale_-_color-MS¶0716_00122_mbr_ucr_orc.jpg
+./Multiple_Binding_Reuse_Classes/FamilySearch="iħm xm ⁊ d"_-_DGS004459005_0006
+9_mbr_mcl_fmr_cwa.jpg
+./No_For_Binding_Reuse/BiblioþequesMediathequesDeMetz_-_Ms № 464_00092_0047B_oic_nbr.jpg
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ while IFS= read -r line; do fname="${line}"; find . -type f | grep "${line}"; done < all_non_expanded_printable_spacey_control_no_no_files_1753756255_2025-07-28T203055-0600.lst | wc -l
+4
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ while IFS= read -r line; do fname="${line}"; find . -type f | grep "${line}"; done < all_non_expanded_printable_spacey_control_no_no_files_1753756255_2025-07-28T203055-0600.lst > all_rel_path_printable_spacey_control_no_no_files_${my_ts}.lst
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ cat all_rel_path_printable_spacey_control_no_no_files_1753756255_2025-07-28T203055-0600.lst
+./Connecting_or_Guard_Reuse/FamilySearch_-_DGS Бъ 008268002_00568_scg.jpg
+./Multiple_Binding_Reuse_Classes/Besançon Bibliothèqe Municiπale_-_color-MS¶0716_00122_mbr_ucr_orc.jpg
+./Multiple_Binding_Reuse_Classes/FamilySearch="iħm xm ⁊ d"_-_DGS004459005_0006
+9_mbr_mcl_fmr_cwa.jpg
+./No_For_Binding_Reuse/BiblioþequesMediathequesDeMetz_-_Ms № 464_00092_0047B_oic_nbr.jpg
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ wc -l < all_rel_path_printable_spacey_control_no_no_files_1753756255_2025-07-28T203055-0600.lst
+4
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ while IFS= read -r line; do fname="${line}"; find $(pwd) -type f | grep "${line}"; done < all_non_expanded_printable_spacey_control_no_no_files_1753756255_2025-07-28T203055-0600.lst > all_full_path_printable_spacey_control_no_no_files_${my_ts}.lst
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ wc -l < all_full_path_printable_spacey_control_no_no_files_1753756255_2025-07-28T203055-0600.lst
+4
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ find . -type f -not -iname "*.jpg"
+./all_full_path_dwb_no_no_files_1753756255_2025-07-28T203055-0600.lst
+./all_full_path_need_change_files_1753756255_2025-07-28T203055-0600.lst
+./all_full_path_non_ascii_no_no_files_1753756255_2025-07-28T203055-0600.lst
+./all_full_path_non_printable_no_no_files_1753756255_2025-07-28T203055-0600.lst
+./all_full_path_printable_spacey_control_no_no_files_1753756255_2025-07-28T203055-0600.lst
+./all_non_expanded_dwb_no_no_files_1753756255_2025-07-28T203055-0600.lst
+./all_non_expanded_non_ascii_no_no_files_1753756255_2025-07-28T203055-0600.lst
+./all_non_expanded_non_printable_no_no_files_1753756255_2025-07-28T203055-0600.lst
+./all_non_expanded_printable_spacey_control_no_no_files_1753756255_2025-07-28T203055-0600.lst
+./all_rel_path_dwb_no_no_files_1753756255_2025-07-28T203055-0600.lst
+./all_rel_path_non_ascii_no_no_files_1753756255_2025-07-28T203055-0600.lst
+./all_rel_path_non_printable_no_no_files_1753756255_2025-07-28T203055-0600.lst
+./all_rel_path_printable_spacey_control_no_no_files_1753756255_2025-07-28T203055-0600.lst
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ cat all_full_path_printable_spacey_control_no_no_files_1753756255_2025-07-28T203055-0600.lst >> all_full_path_need_change_files_1753756255_2025-07-28T203055-0600.lst
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ wc -l < all_full_path_need_change_files_1753756255_2025-07-28T203055-0600.lst
+17
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ # that's 13+4
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ sort -u all_full_path_need_change_files_1753756255_2025-07-28T203055-0600.lst > tmpf && mv tmpf all_full_path_need_change_files_1753756255_2025-07-28T203055-0600.lst
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ wc -l < all_full_path_need_change_files_1753756255_2025-07-28T203055-0600.lst
+13
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ #
+#  So nothing new from that one. (I checked spaces before, and that's
+#+ the only printable space-y one.
+#  I now have all the character no-nos in a file
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ cat all_full_path_need_change_files_1753756255_2025-07-28T203055-0600.lst
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined/Connecting_or_Guard_Reuse/FamilySearch_-_DGS Бъ 008268002_00568_scg.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined/Multiple_Binding_Reuse_Classes/Besançon Bibliothèqe Municiπale_-_color-MS¶0716_00122_mbr_ucr_orc.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined/Multiple_Binding_Reuse_Classes/FamilySearch="iħm xm ⁊ d"_-_DG
+S004459005_00069_mbr_mcl_fmr_cwa.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined/Multiple_Binding_Reuse_Classes/FamilySearch_-_DGS008279842_00131%fko_mbr_orc_ucr.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined/No_For_Binding_Reuse/BiblioþequesMediathequesDeMetz_-_Ms № 464_00092_0047B_oic_nbr.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined/No_For_Binding_Reuse/BnF-BiɓArsenal_-_Ms-87_00203_oic_nbr.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined/No_For_Binding_Reuse/Bodleian-Library?-MS-(AddAæ)-263°_00137_oic_nbr.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined/No_For_Binding_Reuse/FamilySearcℏ_-_DGS004763803_00695_oic_nbr.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined/No_For_Binding_Reuse/Family~Search_-_DGS005141812-ꝯ_00004_oic_nbr.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined/No_For_Binding_Reuse/FamilɤSearchɟ_—_DGS004321721&_00066@_oic_nbr.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined/No_For_Binding_Reuse/Leiden_-_DeSobrietate&BPL190_00052_nbr.jpg/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined/Outside_Cover_Reuse/UnivBologna-SistemaMusealed'Ateneo-AlmaMaterStudiorum_-_ErbarioAldrovandi-Vol-ᴠɪ-60001_orc.jpg
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined/Under_Cover_Reuse/FamilySearch_-_DGS102439140☞00014_ucr_suh_mcl.jpg
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ checksituation
+
+ Current date/time is
+Tue Jul 29 09:18:05 MDT 2025
+1753802285
+1753802285_2025-07-29T091805-0600
+
+ Current directory ( pwd ) is
+/cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ get2bu4char "\ "
+( 0x5c || U+005c )
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ get2bu4char "h"
+( 0x68 || U+0068 )
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ #cp ~/.bbal
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ f25m3
+\(cwa\|fmr\|gni\|nbr\|orc\|scg\|spr\|tbr\|ucr\)
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ exit
+bash: $'\302\201exit': command not found
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ exit
+exit
+
+Script done on 2025-07-29 21:13:58-06:00 [COMMAND_EXIT_CODE="127"]
+

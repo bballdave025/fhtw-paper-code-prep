@@ -60,7 +60,7 @@ I'm Looking at (Looking across at Yesterday's Lab Notebook.
       1 cwa mbr ucr
       2 cwa mcl
       7 fko fmr
-      1 fko fmr mbr
+      1 fko fmr mbr               # PROBLEM (mbr+1*{f25m3})
       1 fko fmr mbr suh tbr ucr
       2 fko fmr mcl
       2 fko gni
@@ -121,14 +121,14 @@ I'm Looking at (Looking across at Yesterday's Lab Notebook.
       3 mbr orc tbr
       2 mbr orc tbr ucr
       9 mbr orc ucr
-      1 mbr scg
+      1 mbr scg                   # PROBLEM (mbr+1*{f25m3})
       1 mbr scg spr
       2 mbr scg suh tbr ucr
      10 mbr scg ucr
       1 mbr spr ucr
       4 mbr suh tbr ucr
       2 mbr tbr ucr
-      3 mbr ucr
+      3 mbr ucr                   # PROBLEM (mbr+1*{f25m3})
       3 mcl orc
      13 mcl scg
       2 mcl spr
@@ -136,11 +136,11 @@ I'm Looking at (Looking across at Yesterday's Lab Notebook.
      15 mcl tbr
       6 mcl ucr
      60 mmx nbr
-      2 mmx nbr oic
+      2 mmx nbr oic               # PROBLEM (mmx+oic) minor
    1589 nbr
     559 nbr oic
-      2 nbr oic oic
-      1 oic oic
+      2 nbr oic oic               # PROBLEM (double oic)
+      1 oic oic                   # PROBLEM (double oic, no nbr)
      39 orc
      67 scg
      20 spr
@@ -149,6 +149,753 @@ I'm Looking at (Looking across at Yesterday's Lab Notebook.
 
 
 
-So, our error has got to be from this file and the `sort -rn`
 
-... or something unknown that I did yesterday.  It works.
+
+This is fine (we got output) ...
+... so, our sort error has got to be from this file and the `sort -rn`
+
+... or something unknown that I did yesterday.
+It works fine, today.
+
+
+
+
+
+notepadplusplus() {
+  # @author : bballdave025
+  # @since  : 2025-07-28 (this time)
+  # @brief  : Opens Notepad++ in the background, opening FILENAME if given
+  
+  IFS=$'\n' read -r -d '' usage <<'EndUsage'
+.
+
+NAME
+       notepadplusplus - opens Notepad++ in background
+       Often invoked with aliases including
+         npp, n++, np++, notepadpp
+         (`notepad++' isn't given as an alias, in 
+          case the `PATH' variable includes the 
+          executable's path)
+
+SYNOPSIS
+       notepadplusplus [--help|-h] [FILENAME]
+       
+DESCRIPTION
+       Usable on Cygwin (running in Windows), assuming that
+       its filepath is
+         `/cygdrive/c/Program\ Files\ \(x86\)/Notepad++/notepad++.exe'
+       Opens Notepad++ in the background, with the possibility of
+       displaying a file represented by the FILENAME parameter.
+       
+       Optional first argument(s)
+         Unless passed `--help' or `-h' as the first argument,
+         the argument is tested for its existence as a file, 
+         and then opened if the results are positive, and the
+         return code will be `0'. (This means you cannot create a
+         file using the function; for that, you must use 
+         something like `touch'.) If the string given doesn't 
+         represent an existing filename, the function exit to 
+         the shell with return code, `1'.
+         
+         If I find I need it, I will extend this to where all 
+         arguments are opened (if they represent existing files), 
+         rather than just ignoring arguments $2, $3, $4. In the
+         meanwhile, I'll just output something saying that $1
+         (argument outputted) will be opened and the rest of the
+         arguments (outputted as well) will be ignored, after
+         which this usage string will be outputted, after which
+         the first argument will be opened in Notepad++ (again,
+         as long as `--help' or `-h' is given as the first
+         argument). The return code will be `0'.
+         
+         If `--help' or `-h' is given as the first argument,
+         this usage will be outputted, and the program will
+         give return code `0'
+
+AUTHOR
+         David BLACK,   GitHub  @bballdave025
+         This version, using a function instead of an alias
+         in order to ensure that Notepad++ is opened in the
+         background is   @since 2025-07-28.
+
+.
+EndUsage
+
+  this_arg=$1
+  this_param=
+  retval=0
+  shift  # If no $1, no problem, so no  &&  or  ||
+# if <help-requested>  
+  if [ "${this_arg}" = "--help" -o "${this_arg}" = "-h" ]; then
+    echo "${usage}" | sed 's#^[.]$##g' >&2
+    return ${retval}
+  else
+    this_param="${this_arg}"
+#   if <there are remaining parameters>
+    if [ ${#@} -gt 0 ]; then
+      echo " Extra parameters:" >&2
+      echo "$@" >&2
+      echo " will be ignored." >&2
+    fi ##endof:  if <there are remaining parameters>
+#   if <any parameter is given>
+    if [ ! -z "${this_param}" ]; then
+#     if <param is a real file>
+      if [ -f "${this_param}" ]; then
+        echo " Opening" >&2
+        echo "${this_param}" >&2
+        echo " in Notepad++" >&2
+      else
+        echo " Your parameter," >&2
+        echo "${this_param}" >&2
+        echo " is not a file." >&2
+        echo " Note that the unresolved file path from here is" >&2
+        echo "$(pwd)/${this_param}" >&2
+        echo >&2
+        echo >&2
+        echo "${usage}" | sed 's#^[.]$##g' >&2
+        
+        retval=1
+      fi ##endof:  if/else <param is a real file>
+    else
+      echo " Opening Notepad++" >&2
+    fi ##endof:  if <any parameter is given>
+  fi ##endof:  if/else <help-requested>
+# if <return value is zero (success)>
+  if [ ${retval} -eq 0 ]; then
+    #exe_filepath='/cygdrive/c/Program\ Files\ \(x86\)/Notepad++/notepad++'
+    /cygdrive/c/Program\ Files\ \(x86\)/Notepad++/notepad++ \
+        ${this_param} &
+  fi ##endof:  if <return value is zero (success)>
+  
+  return ${retval}
+}
+
+alias npp='notepadplusplus'
+alias n++='npp'
+alias np++='npp'
+alias notepadpp='npp'
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#========================================================
+#==========================================================
+#========================================================
+
+Moving stuff back:
+
+#===========================
+# Fixing commands 1 
+
+$ mv \
+  ./Connecting_or_Guard_Reuse/BnF_-_Ms-Grec-487_00077_fko_scg_une.jpg \
+  ./Connecting_or_Guard_Reuse/BnF_-_Ms-Grec-487_00077_fko_scg_suh.jpg
+$ mv \
+  ./Front-back_Matter_Reuse/Bodl_-_Queen-s-College-MS-305_00760_fmr_une.jpg \
+  ./Front-back_Matter_Reuse/Bodl_-_Queen-s-College-MS-305_00760_fmr_suh.jpg
+$ mv \
+  "./Multiple_Binding_Reuse_Classes/"\
+"Bodl_-_Bodleian-Library-MS-Hamilton-2_00005_mbr_fmr_scg_cwa_une.jpg" \
+  "./Multiple_Binding_Reuse_Classes/"\
+"Bodl_-_Bodleian-Library-MS-Hamilton-2_00005_mbr_fmr_scg_cwa_suh.jpg"
+$ mv \
+  "./Multiple_Binding_Reuse_Classes/Bodl_-_Bodleian-Library-"\
+"MS-Hamilton-2_00006_mbr_abg_fmr_scg_cwa_une.jpg" \
+  "./Multiple_Binding_Reuse_Classes/Bodl_-_Bodleian-Library-"\
+"MS-Hamilton-2_00006_mbr_abg_fmr_scg_cwa_suh.jpg
+$ $ mv \
+ ./No_For_Binding_Reuse/StaatsbibBamberg_-_Msc-Patr-5_00002_fko_nbr_une.jpg \
+ ./No_For_Binding_Reuse/StaatsbibBamberg_-_Msc-Patr-5_00002_fko_nbr_suh.jpg
+> (the 5 'une'). Now for 1 'cwr', 1 'max', and 1 'noi'.
+mv \
+    "./Multiple_Binding_Reuse_Classes/"\
+"FamilySearch_-_DGS007712980_00412_mcl_mbr_scg_cwr_fko.jpg" \
+    "./Multiple_Binding_Reuse_Classes/"\
+"FamilySearch_-_DGS007712980_00412_mcl_mbr_scg_cwa_fko_suh.jpg"
+mv \
+  ./No_For_Binding_Reuse/e-codices_zbz-Ms-Heid-0052_0007r_max_oic_nbr.jpg \
+  ./No_For_Binding_Reuse/e-codices_zbz-Ms-Heid-0052_0007r_maxCopy_oic_nbr.jpg
+mv \
+    "./No_For_Binding_Reuse/BnF_-_FragmentsAugustinus_"\
+"colorLatin9377_00217_noi_nbr.jpg" \
+    "./No_For_Binding_Reuse/BnF_-_FragmentsAugustinus_"\
+"colorLatin9377_00217_nbr.jpg"
+
+
+#===========================
+#Unfixing commands 1
+
+$ mv \
+  ./Connecting_or_Guard_Reuse/BnF_-_Ms-Grec-487_00077_fko_scg_suh.jpg \
+  ./Connecting_or_Guard_Reuse/BnF_-_Ms-Grec-#487_00077_fko_scg_une.jpg
+
+$ mv \
+  ./Front-back_Matter_Reuse/Bodl_-_Queen-s-College-MS-305_00760_fmr_suh.jpg \
+  ./Front-back_Matter_Reuse/Bodl_-_Queen-s-College-MS-305_00760_fmr_une.jpg
+
+$ mv \
+  "./Multiple_Binding_Reuse_Classes/"\
+"Bodl_-_Bodleian-Library-MS-Hamilton-2_00005_mbr_fmr_scg_cwa_suh.jpg" \
+  "./Multiple_Binding_Reuse_Classes/"\
+"Bodl_-_Bodleian-Library-MS-Hamilton-2_00005_mbr_fmr_scg_cwa_une.jpg"
+
+$ mv \
+  "./Multiple_Binding_Reuse_Classes/Bodl_-_Bodleian-Library-"\
+"MS-Hamilton-2_00006_mbr_abg_fmr_scg_cwa_suh.jpg" \
+  "./Multiple_Binding_Reuse_Classes/Bodl_-_Bodleian-Library-"\
+"MS-Hamilton-2_00006_mbr_abg_fmr_scg_cwa_une.jpg"
+
+$ mv \
+ ./No_For_Binding_Reuse/StaatsbibBamberg_-_Msc-Patr-5_00002_fko_nbr_suh.jpg \
+ ./No_For_Binding_Reuse/StaatsbibBamberg_-_Msc-Patr-5_00002_fko_nbr_une.jpg
+
+> (the 5 'une'). Now for 1 'cwr', 1 'max', and 1 'noi'.
+
+$ mv \
+    "./Multiple_Binding_Reuse_Classes/"\
+"FamilySearch_-_DGS007712980_00412_mcl_mbr_scg_cwa_fko_suh.jpg" \
+    "./Multiple_Binding_Reuse_Classes/"\
+"FamilySearch_-_DGS007712980_00412_mcl_mbr_scg_cwr_fko.jpg"
+
+$ mv \
+  ./No_For_Binding_Reuse/e-codices_zbz-Ms-Heid-0052_0007r_maxCopy_oic_nbr.jpg \
+  ./No_For_Binding_Reuse/e-codices_zbz-Ms-Heid-0052_0007r_max_oic_nbr.jpg
+
+$ mv \
+    "./No_For_Binding_Reuse/BnF_-_FragmentsAugustinus_"\
+"colorLatin9377_00217_nbr.jpg" \
+    "./No_For_Binding_Reuse/BnF_-_FragmentsAugustinus_"\
+"colorLatin9377_00217_noi_nbr.jpg"
+
+#==========================================================
+#  Get to the Classified_-_Almost_Just_3lett_FS_-_Combined
+#  Rename with spaces, my no-no characters, high unicode
+
+Let's find them before the move
+
+$ mv \
+  "./Multiple_Binding_Reuse_Classes/BesanconBibMun_-_color-"\
+"MS0716_00122_mbr_ucr_orc.jpg" \
+  "./Multiple_Binding_Reuse_Classes/"\
+'Besançon Bibliothèqe Municiπale_-_color-'\
+'MS¶0716_00122_mbr_ucr_orc.jpg'
+
+$ mv \
+  ./Under_Cover_Reuse/FamilySearch_-_DGS102439140_00014_ucr_suh_mcl.jpg \
+  ./Under_Cover_Reuse/'FamilySearch_-_DGS102439140☞00014_ucr_suh_mcl.jpg'
+
+$ mv \
+  ./No_For_Binding_Reuse/FamilySearch_-_DGS004321721_00066_oic_nbr.jpg \
+  ./No_For_Binding_Reuse/'FamilɤSearchɟ_—_DGS004321721&_00066@_oic_nbr.jpg'
+
+$ mv \
+  ./No_For_Binding_Reuse/BnF-BibArsenal_-_Ms-87_00203_oic_nbr.jpg \
+  ./No_For_Binding_Reuse/'BnF-BiɓArsenal_-_Ms-87_00203_oic_nbr.jpg'
+
+$ mv \
+./Connecting_or_Guard_Reuse/FamilySearch_-_DGS008268002_00568_scg.jpg \
+./Connecting_or_Guard_Reuse/'FamilySearch_-_DGS Бг҃ъ 008268002_00568_scg.jpg'
+
+$ mv \
+ ./No_For_Binding_Reuse/Bodleian-Library-MS-Add-A-263_00137_oic_nbr.jpg \
+ ./No_For_Binding_Reuse/'Bodleian-Library?-MS-(AddAæ)-263°_00137_oic_nbr.jpg'
+
+$ mv \
+  "./Multiple_Binding_Reuse_Classes/FamilySearch"\
+"_-_DGS004459005_00069_mbr_mcl_fmr_cwa.jpg" \
+"./Multiple_Binding_Reuse_Classes/"\
+'FamilySearch="iħm xp̄m ⁊ dm̄"_-_'\
+'DGS004459005_00069_mbr_mcl_fmr_cwa.jpg'
+
+$ mv \
+  "./No_For_Binding_Reuse/BibliothequesMediathequesDeMetz_-_"\
+"Ms464_00092_0047B_oic_nbr.jpg" \
+  "./No_For_Binding_Reuse/"\
+'BiblioþequesMediathequesDeMetz'\
+'_-_Ms № 464_00092_0047B_oic_nbr.jpg'
+
+$ mv \
+  ./No_For_Binding_Reuse/FamilySearch_-_DGS005141812_00004_oic_nbr.jpg \
+  ./No_For_Binding_Reuse/'Family~Search_-_DGS005141812-ꝯ_00004_oic_nbr.jpg'
+
+$ mv \
+  "./Outside_Cover_Reuse/UnivBologna-SistemaMusealeDAteneo-"\
+"AlmaMaterStudiorum_-_ErbarioAldrovandi-Vol-VI-60001_orc.jpg" \
+  "./Outside_Cover_Reuse/UnivBologna-"\
+"SistemaMusealed'Ateneo-AlmaMaterStudiorum_-_"\
+'ErbarioAldrovandi-Vol-ᴠɪ-60001_orc.jpg'
+
+$ mv \
+  ./No_For_Binding_Reuse/FamilySearch_-_DGS004763803_00695_oic_nbr.jpg \
+  ./No_For_Binding_Reuse/'FamilySearcℏ_-_DGS004763803_00695_oic_nbr.jpg'
+
+$ mv \
+  "./Multiple_Binding_Reuse_Classes/"\
+"FamilySearch_-_DGS008279842_00131_fko_mbr_orc_ucr.jpg" \
+  './Multiple_Binding_Reuse_Classes/'\
+'FamilySearch_-_DGS008279842_00131%fko_mbr_orc_ucr.jpg'
+
+$ mv \
+  ./No_For_Binding_Reuse/Leiden_-_DeSobrietate_BPL190_00052_nbr.jpg \
+  ./No_For_Binding_Reuse/'Leiden_-_DeSobrietate&BPL190_00052_nbr.jpg'
+
+
+$ #
+#  Trying one more for a check of hard-name completeness (being closer to
+#+ complete), DWB 2025-07-29T091500-0600
+mv \
+ Heidelberg_-_WappenlisteAebteSalem_salMsUnkn-1876_00001_spr.jpg \
+ "Heidelberg_-_'British quote marks here, friend'WappenlisteAebteSalem_salMsUnkn-1876_00001_spr.jpg"
+
+
+
+./Multiple_Binding_Reuse_Classes/Besançon Bibliothèqe Municiπale_-_color-MS¶0716_00122_mbr_ucr_orc.jpg
+
+non-ASCII thanks to:  'π', '¶', 'ç', 'è'
+$ get2bu4char '¶'
+( 0xc2 0xb6 || U+00b6 )
+$ get2bu4char 'ç'
+( 0xc3 0xa7 || U+00e7 )
+$ get2bu4char 'è'
+( 0xc3 0xa8 || U+00e8 )
+$
+
+no-nos: ' '
+
+
+./No_For_Binding_Reuse/FamilɤSearchɟ_—_DGS004321721&_00066@_oic_nbr.jpg
+
+non-ASCII thanks to:  'ɤ', 'ɟ'
+
+
+
+no-nos: '&', '@'
+
+
+
+./No_For_Binding_Reuse/BnF-BiɓArsenal_-_Ms-87_00203_oic_nbr.jpg
+
+non-ASCII thanks to: 'ɓ'
+no-nos: 
+
+
+
+./Connecting_or_Guard_Reuse/FamilySearch_-_DGS Бг҃ъ 008268002_00568_scg.jpg
+
+non-ASCII thanks to: 'Б', 'г', '҃', 'ъ'
+no-nos: ' ',
+
+
+
+./No_For_Binding_Reuse/'Bodleian-Library?-MS-(AddAæ)-263°_00137_oic_nbr.jpg'
+...maybe?
+non-ASCII thanks to: 'æ', '°'
+no-nos: '?'
+
+
+
+./Multiple_Binding_Reuse_Classes/FamilySearch="iħm xp̄m ⁊ dm̄"_-_DGS004459005_00069_mbr_mcl_fmr_cwa.jpg
+
+non-ASCII thanks to: 'ħ', '̄', '⁊'
+
+no-nos: '"', ' '
+
+
+
+./No_For_Binding_Reuse/BiblioþequesMediathequesDeMetz_-_Ms № 464_00092_0047B_oic_nbr.jpg
+non-ASCII thanks to:
+
+no-nos:
+
+
+
+./No_For_Binding_Reuse/'Family~Search_-_DGS005141812-ꝯ_00004_oic_nbr.jpg'
+non-ASCII thanks to:
+
+no-nos:
+
+
+
+./Outside_Cover_Reuse/UnivBologna-SistemaMusealed'Ateneo-AlmaMaterStudiorum_-_ErbarioAldrovandi-Vol-ᴠɪ-60001_orc.jpg'
+non-ASCII thanks to:
+
+no-nos:
+
+
+
+./No_For_Binding_Reuse/FamilySearcℏ_-_DGS004763803_00695_oic_nbr.jpg
+non-ASCII thanks to:
+
+no-nos:
+
+
+
+./Multiple_Binding_Reuse_Classes/FamilySearch_-_DGS008279842_00131%fko_mbr_orc_ucr.jpg
+non-ASCII thanks to:
+
+no-nos:
+
+
+
+./No_For_Binding_Reuse/Leiden_-_DeSobrietate&BPL190_00052_nbr.jpg
+non-ASCII thanks to:
+
+no-nos:
+
+
+#  Trying one more for a check of hard-name completeness (being closer to
+#+ complete), DWB 2025-07-29T091500-0600
+mv \
+ Heidelberg_-_WappenlisteAebteSalem_salMsUnkn-1876_00001_spr.jpg \
+ "Heidelberg_-_'British quote marks'WappenlisteAebteSalem_salMsUnkn-1876_00001_spr.jpg"
+
+"Heidelberg_-_'British quote marks here, friend'WappenlisteAebteSalem_salMsUnkn-1876_00001_spr.jpg
+non-ASCII thanks to:
+
+no-nos:
+
+
+
+
+
+non-ASCII thanks to:
+
+no-nos:
+
+
+
+
+non-ASCII thanks to:
+
+no-nos:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#====================================================================
+#====================================================================
+#====================================================================
+
+
+
+#
+################################################################
+################################################################
+###################                    #########################
+##                  (HOPEFULLY) FULL                          ##
+#   FILENAME (CHARACTER) AND CLASSIFICATION (3lett SPECIFICS)  #
+#              ====####################====                    #
+#              ++++ CONSISTENCY CHECKS ++++                    #
+#              ====####################====                    #
+##               STILL WITH SOME LEARNING                     ##
+###################                    #########################
+################################################################
+################################################################
+
+
+
+
+
+
+
+
+
+
+funfufoo()
+{
+  this_arg=$1
+  
+  retval=0
+  
+  this_param=
+  
+  shift
+
+  if [ "${this_arg}" = "--help" -o "${this_arg}" = "-h" ]; then
+    echo "returning 0" >&2
+    return ${retval}
+  else
+    this_param="${this_arg}"
+    if ${#@}; then
+      echo " Extra parameters:" >&2
+      echo "$@" >&2
+      echo " will be ignored." >&2
+    fi
+    if [ ! -z "${this_param}" ]; then
+      if [ -f "${this_param}" ]; then
+        echo " Opening" >&2
+        echo "${this_param}" >&2
+        echo " in Notepad++" >&2
+      else
+        echo "Your parameter is not a file." >&2
+        retval=1
+      fi
+    else
+      echo " Opening Notepad++" >&2
+    fi
+  fi
+  if [ ${retval} -eq 0 ]; then
+    exe_filepath='/cygdrive/c/Program Files (x86)/Notepad++/notepad++'
+    echo " Using"
+    echo "${exe_filepath} ${this_param} &"
+  fi
+  
+  return ${retval}
+}
+
+
+
+funfufoo2()
+{
+  this_arg=$1
+  this_param=
+
+  shift
+
+  if [ "${this_arg}" = "--help" -o "${this_arg}" = "-h" ]; then
+    echo "returning 0"
+    return 0
+  else
+    this_param="${this_arg}"
+    if [ ${#@} -gt 0 ]; then
+      echo " Extra parameters:" >&2
+      echo "$@" >&2
+      echo " will be ignored." >&2
+    fi
+    if [ ! -z "${this_param}" ]; then
+      if [ -f "${this_param}" ]; then
+        echo " Opening" >&2
+        echo "${this_param}" >&2
+        echo " in Notepad++" >&2
+      fi
+    else
+      echo " Opening Notepad++" >&2
+    fi
+  fi
+  exe_filepath='/cygdrive/c/Program Files (x86)/Notepad++/notepad++'
+  echo " Using"
+  echo "${exe_filepath} ${this_param} &"
+}
+
+
+
+
+whatthe() {
+  first=$1
+  
+  if [ "${first}" = "--help" -o "${first}" = "-h" ]; then
+    echo "returning 0" >&2
+    return 0
+  fi
+  
+  if [ "${first}" = "foo" ]; then
+    echo "returning 1" >&2
+    return 1
+  fi
+  
+  if [ $1 = "hbar" -o $1 = "bar" ]; then
+    echo "returning 2" >&2
+    return 2
+  fi
+  
+  if [ "${first}" = "planck" ]; then
+    echo "returning 3" >&2
+    return 3
+  fi
+  
+  if [ $1 = "kcnalp" ]; then
+    echo "returning 4" >&2
+    return 4
+  fi
+  
+  if [ "${first}" = "oof" ]; then
+    echo "returning 5"
+    return 5
+  fi
+  
+  if [ $1 = "rab" ]; then
+    echo "returning 6"
+    return 6
+  fi
+  
+  test "${first}" = "oofrab" && return 7
+  
+  test $1 = "raboof" && return 8
+  
+  test "${first}" = "baz" -o "${first}" = "zab" && return 9
+  
+  test $1 = "foobar" -o $1 = "fubar" && return 10
+  
+  if [ ${#@} -gt 0 ]; then
+    echo "Not foo nor bar nor hbar nor baz nor ..."
+    return 11
+  fi
+  
+  echo "Nothing"
+  return 12
+} ##endof:  whatthe()
+
+
+
+what_the() {
+  first=$1
+  
+  if [ -z "${first}" ]; then
+    echo "Nothing"
+    return 12
+  fi
+  
+  if [ -z $1 ]; then
+    echo "notta non-nada"
+    return 13
+  fi
+  
+  if [ "${first}" = "--help" -o "${first}" = "-h" ]; then
+    echo "returning 0" >&2
+    return 0
+  fi
+  
+  if [ "${first}" = "foo" ]; then
+    echo "returning 1" >&2
+    return 1
+  fi
+  
+  if [ $1 = "hbar" -o $1 = "bar" ]; then
+    echo "returning 2" >&2
+    return 2
+  fi
+  
+  if [ "${first}" = "planck" ]; then
+    echo "returning 3" >&2
+    return 3
+  fi
+  
+  if [ $1 = "kcnalp" ]; then
+    echo "returning 4" >&2
+    return 4
+  fi
+  
+  if [ "${first}" = "oof" ]; then
+    echo "returning 5"
+    return 5
+  fi
+  
+  if [ $1 = "rab" ]; then
+    echo "returning 6"
+    return 6
+  fi
+  
+  test "${first}" = "oofrab" && return 7
+  
+  test $1 = "raboof" && return 8
+  
+  test "${first}" = "baz" -o "${first}" = "zab" && return 9
+  
+  test $1 = "foobar" -o $1 = "fubar" && return 10
+  
+  if [ ${#@} -gt 0 ]; then
+    echo "Not foo nor bar nor hbar nor baz nor ..."
+    return 11
+  fi
+} ##endof:  what_the()
+
+
+
+
+
+funfufoo2()
+{
+  this_arg=$1
+  
+  retval=0
+  
+  this_param=
+  
+  shift
+
+  if [ "${this_arg}" = "--help" -o "${this_arg}" = "-h" ]; then
+    echo "returning 0" >&2
+  else
+    this_param="${this_arg}"
+    if [ ${#@} -gt 0 ]; then
+      echo " Extra parameters:" >&2
+      echo "$@" >&2
+      echo " will be ignored." >&2
+    fi
+    if [ ! -z "${this_param}" ]; then
+      if [ -f "${this_param}" ]; then
+        echo " Opening" >&2
+        echo "${this_param}" >&2
+        echo " in Notepad++" >&2
+      else
+        echo " Your parameter," >&2
+        echo "${this_param}" >&2
+        echo " is not a file." >&2
+        echo " Note that the unresolved file path from here is"
+        echo "$(pwd)/${this_param}"
+        echo >&2
+        echo "returning 1" >&2
+        retval=1
+      fi
+    else
+      echo " Opening Notepad++" >&2
+    fi
+  fi
+  if [ ${retval} -eq 0 ]; then
+    exe_filepath='/cygdrive/c/Program\ Files\ \(x86\)/Notepad++/notepad++'
+    echo " Using" >&2
+    echo "${exe_filepath} ${this_param} &" >&2
+  fi
+  
+  return ${retval}
+}
+
+
+
+
+
+
