@@ -532,7 +532,7 @@ $ cat > /dev/null <<'EOF'
 >   
 > $ #  Any filenames with non-printable ASCII? (Control characters)
 > $ find . -type f | awk -F'/' '{print $NF}' | \
->     LC_ALL=C grep $'[\001-\010\013-\014\016-\037\177]' | \
+>     LC_ALL=C grep -P '[\001-\010\013-\014\016-\037\177]' | \
 >       wc -l
 >EOF
 
@@ -560,8 +560,8 @@ $ cat > /dev/null <<'EOF'
 > #+   run into them nearly as often, so I put them in the
 > #+   general control character group.)
 > $ find . -type f | awk -F'/' '{print $NF}' | \
->     LC_ALL=C grep $'[\011-\012\015\040]' | wc -l
->
+>     LC_ALL=C grep -P '[\011-\012\015\040]' | wc -l
+>   
 > EOF
 
 bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
@@ -576,7 +576,7 @@ $ cat >/dev/null <<'EOF'
 
 bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
 $ find . -type f | awk -F'/' '{print $NF}' | \
-LC_ALL=C grep -P "[^\x00-\x7F]" | wc -l
+    LC_ALL=C grep -P "[^\x00-\x7F]" | wc -l
 
 bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
 $ cat > /dev/null <<'EOF'
@@ -584,7 +584,7 @@ $ cat > /dev/null <<'EOF'
 >   Portable, octal way. Note no check for null byte
 >   
 > $ find . -type f | awk -F'/' '{print $NF}' | \
->     LC_ALL=C grep $'[^\001-\177]' | wc -l
+>     LC_ALL=C grep -P '[^\001-\177]' | wc -l
 >   
 > EOF
 
@@ -604,7 +604,7 @@ $ cat > /dev/null <<'EOF'
 >   
 >   Portable, octal way.
 > $ find . -type f | awk -F'/' '{print $NF}' | \
->     LC_ALL=C grep $'[\180-\377]' | wc -l
+>     LC_ALL=C grep '[\180-\377]' | wc -l
 >   
 > EOF
 
@@ -756,6 +756,18 @@ Family~Search_-_DGS005141812-ꝯ_00004_oic_nbr.jpg
 FamilɤSearchɟ_—_DGS004321721&_00066@_oic_nbr.jpg
 UnivBologna-SistemaMusealed'Ateneo-AlmaMaterStudiorum_-_ErbarioAldrovandi-Vol-ᴠɪ-60001_orc.jpg
 FamilySearch_-_DGS102439140☞00014_ucr_suh_mcl.jpg
+
+bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ cat >/dev/null <<'EOF'
+   
+  Best is a combined one:
+  
+$ find . -type f -iname "*.jpg" | 
+    LC_ALL=C grep -P "[\x00-\x20\x7F-\xFF]" | wc -l
+  
+  Let's just use that one in the future.
+  
+EOF
 
 bballdave025@MY-MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
 $ #
