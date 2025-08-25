@@ -1,40 +1,44 @@
 bballdave025@MY-MACHINE ~
 $ #  For some copy/paste action ...
 
-bballdave025@MY-MACHINE ~
-$ f25a3
-\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|mmx\|nbr\|oic\|orc\|scg\|spr\|suh\|tbr\|ucr\)
-
-bballdave025@MY-MACHINE ~
-$ f25m3
-\(cwa\|fmr\|gni\|nbr\|orc\|scg\|spr\|tbr\|ucr\)
-
-bballdave025@MY-MACHINE ~
 $ cfcf
 
 ######### COMMANDS CAN BE COPY/PASTED, OR YOU CAN USE THE IDEAS #########
 ######### TO GET WHAT YOU WANT. (DON'T INCLUDE LEADING $S)      #########
 
-$ #  Any with non-printable ASCII?
-$ find . -type f | awk -F'/' '{print $NF}' | \
-    grep -P "[\x00-\x08\x0B-\x0C\x0E-\x1F\x7F]" | wc -l
-$ #  Any with undesired space-y (still non-printable --
-$ #+ tab, line feed, carriage return, space)?
-$ find . -type f | awk -F'/' '{print $NF}' | \
-    grep -P "[\x09-\x10\x0B\x0D\x20]" | wc -l
-$ #  Any that are actually non-ASCII?
-$ find . -type f | awk -F'/' '{print $NF}' | \
-    grep -vP "[\x00-\x7F]" | wc -l
-$ #  Sanity check: do we get the right number of files if we do
-$ #+ a slightly-changed negation of the previous (simple check
-$ #+ for ascii, naive actually)?
-$ #wrong#find . -type f | awk -F'/' '{print $NF}' | \
-  #wrong#  grep "^[\x00-\x7F]\+$" | wc -l
-$ #  Do we have any filenames with undesired
-$ #+ ASCII characters
+$ #
+#  USE THIS MOST - combined for characters, non-ascii;
+#+ and characters, non-printable ascii--includes space,
+#+ tab, carriage return, linefeed
+# @@@@@@@@@@@@@@@@@@@@ IMPORTANT CHECK 1 @@@@@@@@@@@@@@@@@@@@
+$ find . -type f | awk -F'/' '{print $NF}' |
+    LC_ALL=C grep -oP "[\x00-\x20\x7F-\xFF]" | wc -l
+$ # @@@@@@@@@
+$ ##### Possible subsets if desired #####
+$ ##      - Any with non-printable ASCII (definitely control chars)
+    $ find . -type f | awk -F'/' '{print $NF}' |
+        LC_ALL=C grep -oP "[\x00-\x08\x0B-\x0C\x0E-\x1F\x7F]" | wc -l
+$ #
+#  Any with undesired space-y (still 'printable' in that they show
+#+ up, but control-y), tab, line feed, carriage return, space
+#+ ( I don't include:
+#+        VERTICAL TAB  -  \x0B , \013 ;
+#+   or   FORM FEED     -  \x0C , \014 ;
+#+   I guess they're technically in the same group, but I don't
+#+   run into them nearly as often, so I put them in the
+#+   general control character group.)
+    $ find . -type f | awk -F'/' '{print $NF}' |
+        LC_ALL=C grep -oP "[\x09-\x10\x0B\x0D\x20]" | wc -l
+$ ##### Any that are actually non-ASCII? #####
+    $ find . -type f | awk -F'/' '{print $NF}' |
+        Do LC_ALL=C grep -oP "[\x80-\xFF]" | wc -l
+$ #  Do LC_ALL=C we have any filenames with undesired
+$ #+ ASCII characters (Dave's no-nos)
 $ # So, to find out if any filenames have those unwanted characters
-$ find . -type f | awk -F'/' '{print $NF}' | \
-    grep '[] ~!@#$%^&|\/)(}{[*?><;:"`'"'"']' | wc -l
+$ # @@@@@@@@@@@@@@@@@@@@ IMPORTANT CHECK 2 @@@@@@@@@@@@@@@@@@@@
+$ find . -type f | awk -F'/' '{print $NF}' |
+    LC_ALL=C grep '[] ~!@#$%^&|\/)(}{[*?><;:"`'"'"']' | wc -l
+$ # @@@@@@@@@
 
 
 #  This is as good a place as any to put these next notes, which
@@ -55,6 +59,90 @@ $ find . -type f | awk -F'/' '{print $NF}' | \
    Srch:   ^(.{160})\n(.+)$     Repl:   \1\2
 
 # and so forth with 240, 320, ... if needed.
+
+
+#  For when copy/paste from Cygwin terminal puts spaces up to 80
+#+ (more accurately, `$(tput cols)') characters instead of using
+#+ a linefeed character.
+#+ Notepad++ RegEx (not perfect with 80 characters), but can find
+#+ them)
+   Srch:   ^([$].+[ ]{10,})([^ ]+.*)$
+
+#########################################################################
+
+
+bballdave025@MY-MACHINE ~$ f25info
+-----------------------------------------------------------------------
+INFORMATION AND ALIASES FOR 3-LETTER CLASSIFICATION EQUIVALENCIES;
+THE 3 LETTERS ARE PLACED AFTER THE BARE FILENAME, PREPENDED BY AN
+UNDERSCORE.
+
+Note that all reges are greppable BREs
+For ERE or PCRE, use the command,
+     $ echo $(<this_f25_alias>) | tr -n '\\'
+a couple of e.g.s
+     $ echo $(f25info) | tr -n '\\'
+     $ echo $(f25a3) | tr -n '\\'
+---
+    fhtw2025information3lettgroups
+      f25info     OR     f25groups
+      f253lett    OR     f25guide
+
+ Guide to the FHTW-2025 class-group aliases
+ The comments I've put before the alias definitions
+ make up this information
+DWB, 2025-08-06
+--------------
+    fhtw2025all3lett
+      f25a3
+ Used classifications for FHTW-2025
+--------------
+    fhtw2025model3lett
+      f25m3
+ Classifications used by Reuse Model for FHTW 2025,
+ These will have a model made for a binary classifier
+--------------
+    fhtw2025nomod3lett
+      f25n3
+ Classifications NOT used by Reuse Model for FHTW 2025,
+ These will NOT have a model made for a binary classifier,
+ but are here for analysis purposes.
+ PLEASE NOTE that this doesn't mean no-reuse, it just
+ means this classification won't have its own model.
+--------------
+    fhtw2025singletypepos3lett
+      f25s3     OR     f25p3
+  Classifications used by Reuse Model for FHTW 2025,
+ but only those with single-type, positive reuse.
+ (Nota Bene that 'nbr' is actually the deciding
+  classification for the multi, yes_reuse vs.
+  no_reuse binary classification via
+       yes_reuse=!{'nbr}'
+  We have 'nbr' in f25m3, but not in this f25s3)
+ I'm making two aliases to access this info
+    f25s3    # mnemonic "single"
+    f25p3    # mnemonic "positive
+ These will have a model made for a single-type
+  binary classifier
+-----------------------------------------------------------------------
+
+
+bballdave025@MY-MACHINE ~$ f25a3
+\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|mmx\|nbr\|oic\|orc\|scg\|spr\|suh\|tbr\|ucr\)
+
+bballdave025@MY-MACHINE ~$ f25m3
+\(cwa\|fmr\|gni\|nbr\|orc\|scg\|spr\|tbr\|ucr\)
+
+bballdave025@MY-MACHINE ~$ f25n3
+\(abg\|fko\|iac\|mbr\|mcl\|mmx\|oic\|suh\)
+
+bballdave025@MY-MACHINE ~$ f25p3
+\(cwa\|fmr\|gni\|orc\|scg\|spr\|tbr\|ucr\)
+
+bballdave025@MY-MACHINE ~$ f25s3
+\(cwa\|fmr\|gni\|orc\|scg\|spr\|tbr\|ucr\)
+
+bballdave025@MY-MACHINE ~$ cat >/dev/null <<'EOF'
 #>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 Need to be added
 
@@ -68,6 +156,7 @@ Srch:   (^[>]$)|(^[>][ ])   Repl:
 
 #########################################################################
 
+EOF
 
 bballdave025@MY-MACHINE ~
 $

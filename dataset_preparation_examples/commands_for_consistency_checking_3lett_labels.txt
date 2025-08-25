@@ -237,7 +237,7 @@ find . -type f -iname "*.jpg" | \
       grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" | \
       sed 's#[.]jpg$##g' | \
         sort | uniq \
-   > undrscr_linkd_3lett_candidates_uniq_${my_ts}.lst
+   > undrscr_linkd_3lett_candidates_uniq_${my_ts}.lst \
  && ttdatechk
 $ #
 #  Show that we get pairs of really-unique classifications with differing
@@ -248,10 +248,11 @@ $ grep -P \
     undrscr_linkd_3lett_candidates_uniq_${my_ts}.lst | wc -l
 17
 $ $ grep -P \
-  "(_fko_(cwa|fmr|gni|nbr|orc|scg|spr|tbr|ucr))|(_\2_fko)" \   undrscr_linkd_3lett_candidates_uniq_undrscr_linkd_3lett_candidates_uniq_${my_ts}.lst.lst
+  "(_fko_(cwa|fmr|gni|nbr|orc|scg|spr|tbr|ucr))|(_\2_fko)" \   undrscr_linkd_3lett_candidates_uniq_undrscr_linkd_3lett_candidates_uniq_${my_ts}.lst
 
 $ grep "_fko_fmr\|_fmr_fko" \
-    undrscr_linkd_3lett_candidates_uniq_1753507300_2025-07-25T232140-0600.lst | wc -l
+undrscr_linkd_3lett_candidates_uniq_1753507300_2025-07-25T232140-0600.lst | \
+wc -l
 
 $ #
 #  The `time` at the beginning of each following commands, along with 
@@ -277,12 +278,12 @@ tr -s '_' < \
 $ ttdate && \
   time \
 tr '\n' '\0' < \
-    all_space_sep_legal_label_combos_${my_ts}.lst | \
-      xargs -I'{}' -0 bash -c '
-        orig="{}"
-        echo "${orig}" | xargs -n1 | sort | xargs
-      ' | sort | uniq -c | sort -rc | \
-   tee uniq_combo_sorted_legals_${my_ts}.lst \
+  all_space_sep_legal_label_combos_${my_ts}.lst | 
+    xargs -I'{}' -0 bash -c '
+      orig="{}"; \
+      echo "${orig}" | xargs -n1 | sort | xargs
+    ' | sort | uniq -c | 
+   tee uniq_c_combo_sorted_legals_${my_ts}.lst \
  && ttdatechk
 #    Might want `uniq` (without `-c`)
 #    Might want without `uniq` (match n_files), but use `wc -l`
@@ -293,22 +294,11 @@ tr '\n' '\0' < \
 #+ have to reason out on your own.
 #
 
-# For debugging what's above
-ttdate && \
-  time \
-find . -type f -iname "*.jpg" | \
-  awk -F'/' '{print $NF}' | \
-  grep "_abg" | \
-\# that last line was the problem #
-  grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" | \
-  sed 's#[.]jpg$##g' | \
-    tr -s '_' | sed 's#^_##g; s#_$##g' | tr _ ' ' | \
-      tr '\n' '\0' | \
-      xargs -I'{}' -0 bash -c '
-        orig="{}"; \
-        echo "${orig}" | xargs -n1 | sort | xargs
-      ' \
- && ttdatechk
+$ awk '{$1=""; print $0}' uniq_c_combo_sorted_legals_${my_ts}.lst | 
+    sed 's#^ ##g; s# $##g;' > uniq_combo_sorted_legals_${my_ts}.lst
+
+$ sort -rn uniq_c_combo_sorted_legals_${my_ts}.lst > \
+    freq_sorted_uniq_c_combo_sorted_legals_${my_ts}.lst
 
 ##### -v- The final 1bigccommand -v- #####
 $ ttdate &&\
@@ -359,7 +349,7 @@ tr '\n' '\0' < \
 #  1. Get a list of all downloaded filenames, with only the filename base
 #+    and the to-be-stripped extension.
 #+ 2. Strip the extension. This gives us BIG (filename roots)
-#+ 3. Get a list of all the  filies in the dataset
+#+ 3. Get a list of all the  files in the dataset
 #+ 4. Strip off fully legal 3lett combos (with extension)
 #+ 5. This gives us DS (dataset's filename roots)
 #+ 6. Find those in DS but not in BIG. There should
@@ -371,11 +361,11 @@ tr '\n' '\0' < \
 #+    can be considered in-the-wild.
 #+    $ #WILD=$(comm -23 file_BIG file_DS)
 #+    $ Probably easier to do
-$_    $ comm -23 file_BIG file_DS > all_in_the_wild_possibilities_${my_tw}.lst
+$_    $ comm -23 file_BIG file_DS > all_in_the_wild_possibilities_${my_ts}.lst
 
 
 ##########################################################################
-########    MULTIPLE CLASSES stuff
+########    MULTIPLE CLASSES stuff #
 #+ For any directory (the directory with everything sorted or any of the
 #+ single directories), get all the `mcl` entries. (point the 0th)
 #+ With the underscores and legal classifications. PROBABLY DO ` | wc -l`
@@ -398,6 +388,14 @@ $ find . -type f -iname "*.jpg" | \
            grep -P '(?<!_(cwa|fmr|gni|nbr|orc|scg|spr|tbr|ucr))'\
 '(cwa|fmr|gni|nbr|orc|scg|spr|tbr|ucr)'\
 '(?=_(cwa|fmr|gni|nbr|orc|scg|spr|tbr|ucr))'
+
+#### with spaced file.
+$ awk '{print " " $0}' mcl_file > tmp && mv tmp mcl_file
+$ grep -v "mbr" mcl_file |
+    grep -P '(?<! (cwa|fmr|gni|nbr|orc|scg|spr|tbr|ucr))'\
+'( (cwa|fmr|gni|nbr|orc|scg|spr|tbr|ucr))'\
+'(?= (cwa|fmr|gni|nbr|orc|scg|spr|tbr|ucr))'
+
  $ #
  #  FIND THE ONE AND ONLY ONE SINGLE CLASSIFICATION 
  #+ (with no 'mbr') (GOOD)
@@ -409,9 +407,9 @@ $ find . -type f -iname "*.jpg" | \
          grep "mcl" | grep -v "mbr" |
            grep -P '(?<!_(cwa|fmr|gni|nbr|orc|scg|spr|tbr|ucr))'
 '_(cwa|fmr|gni|nbr|orc|scg|spr|tbr|ucr)'\
-'(?!_(cwa|fmr|gni|nbr|orc|scg|spr|tbr|ucr))' \
+'(?!_(cwa|fmr|gni|nbr|orc|scg|spr|tbr|ucr))'
            
- $ # FIND THOSE WITHOUT ACCOMPANYING SINGLE (and no 'mbr')
+ $ # FIND THOSE WITHOUT ACCOMPANYING SINGLE (and no 'mbr') (BAD)
  $ find . -type f -iname "*.jpg" | \
      awk -F'/' '{print $NF}' | \
        grep -io "\(_\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|"\
@@ -451,7 +449,7 @@ $ find . -type f -iname "*.jpg" | \
       grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" | \
       sed 's#[.]jpg$##g' | \
         grep "mcl" | grep -v 'mbr' \
-$ # FIND OUT IF THERE ARE MORE THAN ONE (BAD
+$ # FIND OUT IF THERE ARE MORE THAN ONE (BAD)
 #+   What else is expected?
 #+     
 #+   What else is allowed?
@@ -492,34 +490,165 @@ $ # FIND OUT IF THERE ARE MORE THAN ONE (BAD
 
 
 
+
+
 ##########################################################################
 ########    MULTIPLE BINDING REUSE stuff
 #+ For any directory (the directory with everything sorted or any of the
 #+ single directories), get all the `mbr` entries. (point the 0th)
-#+ With the underscores and legal classifications
-$ find . -type f -iname "*.jpg" | \
-    awk -F'/' '{print $NF}' | \
-      grep -io "\(_[a-z]\{3\}\)\+[.]jpg$" | \
-      sed 's#[.]jpg$##g' | \
-        grep "mbr"
-$ 
-$
+#+  At the point where everything is space-separated and each
+#+  classification combination has been sorted in-line
 #+
+#+   1. THESE SHOULD ALL
+#+      Have 'mbr' and more than one yes-binary-model classification.
+#+      (except in rare cases, like when there's fmr on both sides of
+#+       the book gutter in a one-up view OR like when there's 'ucr'
+#+       in a torn book gutter and under a torn pastedown where the-edge
+#+       tear is opposite the book gutter; ALL OF THESE SHOULD BE
+#+       CHECKED VERY WELL!)
+  $ # FIND ANY THAT HAVE 'mbr', NO MATTER WHAT ELSE (GOOD? [def.])
+  $ grep "mbr" uniq_combo_sorted_legals_${my_ts}.lst | wc -l
+  $ # COMPARE TO
+  $ wc -l < uniq_combo_sorted_legals_${my_ts}.lst
+  $ # IF IT DOESN'T MAKE SENSE, INVESTIGATE, OTHERWISE CONTINUE
+  $ grep "mbr" uniq_combo_sorted_legals_${my_ts}.lst > \
+      mbr_in_uniq_combo_sorted_legals_${my_ts}.lst
+  $ # FIND THE OTHER SINGLE(S) (NO MATTER WHAT ELSE) (GOOD|BAD)
+  $ grep -P "(cwa|fmr|gni|orc|scg|spr|tbr|ucr)" | wc -l
+  $ # FIND WHEN THERE IS ONE OTHER SINGLE (BAD), (check this command
+  $ grep -P '(?<! (cwa|fmr|gni|orc|scg|spr|tbr|ucr).{0,251})'\
+'( (cwa|fmr|gni|orc|scg|spr|tbr|ucr))'\
+'(?!.* (cwa|fmr|gni|orc|scg|spr|tbr|ucr))' \
+      mbr_in_uniq_combo_sorted_legals_${my_ts}.lst | wc -l
 #+
-
+#+   What else is expected?
+#+     2. (I don't have anything, yet.)
+#+   What else is allowed?
+#+     3. 'fko', 'iac', and 'suh' can always be there
+#+     4. 'abg' can be there
+#+     5. There is a high probability of having some with 'mcl'
+#+        ALONG WITH THIS:
+#+          What else (with 'mcl' as well as 'mbr') is expected?
+#+            A.  More than one other single '{f25p3}'
+#+          What (when there's an 'mcl' with the 'mbr') is not allowed?
+#+            B.  Only one single '{f25p3}'
+#+            C.  No instances of a single '{f25p3}'
+#+   What is not allowed?
+#+     6. 'nbr', 'oic', 'mmx'
+#+     7. just the 'mbr' alone
+#+     8. any double-classifications (this isn't allowed anywhere)
+#+           e.g. ' mbr orc orc fmr' OR ' cwa mbr tbr orc cwa tbr'
+#+   9. THESE SHOULD also ALL
+#+      10. have more than one yes-binary-model classification
+#+          REPEAT
+#+      11. for now, be in the Multiple_Binding_Reuse_Classes directory
+#+   12. SOMETHING ELSE. This is a holder
+#+  
 
 
 
 #  Which folders should always be empty after complete
 Across_Book_Gutter_Reuse        (in the future, Across_Book_Gutter)
+Multiple_Classes
+No_Binding_Reuse_but_Other_Interesting_Classes
+Multiple_Mixed_But_All_Not_Binding
+Fake_Out
+Somewhat_Uneasy_with_Classification_Hard
+Important_As_Counter_Example
+Do_Not_Use
+Nothing_Interesting
+Unsure
+Wrapper_Reuse   #  Not close to enough to use this category (1 or 
+                #+ a stretch for 2)
+
+# No sort, just list
+Across_Book_Gutter_Reuse
+Multiple_Classes
+No_Binding_Reuse_But_Other_Interesting_Classes
+Multiple_Mixed_But_All_Not_Binding
+Fake_Out
+Somewhat_Uneasy_with_Class_or_Hard
+Important_as_Counter_Example
+Do_Not_Use
+Nothing_Interesting
+Unsure
+Wrapper_Reuse
+
+#############
+# Sorted list
+Across_Book_Gutter_Reuse
+Do_Not_Use
+Fake_Out
+Important_as_Counter_Example
+Multiple_Classes
+Multiple_Mixed_But_All_Not_Binding
+No_Binding_Reuse_But_Other_Interesting_Classes
+Nothing_Interesting
+Somewhat_Uneasy_with_Class_or_Hard
+Unsure
+Wrapper_Reuse
+#############
+
+
+#  Other folder things to check?
+No 'mbr' should be in anything but Multiple_Binding_Reuse_Classes
+No 'mbr' in any of the '{f25p3}' (where mistakes are most likely
+                                  to be made)
+$ find . -mindepth 1 -maxdepth 1 -type d -print0 | xargs -I'{}' -0 bash -c '
+  orig={}
+  if [ ! "${orig}" = "./Multiple_Binding_Reuse_Classes" ]; then
+    n_found=$(find "${orig}" -type f -iname "*.jpg" | grep "_mbr" | wc -l)
+    if [ $n_found -gt 0 ]; then
+      echo "${orig}   |||   ${n_found}"
+    fi
+  fi
+'
+
+Actually, do the last check, but extend the idea next with
+  find ./'{f25p3} folder'/ -type f -iname "*.jpg" | grep -v '{f25p3} \1'
+
+$ f25p3
+\(cwa\|fmr\|gni\|orc\|scg\|spr\|tbr\|ucr\)
+
+$ find Cover_Wraparound_Reuse/ -type f -iname "*.jpg" | grep -v "_cwa" | wc -l
+0
+
+$ find Front-back_Matter_Reuse/ -type f -iname "*.jpg" | grep -v "_fmr" | wc -l
+0
+
+$ find General_Not_In_Situ_Reuse/ -type f -iname "*.jpg" | grep -v "_gni" | wc -l
+0
+
+$ find Outside_Cover_Reuse/ -type f -iname "*.jpg" | grep -v "_orc" | wc -l
+0
+
+$ find Connecting_or_Guard_Reuse/ -type f -iname "*.jpg" | grep -v "_scg" | wc -l
+0
+
+$ find Spine_Protection_Reuse/ -type f -iname "*.jpg" | grep -v "_spr" | wc -l
+0
+
+$ find Tiny_Background_Reuse/ -type f -iname "*.jpg" | grep -v "_tbr" | wc -l
+0
+
+$ find Under_Cover_Reuse/ -type f -iname "*.jpg" | grep -v "_ucr" | wc -l
+0
+
+No 'mbr' in any of the '{f25p3}'
+No 'mmx' in any of the '{f25p3}'
+No 'nbr' in any of the '{f25p3}'
+No 'oic' in any of the '{f25p3}'
+
+$ find Cover_Wraparound_Reuse/ Front-back_Matter_Reuse/ General_Not_In_Situ_Reuse/ Outside_Cover_Reuse/ Connecting_or_Guard_Reuse/ Spine_Protection_Reuse/ Tiny_Background_Reuse/ Under_Cover_Reuse/ -type f -iname "*.jpg" | grep -P "_(mbr|mmx|nbr|oic)" | wc -l
 
 
 
+All 'mcl' should be in one of the '{f25p3}' or in 'mbr'
+
+find Across_Book_Gutter_Reuse/ Fake_Out/ Important_as_Counter_Example/ Multiple_Classes/ Multiple_Mixed_But_All_Not_Binding/ No_For_Binding_Reuse/ No_Binding_Reuse_But_Other_Interesting_Classes/ Somewhat_Uneasy_with_Class_or_Hard/ -type f -iname "*.jpg" | grep "_mcl" | wc -l
 
 
-
-
-
+#
 
 #  Let's think of all those that can't be alone
 class    specific class that has to be there (but might not be the only one)     
@@ -529,8 +658,11 @@ mbr
 mcl
 oic      nbr
 mmx      nbr
+fko
+iac
+suh
 
-
+$ grep -P "_(abg|mbr|mcl|oic|mmx|fko|iac|suh)[.]jpg$" uniq_combo_sorted_legals_${my_ts}.lst | wc -l  # We want 0
 
 
 
@@ -545,10 +677,27 @@ mbr   nbr
       oic
       mmx
 
+$ grep -P "(?=.* mcl)(?=.* (nbr|oic|mmx))" uniq_combo_sorted_legals_${my_ts}.lst | wc -l  # we want 0
+$ grep -P "(?=.* mcl)(?=.* (nbr|oic|mmx))" uniq_combo_sorted_legals_${my_ts}.lst | wc -l  # we want 0
+
+oic   mmx  # Not a big deal if this happens, but logically wrong
+mmx   oic  # Not a big deal if this happens, but logically wrong
+
 abg   #<I guess noi would work here, but I'm not using that one in
-      # this study.> 
+      # this study.>
 
+gni   '{f25m3}'  #  At least as I've decided to do it here.
+                 #+ the model might try and add stuff. Hopefully,
+                 #+ we'll train it not to.
+      except for 'ucr' (see addition to 1-or-2-page classification
+                        guide)
+      I have to think, but if an old, reused cover were pasted in, 
+      it were visible, and another type of reuse were visible,
+      that should be okay. It's probably worth checking all the
+      'gni', anyway.
 
+nbr
+oic
 # IF THERE'S NOT AN mbr
 f25m3 f25m3 #  note that this is the case even if it's the same element
             #+ since we don't want it duplicated
@@ -560,7 +709,9 @@ f25m3 f25m3 #  note that this is the case even if it's the same element
       Pairs
       1. Those that cannot have other classifications (might not be any)
       
-      2. Those that can only have the 'can always be there' (CABT): 
+      2. Those that can only have the 'can always be there' (CABT):
+         (note that these should never be alone; there should at least
+          be a 'nbr' alongside)         
          'fko','iac','suh'
         Pairs
           oic nbr
@@ -1598,5 +1749,167 @@ $ find . -type f -iname "*.jpg" | wc -l
 
 
 
+
+
+
+
+
+###################################################
+###################################################
+###################################################
+###################################################
+##              TIDBIT                           ##
+
+
+bballdave025@MY_MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ cat >/dev/null <<'EOF'
+
+     Some commands.
+
+$ #  If not set (and you know what/why), get  my_ts
+$ my_ts=$(ttdate)
+
+$ ttdate && \
+time \
+  find . -type f -iname "*.jpg" |
+    awk -F'/' '{print $NF}' |
+      grep -io "\(_\(abg\|cwa\|fko\|fmr\|gni\|iac\|mbr\|mcl\|"\
+"mmx\|nbr\|oic\|orc\|scg\|spr\|suh\|tbr\|ucr\)\)\+" | 
+      sed 's#[.]jpg$##g;' > \
+   all_undrscr_linked_legal_label_combos_${my_ts}.lst \
+ && ttdatechk
+1754294024_2025-08-04T015344-0600
+
+real    0m0.088s
+user    0m0.045s
+sys     0m0.106s
+1754294024_2025-08-04T015344-0600
+ExitedNormally
+1754294025_2025-08-04T015345-0600
+  (this may be a BONUS timestamp)
+
+
+$ ttdate && \
+  time \
+tr -s '_' < \
+    all_undrscr_linked_legal_label_combos_${my_ts}.lst |
+      sed 's#^_##g; s#_$##g' |
+        tr '_' ' ' > \
+   all_space_sep_legal_label_combos_${my_ts}.lst \
+ && ttdatechk
+
+EOF
+
+bballdave025@MY_MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ cat >/dev/null <<'EOF'
+
+## time this one
+$ ttdate && \
+  time \
+tr '\n' '\0' < \
+  all_space_sep_legal_label_combos_${my_ts}.lst |
+    xargs -I'{}' -0 bash -c '
+      orig="{}"; \
+      echo "${orig}" | xargs -n1 | sort | xargs
+    ' | sort | uniq -c > \
+   uniq_c_combo_sorted_legals_${my_ts}.lst \
+ && ttdatechk
+
+#########################################
+#  ORDER OF NEXT TWO IS IMPORTANT
+##
+
+$ ttdate && \
+  time \
+awk '{$1=""; print $0}' uniq_c_combo_sorted_legals_${my_ts}.lst | 
+       sed 's#^ ##g; s# $##g;' > \
+   uniq_combo_sorted_legals_${my_ts}.lst \
+ && ttdatechk
+
+
+$ sort -rn uniq_c_combo_sorted_legals_${my_ts}.lst > \
+    freq_sorted_uniq_c_combo_sorted_legals_${my_ts}.lst
+
+
+ ### THE ORDER OF THOSE LAST TWO IS IMPORTANT !!!!! ###
+#######################################################
+
+ THEN, FROM THE LOG WHERE I FOUND THESE:
+ actually_consistency_izing_the_files_2_2025-08-03.log
+ TO THE NEXT LOG
+ actually_consistency_izing_the_files_3_1_2025-08-09.log
+
+EOF
+
+bballdave025@MY_MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ cat >/dev/null <<'EOF'
+
+ $ #  Make it easier to search patterns (by inserting a space at the beg)
+ $ awk '{print " " $0}' uniq_combo_sorted_legals_${my_ts}.lst > tmpf && mv tmpf uniq_combo_sorted_legals_${my_ts}.lst
+
+   ALL THE NEXT STUFF WAS JUST FOR 'mcl', BUT WILL BE USEFUL FOR
+   FOLLOWING THE PATTERN
+
+
+$ grep "mcl" uniq_combo_sorted_legals_1754293729_2025-08-04T014849-0600.lst | wc -l
+
+
+$ wc -l < uniq_combo_sorted_legals_1754293729_2025-08-04T014849-0600.lst
+134
+
+   (DO THOSE MAKE SENSE? IF YES, CONTINUE)
+
+ #  (make sure your my_ts variable is set up, if it isn't, ...)
+
+$ #done above# my_ts=$(ttdate)
+
+   THEN THE IMPORTANT PART
+
+
+$ grep "mcl" uniq_combo_sorted_legals_${my_ts}.lst > mcl_in_uniq_combo_sorted_legals_${my_ts}.lst
+
+
+
+ 
+
+ WHERE ... (see the  type ttdate )
+
+EOF
+
+bballdave025@MY_MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ type ttdate
+ttdate is aliased to `date +'%s_%Y-%m-%dT%H%M%S%z''
+
+bballdave025@MY_MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ cat >/dev/null <<'EOF'
+
+    After that, I can go back and refer again to
+
+ commands_for_consistency_checking_3lett_labels.txt
+
+EOF
+
+bballdave025@MY_MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ cat >/dev/null <<'EOF'
+
+   I'm not sure if I checked that, with 'mcl' ...
+
+#+
+#+   What else is allowed?
+#+     3. 'fko', 'iac', and 'suh' can always be there
+
+#+     4. 'abg' can be there
+#+   What is not allowed?
+#+     5. 'nbr', 'oic', 'mmx'
+#+     6. just the 'mcl' alone
+
+   I can do that, then continue with the checking for 'mbr'
+   This will also allow me to put a copy of 'mcl' (as fixed) in backup.
+   (Maybe that's not worth it; Q&R, Exposure => I won't backup.
+
+EOF
+
+bballdave025@MY_MACHINE /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$
 
 
