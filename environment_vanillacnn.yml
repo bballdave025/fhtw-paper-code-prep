@@ -1,0 +1,60 @@
+name: vanillacnn
+channels:
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+      #--------------------------------
+      # IPython Notebooks / Lab
+      #--------------------------------
+      - jupyterlab
+      
+      # -------------------------------
+      # Deep Learning Frameworks
+      # -------------------------------
+
+      # TensorFlow (CPU-friendly default for local experiments)
+      - tensorflow==2.14.0  # pinned version
+      ##  If using GPU locally or on SageMaker, uncomment below and 
+      ##+ comment out CPU version
+      #- tensorflow-gpu==2.14.0
+
+      # PyTorch (CPU-only, for local experiments)
+      - torch==2.3.1
+      - torchvision==0.18.1
+      - torchaudio==2.3.1
+      #  If GPU/CUDA is available, uncomment below and comment out CPU version
+      #- torch==2.3.1+cu118
+      #- torchvision==0.18.1+cu118
+      #- torchaudio==2.3.1+cu118
+      #- --extra-index-url https://download.pytorch.org/whl/cu118
+
+      # -------------------------------
+      # Data Handling
+      # -------------------------------
+      - scikit-learn  # train_test_split, metrics, etc.
+      - opencv-python
+      - pillow
+
+      # -------------------------------
+      # Visualization
+      # -------------------------------
+      - matplotlib
+      - tensorboard
+      - visualkeras
+      - netron
+
+      # -------------------------------
+      # FLOPs / Memory / Timing
+      # -------------------------------
+      - ptflops
+      - psutil
+      - tqdm
+      - humanfriendly
+
+      # -------------------------------
+      # Cloud / AWS
+      # -------------------------------
+      - sagemaker
+      - boto3

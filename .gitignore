@@ -9,15 +9,14 @@
 #@project    Reused Manuscript Fragments in Bindings for 2025
 #@package    None for now.
 
+# FHTW+/Fragmentology Paper Prep .gitignore
 
-# Specific directories
-#**/__pycache__/
-#__pycache__/
+# Ignore nested __pycache__ directories
+**/__pycache__/
 
+# IPython notebook checkpoints
 **/.ipynb_checkpoints/
-#.ipynb_checkpoints/
 
-#  The teplate below
 # None of those backup files
 *~
 .*~
@@ -35,11 +34,18 @@ $~*
 !img/
 !dataset_preparation_examples/
 
-
 !*.log  #  The template below excluded logfiles. I've edited it,
         #+ but I want to be sure things work.
 
+# Optional: local environment and config files (keep confidential if necessary)
+# *.env
+# .secrets/
+# config_local.py
 
+# Model weights and large artifacts (do NOT commit large files like trained ResNet-50 weights)
+*.h5
+*.pt
+*.ckpt
 
 
 
