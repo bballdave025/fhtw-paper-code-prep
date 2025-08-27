@@ -1,0 +1,217 @@
+bballdave025@MY-MACHINE ~ /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ for a in {'y','n'}; do echo $a; done
+y
+n
+
+bballdave025@MY-MACHINE ~ /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ mkdir -p empty_dir_tree
+mkdir: cannot create directory ‘empty_dir_tree’: No such file or directory
+
+bballdave025@MY-MACHINE ~ /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ mkdir -p empty_dir_tree
+mkdir: cannot create directory ‘empty_dir_tree’: No such file or directory
+
+bballdave025@MY-MACHINE ~ /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ mkdir empty_dir_tree
+mkdir: cannot create directory ‘empty_dir_tree’: No such file or directory
+
+bballdave025@MY-MACHINE ~ /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/Classified_-_Almost_Just_3lett_FS_-_Combined
+$ cd ..
+
+bballdave025@MY-MACHINE ~ /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new
+$ mkdir -p empty_dir_tree
+
+bballdave025@MY-MACHINE ~ /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new
+$ for my_size_full in {'orig', '0128', '0224', '0448', '0896', '1792'}; do
+>   for my_class in {cwa^C
+
+
+
+Comparing the current contents of my
+
+D:\ds\rvc3331_orig
+
+$ atree /cygdrive/d/ds/rvc3331_orig/
+/cygdrive/d/ds/rvc3331_orig/
+|-- cwa_01_n
+|-- cwa_01_y
+|-- cwa_02_n
+|-- cwa_02_y
+|-- cwa_04_n
+|-- cwa_04_y
+|-- cwa_or_n
+`-- cwa_or_y
+
+8 directories, 0 files
+
+cd /cygdrive/c/David/FHTW-2025-All_-_move_2024_get_new/empty_dir_tree
+
+# replace `echo' with `mkdir -p' after testing
+
+all_folder_start_str="rvc3331_" && \
+for my_size_full in {'orig', '0128', '0224', '0448', '0896', '1792'}; do
+  running_dirs_str="./${all_folder_start_str}${my_size_full}/"
+  echo "${running_dirs_str}"
+  for my_class_1 in {'cwa', 'fmr', 'gni', 'orc', \
+                     'scg', 'spr', 'tbr', 'ucr', 'REU'}; do
+    running_dir_str_2="${running_dirs_str}${my_class_1}/"
+    echo "${running_dir_str_2}"
+    my_size_short="${my_size_full:0:2}"
+    for my_binary_class in {'y','n'}; do
+      running_dirs_str_3=\
+"${running_dirs_str_2}${my_class_1}_${my_size_short}_${my_binary_class}/"
+      echo "${running_dirs_str}"
+    done ##endof:  for my_binary_class
+  done ##endof:  for my_class_1
+done ##endof:  for my_size_full
+
+
+
+
+
+all_folder_start_str="rvc3331_" && \
+echo -e "\n"\
+"##################################\n"\
+"##   THE WHOLE KIT-N-KABOODLE   ##\n"\
+"##################################" && \
+for my_size_full in 'orig' '0128' '0224' '0448' '0896' '1792'; do
+  running_dirs_str="./${all_folder_start_str}${my_size_full}/"
+  echo -e "\n####################\nBEGIN SIZE DIR"
+  echo "${running_dirs_str}"
+  for my_class_1 in 'cwa' 'fmr' 'gni' 'orc' \
+                    'scg' 'spr' 'tbr' 'ucr' 'REU'; do
+    echo -e "\n  ### SUBDIR LEVEL 1"
+    running_dirs_str_2="${running_dirs_str}${my_class_1}/"
+    echo "${running_dirs_str_2}"
+    my_size_short="${my_size_full:0:2}"
+    for my_binary_class in 'y' 'n'; do
+      echo -e "\n    SUBDIR LEVEL 2"
+      running_dirs_str_3=\
+"${running_dirs_str_2}${my_class_1}_${my_size_short}_${my_binary_class}/"
+      echo "${running_dirs_str_3}"
+    done ##endof:  for my_binary_class
+  done ##endof:  for my_class_1
+done ##endof:  for my_size_full
+
+
+
+
+
+echo -e "\n"\
+"##################################"\
+"##   THE WHOLE KIT-N-CABOODLE   ##"\
+"##################################" && \
+do_create=0 && all_folder_start_str="rvc3331_" && \
+for my_size in 'orig' '0128' '0224' '0448' '0896' '1792'; do
+  running_dirs_str="./${all_folder_start_str}${my_size}/"
+  echo -e "\n  ####################\n  #Creating level 1:"
+  echo     "${running_dirs_str}"
+  echo "       ..."
+  test $do_create -ne 0 && ( echo "mkdir -p \"${running_dirs_str}\"" \
+    && echo "           ... success 1" \
+    || echo "           ... FAILURE 1" )
+  for my_class_1 in 'cwa' 'fmr' 'gni' 'orc' \
+                    'scg' 'spr' 'tbr' 'ucr' 'REU'; do
+    echo -e "\n    ###\n    #Creating level 2:"
+    running_dirs_str_2="${running_dirs_str}${my_class_1}/"
+    echo     "${running_dirs_str_2}"
+    echo "            ..."
+    test $do_create -ne 0 && ( echo "mkdir -p \"${running_dirs_str_2}\"" \
+      && echo "                ... success 2" \
+      || echo "                ... FAILURE 2" )
+    #my_size_short="${my_size:0:2}"
+    for my_binary_class in 'y' 'n'; do
+      echo -e "\n      #\n      #Creating level 3:"
+      running_dirs_str_3=\
+"${running_dirs_str_2}${my_class_1}_${my_size}_${my_binary_class}/"
+      echo     "${running_dirs_str_3}"
+      echo "                 ..."
+      test $do_create -ne 0 && ( echo "mkdir -p \"${running_dirs_str_3}\"" \
+        && echo "                     ... success 3" \
+        || echo "                     ... FAILURE 3" )
+    done ##endof:  for my_binary_class
+  done ##endof:  for my_class_1
+done ##endof:  for my_size
+
+
+
+#  Testing what command will be before running it.
+echo -e "\n"\
+"##################################"\
+"##   THE WHOLE KIT-N-CABOODLE   ##"\
+"##################################" && \
+do_create=1 && all_folder_start_str="rvc3331_" && \
+for my_size in 'orig' '0128' '0224' '0448' '0896' '1792'; do
+  running_dirs_str="./${all_folder_start_str}${my_size}/"
+  echo -e "\n  ####################\n  #Creating level 1:"
+  echo     "${running_dirs_str}"
+  echo "       ..."
+  test $do_create -ne 0 && ( echo "mkdir -p \"${running_dirs_str}\"" \
+    && echo "           ... success 1" \
+    || echo "           ... FAILURE 1" )
+  for my_class_1 in 'cwa' 'fmr' 'gni' 'orc' \
+                    'scg' 'spr' 'tbr' 'ucr' 'REU'; do
+    echo -e "\n    ###\n    #Creating level 2:"
+    running_dirs_str_2="${running_dirs_str}${my_class_1}/"
+    echo     "${running_dirs_str_2}"
+    echo "            ..."
+    test $do_create -ne 0 && ( echo "mkdir -p \"${running_dirs_str_2}\"" \
+      && echo "                ... success 2" \
+      || echo "                ... FAILURE 2" )
+    #my_size_short="${my_size:0:2}"
+    for my_binary_class in 'y' 'n'; do
+      echo -e "\n      #\n      #Creating level 3:"
+      running_dirs_str_3=\
+"${running_dirs_str_2}${my_class_1}_${my_size}_${my_binary_class}/"
+      echo     "${running_dirs_str_3}"
+      echo "                 ..."
+      test $do_create -ne 0 && ( echo "mkdir -p \"${running_dirs_str_3}\"" \
+        && echo "                     ... success 3" \
+        || echo "                     ... FAILURE 3" )
+    done ##endof:  for my_binary_class
+  done ##endof:  for my_class_1
+done ##endof:  for my_size
+
+
+
+
+#  Running of it.
+echo -e "\n"\
+"##################################\n"\
+"##   THE WHOLE KIT-N-CABOODLE   ##\n"\
+"##################################\n" && \
+do_create=1 && all_folder_start_str="rvc3331_" && \
+for my_size in 'orig' '0128' '0224' '0448' '0896' '1792'; do
+  running_dirs_str="./${all_folder_start_str}${my_size}/"
+  echo -e "\n  ####################\n  #Creating level 1:"
+  echo     "${running_dirs_str}"
+  echo "       ..."
+  test $do_create -ne 0 && ( mkdir -p "${running_dirs_str}" \
+    && echo "           ... success 1" \
+    || echo "           ... FAILURE 1" )
+  for my_class_1 in 'cwa' 'fmr' 'gni' 'orc' \
+                    'scg' 'spr' 'tbr' 'ucr' 'REU'; do
+    echo -e "\n    ####\n    #Creating level 2:"
+    running_dirs_str_2="${running_dirs_str}${my_class_1}/"
+    echo     "${running_dirs_str_2}"
+    echo "            ..."
+    test $do_create -ne 0 && ( mkdir -p "${running_dirs_str_2}" \
+      && echo "                ... success 2" \
+      || echo "                ... FAILURE 2" )
+    #my_size_short="${my_size:0:2}"
+    for my_binary_class in 'y' 'n'; do
+      echo -e "\n      ##\n      #Creating level 3:"
+      running_dirs_str_3=\
+"${running_dirs_str_2}${my_class_1}_${my_size}_${my_binary_class}/"
+      echo     "${running_dirs_str_3}"
+      echo "                 ..."
+      test $do_create -ne 0 && ( mkdir -p "${running_dirs_str_3}" \
+        && echo "                     ... success 3" \
+        || echo "                     ... FAILURE 3" )
+    done ##endof:  for my_binary_class
+  done ##endof:  for my_class_1
+done ##endof:  for my_size
+
+
+
+
