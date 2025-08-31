@@ -82,7 +82,12 @@ function Get-IncludeTree {
     Write-Host ""
   }
   
-  $indent = "    " * $Level
+  $indent = "|   " * $Level
+  
+  ## Used different math below
+  #if ($Level -gt 0) {
+  #  $indent = "|   " * ($Level - 1) + "|---" 
+  #}
   
   $absPathRoot = (Get-Item $Path).FullName
   
@@ -148,7 +153,7 @@ function Get-IncludeTree {
         Write-Host "DEBUG: thisFileFull: $thisFileFull"
         Write-Host ""
       }
-      Write-Host "$($indent)    $($thisFile)"
+      Write-Host "$($indent)|---$($thisFile)"
     } elseif ($childIsADir) {
       $thisDir = $thing.Name
       $thisDirFull = $thing.FullName
@@ -193,7 +198,7 @@ function Get-IncludeTree {
           Write-Host ""
         }
         
-        Write-Host "$($indent)    $($thisDir)\"
+        Write-Host "$($indent)|---$($thisDir)\"
         
         Get-IncludeTree -Path $thisDirFull `
                         -IncludeDirs $IncludeDirs `
@@ -205,7 +210,7 @@ function Get-IncludeTree {
       }
     } else {
       Write-Host `
-         "$($indent)    $($thing.Name)(?) (has a problem; not file nor dir)"
+         "$($indent)|---$($thing.Name)(?) (has a problem; not file nor dir)"
     }
   }
 }
@@ -440,11 +445,15 @@ You must use either ''-IncludeDirs INCLUDE_ARRAY'' or
                     -IncludeDirs $IncludeDirs `
                     -Level ($Level) `
                     -DoTheDebug $DoTheDebug
+    
+    Write-Host ""
   } elseif ( $excludeIsNotEmpty ) {
     Get-ExcludeTree -Path $Path `
                     -ExcludeDirs $ExcludeDirs `
                     -Level ($Level) `
                     -DoTheDebug $DoTheDebug
+    
+    Write-Host ""
   }
   else {
     Write-Error -Category NotSpecified -Message @'
