@@ -94,7 +94,8 @@
 .gitignore       text eol=lf
 .gitattributes   text eol=lf
 
-## Other text-type files
+##  Line endings for specific CMD batch and PowerShell scripts
+##+ (could extend to a pattern)
 
 
 
