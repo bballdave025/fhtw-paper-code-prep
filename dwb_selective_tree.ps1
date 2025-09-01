@@ -65,6 +65,8 @@ param(
 )
 
 
+$nDirsSeen  = 0
+$nFilesSeen = 0
 
 #  Here is code for include
 function Get-IncludeTree {
@@ -107,10 +109,6 @@ function Get-IncludeTree {
     Write-Host "$($indent)$absPathRoot\"
   }
   
-  #  Find if it's a dir, first, for $Level > 0 (so we can output it,
-  #+ if necessary
-  $lookingAtDir = (Test-Path -Path $absPathRoot -PathType Container)
-  
   # Get sub-directories
   $childThings = Get-ChildItem -Path $absPathRoot | Sort-Object Name
   foreach ($thing in $childThings) {
@@ -143,6 +141,8 @@ function Get-IncludeTree {
     }
     
     if ($childIsAFile) {
+      $nFilesSeen = ($nFilesSeen + 1)
+      
       $thisFile =     $thing.Name
       $thisFileFull = $thing.FullName
       
@@ -155,6 +155,8 @@ function Get-IncludeTree {
       }
       Write-Host "$($indent)|---$($thisFile)"
     } elseif ($childIsADir) {
+      $nDirsSeen = ($nDirsSeen + 1)
+      
       $thisDir = $thing.Name
       $thisDirFull = $thing.FullName
       
@@ -206,7 +208,7 @@ function Get-IncludeTree {
                         -DoTheDebug $DoTheDebug
       } else {
         # Display excluded directories without descending
-        Write-Host "$($indent)    $($thisDir)\ (excluded)"
+        Write-Host "$($indent)|---$($thisDir)\ (excluded)"
       }
     } else {
       Write-Host `
@@ -232,7 +234,7 @@ function Get-ExcludeTree {
     Write-Host ""
   }
   
-  $indent = "    " * $Level
+  $indent = "|   " * $Level
   
   $absPathRoot = (Get-Item $Path).FullName
   
@@ -255,8 +257,25 @@ function Get-ExcludeTree {
   # Get sub-directories
   $childThings = Get-ChildItem -Path $absPathRoot | Sort-Object Name
   foreach ($thing in $childThings) {
-    $childIsAFile = (Test-Path -Path $thing -PathType Leaf)
-    $childIsADir  = (Test-Path -Path $thing -PathType Container)
+    
+    if ($DoTheDebug) {
+      Write-Host "DEBUG:-----------------------------------------------"
+      Write-Host "DEBUG:"
+      Write-Host "DEBUG: thing: $thing"
+      Write-Host ""
+    }
+    
+    $childIsAFile = ( Test-Path -Path ( Join-Path $absPathRoot `
+                                               -ChildPath $thing `
+                                ) `
+                                -PathType Leaf `
+    )
+    
+    $childIsADir  = ( Test-Path -Path ( Join-Path $absPathRoot `
+                                               -ChildPath $thing `
+                                ) `
+                                -PathType Container `
+    )
     
     if ($DoTheDebug) {
       Write-Host "DEBUG:-----------------------------------------------"
@@ -267,7 +286,9 @@ function Get-ExcludeTree {
     }
     
     if ($childIsAFile) {
-      $thisFile = $thing.Name
+      $nFilesSeen = ($nFilesSeen + 1)
+      
+      $thisFile =     $thing.Name
       $thisFileFull = $thing.FullName
       
       if ($DoTheDebug) {
@@ -277,8 +298,10 @@ function Get-ExcludeTree {
         Write-Host "DEBUG: thisFileFull: $thisFileFull"
         Write-Host ""
       }
-      Write-Host "$($indent)    $($thisFile)"
+      Write-Host "$($indent)|---$($thisFile)"
     } elseif ($childIsADir) {
+      $nDirsSeen = ($nDirsSeen + 1)
+      
       $thisDir = $thing.Name
       $thisDirFull = $thing.FullName
       
@@ -322,11 +345,121 @@ function Get-ExcludeTree {
                         -DoTheDebug $DoTheDebug
       } else {
         # Display excluded directories without descending
-        Write-Host "$($indent)    $($thisDir)\ (excluded)"
+        Write-Host "$($indent)|---$($thisDir)\ (excluded)"
       }
     } else {
       Write-Host `
-         "$($indent)    $($thing.Name)(?) (has a problem; not file nor dir)"
+         "$($indent)|---$($thing.Name)(?) (has a problem; not file nor dir)"
+    }
+  }
+}
+
+
+#  Here is code for all
+function Get-AllTree {
+  param(
+    [string]$Path,
+    [int]$Level = 0, # The starting level, in case you want to start further(?)
+    [bool]$DoTheDebug = $false # Dev stuff
+  )
+  
+  if ($DoTheDebug) {
+    Write-Host "DEBUG:-----------------------------------------------"
+    Write-Host "DEBUG:"
+    Write-Host "DEBUG: For Get-IncludeTree"
+    Write-Host ""
+  }
+  
+  $indent = "|   " * $Level
+  
+  $absPathRoot = (Get-Item $Path).FullName
+  
+  if ($DoTheDebug) {
+    Write-Host "DEBUG:-----------------------------------------------"
+    Write-Host "DEBUG:"
+    Write-Host "DEBUG: Path:        $Path"
+    Write-Host "DEBUG: Level:       $Level"
+    Write-Host "DEBUG: indent:      '$indent'"
+    Write-Host "DEBUG: absPathRoot: $absPathRoot"
+    Write-Host ""
+  }
+  
+  # Display the root directory for the tree
+  if ($Level -eq 0) {
+    Write-Host "'$Path' resolves to"
+    Write-Host "$($indent)$absPathRoot\"
+  }
+  
+  # Get sub-directories
+  $childThings = Get-ChildItem -Path $absPathRoot | Sort-Object Name
+  foreach ($thing in $childThings) {
+    
+    if ($DoTheDebug) {
+      Write-Host "DEBUG:-----------------------------------------------"
+      Write-Host "DEBUG:"
+      Write-Host "DEBUG: thing: $thing"
+      Write-Host ""
+    }
+    
+    $childIsAFile = ( Test-Path -Path ( Join-Path $absPathRoot `
+                                               -ChildPath $thing `
+                                ) `
+                                -PathType Leaf `
+    )
+    
+    $childIsADir  = ( Test-Path -Path ( Join-Path $absPathRoot `
+                                               -ChildPath $thing `
+                                ) `
+                                -PathType Container `
+    )
+    
+    if ($DoTheDebug) {
+      Write-Host "DEBUG:-----------------------------------------------"
+      Write-Host "DEBUG:"
+      Write-Host "DEBUG: childIsAFile: $childIsAFile"
+      Write-Host "DEBUG: childIsADir:  $childIsADir"
+      Write-Host ""
+    }
+    
+    if ($childIsAFile) {
+      $nFilesSeen = ($nFilesSeen + 1)
+      
+      $thisFile =     $thing.Name
+      $thisFileFull = $thing.FullName
+      
+      if ($DoTheDebug) {
+        Write-Host "DEBUG:-----------------------------------------------"
+        Write-Host "DEBUG:"
+        Write-Host "DEBUG: thisFile:     $thisFile"
+        Write-Host "DEBUG: thisFileFull: $thisFileFull"
+        Write-Host ""
+      }
+      Write-Host "$($indent)|---$($thisFile)"
+    } elseif ($childIsADir) {
+      $nDirsSeen = ($nDirsSeen + 1)
+      
+      $thisDir = $thing.Name
+      $thisDirFull = $thing.FullName
+      
+      if ($DoTheDebug) {
+        Write-Host "DEBUG:-----------------------------------------------"
+        Write-Host "DEBUG:"
+        Write-Host "DEBUG: thisDir:     $thisDir"
+        Write-Host "DEBUG: thisDirFull: $thisDirFull"
+        Write-Host "DEBUG: IncludeDirs: $IncludeDirs"
+        Write-Host ""
+      }
+      
+      
+        
+      Write-Host "$($indent)|---$($thisDir)\"
+        
+      Get-AllTree -Path $thisDirFull `
+                  -Level ($Level + 1) `
+                  -DoTheDebug $DoTheDebug
+    } else {
+      Write-Host `
+         "$($indent)|---$($thing.Name)(?) (has a problem; not file nor dir)"
     }
   }
 }
@@ -374,6 +507,7 @@ function Get-ExcludeTree {
 $pathIsSet = ($Path -ne $null)
 $includeIsNotEmpty = (! $IncludeDirs.Count -eq 0)
 $excludeIsNotEmpty = (! $ExcludeDirs.Count -eq 0)
+$bothEmpty = (! $includeIsNotEmpty -and ! $excludeIsNotEmpty)
 $onlyOneNotEmpty = (($includeIsNotEmpty -and ! $excludeIsNotEmpty) -or `
                     ($excludeIsNotEmpty -and ! $includeIsNotEmpty))
   
@@ -423,8 +557,9 @@ PS> dwb_selective_tree -Path "." `
   You might also consider installing the Get-PSTree cmdlet from the 
   PowerShell Gallery and just using the equivalent calls.
 '@
-  
-if (! $pathIsSet -or ! $onlyOneNotEmpty) {
+
+
+if (! $pathIsSet -or ! ($onlyOneNotEmpty -or $bothEmpty)) {
   Write-Error -Category InvalidArgument -Message "Problem with input call."
   if (! $pathIsSet) {
     Write-Error -Category InvalidArgument `
@@ -440,12 +575,26 @@ You must use either ''-IncludeDirs INCLUDE_ARRAY'' or
   Write-Error -Category NotSpecified -Message "$quickUsageStr"
   
 } else {
-  if ( $includeIsNotEmpty ) {
+  if ( $bothEmpty) {
+    Get-AllTree -Path $Path `
+                -Level ($Level) `
+                -DoTheDebug $DoTheDebug
+    
+    Write-Host ""
+    Write-Host "$($nDirsSeen) directories, $($nFilesSeen) files"
+    Write-Host "(Not counting children of excluded or hidden directories."
+    Write-Host "not including hidden directories, & not including the root)."
+    Write-Host ""
+  } elseif ( $includeIsNotEmpty ) {
     Get-IncludeTree -Path $Path `
                     -IncludeDirs $IncludeDirs `
                     -Level ($Level) `
                     -DoTheDebug $DoTheDebug
     
+    Write-Host ""
+    Write-Host "$($nDirsSeen) directories, $($nFilesSeen) files"
+    Write-Host "(Not counting children of excluded or hidden directories,"
+    Write-Host "including hidden directories, & not including the root)."
     Write-Host ""
   } elseif ( $excludeIsNotEmpty ) {
     Get-ExcludeTree -Path $Path `
@@ -454,8 +603,11 @@ You must use either ''-IncludeDirs INCLUDE_ARRAY'' or
                     -DoTheDebug $DoTheDebug
     
     Write-Host ""
-  }
-  else {
+    Write-Host "$($nDirsSeen) directories, $($nFilesSeen) files"
+    Write-Host "(Not counting children of excluded or hidden directories,"
+    Write-Host "not including hidden directories, & not including the root)."
+    Write-Host ""
+  } else {
     Write-Error -Category NotSpecified -Message @'
 Something wrong happened. You shouldn''t have gotten here.
 The condition that one and only one of the include (x)or
