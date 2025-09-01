@@ -65,8 +65,8 @@ param(
 )
 
 
-$nDirsSeen  = 0
-$nFilesSeen = 0
+$global:nDirsSeen  = 0
+$global:nFilesSeen = 0
 
 #  Here is code for include
 function Get-IncludeTree {
@@ -117,6 +117,8 @@ function Get-IncludeTree {
       Write-Host "DEBUG:-----------------------------------------------"
       Write-Host "DEBUG:"
       Write-Host "DEBUG: thing: $thing"
+      Write-Host "DEBUG: childThings:"
+      Write-Host $childThings
       Write-Host ""
     }
     
@@ -141,7 +143,7 @@ function Get-IncludeTree {
     }
     
     if ($childIsAFile) {
-      $nFilesSeen = ($nFilesSeen + 1)
+      $global:nFilesSeen = ($global:nFilesSeen + 1)
       
       $thisFile =     $thing.Name
       $thisFileFull = $thing.FullName
@@ -153,9 +155,35 @@ function Get-IncludeTree {
         Write-Host "DEBUG: thisFileFull: $thisFileFull"
         Write-Host ""
       }
-      Write-Host "$($indent)|---$($thisFile)"
+      
+      #  File an dir names in one level need to be unique
+      #+ Not optimizing, just doing before every output
+      #+ e.g.
+      #+ PS> echo what > abc
+      #+ PS> mkdir abc
+      #+ mkdir : An item with the specified name
+      #+ ...
+      #+ already exists
+      #+ ...
+      #+ and another e.g. with bash
+      #+ $ mkdir abc
+      #+ $ echo "Hi" > abc
+      #+ -bash: abc: Is a directory
+      $elementToTest = $thing
+      $lastElement   = $childThings[-1]
+      
+      $thisIsLastElement = ($elementToTest -eq $lastElement)
+      
+      # The output for the tree-output
+      if ($thisIsLastElement) {
+        Write-Host "$($indent)``---$($thisFile)\"
+      } else {
+        Write-Host "$($indent)|---$($thisFile)\"
+      }
+      
+      #before#Write-Host "$($indent)|---$($thisFile)"
     } elseif ($childIsADir) {
-      $nDirsSeen = ($nDirsSeen + 1)
+      $global:nDirsSeen = ($global:nDirsSeen + 1)
       
       $thisDir = $thing.Name
       $thisDirFull = $thing.FullName
@@ -202,19 +230,98 @@ function Get-IncludeTree {
           Write-Host ""
         }
         
-        Write-Host "$($indent)|---$($thisDir)\"
+        #  File an dir names in one level need to be unique
+        #+ Not optimizing, just doing before every output
+        #+ e.g.
+        #+ PS> echo what > abc
+        #+ PS> mkdir abc
+        #+ mkdir : An item with the specified name
+        #+ ...
+        #+ already exists
+        #+ ...
+        #+ and another e.g. with bash
+        #+ $ mkdir abc
+        #+ $ echo "Hi" > abc
+        #+ -bash: abc: Is a directory
+        $elementToTest = $thing
+        $lastElement   = $childThings[-1]
+        
+        $thisIsLastElement = ($elementToTest -eq $lastElement)
+        
+        # The output for the tree-output
+        if ($thisIsLastElement) {
+          Write-Host "$($indent)``---$($thisDir)\"
+        } else {
+          Write-Host "$($indent)|---$($thisDir)\"
+        }
+        
+        #before#Write-Host "$($indent)|---$($thisDir)\"
         
         Get-IncludeTree -Path $thisDirFull `
                         -IncludeDirs $IncludeDirs `
                         -Level ($Level + 1) `
                         -DoTheDebug $DoTheDebug
       } else {
+        
+        #  File an dir names in one level need to be unique
+        #+ Not optimizing, just doing before every output
+        #+ e.g.
+        #+ PS> echo what > abc
+        #+ PS> mkdir abc
+        #+ mkdir : An item with the specified name
+        #+ ...
+        #+ already exists
+        #+ ...
+        #+ and another e.g. with bash
+        #+ $ mkdir abc
+        #+ $ echo "Hi" > abc
+        #+ -bash: abc: Is a directory
+        $elementToTest = $thing
+        $lastElement   = $childThings[-1]
+        
+        $thisIsLastElement = ($elementToTest -eq $lastElement)
+        
+        # The output for the tree-output
         # Display excluded directories without descending
-        Write-Host "$($indent)|---$($thisDir)\ (excluded)"
+        if ($thisIsLastElement) {
+          Write-Host "$($indent)``---$($thisDir)\ (excluded)"
+        } else {
+          Write-Host "$($indent)|---$($thisDir)\ (excluded)"
+        }
+        
+        #before## Display excluded directories without descending
+        #before#Write-Host "$($indent)|---$($thisDir)\ (excluded)"
       }
     } else {
-      Write-Host `
-         "$($indent)|---$($thing.Name)(?) (has a problem; not file nor dir)"
+      #  File an dir names in one level need to be unique
+      #+ Not optimizing, just doing before every output
+      #+ e.g.
+      #+ PS> echo what > abc
+      #+ PS> mkdir abc
+      #+ mkdir : An item with the specified name
+      #+ ...
+      #+ already exists
+      #+ ...
+      #+ and another e.g. with bash
+      #+ $ mkdir abc
+      #+ $ echo "Hi" > abc
+      #+ -bash: abc: Is a directory
+      $elementToTest = $thing
+      $lastElement   = $childThings[-1]
+      
+      $thisIsLastElement = ($elementToTest -eq $lastElement)
+      
+      # The output for the tree-output
+      if ($thisIsLastElement) {
+        Write-Host `
+           "$($indent)``---$($thing.Name)(?) (has a problem; not file nor dir)"
+      } else {
+        Write-Host `
+           "$($indent)|---$($thing.Name)(?) (has a problem; not file nor dir)"
+      }
+      
+      #before#Write-Host `
+      #before#   "$($indent)|---$($thing.Name)(?) (has a problem; not file nor dir)"
     }
   }
 }
@@ -264,6 +371,8 @@ function Get-ExcludeTree {
       Write-Host "DEBUG:-----------------------------------------------"
       Write-Host "DEBUG:"
       Write-Host "DEBUG: thing: $thing"
+      Write-Host "DEBUG: childThings:"
+      Write-Host $childThings
       Write-Host ""
     }
     
@@ -288,7 +397,7 @@ function Get-ExcludeTree {
     }
     
     if ($childIsAFile) {
-      $nFilesSeen = ($nFilesSeen + 1)
+      $global:nFilesSeen = ($global:nFilesSeen + 1)
       
       $thisFile =     $thing.Name
       $thisFileFull = $thing.FullName
@@ -300,9 +409,34 @@ function Get-ExcludeTree {
         Write-Host "DEBUG: thisFileFull: $thisFileFull"
         Write-Host ""
       }
-      Write-Host "$($indent)|---$($thisFile)"
+      
+      #  File an dir names in one level need to be unique
+      #+ Not optimizing, just doing before every output
+      #+ e.g.
+      #+ PS> echo what > abc
+      #+ PS> mkdir abc
+      #+ mkdir : An item with the specified name
+      #+ ...
+      #+ already exists
+      #+ ...
+      #+ and another e.g. with bash
+      #+ $ mkdir abc
+      #+ $ echo "Hi" > abc
+      #+ -bash: abc: Is a directory
+      $elementToTest = $thing
+      $lastElement   = $childThings[-1]
+      
+      $thisIsLastElement = ($elementToTest -eq $lastElement)
+      
+      # The output for the tree-output
+      if ($thisIsLastElement) {
+        Write-Host "$($indent)``---$($thisFile)"
+      } else {
+        Write-Host "$($indent)|---$($thisFile)"
+      }
+      
     } elseif ($childIsADir) {
-      $nDirsSeen = ($nDirsSeen + 1)
+      $global:nDirsSeen = ($global:nDirsSeen + 1)
       
       $thisDir = $thing.Name
       $thisDirFull = $thing.FullName
@@ -352,19 +486,99 @@ function Get-ExcludeTree {
           Write-Host ""
         }
         
-        Write-Host "$($indent)|---$($thisDir)\"
+        #  File an dir names in one level need to be unique
+        #+ Not optimizing, just doing before every output
+        #+ e.g.
+        #+ PS> echo what > abc
+        #+ PS> mkdir abc
+        #+ mkdir : An item with the specified name
+        #+ ...
+        #+ already exists
+        #+ ...
+        #+ and another e.g. with bash
+        #+ $ mkdir abc
+        #+ $ echo "Hi" > abc
+        #+ -bash: abc: Is a directory
+        $elementToTest = $thing
+        $lastElement   = $childThings[-1]
+        
+        $thisIsLastElement = ($elementToTest -eq $lastElement)
+        
+        # The output for the tree-output
+        if ($thisIsLastElement) {
+          Write-Host "$($indent)``---$($thisDir)\"
+        } else {
+          Write-Host "$($indent)|---$($thisDir)\"
+        }
+        
+        #before#Write-Host "$($indent)|---$($thisDir)\"
         
         Get-ExcludeTree -Path $thisDirFull `
                         -ExcludeDirs $ExcludeDirs `
                         -Level ($Level + 1) `
                         -DoTheDebug $DoTheDebug
       } else {
+        
+        #  File an dir names in one level need to be unique
+        #+ Not optimizing, just doing before every output
+        #+ e.g.
+        #+ PS> echo what > abc
+        #+ PS> mkdir abc
+        #+ mkdir : An item with the specified name
+        #+ ...
+        #+ already exists
+        #+ ...
+        #+ and another e.g. with bash
+        #+ $ mkdir abc
+        #+ $ echo "Hi" > abc
+        #+ -bash: abc: Is a directory
+        $elementToTest = $thing
+        $lastElement   = $childThings[-1]
+        
+        $thisIsLastElement = ($elementToTest -eq $lastElement)
+        
+        # The output for the tree-output
         # Display excluded directories without descending
-        Write-Host "$($indent)|---$($thisDir)\ (excluded)"
+        if ($thisIsLastElement) {
+          Write-Host "$($indent)``---$($thisDir)\ (excluded)"
+        } else {
+          Write-Host "$($indent)|---$($thisDir)\ (excluded)"
+        }
+        
+        #before## Display excluded directories without descending
+        #before#Write-Host "$($indent)|---$($thisDir)\ (excluded)"
       }
     } else {
-      Write-Host `
-         "$($indent)|---$($thing.Name)(?) (has a problem; not file nor dir)"
+      
+      #  File an dir names in one level need to be unique
+      #+ Not optimizing, just doing before every output
+      #+ e.g.
+      #+ PS> echo what > abc
+      #+ PS> mkdir abc
+      #+ mkdir : An item with the specified name
+      #+ ...
+      #+ already exists
+      #+ ...
+      #+ and another e.g. with bash
+      #+ $ mkdir abc
+      #+ $ echo "Hi" > abc
+      #+ -bash: abc: Is a directory
+      $elementToTest = $thing
+      $lastElement   = $childThings[-1]
+      
+      $thisIsLastElement = ($elementToTest -eq $lastElement)
+      
+      # The output for the tree-output
+      if ($thisIsLastElement) {
+        Write-Host `
+           "$($indent)``---$($thing.Name)(?) (has a problem; not file nor dir)"
+      } else {
+        Write-Host `
+           "$($indent)|---$($thing.Name)(?) (has a problem; not file nor dir)"
+      }
+      
+      #before#Write-Host `
+      #before#   "$($indent)|---$($thing.Name)(?) (has a problem; not file nor dir)"
     }
   }
 }
@@ -413,6 +627,8 @@ function Get-AllTree {
       Write-Host "DEBUG:-----------------------------------------------"
       Write-Host "DEBUG:"
       Write-Host "DEBUG: thing: $thing"
+      Write-Host "DEBUG: childThings:"
+      Write-Host $childThings
       Write-Host ""
     }
     
@@ -437,7 +653,7 @@ function Get-AllTree {
     }
     
     if ($childIsAFile) {
-      $nFilesSeen = ($nFilesSeen + 1)
+      $global:nFilesSeen = ($global:nFilesSeen + 1)
       
       $thisFile =     $thing.Name
       $thisFileFull = $thing.FullName
@@ -449,9 +665,35 @@ function Get-AllTree {
         Write-Host "DEBUG: thisFileFull: $thisFileFull"
         Write-Host ""
       }
-      Write-Host "$($indent)|---$($thisFile)"
+      
+      #  File an dir names in one level need to be unique
+      #+ Not optimizing, just doing before every output
+      #+ e.g.
+      #+ PS> echo what > abc
+      #+ PS> mkdir abc
+      #+ mkdir : An item with the specified name
+      #+ ...
+      #+ already exists
+      #+ ...
+      #+ and another e.g. with bash
+      #+ $ mkdir abc
+      #+ $ echo "Hi" > abc
+      #+ -bash: abc: Is a directory
+      $elementToTest = $thing
+      $lastElement   = $childThings[-1]
+      
+      $thisIsLastElement = ($elementToTest -eq $lastElement)
+      
+      # The output for the tree-output
+      if ($thisIsLastElement) {
+        Write-Host "$($indent)``---$($thisFile)"
+      } else {
+        Write-Host "$($indent)|---$($thisFile)"
+      }
+      
+      #before#Write-Host "$($indent)|---$($thisFile)"
     } elseif ($childIsADir) {
-      $nDirsSeen = ($nDirsSeen + 1)
+      $global:nDirsSeen = ($global:nDirsSeen + 1)
       
       $thisDir = $thing.Name
       $thisDirFull = $thing.FullName
@@ -465,16 +707,67 @@ function Get-AllTree {
         Write-Host ""
       }
       
+      #  File an dir names in one level need to be unique
+      #+ Not optimizing, just doing before every output
+      #+ e.g.
+      #+ PS> echo what > abc
+      #+ PS> mkdir abc
+      #+ mkdir : An item with the specified name
+      #+ ...
+      #+ already exists
+      #+ ...
+      #+ and another e.g. with bash
+      #+ $ mkdir abc
+      #+ $ echo "Hi" > abc
+      #+ -bash: abc: Is a directory
+      $elementToTest = $thing
+      $lastElement   = $childThings[-1]
       
+      $thisIsLastElement = ($elementToTest -eq $lastElement)
+      
+      # The output for the tree-output
+      if ($thisIsLastElement) {
+        Write-Host "$($indent)``---$($thisDir)\"
+      } else {
+        Write-Host "$($indent)|---$($thisDir)\"
+      }
         
-      Write-Host "$($indent)|---$($thisDir)\"
+      #before#Write-Host "$($indent)|---$($thisDir)\"
         
       Get-AllTree -Path $thisDirFull `
                   -Level ($Level + 1) `
                   -DoTheDebug $DoTheDebug
     } else {
-      Write-Host `
-         "$($indent)|---$($thing.Name)(?) (has a problem; not file nor dir)"
+      
+      #  File an dir names in one level need to be unique
+      #+ Not optimizing, just doing before every output
+      #+ e.g.
+      #+ PS> echo what > abc
+      #+ PS> mkdir abc
+      #+ mkdir : An item with the specified name
+      #+ ...
+      #+ already exists
+      #+ ...
+      #+ and another e.g. with bash
+      #+ $ mkdir abc
+      #+ $ echo "Hi" > abc
+      #+ -bash: abc: Is a directory
+      $elementToTest = $thing
+      $lastElement   = $childThings[-1]
+      
+      $thisIsLastElement = ($elementToTest -eq $lastElement)
+      
+      # The output for the tree-output
+      if ($thisIsLastElement) {
+        Write-Host `
+           "$($indent)``---$($thing.Name)(?) (has a problem; not file nor dir)"
+      } else {
+        Write-Host `
+           "$($indent)|---$($thing.Name)(?) (has a problem; not file nor dir)"
+      }
+      
+      #before#Write-Host `
+      #before#   "$($indent)|---$($thing.Name)(?) (has a problem; not file nor dir)"
     }
   }
 }
@@ -512,7 +805,8 @@ function Get-AllTree {
 #exclude#  }
 
 
-##  Here is code for exclude
+##  Here is code for exclude, again commented out. It didn't look
+##+ anything like 'tree' output.
 #function Get-ExcludeTree {
 #  $absPathRoot = (Get-Item $Path).FullName 
 #  Get-ChildItem -Path $absPathRoot -Recurse | Where-Object { $_.FullName -notin $ExcludeDirs } | Format-List FullName, Mode
@@ -530,11 +824,12 @@ $quickUsageStr = @'
   Usage:   
 PS> dwb_selective_tree.ps1 `
        -Path PATH_STRING`
-      (-IncludeDirs INCLUDE_ARRAY | -ExcludeDirs EXCLUDE_ARRAY)
+      (-IncludeDirs INCLUDE_ARRAY | -ExcludeDirs EXCLUDE_ARRAY | <nothing>)
       [-Level MIN_LEVEL]
   
   PATH_STRING is required,
-  Either INCLUDE_ARRAY or EXCLUDE ARRAY is required, but can''t use both.
+  Either INCLUDE_ARRAY or EXCLUDE ARRAY is can be used, but can''t 
+    use both. Using neither will give the whole tree.
   MIN_LEVEL is optional and not suggested. It sets the starting level.
   
   Examples:
@@ -580,10 +875,10 @@ if (! $pathIsSet -or ! ($onlyOneNotEmpty -or $bothEmpty)) {
     Write-Error -Category InvalidArgument `
      -Message "No path was given, i.e. '-Path PATH_STRING' not used."
   }
-  if (! $onlyOneNotEmpty) {
+  if (! ($onlyOneNotEmpty -or $bothEmpty)) {
     Write-Error -Category InvalidArgument -Message @'
 You must use either ''-IncludeDirs INCLUDE_ARRAY'' or
-''-ExcludeDirs EXCLUDE_ARRAY'', but not both.
+''-ExcludeDirs EXCLUDE_ARRAY'', or neither, but not both.
 '@
   }
   
@@ -596,8 +891,8 @@ You must use either ''-IncludeDirs INCLUDE_ARRAY'' or
                 -DoTheDebug $DoTheDebug
     
     Write-Host ""
-    Write-Host "$($nDirsSeen) directories, $($nFilesSeen) files"
-    Write-Host "(Not counting children of excluded or hidden directories."
+    Write-Host "$($global:nDirsSeen) directories, $($global:nFilesSeen) files"
+    Write-Host "(Not counting children of excluded or hidden directories,"
     Write-Host "not including hidden directories, & not including the root)."
     Write-Host ""
   } elseif ( $includeIsNotEmpty ) {
@@ -607,7 +902,7 @@ You must use either ''-IncludeDirs INCLUDE_ARRAY'' or
                     -DoTheDebug $DoTheDebug
     
     Write-Host ""
-    Write-Host "$($nDirsSeen) directories, $($nFilesSeen) files"
+    Write-Host "$($global:nDirsSeen) directories, $($global:nFilesSeen) files"
     Write-Host "(Not counting children of excluded or hidden directories,"
     Write-Host "including hidden directories, & not including the root)."
     Write-Host ""
@@ -618,17 +913,105 @@ You must use either ''-IncludeDirs INCLUDE_ARRAY'' or
                     -DoTheDebug $DoTheDebug
     
     Write-Host ""
-    Write-Host "$($nDirsSeen) directories, $($nFilesSeen) files"
+    Write-Host "$($global:nDirsSeen) directories, $($global:nFilesSeen) files"
     Write-Host "(Not counting children of excluded or hidden directories,"
     Write-Host "not including hidden directories, & not including the root)."
     Write-Host ""
   } else {
     Write-Error -Category NotSpecified -Message @'
 Something wrong happened. You shouldn''t have gotten here.
-The condition that one and only one of the include (x)or
-exclude options must be set should already have been tested,
-yet neither ''$includeIsNotEmpty'' nor ''$excludeIsNotEmpty''
-is True. Bummer.
+The condition that either zero or one-and-only-one of the 
+include (x)or exclude options must be set should already 
+have been tested, yet neither ''$includeIsNotEmpty'' nor 
+''$excludeIsNotEmpty'' is True. Tant pis.
 '@
   }
 }
+
+
+
+##-------------------------------------------------------------------
+#  Testing stuff, since I have it. Uncomment everything. something
+#+ like a 's/^[#]//g'
+
+## the whole tree
+#.\dwb_selective_tree.ps1 -Path "."
+#
+#
+############################################################
+#
+#
+## some, not others
+#.\dwb_selective_tree.ps1 -Path "." `
+#         -ExcludeDirs @(
+#              ".git", `
+#              "experiment_environment_examples", `
+#              "general_lab_notebooks_-_other_examples" `
+#         )
+#
+#
+## only img/ missing
+#.\dwb_selective_tree.ps1 -Path "." `
+#         -ExcludeDirs @(
+#              "img" `
+#         )
+#
+#
+## should give none
+#.\dwb_selective_tree.ps1 -Path "." `
+#         -ExcludeDirs @(
+#              ".git", `
+#              "dataset_preparation_examples", `
+#              "experiment_environment_examples", `
+#              "general_lab_notebooks_-_other_examples", `
+#              "img"
+#         )
+#
+#
+## will this work and give us all?
+#.\dwb_selective_tree.ps1 -Path "." `
+#         -ExcludeDirs @()
+#
+#
+#
+#############################################################
+#
+#
+## should give all
+#.\dwb_selective_tree.ps1 -Path "." `
+#         -IncludeDirs @(
+#              ".git", `
+#              "dataset_preparation_examples", `
+#              "experiment_environment_examples", `
+#              "general_lab_notebooks_-_other_examples", `
+#              "img"
+#         )
+#
+#
+## see if it can give us our '.git/' directory contents
+#.\dwb_selective_tree.ps1 -Path "." `
+#         -IncludeDirs @(
+#              ".git", `
+#         )
+#
+#
+## just the stuff in img/
+#.\dwb_selective_tree.ps1 -Path "." `
+#         -IncludeDirs @(
+#              "img", `
+#         )
+#
+#
+#
+## will this work and give us none?
+#.\dwb_selective_tree.ps1 -Path "." `
+#         -IncludeDirs @()
+#
+#
+## some, not others
+#.\dwb_selective_tree.ps1 -Path "." `
+#         -IncludeDirs @(
+#              ".git", `
+#              "experiment_environment_examples", `
+#              "general_lab_notebooks_-_other_examples" `
+#         )
