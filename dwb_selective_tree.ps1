@@ -165,7 +165,8 @@ function Get-IncludeTree {
         Write-Host "DEBUG:"
         Write-Host "DEBUG: thisDir:     $thisDir"
         Write-Host "DEBUG: thisDirFull: $thisDirFull"
-        Write-Host "DEBUG: IncludeDirs: $IncludeDirs"
+        Write-Host "DEBUG: IncludeDirs:"
+        Write-Host $IncludeDirs
         Write-Host ""
       }
       
@@ -196,7 +197,8 @@ function Get-IncludeTree {
           Write-Host "DEBUG:"
           Write-Host "DEBUG: Recursive Parameters:"
           Write-Host "DEBUG: thisDirFull: $thisDirFull"
-          Write-Host "DEBUG: IncludeDirs: $IncludeDirs"
+          Write-Host "DEBUG: IncludeDirs:"
+          Write-Host $IncludeDirs
           Write-Host ""
         }
         
@@ -310,7 +312,8 @@ function Get-ExcludeTree {
         Write-Host "DEBUG:"
         Write-Host "DEBUG: thisDir:     $thisDir"
         Write-Host "DEBUG: thisDirFull: $thisDirFull"
-        Write-Host "DEBUG: ExcludeDirs: $IncludeDirs"
+        Write-Host "DEBUG: ExcludeDirs:"
+        Write-Host $ExcludeDirs
         Write-Host ""
       }
       
@@ -318,7 +321,7 @@ function Get-ExcludeTree {
       #+ (I don't think the "OR" will matter, but will keep until I test
       ###+ OR if we are already within an included path
       ### This allows descending into subdirs of included dirs
-      $dirIncluded = (! $ExcludeDirs -contains $thisDir)
+      $dirIncluded = (! ($ExcludeDirs -contains $thisDir))
       $withinExcludedPath = `
          ($ExcludeDirs | Where-Object { $thisDirFull -like "*\$_*" })
               #  $withinExcludedPath returns ??????
@@ -339,6 +342,18 @@ function Get-ExcludeTree {
       
       #if ($dirIncluded -or $withinIncludedPath) #I think no need 2nd
       if ($dirIncluded) {
+        if ($DoTheDebug) {
+          Write-Host "DEBUG:-----------------------------------------------"
+          Write-Host "DEBUG:"
+          Write-Host "DEBUG: Recursive Parameters:"
+          Write-Host "DEBUG: thisDirFull: $thisDirFull"
+          Write-Host "DEBUG: ExcludeDirs:"
+          Write-Host $ExcludeDirs
+          Write-Host ""
+        }
+        
+        Write-Host "$($indent)|---$($thisDir)\"
+        
         Get-ExcludeTree -Path $thisDirFull `
                         -ExcludeDirs $ExcludeDirs `
                         -Level ($Level + 1) `
