@@ -59,9 +59,10 @@ $Files = @(
   "scripts\inference.sh"
 )
 
-$UntaggedCommon=(
-  "scripts/py_touch.py"
-  "scripts/normalize_eol.py"
+$UntaggedCommon = @(
+  "scripts\py_touch.py"
+  "scripts\normalize_eol.py"
+  ".gitattributes"
 )
 
 foreach ($tag in $Tags) {
@@ -119,7 +120,7 @@ for f in sys.argv[1:]: Path(f).touch(exist_ok=True)
 
   # Create (untagged common) normalize_eol.py if missing
   $NormEolPath = Join-Path $TagDir "scripts\normalize_eol.py"
-  if (-not (Test-Path $Norm)) {
+  if (-not (Test-Path $NormEolPath)) {
     @'
 """
 Normalize line endings (EOL) for text files.
@@ -244,9 +245,9 @@ if __name__ == "__main__":
   """
   Gets called if the module is called from command prompt, via
     e.g.
-      > python normalize_eo.py <argument>
+      > python normalize_eol.py <argument>
     OR
-      $ python normalize_eo.py <argument>
+      $ python normalize_eol.py <argument>
   
   """
   
@@ -271,7 +272,47 @@ if __name__ == "__main__":
   Write-Host "  THIS IS NECESSARY WHETHER ON WINDOWS OR *NIX!"
   Write-Host "  DO NOT PROCEED FURTHER WITHOUT FOLLOWING THOSE INSTRUCTIONS!"
   Write-Host ""
+  Write-Host "  From PowerShell, usage should be"
+  Write-Host "    PS> & python `"$TagDir\scripts\normalize_eol.py`" --root $TagDir --map `"sh=lf,ps1=crlf,cmd=crlf,py=lf,ipynb=lf,md=lf`""
+  Write-Host ""
+  Write-Host "  From bash, usage should be"
+  Write-Host "    `$ python `"`<path-to-tagdir>/scripts/normalize_eol.py ```""
+  Write-Host "         --root `"`<path-to-tagdir>`" ```""
+  Write-Host "         --map 'sh=lf,ps1=crlf,cmd=crlf,py=lf,ipynb=lf,md=lf' "
+  Write-Host "  where <path-to-tagdir> is analogous to"
+  Write-Host "  `"$TagDir`" in the *NIX platform setup."
+  Write-Host ""
+  
+  
+  # Create or appent to (untagged common) .gitattributes
+  $GitAttrPath = Join-Path $TagDir ".gitattributes"
+  @'
 
+#  .gitattributes addition (or creation) for ease in using
+#+ platform-specific files (making it platform-agnostic)
+*.sh              text eol=lf
+*.ps1             text eol=crlf
+*.cmd             text eol=crlf
+*.py              text eol=lf
+*.md              text eol=lf
+*.ipynb           text eol=lf
+.gitattributes    text eol=lf
+
+'@ | Out-File -FilePath $GitAttrPath -Encoding UTF8
+  
+  
+  # Info on the .gitattributes additions (creation)
+  Write-Host "  ---------------------------------------------------------"
+  Write-Host "  Helper to ensure correct EOL on OS-specific files,"
+  Write-Host "  $GitAttrPath"
+  Write-Host "  provided for tag, '$tag'. This will allow everything"
+  Write-Host "  to be stress-free platform-agnostic. Only used"
+  Write-Host "  when things are done in a project where source"
+  Write-Host "  control is handled via Git, but it doesn't hurt to"
+  Write-Host "  have this in here."
+  Write-Host "  (Note that any files that should be excluded/ignored"
+  Write-Host "   are covered in the Git repo's root .gitignore file.)"
+  Write-Host ""
 }
 
 Write-Host "--------------------------------------------------------------------"

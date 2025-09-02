@@ -49,21 +49,17 @@ Get-Content environment_vanilla_cnn.yml
 ##  Will take some time.
 conda env create --file environment_vanilla_cnn.yml
 
-conda activate environment_vanilla_cnn
 
-Get-Content validate_env.py
-
-python validate_env.py
 
 ####  Further commands will denote PS with '__PS> ' and
 ####+ bash (via Cygwin) with 'bash$ '
 
 ##  Likely already done
-__PS> Remove-Item -Recurse -Force test_project_ps
-__PS> Remove-Item -Recurse -Force test_project_bash
+__PS>  Remove-Item -Recurse -Force test_project_ps   -ErrorAction SilentlyContinue
+__PS> #Remove-Item -Recurse -Force test_project_bash -ErrorAction SilentlyContinue
 
-bash$ rm -rf test_project_ps
-bash$ rm -rf test_project_bash
+bash$ #rm -rf test_project_ps
+bash$  rm -rf test_project_bash
 
 ##  (Note that I can't activate the conda environment in
 ##+ bash until I have created in it PS Anaconda Prompt.)
@@ -71,27 +67,131 @@ bash$ rm -rf test_project_bash
 ##+ conda in Cygwin.
 
 bash$ cat ~/.startconda
-bash$ 
+bash$ source ~/.startconda
+
+__PS> conda activate vanilla_cnn
+bash$ conda activate vanilla_cnn
+
+##  DON'T NEED BOTH!!!
+__PS> Get-Content validate_env.py
+##       OR
+bash$ cat validate_env.py
+
+bash$ chmod a+x validate_env.py
+
+__PS> python validate_env.py
+bash$ python validate_env.py
 
 
 
+##  Initial dir structure view
+#
 
+#
+##  (Note for PS)
+#
 
+__PS> .\dwb_selective_tree.ps1 -Path "." -ExcludeDirs @(".git", "dataset_preparation_examples", "experiment_environment_examples", "general_lab_notebooks_-_other_examples", "img") -DoShowReport $false -DoShowExcludedDirNames $true
+  ##+ might be easier to do Include Dirs, where the arguments are
+  ##+ 'test_project_bash', 'test_project_ps', but it wouldn't be as
+  ##+ consistent
+#
 
-##  Initial dir view
 #
 ##  (Note for tree and grep and sed)
 ##+    Exclude
 ##+       (note, could use find -mindepth 1 -maxdepth 1 -type d
 ##+        to get the potentially excluded files
-tree --noreport --charset=ascii . -f | grep -vP "(dataset_preparation_examples|experiment_environment_examples|general_lab_notebooks_-_other_examples|img)/" | sed 's|-- [.]/|-- |g' | sed -E 's:(dataset_preparation_examples|experiment_environment_examples|general_lab_notebooks_-_other_examples|img):\1 (excluded):g; s:(test_project_(bash|ps)):\1/:g;'
-##+    Include isn't worth the time
 #
-##  (Note for PS)
-PS> .\dwb_selective_tree.ps1 -Path "." -ExcludeDirs @(".git", "dataset_preparation_examples", "experiment_environment_examples", "general_lab_notebooks_-_other_examples", "img") -DoShowReport $false -DoShowExcludedDirNames $true
-##+ might be easier to do Include Dirs, where the arguments are
-##+ 'test_project_bash', 'test_project_ps', but it wouldn't be as
-##+ consistent
+
+bash$ tree --noreport --charset=ascii . -f | grep -vP "(dataset_preparation_examples|experiment_environment_examples|general_lab_notebooks_-_other_examples|img)/" | sed 's|-- [.]/|-- |g' | sed -E 's:(dataset_preparation_examples|experiment_environment_examples|general_lab_notebooks_-_other_examples|img):\1 (excluded):g; s:(test_project_(bash|ps)):\1/:g;'
+
+#
+##+    Include isn't worth the time
+
+
+#################################
+##  Run the structure creation
+
+##  Don't feel need to give file outputs, can uncomment if needed.
+__PS> #Get-Content structure.ps1
+bash$ #cat structure.sh
+
+
+__PS> #  Inside the Conda PowerShell Prompt, scripts are set to execute
+__PS> #+ Not including  
+__PS> #+    powershell -ExecutionPolicy Bypass File .\structure.ps1 ...
+__PS> $root = "$PWD\test_project_ps"
+__PS> structure.ps1 --RootDir "$PWD\test_project_ps" -Tags p_01 p_02
+
+bash$ #  Probably already done, but ...
+bash$ chmod a+x structure.sh
+bash$ ROOTDIR="$PWD/test_project_bash"
+bash$ ./structure.sh "$PWD/test_project_bash" p_01 p_02
+
+## For compare
+
+__PS> .\dwb_selective_tree.ps1 -Path "." -ExcludeDirs @(".git", "dataset_preparation_examples", "experiment_environment_examples", "general_lab_notebooks_-_other_examples", "img") -DoShowReport $false -DoShowExcludedDirNames $true | Tee-Object -FilePath ps_tree_test.out
+bash$ tree --noreport --charset=ascii . -f | grep -vP "(dataset_preparation_examples|experiment_environment_examples|general_lab_notebooks_-_other_examples|img)/" | sed 's|-- [.]/|-- |g' | sed -E 's:(dataset_preparation_examples|experiment_environment_examples|general_lab_notebooks_-_other_examples|img):\1 (excluded):g; s:(test_project_(bash|ps)):\1/:g;' | tee bash_tree_test.out
+
+bash$ find . -mindepth 1 -maxdepth 1 -type f -iname "*.out"
+bash$ #  As long as we just get the two *.out files, continue with
+bash$ python normalize_eof.py --to-lf *.out
+bash$ diff ps_tree_test.out bash_tree_test.out
+
+#
+##  More succinct dir structure match à la ChatGPT
+#
+
+__PS> foreach ($t in 'p_01','p_02') {
+  Write-Host "`n== $t notebooks =="; Get-ChildItem -Name "$root\$t\notebooks" | Sort-Object
+  Write-Host "    #  We should get 4 notebooks. You will see a check below."
+  Get-ChildItem -Name "$root\$t\notebooks" | Select-String "ipynb" | Sort-Object
+  Get-ChildItem -Name "$root\$t\notebooks" | Select-String "ipynb" | Measure-Object -Line
+  Write-Host "    #  We should get '4' *.ipynb files."
+  Write-Host "== $t scripts =="; Get-ChildItem -Name "$root\$t\scripts" | Sort-Object
+  Write-Host "    #  There should be 11 scripts, 5 *.py, 3 *.sh, 3 *.ps1"
+  Get-ChildItem -Name "$root\$t\scripts" | Select-String "py"
+  Get-ChildItem -Name "$root\$t\scripts" | Select-String "py"  | Measure-Object -Line
+  Write-Host "    #  We should get '5' *.py files."
+  Get-ChildItem -Name "$root\$t\scripts" | Select-String "sh"
+  Get-ChildItem -Name "$root\$t\scripts" | Select-String "sh"  | Measure-Object -Line
+  Write-Host "    #  We should get '3' *.sh files."
+  Get-ChildItem -Name "$root\$t\scripts" | Select-String "ps1"
+  Get-ChildItem -Name "$root\$t\scripts" | Select-String "ps1" | Measure-Object -Line
+  Write-Host "    #  We should get '3' *.ps1 files.
+  Get-ChildItem -Name "$root\$t\scripts" | Select-String "cmd"
+  Get-ChildItem -Name "$root\$t\scripts" | Select-String "cmd" | Measure-Object -Line
+  Write-Host "    #  We should get '3' *.cmd files.
+  Write-Host "== $t .gitattributes =="; Get-ChildItem -Name "$root\$t" | Select-String ".gitattributes"
+  Write-Host "    #  There's only one that's supposed to be here, so I won't"
+  Write-Host "    #+ take the time to count it numerically."
+}
+bash$ for t in p_01 p_02; do
+  echo "== $t notebooks ==";  ls -1 "$ROOTDIR/$t/notebooks" | sort
+  find "$ROOTDIR/$t/notebooks" -type f -iname "*.ipynb"
+  echo "    #  We should get 4 notebooks. You will see a check below."
+  find "$ROOTDIR/$t/notebooks" -type f -iname "*.ipynb"     | wc -l
+  echo "    #  We should get '4' *.ipynb files."
+  echo "== $t scripts ==";    ls -1 "$ROOTDIR/$t/scripts"   | sort
+  echo "    #  There should be 11 scripts, 5 *.py, 3 *.sh, 3 *.ps1"
+  find "$ROOTDIR/$t/scripts" -type f -iname "*.py"
+  find "$ROOTDIR/$t/scripts" -type f -iname "*.py"  | wc -l
+  echo "    #  We should get '5' *.py files."
+  find "$ROOTDIR/$t/scripts" -type f -iname "*.sh"
+  find "$ROOTDIR/$t/scripts" -type f -iname "*.sh"  | wc -l
+  echo "    #  We should get '3' *.sh files."
+  find "$ROOTDIR/$t/scripts" -type f -iname "*.ps1"
+  find "$ROOTDIR/$t/scripts" -type f -iname "*.ps1" | wc -l
+  echo "    #  We should get '3' *.ps1 files.
+  find "$ROOTDIR/$t/scripts" -type f -iname "*.cmd"
+  find "$ROOTDIR/$t/scripts" -type f -iname "*.cmd" | wc -l
+  echo "    #  We should get '3' *.cmd files.
+  echo "== $t .gitattributes =="; find "$ROOTDIR/$t" -type f -iname ".gitattributes"
+  echo "    #  There's only one that's supposed to be here, so I won't"
+  echo "    #+ take the time to count it programmatically."
+done
+
 
 
 

@@ -82,6 +82,7 @@ CMD_FILES=(
 UNTAGGED_COMMON_FILES=(
   "scripts/py_touch.py"
   "scripts/normalize_eol.py"
+  ".gitattributes"
 )
 
 # Fixed directory set under each tag
@@ -148,12 +149,10 @@ for tag in "$@"; do
   done
   
   # Untagged common helpers
-  for f in "${UNTAGGED_COMMON}"
+  for f in "${UNTAGGED_COMMON}"; do
     touch_safe "$TAG_DIR/$f"
+  done
   
-  
-  "scripts/py_touch.py"
-  "scripts/normalize_eol.py"
   
   ##-----------------------------------------------------------------
   ##  I do include a couple of per-experiment helpers, written 
@@ -184,9 +183,7 @@ EOF
   echo "  $py_touch_path"
   echo "  provided for tag, ``$tag', in case it be desired."
   echo "  This could prove immensely helpful for Windows users."
-  echo "  On *NIX-type systems, I suggest using ``touch(1)', unless"
-  echo "  it be not installed, e.g. unless you have only the base"
-  echo "  installation."
+  echo "  On *NIX, prefer touch(1) when available; this is a fallback."
   echo
   
   # Create (untagged-common) normalize_eol.py if missing
@@ -332,10 +329,10 @@ EONormF
 
   fi
   
-  #Info on the normalize_eof helper
+  # Info on the normalize_eof helper
   echo "  ---------------------------------------------------------"
   echo "  OS-agnostic helper,"
-  echo "  $NormEolPath"
+  echo "  $norm_eol_path"
   echo "  provided for tag, '$tag'. IT WILL BE NECESSARY TO USE IT!"
   echo "  DO NOT MISS reading the pre-running instructions, in the $tag"
   echo "  README at Section: REQUIRED Pre-running Instructions, to allow"
@@ -344,6 +341,48 @@ EONormF
   echo "  THIS IS NECESSARY WHETHER ON WINDOWS OR *NIX!"
   echo "  DO NOT PROCEED FURTHER WITHOUT FOLLOWING THOSE INSTRUCTIONS!"
   echo
+  echo "  From bash, usage should be"
+  echo "    \$ python \"\$TAG_DIR/scripts/normalize_eol.py \\\""
+  echo "         --root \"\$TAG_DIR\" \\\""
+  echo "         --map 'sh=lf,ps1=crlf,cmd=crlf,py=lf,ipynb=lf,md=lf' "
+  echo
+  echo "  From PowerShell, usage should be"
+  echo "    PS> & python \"<path-to-tagdir>\\scripts\\normalize_eol.py\" --root <path-to-tagdir> --map \"sh=lf,ps1=crlf,cmd=crlf,py=lf,ipynb=lf,md=lf\""
+  echo "  where <path-to-tagdir> is analogous to"
+  echo "  \"$TAG_DIR\" in the Windows platform setup."
+  echo 
+  
+  # Create (untagged-common) .gitattributes (or append if already exists)
+  gitattr_path="$TAG_DIR/.gitattributes"
+  if [ ! -f "$norm_eol_path" ]; then
+    cat << 'EOGitAttrF' >> "$gitattr_path"
+
+#  .gitattributes addition (or creation) for ease in using
+#+ platform-specific files (making it platform-agnostic)
+*.sh              text eol=lf
+*.ps1             text eol=crlf
+*.cmd             text eol=crlf
+*.py              text eol=lf
+*.md              text eol=lf
+*.ipynb           text eol=lf
+.gitattributes    text eol=lf
+
+EOGitAttrF
+
+  # Info on the .gitattributes additions (creation)
+  echo "  ---------------------------------------------------------"
+  echo "  Helper to ensure correct EOL on OS-specific files,"
+  echo "  $gitattr_path"
+  echo "  provided for tag, '$tag'. This will allow everying"
+  echo "  to be stress-free platform-agnostic. Only used"
+  echo "  when things are done in a project where source"
+  echo "  control is handled via Git, but it doesn't hurt to"
+  echo "  have this in here."
+  echo "  (Note that any files that should be excluded/ignored"
+  echo "   are covered in the Git repo's root .gitignore file.)"
+  echo
+  
+  
   
 done
 

@@ -369,8 +369,10 @@ function Get-ExcludeTree {
     Write-Host ""
   }
   
-  Write-Host `
-     "DEBUG: Exclude: DoShowExcludedDirNames: $DoShowExcludedDirNames"
+  if ($DoTheDebug) {
+    Write-Host `
+       "DEBUG: Exclude: DoShowExcludedDirNames: $DoShowExcludedDirNames"
+  }
   
   $indent = "|   " * $Level
   
