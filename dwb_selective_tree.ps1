@@ -60,20 +60,26 @@ param(
   [string]$Path,
   [array]$IncludeDirs, #  Directories to descend into, case insnstv
   [array]$ExcludeDirs, #  Directories not to descend into, case insnstv
-  [int]$Level = 0, # The starting level, in case you want to start further(?)
+  [int]$Level = 0, # The starting level (Why a parameter, i.e. why not always start 0?)
+  [bool]$DoShowReport = $true, # number of directories and files
+  [bool]$DoShowExcludedDirNames = $false, # matches with *NIX tree
   [bool]$DoTheDebug = $false # Dev stuff
 )
-
+  ##  Done-over-perfect -> Don't do  [int]$MaxLevel  for now.
 
 $global:nDirsSeen  = 0
 $global:nFilesSeen = 0
+
+$global:DoTheShowExclDebug = $false
 
 #  Here is code for include
 function Get-IncludeTree {
   param(
     [string]$Path,
     [array]$IncludeDirs, #  Directories to descend into, case insnstv
-    [int]$Level = 0, # The starting level, in case you want to start further(?)
+    [int]$Level = 0, # The starting level (Why a parameter, i.e. why not always start 0?)
+    [bool]$DoShowReport = $true, # number of directories and files
+    [bool]$DoShowExcludedDirNames = $false, # matches with *NIX tree
     [bool]$DoTheDebug = $false # Dev stuff
   )
   
@@ -84,11 +90,16 @@ function Get-IncludeTree {
     Write-Host ""
   }
   
+  if ($global:DoTheShowExclDebug) {
+    Write-Host `
+       "DEBUG: Include: DoShowExcludedDirNames: $DoShowExcludedDirNames"
+  }
+  
   $indent = "|   " * $Level
   
   ## Used different math below
   #if ($Level -gt 0) {
-  #  $indent = "|   " * ($Level - 1) + "|---" 
+  #  $indent = "|   " * ($Level - 1) + "|-- " 
   #}
   
   $absPathRoot = (Get-Item $Path).FullName
@@ -176,9 +187,9 @@ function Get-IncludeTree {
       
       # The output for the tree-output
       if ($thisIsLastElement) {
-        Write-Host "$($indent)``---$($thisFile)\"
+        Write-Host "$($indent)``-- $($thisFile)"
       } else {
-        Write-Host "$($indent)|---$($thisFile)\"
+        Write-Host "$($indent)|-- $($thisFile)"
       }
       
       #before#Write-Host "$($indent)|---$($thisFile)"
@@ -250,9 +261,9 @@ function Get-IncludeTree {
         
         # The output for the tree-output
         if ($thisIsLastElement) {
-          Write-Host "$($indent)``---$($thisDir)\"
+          Write-Host "$($indent)``-- $($thisDir)/"
         } else {
-          Write-Host "$($indent)|---$($thisDir)\"
+          Write-Host "$($indent)|-- $($thisDir)/"
         }
         
         #before#Write-Host "$($indent)|---$($thisDir)\"
@@ -260,6 +271,8 @@ function Get-IncludeTree {
         Get-IncludeTree -Path $thisDirFull `
                         -IncludeDirs $IncludeDirs `
                         -Level ($Level + 1) `
+                        -DoShowExcludedDirNames $DoShowExcludedDirNames `
+                        -DoShowExclDebug $DoShowExclDebug `
                         -DoTheDebug $DoTheDebug
       } else {
         
@@ -281,12 +294,23 @@ function Get-IncludeTree {
         
         $thisIsLastElement = ($elementToTest -eq $lastElement)
         
-        # The output for the tree-output
-        # Display excluded directories without descending
-        if ($thisIsLastElement) {
-          Write-Host "$($indent)``---$($thisDir)\ (excluded)"
-        } else {
-          Write-Host "$($indent)|---$($thisDir)\ (excluded)"
+        # The output for the tree-output (if any)
+        if ($global:DoTheShowExclDebug) {
+          Write-Host `
+    "DEBUG: Include->pre-if: DoShowExcludedDirNames: $DoShowExcludedDirNames"
+        }
+        
+        if ($DoShowExcludedDirNames) {
+          if ($global:DoShowExclDebug) {
+            Write-Host "DEBUG: ============= in the show excl ============"
+            Write-Host "DEBUG: thisIsLastElement: $thisIsLastElement"
+          }
+          # Display excluded directories without descending
+          if ($thisIsLastElement) {
+            Write-Host "$($indent)``-- $($thisDir)/ (excluded)"
+          } else {
+            Write-Host "$($indent)|-- $($thisDir)/ (excluded)"
+          }
         }
         
         #before## Display excluded directories without descending
@@ -314,10 +338,10 @@ function Get-IncludeTree {
       # The output for the tree-output
       if ($thisIsLastElement) {
         Write-Host `
-           "$($indent)``---$($thing.Name)(?) (has a problem; not file nor dir)"
+           "$($indent)``-- $($thing.Name)(?) (has a problem; not file nor dir)"
       } else {
         Write-Host `
-           "$($indent)|---$($thing.Name)(?) (has a problem; not file nor dir)"
+           "$($indent)|-- $($thing.Name)(?) (has a problem; not file nor dir)"
       }
       
       #before#Write-Host `
@@ -332,7 +356,9 @@ function Get-ExcludeTree {
   param(
     [string]$Path,
     [array]$ExcludeDirs, #  Directories not to descend into, case insnstv
-    [int]$Level = 0, # The starting level, in case you want to start further(?)
+    [int]$Level = 0, # The starting level (Why a parameter, i.e. why not always start 0?)
+    [bool]$DoShowReport = $true, # number of directories and files
+    [bool]$DoShowExcludedDirNames = $false, # matches with *NIX tree
     [bool]$DoTheDebug = $false # Dev stuff
   )
   
@@ -342,6 +368,9 @@ function Get-ExcludeTree {
     Write-Host "DEBUG: For Get-ExcludeTree"
     Write-Host ""
   }
+  
+  Write-Host `
+     "DEBUG: Exclude: DoShowExcludedDirNames: $DoShowExcludedDirNames"
   
   $indent = "|   " * $Level
   
@@ -430,11 +459,10 @@ function Get-ExcludeTree {
       
       # The output for the tree-output
       if ($thisIsLastElement) {
-        Write-Host "$($indent)``---$($thisFile)"
+        Write-Host "$($indent)``-- $($thisFile)"
       } else {
-        Write-Host "$($indent)|---$($thisFile)"
+        Write-Host "$($indent)|-- $($thisFile)"
       }
-      
     } elseif ($childIsADir) {
       $global:nDirsSeen = ($global:nDirsSeen + 1)
       
@@ -506,9 +534,9 @@ function Get-ExcludeTree {
         
         # The output for the tree-output
         if ($thisIsLastElement) {
-          Write-Host "$($indent)``---$($thisDir)\"
+          Write-Host "$($indent)``-- $($thisDir)/"
         } else {
-          Write-Host "$($indent)|---$($thisDir)\"
+          Write-Host "$($indent)|-- $($thisDir)/"
         }
         
         #before#Write-Host "$($indent)|---$($thisDir)\"
@@ -516,6 +544,8 @@ function Get-ExcludeTree {
         Get-ExcludeTree -Path $thisDirFull `
                         -ExcludeDirs $ExcludeDirs `
                         -Level ($Level + 1) `
+                        -DoShowExcludedDirNames $DoShowExcludedDirNames `
+                        -DoShowExclDebug $DoShowExclDebug `
                         -DoTheDebug $DoTheDebug
       } else {
         
@@ -537,12 +567,19 @@ function Get-ExcludeTree {
         
         $thisIsLastElement = ($elementToTest -eq $lastElement)
         
-        # The output for the tree-output
-        # Display excluded directories without descending
-        if ($thisIsLastElement) {
-          Write-Host "$($indent)``---$($thisDir)\ (excluded)"
-        } else {
-          Write-Host "$($indent)|---$($thisDir)\ (excluded)"
+        # The output for the tree-output (if any)
+        
+        if ($DoShowExcludedDirNames) {
+          if ($global:DoShowExclDebug) {
+            Write-Host "DEBUG: ============= in the show excl ============"
+            Write-Host "DEBUG: thisIsLastElement$thisIsLastElement"
+          }
+          # Display excluded directories without descending
+          if ($thisIsLastElement) {
+            Write-Host "$($indent)``-- $($thisDir)/ (excluded)"
+          } else {
+            Write-Host "$($indent)|-- $($thisDir)/ (excluded)"
+          }
         }
         
         #before## Display excluded directories without descending
@@ -571,10 +608,10 @@ function Get-ExcludeTree {
       # The output for the tree-output
       if ($thisIsLastElement) {
         Write-Host `
-           "$($indent)``---$($thing.Name)(?) (has a problem; not file nor dir)"
+           "$($indent)``-- $($thing.Name)(?) (has a problem; not file nor dir)"
       } else {
         Write-Host `
-           "$($indent)|---$($thing.Name)(?) (has a problem; not file nor dir)"
+           "$($indent)|-- $($thing.Name)(?) (has a problem; not file nor dir)"
       }
       
       #before#Write-Host `
@@ -588,7 +625,8 @@ function Get-ExcludeTree {
 function Get-AllTree {
   param(
     [string]$Path,
-    [int]$Level = 0, # The starting level, in case you want to start further(?)
+    [int]$Level = 0, # The starting level (Why a parameter, i.e. why not always start 0?)
+    [bool]$DoShowReport = $true, # number of directories and files
     [bool]$DoTheDebug = $false # Dev stuff
   )
   
@@ -686,9 +724,9 @@ function Get-AllTree {
       
       # The output for the tree-output
       if ($thisIsLastElement) {
-        Write-Host "$($indent)``---$($thisFile)"
+        Write-Host "$($indent)``-- $($thisFile)"
       } else {
-        Write-Host "$($indent)|---$($thisFile)"
+        Write-Host "$($indent)|-- $($thisFile)"
       }
       
       #before#Write-Host "$($indent)|---$($thisFile)"
@@ -727,9 +765,9 @@ function Get-AllTree {
       
       # The output for the tree-output
       if ($thisIsLastElement) {
-        Write-Host "$($indent)``---$($thisDir)\"
+        Write-Host "$($indent)``-- $($thisDir)/"
       } else {
-        Write-Host "$($indent)|---$($thisDir)\"
+        Write-Host "$($indent)|-- $($thisDir)/"
       }
         
       #before#Write-Host "$($indent)|---$($thisDir)\"
@@ -760,10 +798,10 @@ function Get-AllTree {
       # The output for the tree-output
       if ($thisIsLastElement) {
         Write-Host `
-           "$($indent)``---$($thing.Name)(?) (has a problem; not file nor dir)"
+           "$($indent)``-- $($thing.Name)(?) (has a problem; not file nor dir)"
       } else {
         Write-Host `
-           "$($indent)|---$($thing.Name)(?) (has a problem; not file nor dir)"
+           "$($indent)|-- $($thing.Name)(?) (has a problem; not file nor dir)"
       }
       
       #before#Write-Host `
@@ -868,6 +906,10 @@ PS> dwb_selective_tree -Path "." `
   PowerShell Gallery and just using the equivalent calls.
 '@
 
+if ($global:DoTheShowExclDebug) {
+  Write-Host `
+    "DEBUG: Initial: DoShowExcludedDirNames: $DoShowExcludedDirNames"
+}
 
 if (! $pathIsSet -or ! ($onlyOneNotEmpty -or $bothEmpty)) {
   Write-Error -Category InvalidArgument -Message "Problem with input call."
@@ -890,33 +932,43 @@ You must use either ''-IncludeDirs INCLUDE_ARRAY'' or
                 -Level ($Level) `
                 -DoTheDebug $DoTheDebug
     
-    Write-Host ""
-    Write-Host "$($global:nDirsSeen) directories, $($global:nFilesSeen) files"
-    Write-Host "(Not counting children of excluded or hidden directories,"
-    Write-Host "not including hidden directories, & not including the root)."
-    Write-Host ""
+    if ($DoShowReport) {
+      Write-Host ""
+      Write-Host "$($global:nDirsSeen) directories, $($global:nFilesSeen) files"
+      Write-Host "(Not counting children of excluded or hidden directories,"
+      Write-Host "not including hidden directories, & not including the root)."
+      Write-Host ""
+    }
   } elseif ( $includeIsNotEmpty ) {
     Get-IncludeTree -Path $Path `
                     -IncludeDirs $IncludeDirs `
                     -Level ($Level) `
+                    -DoShowExcludedDirNames $DoShowExcludedDirNames `
+                    -DoShowExclDebug $DoShowExclDebug `
                     -DoTheDebug $DoTheDebug
     
-    Write-Host ""
-    Write-Host "$($global:nDirsSeen) directories, $($global:nFilesSeen) files"
-    Write-Host "(Not counting children of excluded or hidden directories,"
-    Write-Host "including hidden directories, & not including the root)."
-    Write-Host ""
+    if ($DoShowReport) {
+      Write-Host ""
+      Write-Host "$($global:nDirsSeen) directories, $($global:nFilesSeen) files"
+      Write-Host "(Not counting children of excluded or hidden directories,"
+      Write-Host "including hidden directories, & not including the root)."
+      Write-Host ""
+    }
   } elseif ( $excludeIsNotEmpty ) {
     Get-ExcludeTree -Path $Path `
                     -ExcludeDirs $ExcludeDirs `
                     -Level ($Level) `
+                    -DoShowExcludedDirNames $DoShowExcludedDirNames `
+                    -DoShowExclDebug $DoShowExclDebug `
                     -DoTheDebug $DoTheDebug
     
-    Write-Host ""
-    Write-Host "$($global:nDirsSeen) directories, $($global:nFilesSeen) files"
-    Write-Host "(Not counting children of excluded or hidden directories,"
-    Write-Host "not including hidden directories, & not including the root)."
-    Write-Host ""
+    if ($DoShowReport) {
+      Write-Host ""
+      Write-Host "$($global:nDirsSeen) directories, $($global:nFilesSeen) files"
+      Write-Host "(Not counting children of excluded or hidden directories,"
+      Write-Host "not including hidden directories, & not including the root)."
+      Write-Host ""
+    }
   } else {
     Write-Error -Category NotSpecified -Message @'
 Something wrong happened. You shouldn''t have gotten here.
@@ -930,10 +982,13 @@ have been tested, yet neither ''$includeIsNotEmpty'' nor
 
 
 
-##-------------------------------------------------------------------
-#  Testing stuff, since I have it. Uncomment everything. something
-#+ like a 's/^[#]//g'
-
+###-------------------------------------------------------------------
+##  Testing stuff, since I have it. Uncomment everything. something
+##+ like a 's/^[#]//g'
+##+
+##+ If there's no comment, it almost certainly worked as expected.
+##+ All comments on what worked are from a test 2025-08-31
+#
 ## the whole tree
 #.\dwb_selective_tree.ps1 -Path "."
 #
@@ -944,34 +999,34 @@ have been tested, yet neither ''$includeIsNotEmpty'' nor
 ## some, not others
 #.\dwb_selective_tree.ps1 -Path "." `
 #         -ExcludeDirs @(
-#              ".git", `
-#              "experiment_environment_examples", `
-#              "general_lab_notebooks_-_other_examples" `
+#              ".git",
+#              "experiment_environment_examples",
+#              "general_lab_notebooks_-_other_examples"
 #         )
 #
 #
 ## only img/ missing
 #.\dwb_selective_tree.ps1 -Path "." `
 #         -ExcludeDirs @(
-#              "img" `
-#         )
-#
-#
-## should give none
-#.\dwb_selective_tree.ps1 -Path "." `
-#         -ExcludeDirs @(
-#              ".git", `
-#              "dataset_preparation_examples", `
-#              "experiment_environment_examples", `
-#              "general_lab_notebooks_-_other_examples", `
 #              "img"
 #         )
 #
 #
-## will this work and give us all?
+## should give none (i.e. no directories expanded, only see files)
+#.\dwb_selective_tree.ps1 -Path "." `
+#         -ExcludeDirs @(
+#              ".git",
+#              "dataset_preparation_examples",
+#              "experiment_environment_examples",
+#              "general_lab_notebooks_-_other_examples",
+#              "img"
+#         )
+#
+#
+##  will this work and give us all? Yes, but I think it's calling
+##+ TreeAll, and thus not working for the right reasons (coincidence)
 #.\dwb_selective_tree.ps1 -Path "." `
 #         -ExcludeDirs @()
-#
 #
 #
 #############################################################
@@ -980,30 +1035,32 @@ have been tested, yet neither ''$includeIsNotEmpty'' nor
 ## should give all
 #.\dwb_selective_tree.ps1 -Path "." `
 #         -IncludeDirs @(
-#              ".git", `
-#              "dataset_preparation_examples", `
-#              "experiment_environment_examples", `
-#              "general_lab_notebooks_-_other_examples", `
+#              ".git",
+#              "dataset_preparation_examples",
+#              "experiment_environment_examples",
+#              "general_lab_notebooks_-_other_examples",
 #              "img"
 #         )
 #
 #
-## see if it can give us our '.git/' directory contents
+##  see if it can give us our '.git/' directory contents
+##+ nope, we don't get to see hidden dirs with this script
 #.\dwb_selective_tree.ps1 -Path "." `
 #         -IncludeDirs @(
-#              ".git", `
+#              ".git"
 #         )
 #
 #
 ## just the stuff in img/
 #.\dwb_selective_tree.ps1 -Path "." `
 #         -IncludeDirs @(
-#              "img", `
+#              "img"
 #         )
 #
 #
-#
-## will this work and give us none?
+##  will this work and give us none? I doubt it. I think it will
+##+ see two empty arrays and go to TreeAll. Yep it gave everything
+##+ instead of the nothing that this command seems to ask.
 #.\dwb_selective_tree.ps1 -Path "." `
 #         -IncludeDirs @()
 #
@@ -1011,7 +1068,8 @@ have been tested, yet neither ''$includeIsNotEmpty'' nor
 ## some, not others
 #.\dwb_selective_tree.ps1 -Path "." `
 #         -IncludeDirs @(
-#              ".git", `
-#              "experiment_environment_examples", `
-#              "general_lab_notebooks_-_other_examples" `
+#              ".git",
+#              "experiment_environment_examples",
+#              "general_lab_notebooks_-_other_examples"
 #         )
+#

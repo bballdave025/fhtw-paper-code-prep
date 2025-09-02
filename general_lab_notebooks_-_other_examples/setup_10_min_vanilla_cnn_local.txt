@@ -1,0 +1,99 @@
+#############################
+##  Ten-minute instructions
+
+##  Just want to remember this (like 'tput cols')
+
+(Get-Host).UI.RawUI.WindowSize.Width
+
+##  Done from Anaconda Powershell Prompt (miniconda3)
+
+cd C:\David\my_repos_dwb\fhtw-paper-code-prep
+
+git status
+
+##  Note branch
+##+ Note everything pushed. And not pushed (no experiment dirs)
+
+##  Installing PSTree (temporarily)
+
+mkdir C:\David\temp
+
+$env:TEMP = "C:\David\temp"
+
+$tempModulePath = Join-Path -Path $env:TEMP -ChildPath "TempModule_$(Get-Random)"
+
+New-Item -ItemType Directory -Path $tempModulePath | Out-Null
+
+##  Will take some time, some interaction
+Save-Module -Name PSTree -Path $tempModulePath -Force
+
+##  Trying  -Name $tempModulePath\PSTree next without -Global
+#Import-Module -Name PSTree -Scope Local -Global -ErrorAction Stop
+
+Import-Module -Name $tempModulePath\PSTree -Scope Local -ErrorAction Stop
+
+Get-Module -Name PSTree
+
+##  Run it
+
+Get-PSTree -Path "." -Exclude ".git", "dataset_preparation_examples" "experiment_environment_examples", "general_lab_notebooks_-_other_examples", "img"
+
+##  I don't like not seeing the directory stub. Using mine.
+
+.\dwb_selective_tree.ps1 -Path "." -ExcludeDirs @(".git", "dataset_preparation_examples", "experiment_environment_examples", "general_lab_notebooks_-_other_examples", "img")
+
+##  PS's  cat
+
+Get-Content environment_vanilla_cnn.yml
+
+##  Will take some time.
+conda env create --file environment_vanilla_cnn.yml
+
+conda activate environment_vanilla_cnn
+
+Get-Content validate_env.py
+
+python validate_env.py
+
+####  Further commands will denote PS with '__PS> ' and
+####+ bash (via Cygwin) with 'bash$ '
+
+##  Likely already done
+__PS> Remove-Item -Recurse -Force test_project_ps
+__PS> Remove-Item -Recurse -Force test_project_bash
+
+bash$ rm -rf test_project_ps
+bash$ rm -rf test_project_bash
+
+##  (Note that I can't activate the conda environment in
+##+ bash until I have created in it PS Anaconda Prompt.)
+##+ That's done in a previous step. Here's my setup for
+##+ conda in Cygwin.
+
+bash$ cat ~/.startconda
+bash$ 
+
+
+
+
+
+
+##  Initial dir view
+#
+##  (Note for tree and grep and sed)
+##+    Exclude
+##+       (note, could use find -mindepth 1 -maxdepth 1 -type d
+##+        to get the potentially excluded files
+tree --noreport --charset=ascii . -f | grep -vP "(dataset_preparation_examples|experiment_environment_examples|general_lab_notebooks_-_other_examples|img)/" | sed 's|-- [.]/|-- |g' | sed -E 's:(dataset_preparation_examples|experiment_environment_examples|general_lab_notebooks_-_other_examples|img):\1 (excluded):g; s:(test_project_(bash|ps)):\1/:g;'
+##+    Include isn't worth the time
+#
+##  (Note for PS)
+PS> .\dwb_selective_tree.ps1 -Path "." -ExcludeDirs @(".git", "dataset_preparation_examples", "experiment_environment_examples", "general_lab_notebooks_-_other_examples", "img") -DoShowReport $false -DoShowExcludedDirNames $true
+##+ might be easier to do Include Dirs, where the arguments are
+##+ 'test_project_bash', 'test_project_ps', but it wouldn't be as
+##+ consistent
+
+
+
+
+

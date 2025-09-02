@@ -1,0 +1,2695 @@
+Missing variable name after foreach.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\new_experiment_dir\scripts\ps_touch.ps1:2 char:16
++ foreach (\ in \) {
++                ~
+Unexpected token ')' in expression or statement.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : InvalidFunctionParameter
+
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\new_experiment_dir\scripts\ps_touch.ps1:1 char:17
++ param([string[]]\)
++                 ~
+Parameter declarations are a comma-separated list of variable names with optional initializer
+expressions.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\new_experiment_dir\scripts\ps_touch.ps1:1 char:17
++ param([string[]]\)
++                 ~
+Missing ')' in function parameter list.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\new_experiment_dir\scripts\ps_touch.ps1:2 char:10
++ foreach (\ in \) {
++          ~
+Missing variable name after foreach.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\new_experiment_dir\scripts\ps_touch.ps1:2 char:16
++ foreach (\ in \) {
++                ~
+Unexpected token ')' in expression or statement.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : InvalidFunctionParameter
+
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\new_experiment_dir\scripts\ps_touch.ps1:1 char:17
++ param([string[]]\)
++                 ~
+Parameter declarations are a comma-separated list of variable names with optional initializer
+expressions.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\new_experiment_dir\scripts\ps_touch.ps1:1 char:17
++ param([string[]]\)
++                 ~
+Missing ')' in function parameter list.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\new_experiment_dir\scripts\ps_touch.ps1:2 char:10
++ foreach (\ in \) {
++          ~
+Missing variable name after foreach.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\new_experiment_dir\scripts\ps_touch.ps1:2 char:16
++ foreach (\ in \) {
++                ~
+Unexpected token ')' in expression or statement.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : InvalidFunctionParameter
+
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\new_experiment_dir\scripts\ps_touch.ps1:1 char:17
++ param([string[]]\)
++                 ~
+Parameter declarations are a comma-separated list of variable names with optional initializer
+expressions.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\new_experiment_dir\scripts\ps_touch.ps1:1 char:17
++ param([string[]]\)
++                 ~
+Missing ')' in function parameter list.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\new_experiment_dir\scripts\ps_touch.ps1:2 char:10
++ foreach (\ in \) {
++          ~
+Missing variable name after foreach.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\new_experiment_dir\scripts\ps_touch.ps1:2 char:16
++ foreach (\ in \) {
++                ~
+Unexpected token ')' in expression or statement.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : InvalidFunctionParameter
+
+Project scaffolding with tags and subdirectories created at C:\David\my_repos_dwb\fhtw-paper-code-prep\new_experiment_dir
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> tree /f /a
+Folder PATH listing for volume OS
+Volume serial number is 8669-AC6F
+C:.
+|   .gitattributes
+|   .gitignore
+|   cmd_for_notebook_local_and_pre_aws_env.log
+|   environment_vanillacnn.yml
+|   LICENSE
+|   Paper_Code_Prep_01-a_CNN_GradCAM_TF.ipynb
+|   README.md
+|   structure.bat
+|   structure.ps1
+|   structure.sh
+|   validate_env.py
+|
++---dataset_preparation_examples
+|       actually_consistency_izing_the_files_2_2025-08-03.log
+|       actually_consistency_izing_the_files_3_1_2025-08-09.log
+|       all_filenames_replacement.txt
+|       bakscriptincase_consistency_Lab_Notebook_bballdave025_1753488168_2025-07-25T180248-0600_clean.log
+|       commands_for_consistency_checking_3lett_labels.txt
+|       complete_steps_complete_pdf_through_jpeg_all_io_with_mistakes_etc_and_ascii.log
+|       cygwin_saved_2023-08-14.txt
+|       folders_making_loops.txt
+|       guide_example_for_ensuring_filename_characters_are_okay.log
+|       in_cygwin_backup_2025-08-18T192300-0600.txt
+|       label_checking_01_Lab_Notebook_bballdave025_1753329287_2025-07-23T215447-0600_clean.log
+|       Lab_Notebook_bballdave025_1753740594_2025-07-28T160954-0600_clean.log
+|       Lab_Notebook_bballdave025_1753921922_2025-07-30T183202-0600_clean.log
+|       Lab_Notebook_bballdave025_1755369231_2025-08-16T123351-0600_clean.log
+|       Lab_Notebook_consistency_and_characters_in_fnames_2025-07-28.log
+|       steps_check_classificiations_are_consistent_-_regexes.md
+|       steps_check_well_behaved_ascii_only_fnames_-_regexes.md
+|       steps_grayscale_to_rgb_24_bit_ie_1_to_3_channel_jpeg.log
+|       steps_pdf_through_jpeg.log
+|       steps_pdf_through_jpeg.md
+|       steps_rename_utrecht.log
+|       steps_rename_utrecht.md
+|       steps_walkthrough_pdf_through_jpeg.log
+|       useful_fhtw_2025_aliases_regexes.log
+|
++---experiment_environment_examples
++---general_lab_notebooks_-_other_examples
+|       lab_notebook_1756385640_2025-08-28T125400-0600.md
+|       lab_notebook_bballdave025_1756554507_2025-08-30T124827-0500.docx
+|       lab_notebook_bballdave025_1756554507_2025-08-30T124827-0500.md
+|
++---img
+|       BW_post_from_905_col_terminal.png
+|       BW_pre_conv_from_903_col_terminal_-_Best.png
+|       consistentized_3331_dataset.txt
+|       fs_watermarks_etc_pre_conversion_1753209154_2025-07-22T123234-0600.out
+|       README.md
+|       seeofit1_edit.png
+|       seeofit1_edit_crop.png
+|       seeofit2_edit.png
+|       seeofit2_edit_crop.png
+|       WinFileExplorer_bitdepth_gs_post_conv.png
+|       WinFileExplorer_bitdepth_gs_pre_conv.png
+|
+\---new_experiment_dir
+    +---default
+    |   +---datasets
+    |   +---logs
+    |   +---models
+    |   +---notebooks
+    |   +---outputs
+    |   |   +---csv_logs
+    |   |   \---gradcam_images
+    |   +---scripts
+    |   \---visualizations
+    \---scripts
+            ps_touch.ps1
+
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> rmdir -f .\new_experiment_dir\
+Remove-Item : Parameter cannot be processed because the parameter name 'f' is ambiguous. Possible
+matches include: -Filter -Force.
+At line:1 char:7
++ rmdir -f .\new_experiment_dir\
++       ~~
+    + CategoryInfo          : InvalidArgument: (:) [Remove-Item], ParameterBindingException
+    + FullyQualifiedErrorId : AmbiguousParameter,Microsoft.PowerShell.Commands.RemoveItemCommand
+
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> rmdir -Force .\new_experiment_dir
+
+Confirm
+The item at C:\David\my_repos_dwb\fhtw-paper-code-prep\new_experiment_dir has children and the
+Recurse parameter was not specified. If you continue, all children will be removed with the item. Are
+ you sure you want to continue?
+[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "Y"): A
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> $RootTest = "$PWD/test_project"                        PS C:\David\my_repos_dwb\fhtw-paper-code-prep> powershell -ExecutionPolicy Bypass -File .\structure.ps1 -RootDir $RootTest -Tags "p_01" "p_02"
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:1 char:17
++ param([string[]]\)
++                 ~
+Parameter declarations are a comma-separated list of variable names with optional initializer
+expressions.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:1 char:17
++ param([string[]]\)
++                 ~
+Missing ')' in function parameter list.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:2 char:10
++ foreach (\ in \) {
++          ~
+Missing variable name after foreach.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:2 char:16
++ foreach (\ in \) {
++                ~
+Unexpected token ')' in expression or statement.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : InvalidFunctionParameter
+
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:1 char:17
++ param([string[]]\)
++                 ~
+Parameter declarations are a comma-separated list of variable names with optional initializer
+expressions.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:1 char:17
++ param([string[]]\)
++                 ~
+Missing ')' in function parameter list.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:2 char:10
++ foreach (\ in \) {
++          ~
+Missing variable name after foreach.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:2 char:16
++ foreach (\ in \) {
++                ~
+Unexpected token ')' in expression or statement.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : InvalidFunctionParameter
+
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:1 char:17
++ param([string[]]\)
++                 ~
+Parameter declarations are a comma-separated list of variable names with optional initializer
+expressions.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:1 char:17
++ param([string[]]\)
++                 ~
+Missing ')' in function parameter list.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:2 char:10
++ foreach (\ in \) {
++          ~
+Missing variable name after foreach.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:2 char:16
++ foreach (\ in \) {
++                ~
+Unexpected token ')' in expression or statement.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : InvalidFunctionParameter
+
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:1 char:17
++ param([string[]]\)
++                 ~
+Parameter declarations are a comma-separated list of variable names with optional initializer
+expressions.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:1 char:17
++ param([string[]]\)
++                 ~
+Missing ')' in function parameter list.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:2 char:10
++ foreach (\ in \) {
++          ~
+Missing variable name after foreach.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:2 char:16
++ foreach (\ in \) {
++                ~
+Unexpected token ')' in expression or statement.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : InvalidFunctionParameter
+
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:1 char:17
++ param([string[]]\)
++                 ~
+Parameter declarations are a comma-separated list of variable names with optional initializer
+expressions.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:1 char:17
++ param([string[]]\)
++                 ~
+Missing ')' in function parameter list.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:2 char:10
++ foreach (\ in \) {
++          ~
+Missing variable name after foreach.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:2 char:16
++ foreach (\ in \) {
++                ~
+Unexpected token ')' in expression or statement.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : InvalidFunctionParameter
+
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:1 char:17
++ param([string[]]\)
++                 ~
+Parameter declarations are a comma-separated list of variable names with optional initializer
+expressions.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:1 char:17
++ param([string[]]\)
++                 ~
+Missing ')' in function parameter list.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:2 char:10
++ foreach (\ in \) {
++          ~
+Missing variable name after foreach.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:2 char:16
++ foreach (\ in \) {
++                ~
+Unexpected token ')' in expression or statement.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : InvalidFunctionParameter
+
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:1 char:17
++ param([string[]]\)
++                 ~
+Parameter declarations are a comma-separated list of variable names with optional initializer
+expressions.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:1 char:17
++ param([string[]]\)
++                 ~
+Missing ')' in function parameter list.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:2 char:10
++ foreach (\ in \) {
++          ~
+Missing variable name after foreach.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:2 char:16
++ foreach (\ in \) {
++                ~
+Unexpected token ')' in expression or statement.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : InvalidFunctionParameter
+
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:1 char:17
++ param([string[]]\)
++                 ~
+Parameter declarations are a comma-separated list of variable names with optional initializer
+expressions.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:1 char:17
++ param([string[]]\)
++                 ~
+Missing ')' in function parameter list.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:2 char:10
++ foreach (\ in \) {
++          ~
+Missing variable name after foreach.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:2 char:16
++ foreach (\ in \) {
++                ~
+Unexpected token ')' in expression or statement.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : InvalidFunctionParameter
+
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:1 char:17
++ param([string[]]\)
++                 ~
+Parameter declarations are a comma-separated list of variable names with optional initializer
+expressions.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:1 char:17
++ param([string[]]\)
++                 ~
+Missing ')' in function parameter list.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:2 char:10
++ foreach (\ in \) {
++          ~
+Missing variable name after foreach.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:2 char:16
++ foreach (\ in \) {
++                ~
+Unexpected token ')' in expression or statement.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : InvalidFunctionParameter
+
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:1 char:17
++ param([string[]]\)
++                 ~
+Parameter declarations are a comma-separated list of variable names with optional initializer
+expressions.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:1 char:17
++ param([string[]]\)
++                 ~
+Missing ')' in function parameter list.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:2 char:10
++ foreach (\ in \) {
++          ~
+Missing variable name after foreach.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:2 char:16
++ foreach (\ in \) {
++                ~
+Unexpected token ')' in expression or statement.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : InvalidFunctionParameter
+
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:1 char:17
++ param([string[]]\)
++                 ~
+Parameter declarations are a comma-separated list of variable names with optional initializer
+expressions.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:1 char:17
++ param([string[]]\)
++                 ~
+Missing ')' in function parameter list.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:2 char:10
++ foreach (\ in \) {
++          ~
+Missing variable name after foreach.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:2 char:16
++ foreach (\ in \) {
++                ~
+Unexpected token ')' in expression or statement.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : InvalidFunctionParameter
+
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:1 char:17
++ param([string[]]\)
++                 ~
+Parameter declarations are a comma-separated list of variable names with optional initializer
+expressions.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:1 char:17
++ param([string[]]\)
++                 ~
+Missing ')' in function parameter list.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:2 char:10
++ foreach (\ in \) {
++          ~
+Missing variable name after foreach.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:2 char:16
++ foreach (\ in \) {
++                ~
+Unexpected token ')' in expression or statement.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : InvalidFunctionParameter
+
+Project scaffolding with tags and subdirectories created at C:\David\my_repos_dwb\fhtw-paper-code-prep/test_project
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> cat
+
+cmdlet Get-Content at command pipeline position 1
+Supply values for the following parameters:
+Path[0]:
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> cat .\structure.ps1
+param(
+    [string]$RootDir = "$PWD\new_experiment_dir",
+    [string[]]$Tags = @("default")
+)
+
+# Ensure root directory exists
+if (-not (Test-Path $RootDir)) { New-Item -ItemType Directory -Path $RootDir | Out-Null }
+
+# Create a helper script for touching files
+$TouchScript = Join-Path $RootDir "scripts\ps_touch.ps1"
+if (-not (Test-Path $TouchScript)) {
+    New-Item -ItemType Directory -Path (Split-Path $TouchScript) -Force | Out-Null
+    @"
+param([string[]]\$Paths)
+foreach (\$p in \$Paths) {
+    \$file = Resolve-Path -Path \$p -ErrorAction SilentlyContinue
+    \$dir = Split-Path \$p
+    if (-not (Test-Path \$dir)) { New-Item -ItemType Directory -Path \$dir | Out-Null }
+    if (-not (Test-Path \$p)) { New-Item -ItemType File -Path \$p | Out-Null }
+}
+"@ | Set-Content -LiteralPath $TouchScript
+}
+
+# Files to create
+$Files = @(
+    "README.md",
+    "notebooks\00_data_exploration.ipynb",
+    "notebooks\01_model_build.ipynb",
+    "notebooks\02_training.ipynb",
+    "notebooks\03_inference_quick_explore.ipynb",
+    "scripts\py_build_model.py",
+    "scripts\build_model.ps1",
+    "scripts\py_train_model.py",
+    "scripts\train_model.ps1",
+    "scripts\py_inference.py",
+    "scripts\inference.ps1",
+    "scripts\py_utils.py"
+)
+
+foreach ($tag in $Tags) {
+    $TagDir = Join-Path $RootDir $tag
+
+    # Create main directories
+    $Dirs = @("notebooks", "datasets", "models", "logs", "scripts", "visualizations", "outputs\csv_logs", "outputs\gradcam_images")
+    foreach ($d in $Dirs) { New-Item -ItemType Directory -Path (Join-Path $TagDir $d) -Force | Out-Null }
+
+    # Create files with tag appended to stem
+    foreach ($f in $Files) {
+        $base = [System.IO.Path]::GetFileNameWithoutExtension($f)
+        $ext  = [System.IO.Path]::GetExtension($f)
+        $tagged = Join-Path $TagDir "$base`_$tag$ext"
+        & powershell -File $TouchScript -Paths $tagged
+    }
+}
+
+Write-Host "Project scaffolding with tags and subdirectories created at $RootDir"
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> ls
+
+
+    Directory: C:\David\my_repos_dwb\fhtw-paper-code-prep
+
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d-----         8/26/2025   8:46 PM                dataset_preparation_examples
+d-----         8/27/2025   8:29 PM                experiment_environment_examples
+d-----         8/30/2025  12:15 PM                general_lab_notebooks_-_other_examples
+d-----         8/25/2025  11:08 AM                img
+d-----         8/30/2025   1:30 PM                test_project
+-a----         8/27/2025   8:49 PM           4927 .gitattributes
+-a----         8/27/2025   2:13 PM           5656 .gitignore
+-a----         8/28/2025   3:04 PM         357690 cmd_for_notebook_local_and_pre_aws_env.log
+-a----         8/28/2025  12:46 PM           1685 environment_vanillacnn.yml
+-a----          7/8/2025   2:14 PM           1068 LICENSE
+-a----          7/8/2025   2:14 PM         111378 Paper_Code_Prep_01-a_CNN_GradCAM_TF.ipynb
+-a----         7/22/2025  10:45 AM          15087 README.md
+-a----         8/28/2025   4:02 PM           2288 structure.bat
+-a----         8/30/2025   1:27 PM           1960 structure.ps1
+-a----         8/28/2025  11:54 AM            980 structure.sh
+-a----         8/28/2025  12:41 PM           3760 validate_env.py
+
+
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> tree /a /f
+Folder PATH listing for volume OS
+Volume serial number is 8669-AC6F
+C:.
+|   .gitattributes
+|   .gitignore
+|   cmd_for_notebook_local_and_pre_aws_env.log
+|   environment_vanillacnn.yml
+|   LICENSE
+|   Paper_Code_Prep_01-a_CNN_GradCAM_TF.ipynb
+|   README.md
+|   structure.bat
+|   structure.ps1
+|   structure.sh
+|   validate_env.py
+|
++---dataset_preparation_examples
+|       actually_consistency_izing_the_files_2_2025-08-03.log
+|       actually_consistency_izing_the_files_3_1_2025-08-09.log
+|       all_filenames_replacement.txt
+|       bakscriptincase_consistency_Lab_Notebook_bballdave025_1753488168_2025-07-25T180248-0600_clean.log
+|       commands_for_consistency_checking_3lett_labels.txt
+|       complete_steps_complete_pdf_through_jpeg_all_io_with_mistakes_etc_and_ascii.log
+|       cygwin_saved_2023-08-14.txt
+|       folders_making_loops.txt
+|       guide_example_for_ensuring_filename_characters_are_okay.log
+|       in_cygwin_backup_2025-08-18T192300-0600.txt
+|       label_checking_01_Lab_Notebook_bballdave025_1753329287_2025-07-23T215447-0600_clean.log
+|       Lab_Notebook_bballdave025_1753740594_2025-07-28T160954-0600_clean.log
+|       Lab_Notebook_bballdave025_1753921922_2025-07-30T183202-0600_clean.log
+|       Lab_Notebook_bballdave025_1755369231_2025-08-16T123351-0600_clean.log
+|       Lab_Notebook_consistency_and_characters_in_fnames_2025-07-28.log
+|       steps_check_classificiations_are_consistent_-_regexes.md
+|       steps_check_well_behaved_ascii_only_fnames_-_regexes.md
+|       steps_grayscale_to_rgb_24_bit_ie_1_to_3_channel_jpeg.log
+|       steps_pdf_through_jpeg.log
+|       steps_pdf_through_jpeg.md
+|       steps_rename_utrecht.log
+|       steps_rename_utrecht.md
+|       steps_walkthrough_pdf_through_jpeg.log
+|       useful_fhtw_2025_aliases_regexes.log
+|
++---experiment_environment_examples
++---general_lab_notebooks_-_other_examples
+|       lab_notebook_1756385640_2025-08-28T125400-0600.md
+|       lab_notebook_bballdave025_1756554507_2025-08-30T124827-0500.docx
+|       lab_notebook_bballdave025_1756554507_2025-08-30T124827-0500.md
+|
++---img
+|       BW_post_from_905_col_terminal.png
+|       BW_pre_conv_from_903_col_terminal_-_Best.png
+|       consistentized_3331_dataset.txt
+|       fs_watermarks_etc_pre_conversion_1753209154_2025-07-22T123234-0600.out
+|       README.md
+|       seeofit1_edit.png
+|       seeofit1_edit_crop.png
+|       seeofit2_edit.png
+|       seeofit2_edit_crop.png
+|       WinFileExplorer_bitdepth_gs_post_conv.png
+|       WinFileExplorer_bitdepth_gs_pre_conv.png
+|
+\---test_project
+    +---p_01
+    |   +---datasets
+    |   +---logs
+    |   +---models
+    |   +---notebooks
+    |   +---outputs
+    |   |   +---csv_logs
+    |   |   \---gradcam_images
+    |   +---scripts
+    |   \---visualizations
+    \---scripts
+            ps_touch.ps1
+
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> PS C:\David\my_repos_dwb\fhtw-paper-code-prep> $RootTest = "$PWD/test_project"                        PS C:\David\my_repos_dwb\fhtw-paper-code-prep> powershell -ExecutionPolicy Bypass -File .\structure.ps1 -RootDir $RootTest -Tags "p_01" "p_02"
+Get-Process : A positional parameter cannot be found that accepts argument
+'C:\David\my_repos_dwb\fhtw-paper-code-prep/test_project'.
+At line:1 char:1
++ PS C:\David\my_repos_dwb\fhtw-paper-code-prep> $RootTest = "$PWD/test ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Get-Process], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.GetProcessCo
+   mmand
+
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:1 char:17
+The AT command has been deprecated. Please use schtasks.exe instead.
+
+Invalid command.
+
+The AT command schedules commands and programs to run on a computer at
+a specified time and date. The Schedule service must be running to use
+the AT command.
+
+AT [\\computername] [ [id] [/DELETE] | /DELETE [/YES]]
+AT [\\computername] time [/INTERACTIVE]
+    [ /EVERY:date[,...] | /NEXT:date[,...]] "command"
+
+\\computername     Specifies a remote computer. Commands are scheduled on the
+                   local computer if this parameter is omitted.
+id                 Is an identification number assigned to a scheduled
+                   command.
+/delete            Cancels a scheduled command. If id is omitted, all the
+                   scheduled commands on the computer are canceled.
+/yes               Used with cancel all jobs command when no further
+                   confirmation is desired.
+time               Specifies the time when command is to run.
+/interactive       Allows the job to interact with the desktop of the user
+                   who is logged on at the time the job runs.
+/every:date[,...]  Runs the command on each specified day(s) of the week or
+                   month. If date is omitted, the current day of the month
+                   is assumed.
+/next:date[,...]   Runs the specified command on the next occurrence of the
+                   day (for example, next Thursday).  If date is omitted, the
+                   current day of the month is assumed.
+"command"          Is the Windows NT command, or batch program to be run.
+
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> + param([string[]]\)
+At line:1 char:2
++ + param([string[]]\)
++  ~
+Missing expression after unary operator '+'.
+At line:1 char:3
++ + param([string[]]\)
++   ~~~~~
+Unexpected token 'param' in expression or statement.
+At line:1 char:19
++ + param([string[]]\)
++                   ~
+Unexpected token '\' in expression or statement.
+At line:1 char:19
++ + param([string[]]\)
++                   ~
+Missing closing ')' in expression.
+At line:1 char:20
++ + param([string[]]\)
++                    ~
+Unexpected token ')' in expression or statement.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : MissingExpressionAfterOperator
+
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> +                 ~
+At line:1 char:2
++ +                 ~
++  ~
+Missing expression after unary operator '+'.
+At line:1 char:19
++ +                 ~
++                   ~
+Unexpected token '~' in expression or statement.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : MissingExpressionAfterOperator
+
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> Parameter declarations are a comma-separated list of variable names with optional initializer
+Parameter : The term 'Parameter' is not recognized as the name of a cmdlet, function, script file,
+or operable program. Check the spelling of the name, or if a path was included, verify that the path
+is correct and try again.
+At line:1 char:1
++ Parameter declarations are a comma-separated list of variable names w ...
++ ~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (Parameter:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> expressions.
+expressions. : The term 'expressions.' is not recognized as the name of a cmdlet, function, script
+file, or operable program. Check the spelling of the name, or if a path was included, verify that
+the path is correct and try again.
+At line:1 char:1
++ expressions.
++ ~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (expressions.:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:1 char:17
+The AT command has been deprecated. Please use schtasks.exe instead.
+
+Invalid command.
+
+The AT command schedules commands and programs to run on a computer at
+a specified time and date. The Schedule service must be running to use
+the AT command.
+
+AT [\\computername] [ [id] [/DELETE] | /DELETE [/YES]]
+AT [\\computername] time [/INTERACTIVE]
+    [ /EVERY:date[,...] | /NEXT:date[,...]] "command"
+
+\\computername     Specifies a remote computer. Commands are scheduled on the
+                   local computer if this parameter is omitted.
+id                 Is an identification number assigned to a scheduled
+                   command.
+/delete            Cancels a scheduled command. If id is omitted, all the
+                   scheduled commands on the computer are canceled.
+/yes               Used with cancel all jobs command when no further
+                   confirmation is desired.
+time               Specifies the time when command is to run.
+/interactive       Allows the job to interact with the desktop of the user
+                   who is logged on at the time the job runs.
+/every:date[,...]  Runs the command on each specified day(s) of the week or
+                   month. If date is omitted, the current day of the month
+                   is assumed.
+/next:date[,...]   Runs the specified command on the next occurrence of the
+                   day (for example, next Thursday).  If date is omitted, the
+                   current day of the month is assumed.
+"command"          Is the Windows NT command, or batch program to be run.
+
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> + param([string[]]\)
+At line:1 char:2
++ + param([string[]]\)
++  ~
+Missing expression after unary operator '+'.
+At line:1 char:3
++ + param([string[]]\)
++   ~~~~~
+Unexpected token 'param' in expression or statement.
+At line:1 char:19
++ + param([string[]]\)
++                   ~
+Unexpected token '\' in expression or statement.
+At line:1 char:19
++ + param([string[]]\)
++                   ~
+Missing closing ')' in expression.
+At line:1 char:20
++ + param([string[]]\)
++                    ~
+Unexpected token ')' in expression or statement.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : MissingExpressionAfterOperator
+
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> +                 ~
+At line:1 char:2
++ +                 ~
++  ~
+Missing expression after unary operator '+'.
+At line:1 char:19
++ +                 ~
++                   ~
+Unexpected token '~' in expression or statement.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : MissingExpressionAfterOperator
+
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> Missing ')' in function parameter list.
+Missing : The term 'Missing' is not recognized as the name of a cmdlet, function, script file, or
+operable program. Check the spelling of the name, or if a path was included, verify that the path is
+correct and try again.
+At line:1 char:1
++ Missing ')' in function parameter list.
++ ~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (Missing:String) [], CommandNotFoundException
+    + FullyQualifiedErrorId : CommandNotFoundException
+
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:2 char:10
+The AT command has been deprecated. Please use schtasks.exe instead.
+
+Invalid command.
+
+The AT command schedules commands and programs to run on a computer at
+a specified time and date. The Schedule service must be running to use
+the AT command.
+
+AT [\\computername] [ [id] [/DELETE] | /DELETE [/YES]]
+AT [\\computername] time [/INTERACTIVE]
+    [ /EVERY:date[,...] | /NEXT:date[,...]] "command"
+
+\\computername     Specifies a remote computer. Commands are scheduled on the
+                   local computer if this parameter is omitted.
+id                 Is an identification number assigned to a scheduled
+                   command.
+/delete            Cancels a scheduled command. If id is omitted, all the
+                   scheduled commands on the computer are canceled.
+/yes               Used with cancel all jobs command when no further
+                   confirmation is desired.
+time               Specifies the time when command is to run.
+/interactive       Allows the job to interact with the desktop of the user
+                   who is logged on at the time the job runs.
+/every:date[,...]  Runs the command on each specified day(s) of the week or
+                   month. If date is omitted, the current day of the month
+                   is assumed.
+/next:date[,...]   Runs the specified command on the next occurrence of the
+                   day (for example, next Thursday).  If date is omitted, the
+                   current day of the month is assumed.
+"command"          Is the Windows NT command, or batch program to be run.
+
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> + foreach (\ in \) {
+>> +          ~
+>> Missing variable name after foreach.
+>> At C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\scripts\ps_touch.ps1:2 char:16
+>> + foreach (\ in \) {
+>> +                ~
+>> Unexpected token ')' in expression or statement.
+>>     + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+>>     + FullyQualifiedErrorId : InvalidFunctionParameter^C
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> ^C
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> ^C
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> ^C
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> ^C
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> ^C
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> ^C
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> tree /a /f                                             Folder PATH listing for volume OS
+Volume serial number is 8669-AC6F
+C:.
+|   .gitattributes
+|   .gitignore
+|   cmd_for_notebook_local_and_pre_aws_env.log
+|   environment_vanillacnn.yml
+|   LICENSE
+|   Paper_Code_Prep_01-a_CNN_GradCAM_TF.ipynb
+|   README.md
+|   structure.bat
+|   structure.ps1
+|   structure.sh
+|   validate_env.py
+|
++---dataset_preparation_examples
+|       actually_consistency_izing_the_files_2_2025-08-03.log
+|       actually_consistency_izing_the_files_3_1_2025-08-09.log
+|       all_filenames_replacement.txt
+|       bakscriptincase_consistency_Lab_Notebook_bballdave025_1753488168_2025-07-25T180248-0600_clean.log
+|       commands_for_consistency_checking_3lett_labels.txt
+|       complete_steps_complete_pdf_through_jpeg_all_io_with_mistakes_etc_and_ascii.log
+|       cygwin_saved_2023-08-14.txt
+|       folders_making_loops.txt
+|       guide_example_for_ensuring_filename_characters_are_okay.log
+|       in_cygwin_backup_2025-08-18T192300-0600.txt
+|       label_checking_01_Lab_Notebook_bballdave025_1753329287_2025-07-23T215447-0600_clean.log
+|       Lab_Notebook_bballdave025_1753740594_2025-07-28T160954-0600_clean.log
+|       Lab_Notebook_bballdave025_1753921922_2025-07-30T183202-0600_clean.log
+|       Lab_Notebook_bballdave025_1755369231_2025-08-16T123351-0600_clean.log
+|       Lab_Notebook_consistency_and_characters_in_fnames_2025-07-28.log
+|       steps_check_classificiations_are_consistent_-_regexes.md
+|       steps_check_well_behaved_ascii_only_fnames_-_regexes.md
+|       steps_grayscale_to_rgb_24_bit_ie_1_to_3_channel_jpeg.log
+|       steps_pdf_through_jpeg.log
+|       steps_pdf_through_jpeg.md
+|       steps_rename_utrecht.log
+|       steps_rename_utrecht.md
+|       steps_walkthrough_pdf_through_jpeg.log
+|       useful_fhtw_2025_aliases_regexes.log
+|
++---experiment_environment_examples
++---general_lab_notebooks_-_other_examples
+|       lab_notebook_1756385640_2025-08-28T125400-0600.md
+|       lab_notebook_bballdave025_1756554507_2025-08-30T124827-0500.docx
+|       lab_notebook_bballdave025_1756554507_2025-08-30T124827-0500.md
+|
++---img
+|       BW_post_from_905_col_terminal.png
+|       BW_pre_conv_from_903_col_terminal_-_Best.png
+|       consistentized_3331_dataset.txt
+|       fs_watermarks_etc_pre_conversion_1753209154_2025-07-22T123234-0600.out
+|       README.md
+|       seeofit1_edit.png
+|       seeofit1_edit_crop.png
+|       seeofit2_edit.png
+|       seeofit2_edit_crop.png
+|       WinFileExplorer_bitdepth_gs_post_conv.png
+|       WinFileExplorer_bitdepth_gs_pre_conv.png
+|
+\---test_project
+    +---p_01
+    |   +---datasets
+    |   +---logs
+    |   +---models
+    |   +---notebooks
+    |   +---outputs
+    |   |   +---csv_logs
+    |   |   \---gradcam_images
+    |   +---scripts
+    |   \---visualizations
+    \---scripts
+            ps_touch.ps1
+
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> powershell -ExecutionPolicy Bypass -File .\structure.ps1 -RootDir $RootTest -Tags "p_01" "p_02"^C
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> ^C
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> ^C
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> ^C
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> Remove-Item -Recurse -Force .\test_project\
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> tree /a /f
+Folder PATH listing for volume OS
+Volume serial number is 8669-AC6F
+C:.
+|   .gitattributes
+|   .gitignore
+|   cmd_for_notebook_local_and_pre_aws_env.log
+|   environment_vanillacnn.yml
+|   LICENSE
+|   Paper_Code_Prep_01-a_CNN_GradCAM_TF.ipynb
+|   README.md
+|   structure.bat
+|   structure.ps1
+|   structure.sh
+|   validate_env.py
+|
++---dataset_preparation_examples
+|       actually_consistency_izing_the_files_2_2025-08-03.log
+|       actually_consistency_izing_the_files_3_1_2025-08-09.log
+|       all_filenames_replacement.txt
+|       bakscriptincase_consistency_Lab_Notebook_bballdave025_1753488168_2025-07-25T180248-0600_clean.log
+|       commands_for_consistency_checking_3lett_labels.txt
+|       complete_steps_complete_pdf_through_jpeg_all_io_with_mistakes_etc_and_ascii.log
+|       cygwin_saved_2023-08-14.txt
+|       folders_making_loops.txt
+|       guide_example_for_ensuring_filename_characters_are_okay.log
+|       in_cygwin_backup_2025-08-18T192300-0600.txt
+|       label_checking_01_Lab_Notebook_bballdave025_1753329287_2025-07-23T215447-0600_clean.log
+|       Lab_Notebook_bballdave025_1753740594_2025-07-28T160954-0600_clean.log
+|       Lab_Notebook_bballdave025_1753921922_2025-07-30T183202-0600_clean.log
+|       Lab_Notebook_bballdave025_1755369231_2025-08-16T123351-0600_clean.log
+|       Lab_Notebook_consistency_and_characters_in_fnames_2025-07-28.log
+|       steps_check_classificiations_are_consistent_-_regexes.md
+|       steps_check_well_behaved_ascii_only_fnames_-_regexes.md
+|       steps_grayscale_to_rgb_24_bit_ie_1_to_3_channel_jpeg.log
+|       steps_pdf_through_jpeg.log
+|       steps_pdf_through_jpeg.md
+|       steps_rename_utrecht.log
+|       steps_rename_utrecht.md
+|       steps_walkthrough_pdf_through_jpeg.log
+|       useful_fhtw_2025_aliases_regexes.log
+|
++---experiment_environment_examples
++---general_lab_notebooks_-_other_examples
+|       lab_notebook_1756385640_2025-08-28T125400-0600.md
+|       lab_notebook_bballdave025_1756554507_2025-08-30T124827-0500.docx
+|       lab_notebook_bballdave025_1756554507_2025-08-30T124827-0500.md
+|
+\---img
+        BW_post_from_905_col_terminal.png
+        BW_pre_conv_from_903_col_terminal_-_Best.png
+        consistentized_3331_dataset.txt
+        fs_watermarks_etc_pre_conversion_1753209154_2025-07-22T123234-0600.out
+        README.md
+        seeofit1_edit.png
+        seeofit1_edit_crop.png
+        seeofit2_edit.png
+        seeofit2_edit_crop.png
+        WinFileExplorer_bitdepth_gs_post_conv.png
+        WinFileExplorer_bitdepth_gs_pre_conv.png
+
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> $RootTest = $PWD/test_project
+At line:1 char:18
++ $RootTest = $PWD/test_project
++                  ~
+You must provide a value expression following the '/' operator.
+At line:1 char:18
++ $RootTest = $PWD/test_project
++                  ~~~~~~~~~~~~
+Unexpected token 'test_project' in expression or statement.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : ExpectedValueExpression
+
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> $RootTest = $PWD\test_project
+At line:1 char:17
++ $RootTest = $PWD\test_project
++                 ~~~~~~~~~~~~~
+Unexpected token '\test_project' in expression or statement.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : UnexpectedToken
+
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> $RootTest = "$PWD/test_project"
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> powershell -ExecutionPolicy Bypass -File .\structure.ps1 -RootDir $RootTest -Tags "p_01" "p_02"
+Project scaffolding with tags and subdirectories created at C:\David\my_repos_dwb\fhtw-paper-code-prep/test_project
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> tree /a /f
+Folder PATH listing for volume OS
+Volume serial number is 8669-AC6F
+C:.
+|   .gitattributes
+|   .gitignore
+|   cmd_for_notebook_local_and_pre_aws_env.log
+|   environment_vanillacnn.yml
+|   LICENSE
+|   Paper_Code_Prep_01-a_CNN_GradCAM_TF.ipynb
+|   README.md
+|   structure.bat
+|   structure.ps1
+|   structure.sh
+|   validate_env.py
+|
++---dataset_preparation_examples
+|       actually_consistency_izing_the_files_2_2025-08-03.log
+|       actually_consistency_izing_the_files_3_1_2025-08-09.log
+|       all_filenames_replacement.txt
+|       bakscriptincase_consistency_Lab_Notebook_bballdave025_1753488168_2025-07-25T180248-0600_clean.log
+|       commands_for_consistency_checking_3lett_labels.txt
+|       complete_steps_complete_pdf_through_jpeg_all_io_with_mistakes_etc_and_ascii.log
+|       cygwin_saved_2023-08-14.txt
+|       folders_making_loops.txt
+|       guide_example_for_ensuring_filename_characters_are_okay.log
+|       in_cygwin_backup_2025-08-18T192300-0600.txt
+|       label_checking_01_Lab_Notebook_bballdave025_1753329287_2025-07-23T215447-0600_clean.log
+|       Lab_Notebook_bballdave025_1753740594_2025-07-28T160954-0600_clean.log
+|       Lab_Notebook_bballdave025_1753921922_2025-07-30T183202-0600_clean.log
+|       Lab_Notebook_bballdave025_1755369231_2025-08-16T123351-0600_clean.log
+|       Lab_Notebook_consistency_and_characters_in_fnames_2025-07-28.log
+|       steps_check_classificiations_are_consistent_-_regexes.md
+|       steps_check_well_behaved_ascii_only_fnames_-_regexes.md
+|       steps_grayscale_to_rgb_24_bit_ie_1_to_3_channel_jpeg.log
+|       steps_pdf_through_jpeg.log
+|       steps_pdf_through_jpeg.md
+|       steps_rename_utrecht.log
+|       steps_rename_utrecht.md
+|       steps_walkthrough_pdf_through_jpeg.log
+|       useful_fhtw_2025_aliases_regexes.log
+|
++---experiment_environment_examples
++---general_lab_notebooks_-_other_examples
+|       lab_notebook_1756385640_2025-08-28T125400-0600.md
+|       lab_notebook_bballdave025_1756554507_2025-08-30T124827-0500.docx
+|       lab_notebook_bballdave025_1756554507_2025-08-30T124827-0500.md
+|
++---img
+|       BW_post_from_905_col_terminal.png
+|       BW_pre_conv_from_903_col_terminal_-_Best.png
+|       consistentized_3331_dataset.txt
+|       fs_watermarks_etc_pre_conversion_1753209154_2025-07-22T123234-0600.out
+|       README.md
+|       seeofit1_edit.png
+|       seeofit1_edit_crop.png
+|       seeofit2_edit.png
+|       seeofit2_edit_crop.png
+|       WinFileExplorer_bitdepth_gs_post_conv.png
+|       WinFileExplorer_bitdepth_gs_pre_conv.png
+|
+\---test_project
+    \---p_01
+        |   00_data_exploration_p_01.ipynb
+        |   01_model_build_p_01.ipynb
+        |   02_training_p_01.ipynb
+        |   03_inference_quick_explore_p_01.ipynb
+        |   build_model_p_01.ps1
+        |   inference_p_01.ps1
+        |   py_build_model_p_01.py
+        |   py_inference_p_01.py
+        |   py_train_model_p_01.py
+        |   py_utils_p_01.py
+        |   README_p_01.md
+        |   train_model_p_01.ps1
+        |
+        +---datasets
+        +---logs
+        +---models
+        +---notebooks
+        +---outputs
+        |   +---csv_logs
+        |   \---gradcam_images
+        +---scripts
+        \---visualizations
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> powershell Get-ChildItem -Recurse | Sort-Object FullName | ForEach-Object { ($_ -replace '[^\\]+\\', ' ') + ($_ | Split-Path -Leaf) }
+-a----         7/22/2025   9:51 PM          14515 seeofit2_edit_crop.png                             2025   9:51 PM          14515 seeofit2_edit_crop.png
+-a----         7/22/2025   9:44 PM          26728 seeofit2_edit.png                                  2025   9:44 PM          26728 seeofit2_edit.png
+-a----         7/22/2025   8:43 PM          81171 WinFileExplorer_bitdepth_gs_pre_conv.png           2025   8:43 PM          81171 WinFileExplorer_bitdepth_gs_pre_conv.png
+-a----         7/22/2025   9:23 PM          87774 WinFileExplorer_bitdepth_gs_post_conv.png          2025   9:23 PM          87774 WinFileExplorer_bitdepth_gs_post_conv.png
+-a----         7/22/2025   7:49 AM            107 README.md                                          2025   7:49 AM            107 README.md
+                                                  -22T123234-0600.out                                                                                  -22T123234-0600.out
+-a----         7/22/2025   6:48 PM          61826 seeofit1_edit_crop.png                             2025   6:48 PM          61826 seeofit1_edit_crop.png
+-a----         7/22/2025   1:21 PM          26856 seeofit1_edit.png                                  2025   1:21 PM          26856 seeofit1_edit.png
+Split-Path : Cannot bind argument to parameter 'Path' because it is an empty string.
+At line:1 char:115
++ ... ch-Object { ($_ -replace '[^\\]+\\', ' ') + ($_ | Split-Path -Leaf) }
++                                                       ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:PSObject) [Split-Path], ParameterBindingValidationExcep
+   tion
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorEmptyStringNotAllowed,Microsoft.PowerS
+   hell.Commands.SplitPathCommand
+
+
+----                 -------------         ------ ----                                               ----                 -------------         ------ ----
+Mode                 LastWriteTime         Length Name                                               Mode                 LastWriteTime         Length Name
+Split-Path : Cannot bind argument to parameter 'Path' because it is an empty string.
+At line:1 char:115
++ ... ch-Object { ($_ -replace '[^\\]+\\', ' ') + ($_ | Split-Path -Leaf) }
++                                                       ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:PSObject) [Split-Path], ParameterBindingValidationExcep
+   tion
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorEmptyStringNotAllowed,Microsoft.PowerS
+   hell.Commands.SplitPathCommand
+
+
+d-----         8/30/2025   2:16 PM                p_01                                               2025   2:16 PM                p_01
+    test_projecttest_project
+Split-Path : Cannot bind argument to parameter 'Path' because it is an empty string.
+At line:1 char:115
++ ... ch-Object { ($_ -replace '[^\\]+\\', ' ') + ($_ | Split-Path -Leaf) }
++                                                       ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:PSObject) [Split-Path], ParameterBindingValidationExcep
+   tion
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorEmptyStringNotAllowed,Microsoft.PowerS
+   hell.Commands.SplitPathCommand
+
+
+Split-Path : Cannot bind argument to parameter 'Path' because it is an empty string.
+At line:1 char:115
++ ... ch-Object { ($_ -replace '[^\\]+\\', ' ') + ($_ | Split-Path -Leaf) }
++                                                       ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:PSObject) [Split-Path], ParameterBindingValidationExcep
+   tion
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorEmptyStringNotAllowed,Microsoft.PowerS
+   hell.Commands.SplitPathCommand
+
+
+Split-Path : Cannot bind argument to parameter 'Path' because it is an empty string.
+At line:1 char:115
++ ... ch-Object { ($_ -replace '[^\\]+\\', ' ') + ($_ | Split-Path -Leaf) }
++                                                       ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:PSObject) [Split-Path], ParameterBindingValidationExcep
+   tion
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorEmptyStringNotAllowed,Microsoft.PowerS
+   hell.Commands.SplitPathCommand
+
+
+-a----         7/22/2025  12:34 PM            994 fs_watermarks_etc_pre_conversion_1753209154_2025-072025  12:34 PM            994 fs_watermarks_etc_pre_conversion_1753209154_2025-07
+-a----         8/30/2025   1:19 PM          11153 lab_notebook_bballdave025_1756554507_2025-08-30T1242025   1:19 PM          11153 lab_notebook_bballdave025_1756554507_2025-08-30T124
+                                                  827-0500.docx                                                                                        827-0500.docx
+Split-Path : Cannot bind argument to parameter 'Path' because it is an empty string.
+At line:1 char:115
++ ... ch-Object { ($_ -replace '[^\\]+\\', ' ') + ($_ | Split-Path -Leaf) }
++                                                       ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:PSObject) [Split-Path], ParameterBindingValidationExcep
+   tion
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorEmptyStringNotAllowed,Microsoft.PowerS
+   hell.Commands.SplitPathCommand
+
+
+                                                  827-0500.md                                                                                          827-0500.md
+----                 -------------         ------ ----                                               ----                 -------------         ------ ----
+Mode                 LastWriteTime         Length Name                                               Mode                 LastWriteTime         Length Name
+-a----         8/30/2025  12:15 PM         541975 lab_notebook_bballdave025_1756554507_2025-08-30T1242025  12:15 PM         541975 lab_notebook_bballdave025_1756554507_2025-08-30T124
+-a----         8/28/2025  12:54 PM           1568 lab_notebook_1756385640_2025-08-28T125400-0600.md  2025  12:54 PM           1568 lab_notebook_1756385640_2025-08-28T125400-0600.md
+Split-Path : Cannot bind argument to parameter 'Path' because it is an empty string.
+At line:1 char:115
++ ... ch-Object { ($_ -replace '[^\\]+\\', ' ') + ($_ | Split-Path -Leaf) }
++                                                       ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:PSObject) [Split-Path], ParameterBindingValidationExcep
+   tion
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorEmptyStringNotAllowed,Microsoft.PowerS
+   hell.Commands.SplitPathCommand
+
+
+-a----         7/22/2025  10:40 PM         177303 BW_post_from_905_col_terminal.png                  2025  10:40 PM         177303 BW_post_from_905_col_terminal.png
+----                 -------------         ------ ----                                               ----                 -------------         ------ ----
+-a----         8/25/2025  11:08 AM         235390 consistentized_3331_dataset.txt                    2025  11:08 AM         235390 consistentized_3331_dataset.txt
+-a----         7/22/2025   8:11 PM         150810 BW_pre_conv_from_903_col_terminal_-_Best.png       2025   8:11 PM         150810 BW_pre_conv_from_903_col_terminal_-_Best.png
+Split-Path : Cannot bind argument to parameter 'Path' because it is an empty string.
+At line:1 char:115
++ ... ch-Object { ($_ -replace '[^\\]+\\', ' ') + ($_ | Split-Path -Leaf) }
++                                                       ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:PSObject) [Split-Path], ParameterBindingValidationExcep
+   tion
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorEmptyStringNotAllowed,Microsoft.PowerS
+   hell.Commands.SplitPathCommand
+
+
+    imgimg
+Mode                 LastWriteTime         Length Name                                               Mode                 LastWriteTime         Length Name
+Split-Path : Cannot bind argument to parameter 'Path' because it is an empty string.
+At line:1 char:115
++ ... ch-Object { ($_ -replace '[^\\]+\\', ' ') + ($_ | Split-Path -Leaf) }
++                                                       ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:PSObject) [Split-Path], ParameterBindingValidationExcep
+   tion
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorEmptyStringNotAllowed,Microsoft.PowerS
+   hell.Commands.SplitPathCommand
+
+
+Split-Path : Cannot bind argument to parameter 'Path' because it is an empty string.
+At line:1 char:115
++ ... ch-Object { ($_ -replace '[^\\]+\\', ' ') + ($_ | Split-Path -Leaf) }
++                                                       ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:PSObject) [Split-Path], ParameterBindingValidationExcep
+   tion
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorEmptyStringNotAllowed,Microsoft.PowerS
+   hell.Commands.SplitPathCommand
+
+
+-a----         8/30/2025   2:16 PM              0 train_model_p_01.ps1                               2025   2:16 PM              0 train_model_p_01.ps1
+-a----         8/30/2025   2:16 PM              0 README_p_01.md                                     2025   2:16 PM              0 README_p_01.md
+Split-Path : Cannot bind argument to parameter 'Path' because it is an empty string.
+At line:1 char:115
++ ... ch-Object { ($_ -replace '[^\\]+\\', ' ') + ($_ | Split-Path -Leaf) }
++                                                       ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:PSObject) [Split-Path], ParameterBindingValidationExcep
+   tion
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorEmptyStringNotAllowed,Microsoft.PowerS
+   hell.Commands.SplitPathCommand
+
+
+Split-Path : Cannot bind argument to parameter 'Path' because it is an empty string.
+At line:1 char:115
++ ... ch-Object { ($_ -replace '[^\\]+\\', ' ') + ($_ | Split-Path -Leaf) }
++                                                       ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:PSObject) [Split-Path], ParameterBindingValidationExcep
+   tion
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorEmptyStringNotAllowed,Microsoft.PowerS
+   hell.Commands.SplitPathCommand
+
+
+-a----         8/30/2025   2:16 PM              0 py_inference_p_01.py                               2025   2:16 PM              0 py_inference_p_01.py
+-a----         8/30/2025   2:16 PM              0 py_build_model_p_01.py                             2025   2:16 PM              0 py_build_model_p_01.py
+-a----         8/30/2025   2:16 PM              0 py_utils_p_01.py                                   2025   2:16 PM              0 py_utils_p_01.py
+-a----         8/30/2025   2:16 PM              0 py_train_model_p_01.py                             2025   2:16 PM              0 py_train_model_p_01.py
+      outputsoutputs
+d-----         8/30/2025   2:16 PM                gradcam_images                                     2025   2:16 PM                gradcam_images
+d-----         8/30/2025   2:16 PM                csv_logs                                           2025   2:16 PM                csv_logs
+Split-Path : Cannot bind argument to parameter 'Path' because it is an empty string.
+At line:1 char:115
++ ... ch-Object { ($_ -replace '[^\\]+\\', ' ') + ($_ | Split-Path -Leaf) }
++                                                       ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:PSObject) [Split-Path], ParameterBindingValidationExcep
+   tion
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorEmptyStringNotAllowed,Microsoft.PowerS
+   hell.Commands.SplitPathCommand
+
+
+Split-Path : Cannot bind argument to parameter 'Path' because it is an empty string.
+At line:1 char:115
++ ... ch-Object { ($_ -replace '[^\\]+\\', ' ') + ($_ | Split-Path -Leaf) }
++                                                       ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:PSObject) [Split-Path], ParameterBindingValidationExcep
+   tion
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorEmptyStringNotAllowed,Microsoft.PowerS
+   hell.Commands.SplitPathCommand
+
+
+Split-Path : Cannot bind argument to parameter 'Path' because it is an empty string.
+At line:1 char:115
++ ... ch-Object { ($_ -replace '[^\\]+\\', ' ') + ($_ | Split-Path -Leaf) }
++                                                       ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:PSObject) [Split-Path], ParameterBindingValidationExcep
+   tion
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorEmptyStringNotAllowed,Microsoft.PowerS
+   hell.Commands.SplitPathCommand
+
+
+Split-Path : Cannot bind argument to parameter 'Path' because it is an empty string.
+At line:1 char:115
++ ... ch-Object { ($_ -replace '[^\\]+\\', ' ') + ($_ | Split-Path -Leaf) }
++                                                       ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:PSObject) [Split-Path], ParameterBindingValidationExcep
+   tion
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorEmptyStringNotAllowed,Microsoft.PowerS
+   hell.Commands.SplitPathCommand
+
+
+----                 -------------         ------ ----                                               ----                 -------------         ------ ----
+Mode                 LastWriteTime         Length Name                                               Mode                 LastWriteTime         Length Name
+-a----         8/30/2025   2:16 PM              0 inference_p_01.ps1                                 2025   2:16 PM              0 inference_p_01.ps1
+d-----         8/30/2025   2:16 PM                datasets                                           2025   2:16 PM                datasets
+----                 -------------         ------ ----                                               ----                 -------------         ------ ----
+d-----         8/30/2025   2:16 PM                models                                             2025   2:16 PM                models
+d-----         8/30/2025   2:16 PM                logs                                               2025   2:16 PM                logs
+Split-Path : Cannot bind argument to parameter 'Path' because it is an empty string.
+At line:1 char:115
++ ... ch-Object { ($_ -replace '[^\\]+\\', ' ') + ($_ | Split-Path -Leaf) }
++                                                       ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:PSObject) [Split-Path], ParameterBindingValidationExcep
+   tion
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorEmptyStringNotAllowed,Microsoft.PowerS
+   hell.Commands.SplitPathCommand
+
+
+     p_01p_01
+Mode                 LastWriteTime         Length Name                                               Mode                 LastWriteTime         Length Name
+Split-Path : Cannot bind argument to parameter 'Path' because it is an empty string.
+At line:1 char:115
++ ... ch-Object { ($_ -replace '[^\\]+\\', ' ') + ($_ | Split-Path -Leaf) }
++                                                       ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:PSObject) [Split-Path], ParameterBindingValidationExcep
+   tion
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorEmptyStringNotAllowed,Microsoft.PowerS
+   hell.Commands.SplitPathCommand
+
+
+d-----         8/30/2025   2:16 PM                notebooks                                          2025   2:16 PM                notebooks
+-a----         8/30/2025   2:16 PM              0 02_training_p_01.ipynb                             2025   2:16 PM              0 02_training_p_01.ipynb
+-a----         8/30/2025   2:16 PM              0 01_model_build_p_01.ipynb                          2025   2:16 PM              0 01_model_build_p_01.ipynb
+-a----         8/30/2025   2:16 PM              0 build_model_p_01.ps1                               2025   2:16 PM              0 build_model_p_01.ps1
+-a----         8/30/2025   2:16 PM              0 03_inference_quick_explore_p_01.ipynb              2025   2:16 PM              0 03_inference_quick_explore_p_01.ipynb
+d-----         8/30/2025   2:16 PM                scripts                                            2025   2:16 PM                scripts
+d-----         8/30/2025   2:16 PM                outputs                                            2025   2:16 PM                outputs
+-a----         8/30/2025   2:16 PM              0 00_data_exploration_p_01.ipynb                     2025   2:16 PM              0 00_data_exploration_p_01.ipynb
+d-----         8/30/2025   2:16 PM                visualizations                                     2025   2:16 PM                visualizations
+Split-Path : Cannot bind argument to parameter 'Path' because it is an empty string.
+At line:1 char:115
++ ... ch-Object { ($_ -replace '[^\\]+\\', ' ') + ($_ | Split-Path -Leaf) }
++                                                       ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:PSObject) [Split-Path], ParameterBindingValidationExcep
+   tion
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorEmptyStringNotAllowed,Microsoft.PowerS
+   hell.Commands.SplitPathCommand
+
+
+Split-Path : Cannot bind argument to parameter 'Path' because it is an empty string.
+At line:1 char:115
++ ... ch-Object { ($_ -replace '[^\\]+\\', ' ') + ($_ | Split-Path -Leaf) }
++                                                       ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:PSObject) [Split-Path], ParameterBindingValidationExcep
+   tion
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorEmptyStringNotAllowed,Microsoft.PowerS
+   hell.Commands.SplitPathCommand
+
+
+-a----         8/28/2025  12:41 PM           3760 validate_env.py                                    2025  12:41 PM           3760 validate_env.py
+    dataset_preparation_examplesdataset_preparation_examples
+Split-Path : Cannot bind argument to parameter 'Path' because it is an empty string.
+At line:1 char:115
++ ... ch-Object { ($_ -replace '[^\\]+\\', ' ') + ($_ | Split-Path -Leaf) }
++                                                       ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:PSObject) [Split-Path], ParameterBindingValidationExcep
+   tion
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorEmptyStringNotAllowed,Microsoft.PowerS
+   hell.Commands.SplitPathCommand
+
+
+-a----         8/28/2025   4:02 PM           2288 structure.bat                                      2025   4:02 PM           2288 structure.bat
+-a----         7/22/2025  10:45 AM          15087 README.md                                          2025  10:45 AM          15087 README.md
+-a----         8/28/2025  11:54 AM            980 structure.sh                                       2025  11:54 AM            980 structure.sh
+-a----         8/30/2025   2:09 PM           2251 structure.ps1                                      2025   2:09 PM           2251 structure.ps1
+Split-Path : Cannot bind argument to parameter 'Path' because it is an empty string.
+At line:1 char:115
++ ... ch-Object { ($_ -replace '[^\\]+\\', ' ') + ($_ | Split-Path -Leaf) }
++                                                       ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:PSObject) [Split-Path], ParameterBindingValidationExcep
+   tion
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorEmptyStringNotAllowed,Microsoft.PowerS
+   hell.Commands.SplitPathCommand
+
+
+-a----         8/24/2025   5:29 PM         145117 actually_consistency_izing_the_files_3_1_2025-08-092025   5:29 PM         145117 actually_consistency_izing_the_files_3_1_2025-08-09
+                                                  og                                                                                                   og
+-a----         8/24/2025   5:46 PM            712 all_filenames_replacement.txt                      2025   5:46 PM            712 all_filenames_replacement.txt
+                                                  .log                                                                                                 .log
+Mode                 LastWriteTime         Length Name                                               Mode                 LastWriteTime         Length Name
+Split-Path : Cannot bind argument to parameter 'Path' because it is an empty string.
+At line:1 char:115
++ ... ch-Object { ($_ -replace '[^\\]+\\', ' ') + ($_ | Split-Path -Leaf) }
++                                                       ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:PSObject) [Split-Path], ParameterBindingValidationExcep
+   tion
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorEmptyStringNotAllowed,Microsoft.PowerS
+   hell.Commands.SplitPathCommand
+
+
+-a----         8/24/2025   6:28 PM         139003 actually_consistency_izing_the_files_2_2025-08-03.l2025   6:28 PM         139003 actually_consistency_izing_the_files_2_2025-08-03.l
+----                 -------------         ------ ----                                               ----                 -------------         ------ ----
+-a----          7/8/2025   2:14 PM         111378 Paper_Code_Prep_01-a_CNN_GradCAM_TF.ipynb          2025   2:14 PM         111378 Paper_Code_Prep_01-a_CNN_GradCAM_TF.ipynb
+Mode                 LastWriteTime         Length Name                                               Mode                 LastWriteTime         Length Name
+Split-Path : Cannot bind argument to parameter 'Path' because it is an empty string.
+At line:1 char:115
++ ... ch-Object { ($_ -replace '[^\\]+\\', ' ') + ($_ | Split-Path -Leaf) }
++                                                       ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:PSObject) [Split-Path], ParameterBindingValidationExcep
+   tion
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorEmptyStringNotAllowed,Microsoft.PowerS
+   hell.Commands.SplitPathCommand
+
+
+d-----         8/26/2025   8:46 PM                dataset_preparation_examples                       2025   8:46 PM                dataset_preparation_examples
+----                 -------------         ------ ----                                               ----                 -------------         ------ ----
+Split-Path : Cannot bind argument to parameter 'Path' because it is an empty string.
+At line:1 char:115
++ ... ch-Object { ($_ -replace '[^\\]+\\', ' ') + ($_ | Split-Path -Leaf) }
++                                                       ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:PSObject) [Split-Path], ParameterBindingValidationExcep
+   tion
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorEmptyStringNotAllowed,Microsoft.PowerS
+   hell.Commands.SplitPathCommand
+
+
+Split-Path : Cannot bind argument to parameter 'Path' because it is an empty string.
+At line:1 char:115
++ ... ch-Object { ($_ -replace '[^\\]+\\', ' ') + ($_ | Split-Path -Leaf) }
++                                                       ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:PSObject) [Split-Path], ParameterBindingValidationExcep
+   tion
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorEmptyStringNotAllowed,Microsoft.PowerS
+   hell.Commands.SplitPathCommand
+
+
+Split-Path : Cannot bind argument to parameter 'Path' because it is an empty string.
+At line:1 char:115
++ ... ch-Object { ($_ -replace '[^\\]+\\', ' ') + ($_ | Split-Path -Leaf) }
++                                                       ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:PSObject) [Split-Path], ParameterBindingValidationExcep
+   tion
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorEmptyStringNotAllowed,Microsoft.PowerS
+   hell.Commands.SplitPathCommand
+
+
+   fhtw-paper-code-prepfhtw-paper-code-prep
+d-----         8/27/2025   8:29 PM                experiment_environment_examples                    2025   8:29 PM                experiment_environment_examples
+-a----         8/28/2025   3:04 PM         357690 cmd_for_notebook_local_and_pre_aws_env.log         2025   3:04 PM         357690 cmd_for_notebook_local_and_pre_aws_env.log
+-a----         8/27/2025   2:13 PM           5656 .gitignore                                         2025   2:13 PM           5656 .gitignore
+-a----          7/8/2025   2:14 PM           1068 LICENSE                                            2025   2:14 PM           1068 LICENSE
+-a----         8/28/2025  12:46 PM           1685 environment_vanillacnn.yml                         2025  12:46 PM           1685 environment_vanillacnn.yml
+d-----         8/25/2025  11:08 AM                img                                                2025  11:08 AM                img
+d-----         8/30/2025  12:15 PM                general_lab_notebooks_-_other_examples             2025  12:15 PM                general_lab_notebooks_-_other_examples
+-a----         8/27/2025   8:49 PM           4927 .gitattributes                                     2025   8:49 PM           4927 .gitattributes
+d-----         8/30/2025   2:16 PM                test_project                                       2025   2:16 PM                test_project
+-a----         8/25/2025   8:57 AM         124879 bakscriptincase_consistency_Lab_Notebook_bballdave02025   8:57 AM         124879 bakscriptincase_consistency_Lab_Notebook_bballdave0
+-a----         8/25/2025   8:59 AM          64369 steps_grayscale_to_rgb_24_bit_ie_1_to_3_channel_jpe2025   8:59 AM          64369 steps_grayscale_to_rgb_24_bit_ie_1_to_3_channel_jpe
+                                                  s.md                                                                                                 s.md
+-a----         7/28/2025   9:12 PM          85562 steps_pdf_through_jpeg.log                         2025   9:12 PM          85562 steps_pdf_through_jpeg.log
+                                                  g.log                                                                                                g.log
+-a----         8/25/2025  11:48 AM           2315 steps_check_classificiations_are_consistent_-_regex2025  11:48 AM           2315 steps_check_classificiations_are_consistent_-_regex
+                                                  025-07-28.log                                                                                        025-07-28.log
+-a----         8/25/2025  12:45 PM           3057 steps_check_well_behaved_ascii_only_fnames_-_regexe2025  12:45 PM           3057 steps_check_well_behaved_ascii_only_fnames_-_regexe
+                                                  es.md                                                                                                es.md
+-a----          7/8/2025   2:14 PM            603 steps_pdf_through_jpeg.md                          2025   2:14 PM            603 steps_pdf_through_jpeg.md
+Split-Path : Cannot bind argument to parameter 'Path' because it is an empty string.
+At line:1 char:115
++ ... ch-Object { ($_ -replace '[^\\]+\\', ' ') + ($_ | Split-Path -Leaf) }
++                                                       ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:PSObject) [Split-Path], ParameterBindingValidationExcep
+   tion
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorEmptyStringNotAllowed,Microsoft.PowerS
+   hell.Commands.SplitPathCommand
+
+
+Split-Path : Cannot bind argument to parameter 'Path' because it is an empty string.
+At line:1 char:115
++ ... ch-Object { ($_ -replace '[^\\]+\\', ' ') + ($_ | Split-Path -Leaf) }
++                                                       ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:PSObject) [Split-Path], ParameterBindingValidationExcep
+   tion
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorEmptyStringNotAllowed,Microsoft.PowerS
+   hell.Commands.SplitPathCommand
+
+
+Split-Path : Cannot bind argument to parameter 'Path' because it is an empty string.
+At line:1 char:115
++ ... ch-Object { ($_ -replace '[^\\]+\\', ' ') + ($_ | Split-Path -Leaf) }
++                                                       ~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidData: (:PSObject) [Split-Path], ParameterBindingValidationExcep
+   tion
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorEmptyStringNotAllowed,Microsoft.PowerS
+   hell.Commands.SplitPathCommand
+
+
+    general_lab_notebooks_-_other_examplesgeneral_lab_notebooks_-_other_examples
+-a----          7/8/2025   2:14 PM          19956 steps_rename_utrecht.md                            2025   2:14 PM          19956 steps_rename_utrecht.md
+-a----          7/8/2025   2:23 PM          63458 steps_rename_utrecht.log                           2025   2:23 PM          63458 steps_rename_utrecht.log
+-a----         8/25/2025   9:23 AM           5760 useful_fhtw_2025_aliases_regexes.log               2025   9:23 AM           5760 useful_fhtw_2025_aliases_regexes.log
+-a----          7/9/2025  11:36 AM         234103 steps_walkthrough_pdf_through_jpeg.log             2025  11:36 AM         234103 steps_walkthrough_pdf_through_jpeg.log
+-a----         8/25/2025   9:12 AM         152784 Lab_Notebook_consistency_and_characters_in_fnames_22025   9:12 AM         152784 Lab_Notebook_consistency_and_characters_in_fnames_2
+-a----         8/27/2025   1:21 PM           8171 folders_making_loops.txt                           2025   1:21 PM           8171 folders_making_loops.txt
+-a----         8/19/2025  10:51 AM         282025 cygwin_saved_2023-08-14.txt                        2025  10:51 AM         282025 cygwin_saved_2023-08-14.txt
+                                                  okay.log                                                                                             okay.log
+-a----         8/25/2025   9:01 AM          24651 guide_example_for_ensuring_filename_characters_are_2025   9:01 AM          24651 guide_example_for_ensuring_filename_characters_are_
+-a----         8/24/2025   2:19 PM          82700 commands_for_consistency_checking_3lett_labels.txt 2025   2:19 PM          82700 commands_for_consistency_checking_3lett_labels.txt
+                                                  25_1753488168_2025-07-25T180248-0600_clean.log                                                       25_1753488168_2025-07-25T180248-0600_clean.log
+                                                  h_mistakes_etc_and_ascii.log                                                                         h_mistakes_etc_and_ascii.log
+-a----         8/24/2025   5:14 PM         535151 complete_steps_complete_pdf_through_jpeg_all_io_wit2025   5:14 PM         535151 complete_steps_complete_pdf_through_jpeg_all_io_wit
+-a----         8/18/2025   7:24 PM         149356 in_cygwin_backup_2025-08-18T192300-0600.txt        2025   7:24 PM         149356 in_cygwin_backup_2025-08-18T192300-0600.txt
+                                                  202-0600_clean.log                                                                                   202-0600_clean.log
+-a----         8/25/2025   8:54 AM         652002 Lab_Notebook_bballdave025_1753921922_2025-07-30T1832025   8:54 AM         652002 Lab_Notebook_bballdave025_1753921922_2025-07-30T183
+                                                  351-0600_clean.log                                                                                   351-0600_clean.log
+-a----         8/24/2025   3:31 PM         322433 Lab_Notebook_bballdave025_1755369231_2025-08-16T1232025   3:31 PM         322433 Lab_Notebook_bballdave025_1755369231_2025-08-16T123
+                                                  287_2025-07-23T215447-0600_clean.log                                                                 287_2025-07-23T215447-0600_clean.log
+-a----         7/25/2025   5:54 PM          63206 label_checking_01_Lab_Notebook_bballdave025_17533292025   5:54 PM          63206 label_checking_01_Lab_Notebook_bballdave025_1753329
+                                                  954-0600_clean.log                                                                                   954-0600_clean.log
+-a----         8/25/2025   9:02 AM          74515 Lab_Notebook_bballdave025_1753740594_2025-07-28T1602025   9:02 AM          74515 Lab_Notebook_bballdave025_1753740594_2025-07-28T160
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> cat .\structure.ps1
+param(
+  [string]$RootDir = "$PWD\new_experiment_dir",
+  [string[]]$Tags = @("default")
+)
+
+# Ensure root directory exists
+if (-not (Test-Path $RootDir)) { New-Item -ItemType Directory -Path $RootDir | Out-Null }
+
+###  No helper required; this was just paralleling our CMD pattern
+###+ set up to avoid the obstruse `$ >> filename 2>nul`
+## Create a helper script for touching files
+##$TouchScript = Join-Path $RootDir "scripts\ps_touch.ps1"
+##if (-not (Test-Path $TouchScript)) {
+##    New-Item -ItemType Directory -Path (Split-Path $TouchScript) -Force | Out-Null
+##    @"
+##param([string[]]\$Paths)
+##foreach (\$p in \$Paths) {
+##    \$file = Resolve-Path -Path \$p -ErrorAction SilentlyContinue
+##    \$dir = Split-Path \$p
+##    if (-not (Test-Path \$dir)) { New-Item -ItemType Directory -Path \$dir | Out-Null }
+##    if (-not (Test-Path \$p)) { New-Item -ItemType File -Path \$p | Out-Null }
+##}
+##"@ | Set-Content -LiteralPath $TouchScript
+##}
+
+# Files to create
+$Files = @(
+  "README.md",
+  "notebooks\00_data_exploration.ipynb",
+  "notebooks\01_model_build.ipynb",
+  "notebooks\02_training.ipynb",
+  "notebooks\03_inference_quick_explore.ipynb",
+  "scripts\py_build_model.py",
+  "scripts\build_model.ps1",
+  "scripts\py_train_model.py",
+  "scripts\train_model.ps1",
+  "scripts\py_inference.py",
+  "scripts\inference.ps1",
+  "scripts\py_utils.py"
+)
+
+foreach ($tag in $Tags) {
+  $TagDir = Join-Path $RootDir $tag
+
+  # Create main directories
+  $Dirs = @("notebooks", "datasets", "models", "logs", "scripts", "visualizations", "outputs\csv_logs", "outputs\gradcam_images")
+  foreach ($d in $Dirs) { New-Item -ItemType Directory -Path (Join-Path $TagDir $d) -Force | Out-Null }
+
+  # Create files with tag appended to stem
+  foreach ($f in $Files) {
+    $base   = [System.IO.Path]::GetFileNameWithoutExtension($f)
+    $ext    = [System.IO.Path]::GetExtension($f)
+    $tagged = Join-Path $TagDir "$base`_$tag$ext"
+
+    $dir = Split-Path -Parent $tagged
+    if (-not (Test-Path $dir)) {
+      New-Item -ItemType Directory -Path $dir -Force | Out-Null
+    }
+    if (-not (Test-Path $tagged)) {
+      New-Item -ItemType File -Path $tagged -Force | Out-Null
+    }
+  }
+}
+
+Write-Host "Project scaffolding with tags and subdirectories created at $RootDir"
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> $my_f = "scripts/py_train_model.py"
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> $my_base = [System.IO.Path]::GetFilenameWithoutExtension($my_f)
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> Write-Host "my_f is $my_f, my_base is $my_base"
+my_f is scripts/py_train_model.py, my_base is py_train_model
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> tree /a /f
+Folder PATH listing for volume OS
+Volume serial number is 8669-AC6F
+C:.
+|   .gitattributes
+|   .gitignore
+|   cmd_for_notebook_local_and_pre_aws_env.log
+|   environment_vanillacnn.yml
+|   LICENSE
+|   Paper_Code_Prep_01-a_CNN_GradCAM_TF.ipynb
+|   README.md
+|   structure.bat
+|   structure.ps1
+|   structure.sh
+|   validate_env.py
+|
++---dataset_preparation_examples
+|       actually_consistency_izing_the_files_2_2025-08-03.log
+|       actually_consistency_izing_the_files_3_1_2025-08-09.log
+|       all_filenames_replacement.txt
+|       bakscriptincase_consistency_Lab_Notebook_bballdave025_1753488168_2025-07-25T180248-0600_clean.log
+|       commands_for_consistency_checking_3lett_labels.txt
+|       complete_steps_complete_pdf_through_jpeg_all_io_with_mistakes_etc_and_ascii.log
+|       cygwin_saved_2023-08-14.txt
+|       folders_making_loops.txt
+|       guide_example_for_ensuring_filename_characters_are_okay.log
+|       in_cygwin_backup_2025-08-18T192300-0600.txt
+|       label_checking_01_Lab_Notebook_bballdave025_1753329287_2025-07-23T215447-0600_clean.log
+|       Lab_Notebook_bballdave025_1753740594_2025-07-28T160954-0600_clean.log
+|       Lab_Notebook_bballdave025_1753921922_2025-07-30T183202-0600_clean.log
+|       Lab_Notebook_bballdave025_1755369231_2025-08-16T123351-0600_clean.log
+|       Lab_Notebook_consistency_and_characters_in_fnames_2025-07-28.log
+|       steps_check_classificiations_are_consistent_-_regexes.md
+|       steps_check_well_behaved_ascii_only_fnames_-_regexes.md
+|       steps_grayscale_to_rgb_24_bit_ie_1_to_3_channel_jpeg.log
+|       steps_pdf_through_jpeg.log
+|       steps_pdf_through_jpeg.md
+|       steps_rename_utrecht.log
+|       steps_rename_utrecht.md
+|       steps_walkthrough_pdf_through_jpeg.log
+|       useful_fhtw_2025_aliases_regexes.log
+|
++---experiment_environment_examples
++---general_lab_notebooks_-_other_examples
+|       lab_notebook_1756385640_2025-08-28T125400-0600.md
+|       lab_notebook_bballdave025_1756554507_2025-08-30T124827-0500.docx
+|       lab_notebook_bballdave025_1756554507_2025-08-30T124827-0500.md
+|
++---img
+|       BW_post_from_905_col_terminal.png
+|       BW_pre_conv_from_903_col_terminal_-_Best.png
+|       consistentized_3331_dataset.txt
+|       fs_watermarks_etc_pre_conversion_1753209154_2025-07-22T123234-0600.out
+|       README.md
+|       seeofit1_edit.png
+|       seeofit1_edit_crop.png
+|       seeofit2_edit.png
+|       seeofit2_edit_crop.png
+|       WinFileExplorer_bitdepth_gs_post_conv.png
+|       WinFileExplorer_bitdepth_gs_pre_conv.png
+|
+\---test_project
+    \---p_01
+        |   00_data_exploration_p_01.ipynb
+        |   01_model_build_p_01.ipynb
+        |   02_training_p_01.ipynb
+        |   03_inference_quick_explore_p_01.ipynb
+        |   build_model_p_01.ps1
+        |   inference_p_01.ps1
+        |   py_build_model_p_01.py
+        |   py_inference_p_01.py
+        |   py_train_model_p_01.py
+        |   py_utils_p_01.py
+        |   README_p_01.md
+        |   train_model_p_01.ps1
+        |
+        +---datasets
+        +---logs
+        +---models
+        +---notebooks
+        +---outputs
+        |   +---csv_logs
+        |   \---gradcam_images
+        +---scripts
+        \---visualizations
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> Remove-Item -Recurse -Force .\test_project\
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> tree /a /f
+Folder PATH listing for volume OS
+Volume serial number is 8669-AC6F
+C:.
+|   .gitattributes
+|   .gitignore
+|   cmd_for_notebook_local_and_pre_aws_env.log
+|   environment_vanillacnn.yml
+|   LICENSE
+|   Paper_Code_Prep_01-a_CNN_GradCAM_TF.ipynb
+|   README.md
+|   structure.bat
+|   structure.ps1
+|   structure.sh
+|   validate_env.py
+|
++---dataset_preparation_examples
+|       actually_consistency_izing_the_files_2_2025-08-03.log
+|       actually_consistency_izing_the_files_3_1_2025-08-09.log
+|       all_filenames_replacement.txt
+|       bakscriptincase_consistency_Lab_Notebook_bballdave025_1753488168_2025-07-25T180248-0600_clean.log
+|       commands_for_consistency_checking_3lett_labels.txt
+|       complete_steps_complete_pdf_through_jpeg_all_io_with_mistakes_etc_and_ascii.log
+|       cygwin_saved_2023-08-14.txt
+|       folders_making_loops.txt
+|       guide_example_for_ensuring_filename_characters_are_okay.log
+|       in_cygwin_backup_2025-08-18T192300-0600.txt
+|       label_checking_01_Lab_Notebook_bballdave025_1753329287_2025-07-23T215447-0600_clean.log
+|       Lab_Notebook_bballdave025_1753740594_2025-07-28T160954-0600_clean.log
+|       Lab_Notebook_bballdave025_1753921922_2025-07-30T183202-0600_clean.log
+|       Lab_Notebook_bballdave025_1755369231_2025-08-16T123351-0600_clean.log
+|       Lab_Notebook_consistency_and_characters_in_fnames_2025-07-28.log
+|       steps_check_classificiations_are_consistent_-_regexes.md
+|       steps_check_well_behaved_ascii_only_fnames_-_regexes.md
+|       steps_grayscale_to_rgb_24_bit_ie_1_to_3_channel_jpeg.log
+|       steps_pdf_through_jpeg.log
+|       steps_pdf_through_jpeg.md
+|       steps_rename_utrecht.log
+|       steps_rename_utrecht.md
+|       steps_walkthrough_pdf_through_jpeg.log
+|       useful_fhtw_2025_aliases_regexes.log
+|
++---experiment_environment_examples
++---general_lab_notebooks_-_other_examples
+|       lab_notebook_1756385640_2025-08-28T125400-0600.md
+|       lab_notebook_bballdave025_1756554507_2025-08-30T124827-0500.docx
+|       lab_notebook_bballdave025_1756554507_2025-08-30T124827-0500.md
+|
+\---img
+        BW_post_from_905_col_terminal.png
+        BW_pre_conv_from_903_col_terminal_-_Best.png
+        consistentized_3331_dataset.txt
+        fs_watermarks_etc_pre_conversion_1753209154_2025-07-22T123234-0600.out
+        README.md
+        seeofit1_edit.png
+        seeofit1_edit_crop.png
+        seeofit2_edit.png
+        seeofit2_edit_crop.png
+        WinFileExplorer_bitdepth_gs_post_conv.png
+        WinFileExplorer_bitdepth_gs_pre_conv.png
+
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> powershell -ExecutionPolicy Bypass -File .\structure.ps1 -RootDir $RootTest -Tags "p_01" "p_02"
+Join-Path : A positional parameter cannot be found that accepts argument 'README_p_01.md'.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:59 char:16
++     $tagged  = Join-Path $TagDir "$relpath" "$base`_$tag$ext"
++                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Join-Path], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.JoinPathComm
+   and
+
+Split-Path : Cannot bind argument to parameter 'Path' because it is null.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:61 char:31
++     $dir = Split-Path -Parent $tagged
++                               ~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Split-Path], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Co
+   mmands.SplitPathCommand
+
+Test-Path : Cannot bind argument to parameter 'Path' because it is null.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:62 char:25
++     if (-not (Test-Path $dir)) {
++                         ~~~~
+    + CategoryInfo          : InvalidData: (:) [Test-Path], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Co
+   mmands.TestPathCommand
+
+Test-Path : Cannot bind argument to parameter 'Path' because it is null.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:65 char:25
++     if (-not (Test-Path $tagged)) {
++                         ~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Test-Path], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Co
+   mmands.TestPathCommand
+
+Join-Path : A positional parameter cannot be found that accepts argument
+'00_data_exploration_p_01.ipynb'.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:59 char:16
++     $tagged  = Join-Path $TagDir "$relpath" "$base`_$tag$ext"
++                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Join-Path], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.JoinPathComm
+   and
+
+Split-Path : Cannot bind argument to parameter 'Path' because it is null.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:61 char:31
++     $dir = Split-Path -Parent $tagged
++                               ~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Split-Path], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Co
+   mmands.SplitPathCommand
+
+Test-Path : Cannot bind argument to parameter 'Path' because it is null.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:62 char:25
++     if (-not (Test-Path $dir)) {
++                         ~~~~
+    + CategoryInfo          : InvalidData: (:) [Test-Path], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Co
+   mmands.TestPathCommand
+
+Test-Path : Cannot bind argument to parameter 'Path' because it is null.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:65 char:25
++     if (-not (Test-Path $tagged)) {
++                         ~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Test-Path], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Co
+   mmands.TestPathCommand
+
+Join-Path : A positional parameter cannot be found that accepts argument '01_model_build_p_01.ipynb'.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:59 char:16
++     $tagged  = Join-Path $TagDir "$relpath" "$base`_$tag$ext"
++                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Join-Path], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.JoinPathComm
+   and
+
+Split-Path : Cannot bind argument to parameter 'Path' because it is null.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:61 char:31
++     $dir = Split-Path -Parent $tagged
++                               ~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Split-Path], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Co
+   mmands.SplitPathCommand
+
+Test-Path : Cannot bind argument to parameter 'Path' because it is null.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:62 char:25
++     if (-not (Test-Path $dir)) {
++                         ~~~~
+    + CategoryInfo          : InvalidData: (:) [Test-Path], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Co
+   mmands.TestPathCommand
+
+Test-Path : Cannot bind argument to parameter 'Path' because it is null.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:65 char:25
++     if (-not (Test-Path $tagged)) {
++                         ~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Test-Path], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Co
+   mmands.TestPathCommand
+
+Join-Path : A positional parameter cannot be found that accepts argument '02_training_p_01.ipynb'.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:59 char:16
++     $tagged  = Join-Path $TagDir "$relpath" "$base`_$tag$ext"
++                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Join-Path], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.JoinPathComm
+   and
+
+Split-Path : Cannot bind argument to parameter 'Path' because it is null.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:61 char:31
++     $dir = Split-Path -Parent $tagged
++                               ~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Split-Path], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Co
+   mmands.SplitPathCommand
+
+Test-Path : Cannot bind argument to parameter 'Path' because it is null.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:62 char:25
++     if (-not (Test-Path $dir)) {
++                         ~~~~
+    + CategoryInfo          : InvalidData: (:) [Test-Path], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Co
+   mmands.TestPathCommand
+
+Test-Path : Cannot bind argument to parameter 'Path' because it is null.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:65 char:25
++     if (-not (Test-Path $tagged)) {
++                         ~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Test-Path], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Co
+   mmands.TestPathCommand
+
+Join-Path : A positional parameter cannot be found that accepts argument
+'03_inference_quick_explore_p_01.ipynb'.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:59 char:16
++     $tagged  = Join-Path $TagDir "$relpath" "$base`_$tag$ext"
++                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Join-Path], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.JoinPathComm
+   and
+
+Split-Path : Cannot bind argument to parameter 'Path' because it is null.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:61 char:31
++     $dir = Split-Path -Parent $tagged
++                               ~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Split-Path], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Co
+   mmands.SplitPathCommand
+
+Test-Path : Cannot bind argument to parameter 'Path' because it is null.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:62 char:25
++     if (-not (Test-Path $dir)) {
++                         ~~~~
+    + CategoryInfo          : InvalidData: (:) [Test-Path], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Co
+   mmands.TestPathCommand
+
+Test-Path : Cannot bind argument to parameter 'Path' because it is null.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:65 char:25
++     if (-not (Test-Path $tagged)) {
++                         ~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Test-Path], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Co
+   mmands.TestPathCommand
+
+Join-Path : A positional parameter cannot be found that accepts argument 'py_build_model_p_01.py'.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:59 char:16
++     $tagged  = Join-Path $TagDir "$relpath" "$base`_$tag$ext"
++                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Join-Path], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.JoinPathComm
+   and
+
+Split-Path : Cannot bind argument to parameter 'Path' because it is null.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:61 char:31
++     $dir = Split-Path -Parent $tagged
++                               ~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Split-Path], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Co
+   mmands.SplitPathCommand
+
+Test-Path : Cannot bind argument to parameter 'Path' because it is null.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:62 char:25
++     if (-not (Test-Path $dir)) {
++                         ~~~~
+    + CategoryInfo          : InvalidData: (:) [Test-Path], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Co
+   mmands.TestPathCommand
+
+Test-Path : Cannot bind argument to parameter 'Path' because it is null.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:65 char:25
++     if (-not (Test-Path $tagged)) {
++                         ~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Test-Path], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Co
+   mmands.TestPathCommand
+
+Join-Path : A positional parameter cannot be found that accepts argument 'build_model_p_01.ps1'.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:59 char:16
++     $tagged  = Join-Path $TagDir "$relpath" "$base`_$tag$ext"
++                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Join-Path], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.JoinPathComm
+   and
+
+Split-Path : Cannot bind argument to parameter 'Path' because it is null.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:61 char:31
++     $dir = Split-Path -Parent $tagged
++                               ~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Split-Path], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Co
+   mmands.SplitPathCommand
+
+Test-Path : Cannot bind argument to parameter 'Path' because it is null.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:62 char:25
++     if (-not (Test-Path $dir)) {
++                         ~~~~
+    + CategoryInfo          : InvalidData: (:) [Test-Path], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Co
+   mmands.TestPathCommand
+
+Test-Path : Cannot bind argument to parameter 'Path' because it is null.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:65 char:25
++     if (-not (Test-Path $tagged)) {
++                         ~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Test-Path], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Co
+   mmands.TestPathCommand
+
+Join-Path : A positional parameter cannot be found that accepts argument 'py_train_model_p_01.py'.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:59 char:16
++     $tagged  = Join-Path $TagDir "$relpath" "$base`_$tag$ext"
++                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Join-Path], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.JoinPathComm
+   and
+
+Split-Path : Cannot bind argument to parameter 'Path' because it is null.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:61 char:31
++     $dir = Split-Path -Parent $tagged
++                               ~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Split-Path], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Co
+   mmands.SplitPathCommand
+
+Test-Path : Cannot bind argument to parameter 'Path' because it is null.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:62 char:25
++     if (-not (Test-Path $dir)) {
++                         ~~~~
+    + CategoryInfo          : InvalidData: (:) [Test-Path], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Co
+   mmands.TestPathCommand
+
+Test-Path : Cannot bind argument to parameter 'Path' because it is null.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:65 char:25
++     if (-not (Test-Path $tagged)) {
++                         ~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Test-Path], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Co
+   mmands.TestPathCommand
+
+Join-Path : A positional parameter cannot be found that accepts argument 'train_model_p_01.ps1'.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:59 char:16
++     $tagged  = Join-Path $TagDir "$relpath" "$base`_$tag$ext"
++                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Join-Path], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.JoinPathComm
+   and
+
+Split-Path : Cannot bind argument to parameter 'Path' because it is null.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:61 char:31
++     $dir = Split-Path -Parent $tagged
++                               ~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Split-Path], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Co
+   mmands.SplitPathCommand
+
+Test-Path : Cannot bind argument to parameter 'Path' because it is null.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:62 char:25
++     if (-not (Test-Path $dir)) {
++                         ~~~~
+    + CategoryInfo          : InvalidData: (:) [Test-Path], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Co
+   mmands.TestPathCommand
+
+Test-Path : Cannot bind argument to parameter 'Path' because it is null.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:65 char:25
++     if (-not (Test-Path $tagged)) {
++                         ~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Test-Path], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Co
+   mmands.TestPathCommand
+
+Join-Path : A positional parameter cannot be found that accepts argument 'py_inference_p_01.py'.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:59 char:16
++     $tagged  = Join-Path $TagDir "$relpath" "$base`_$tag$ext"
++                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Join-Path], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.JoinPathComm
+   and
+
+Split-Path : Cannot bind argument to parameter 'Path' because it is null.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:61 char:31
++     $dir = Split-Path -Parent $tagged
++                               ~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Split-Path], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Co
+   mmands.SplitPathCommand
+
+Test-Path : Cannot bind argument to parameter 'Path' because it is null.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:62 char:25
++     if (-not (Test-Path $dir)) {
++                         ~~~~
+    + CategoryInfo          : InvalidData: (:) [Test-Path], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Co
+   mmands.TestPathCommand
+
+Test-Path : Cannot bind argument to parameter 'Path' because it is null.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:65 char:25
++     if (-not (Test-Path $tagged)) {
++                         ~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Test-Path], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Co
+   mmands.TestPathCommand
+
+Join-Path : A positional parameter cannot be found that accepts argument 'inference_p_01.ps1'.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:59 char:16
++     $tagged  = Join-Path $TagDir "$relpath" "$base`_$tag$ext"
++                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Join-Path], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.JoinPathComm
+   and
+
+Split-Path : Cannot bind argument to parameter 'Path' because it is null.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:61 char:31
++     $dir = Split-Path -Parent $tagged
++                               ~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Split-Path], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Co
+   mmands.SplitPathCommand
+
+Test-Path : Cannot bind argument to parameter 'Path' because it is null.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:62 char:25
++     if (-not (Test-Path $dir)) {
++                         ~~~~
+    + CategoryInfo          : InvalidData: (:) [Test-Path], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Co
+   mmands.TestPathCommand
+
+Test-Path : Cannot bind argument to parameter 'Path' because it is null.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:65 char:25
++     if (-not (Test-Path $tagged)) {
++                         ~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Test-Path], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Co
+   mmands.TestPathCommand
+
+Join-Path : A positional parameter cannot be found that accepts argument 'py_utils_p_01.py'.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:59 char:16
++     $tagged  = Join-Path $TagDir "$relpath" "$base`_$tag$ext"
++                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : InvalidArgument: (:) [Join-Path], ParameterBindingException
+    + FullyQualifiedErrorId : PositionalParameterNotFound,Microsoft.PowerShell.Commands.JoinPathComm
+   and
+
+Split-Path : Cannot bind argument to parameter 'Path' because it is null.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:61 char:31
++     $dir = Split-Path -Parent $tagged
++                               ~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Split-Path], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Co
+   mmands.SplitPathCommand
+
+Test-Path : Cannot bind argument to parameter 'Path' because it is null.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:62 char:25
++     if (-not (Test-Path $dir)) {
++                         ~~~~
+    + CategoryInfo          : InvalidData: (:) [Test-Path], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Co
+   mmands.TestPathCommand
+
+Test-Path : Cannot bind argument to parameter 'Path' because it is null.
+At C:\David\my_repos_dwb\fhtw-paper-code-prep\structure.ps1:65 char:25
++     if (-not (Test-Path $tagged)) {
++                         ~~~~~~~
+    + CategoryInfo          : InvalidData: (:) [Test-Path], ParameterBindingValidationException
+    + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Microsoft.PowerShell.Co
+   mmands.TestPathCommand
+
+Project scaffolding with tags and subdirectories created at C:\David\my_repos_dwb\fhtw-paper-code-prep/test_project
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> tree /a /f
+Folder PATH listing for volume OS
+Volume serial number is 8669-AC6F
+C:.
+|   .gitattributes
+|   .gitignore
+|   cmd_for_notebook_local_and_pre_aws_env.log
+|   environment_vanillacnn.yml
+|   LICENSE
+|   Paper_Code_Prep_01-a_CNN_GradCAM_TF.ipynb
+|   README.md
+|   structure.bat
+|   structure.ps1
+|   structure.sh
+|   validate_env.py
+|
++---dataset_preparation_examples
+|       actually_consistency_izing_the_files_2_2025-08-03.log
+|       actually_consistency_izing_the_files_3_1_2025-08-09.log
+|       all_filenames_replacement.txt
+|       bakscriptincase_consistency_Lab_Notebook_bballdave025_1753488168_2025-07-25T180248-0600_clean.log
+|       commands_for_consistency_checking_3lett_labels.txt
+|       complete_steps_complete_pdf_through_jpeg_all_io_with_mistakes_etc_and_ascii.log
+|       cygwin_saved_2023-08-14.txt
+|       folders_making_loops.txt
+|       guide_example_for_ensuring_filename_characters_are_okay.log
+|       in_cygwin_backup_2025-08-18T192300-0600.txt
+|       label_checking_01_Lab_Notebook_bballdave025_1753329287_2025-07-23T215447-0600_clean.log
+|       Lab_Notebook_bballdave025_1753740594_2025-07-28T160954-0600_clean.log
+|       Lab_Notebook_bballdave025_1753921922_2025-07-30T183202-0600_clean.log
+|       Lab_Notebook_bballdave025_1755369231_2025-08-16T123351-0600_clean.log
+|       Lab_Notebook_consistency_and_characters_in_fnames_2025-07-28.log
+|       steps_check_classificiations_are_consistent_-_regexes.md
+|       steps_check_well_behaved_ascii_only_fnames_-_regexes.md
+|       steps_grayscale_to_rgb_24_bit_ie_1_to_3_channel_jpeg.log
+|       steps_pdf_through_jpeg.log
+|       steps_pdf_through_jpeg.md
+|       steps_rename_utrecht.log
+|       steps_rename_utrecht.md
+|       steps_walkthrough_pdf_through_jpeg.log
+|       useful_fhtw_2025_aliases_regexes.log
+|
++---experiment_environment_examples
++---general_lab_notebooks_-_other_examples
+|       lab_notebook_1756385640_2025-08-28T125400-0600.md
+|       lab_notebook_bballdave025_1756554507_2025-08-30T124827-0500.docx
+|       lab_notebook_bballdave025_1756554507_2025-08-30T124827-0500.md
+|
++---img
+|       BW_post_from_905_col_terminal.png
+|       BW_pre_conv_from_903_col_terminal_-_Best.png
+|       consistentized_3331_dataset.txt
+|       fs_watermarks_etc_pre_conversion_1753209154_2025-07-22T123234-0600.out
+|       README.md
+|       seeofit1_edit.png
+|       seeofit1_edit_crop.png
+|       seeofit2_edit.png
+|       seeofit2_edit_crop.png
+|       WinFileExplorer_bitdepth_gs_post_conv.png
+|       WinFileExplorer_bitdepth_gs_pre_conv.png
+|
+\---test_project
+    \---p_01
+        +---datasets
+        +---logs
+        +---models
+        +---notebooks
+        +---outputs
+        |   +---csv_logs
+        |   \---gradcam_images
+        +---scripts
+        |       py_touch.py
+        |
+        \---visualizations
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> Remove-Item -Recurse -Force .\test_project\
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> tree /a /f
+Folder PATH listing for volume OS
+Volume serial number is 8669-AC6F
+C:.
+|   .gitattributes
+|   .gitignore
+|   cmd_for_notebook_local_and_pre_aws_env.log
+|   environment_vanillacnn.yml
+|   LICENSE
+|   Paper_Code_Prep_01-a_CNN_GradCAM_TF.ipynb
+|   README.md
+|   structure.bat
+|   structure.ps1
+|   structure.sh
+|   validate_env.py
+|
++---dataset_preparation_examples
+|       actually_consistency_izing_the_files_2_2025-08-03.log
+|       actually_consistency_izing_the_files_3_1_2025-08-09.log
+|       all_filenames_replacement.txt
+|       bakscriptincase_consistency_Lab_Notebook_bballdave025_1753488168_2025-07-25T180248-0600_clean.log
+|       commands_for_consistency_checking_3lett_labels.txt
+|       complete_steps_complete_pdf_through_jpeg_all_io_with_mistakes_etc_and_ascii.log
+|       cygwin_saved_2023-08-14.txt
+|       folders_making_loops.txt
+|       guide_example_for_ensuring_filename_characters_are_okay.log
+|       in_cygwin_backup_2025-08-18T192300-0600.txt
+|       label_checking_01_Lab_Notebook_bballdave025_1753329287_2025-07-23T215447-0600_clean.log
+|       Lab_Notebook_bballdave025_1753740594_2025-07-28T160954-0600_clean.log
+|       Lab_Notebook_bballdave025_1753921922_2025-07-30T183202-0600_clean.log
+|       Lab_Notebook_bballdave025_1755369231_2025-08-16T123351-0600_clean.log
+|       Lab_Notebook_consistency_and_characters_in_fnames_2025-07-28.log
+|       steps_check_classificiations_are_consistent_-_regexes.md
+|       steps_check_well_behaved_ascii_only_fnames_-_regexes.md
+|       steps_grayscale_to_rgb_24_bit_ie_1_to_3_channel_jpeg.log
+|       steps_pdf_through_jpeg.log
+|       steps_pdf_through_jpeg.md
+|       steps_rename_utrecht.log
+|       steps_rename_utrecht.md
+|       steps_walkthrough_pdf_through_jpeg.log
+|       useful_fhtw_2025_aliases_regexes.log
+|
++---experiment_environment_examples
++---general_lab_notebooks_-_other_examples
+|       lab_notebook_1756385640_2025-08-28T125400-0600.md
+|       lab_notebook_bballdave025_1756554507_2025-08-30T124827-0500.docx
+|       lab_notebook_bballdave025_1756554507_2025-08-30T124827-0500.md
+|
+\---img
+        BW_post_from_905_col_terminal.png
+        BW_pre_conv_from_903_col_terminal_-_Best.png
+        consistentized_3331_dataset.txt
+        fs_watermarks_etc_pre_conversion_1753209154_2025-07-22T123234-0600.out
+        README.md
+        seeofit1_edit.png
+        seeofit1_edit_crop.png
+        seeofit2_edit.png
+        seeofit2_edit_crop.png
+        WinFileExplorer_bitdepth_gs_post_conv.png
+        WinFileExplorer_bitdepth_gs_pre_conv.png
+
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> powershell -ExecutionPolicy Bypass -File .\structure.ps1 -RootDir $RootTest -Tags "p_01" "p_02"
+Project scaffolding with tags and subdirectories created at C:\David\my_repos_dwb\fhtw-paper-code-prep/test_project
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> tree /a /f
+Folder PATH listing for volume OS
+Volume serial number is 8669-AC6F
+C:.
+|   .gitattributes
+|   .gitignore
+|   cmd_for_notebook_local_and_pre_aws_env.log
+|   environment_vanillacnn.yml
+|   LICENSE
+|   NOTWORKING_structure.bat
+|   Paper_Code_Prep_01-00-00_CNN_GradCAM_TF.ipynb
+|   README.md
+|   structure.ps1
+|   structure.sh
+|   validate_env.py
+|
++---dataset_preparation_examples
+|       actually_consistency_izing_the_files_2_2025-08-03.log
+|       actually_consistency_izing_the_files_3_1_2025-08-09.log
+|       all_filenames_replacement.txt
+|       bakscriptincase_consistency_Lab_Notebook_bballdave025_1753488168_2025-07-25T180248-0600_clean.log
+|       commands_for_consistency_checking_3lett_labels.txt
+|       complete_steps_complete_pdf_through_jpeg_all_io_with_mistakes_etc_and_ascii.log
+|       cygwin_saved_2023-08-14.txt
+|       folders_making_loops.txt
+|       guide_example_for_ensuring_filename_characters_are_okay.log
+|       in_cygwin_backup_2025-08-18T192300-0600.txt
+|       label_checking_01_Lab_Notebook_bballdave025_1753329287_2025-07-23T215447-0600_clean.log
+|       Lab_Notebook_bballdave025_1753740594_2025-07-28T160954-0600_clean.log
+|       Lab_Notebook_bballdave025_1753921922_2025-07-30T183202-0600_clean.log
+|       Lab_Notebook_bballdave025_1755369231_2025-08-16T123351-0600_clean.log
+|       Lab_Notebook_consistency_and_characters_in_fnames_2025-07-28.log
+|       steps_check_classificiations_are_consistent_-_regexes.md
+|       steps_check_well_behaved_ascii_only_fnames_-_regexes.md
+|       steps_grayscale_to_rgb_24_bit_ie_1_to_3_channel_jpeg.log
+|       steps_pdf_through_jpeg.log
+|       steps_pdf_through_jpeg.md
+|       steps_rename_utrecht.log
+|       steps_rename_utrecht.md
+|       steps_walkthrough_pdf_through_jpeg.log
+|       useful_fhtw_2025_aliases_regexes.log
+|
++---experiment_environment_examples
++---general_lab_notebooks_-_other_examples
+|       lab_notebook_1756385640_2025-08-28T125400-0600.md
+|       lab_notebook_bballdave025_1756554507_2025-08-30T124827-0500.docx
+|       lab_notebook_bballdave025_1756554507_2025-08-30T124827-0500.md
+|
++---img
+|       BW_post_from_905_col_terminal.png
+|       BW_pre_conv_from_903_col_terminal_-_Best.png
+|       consistentized_3331_dataset.txt
+|       fs_watermarks_etc_pre_conversion_1753209154_2025-07-22T123234-0600.out
+|       README.md
+|       seeofit1_edit.png
+|       seeofit1_edit_crop.png
+|       seeofit2_edit.png
+|       seeofit2_edit_crop.png
+|       WinFileExplorer_bitdepth_gs_post_conv.png
+|       WinFileExplorer_bitdepth_gs_pre_conv.png
+|
+\---test_project
+    \---p_01
+        |   README_p_01.md
+        |
+        +---datasets
+        +---logs
+        +---models
+        +---notebooks
+        |       00_data_exploration_p_01.ipynb
+        |       01_model_build_p_01.ipynb
+        |       02_training_p_01.ipynb
+        |       03_inference_quick_explore_p_01.ipynb
+        |
+        +---outputs
+        |   +---csv_logs
+        |   \---gradcam_images
+        +---scripts
+        |       build_model_p_01.ps1
+        |       inference_p_01.ps1
+        |       py_build_model_p_01.py
+        |       py_inference_p_01.py
+        |       py_touch.py
+        |       py_train_model_p_01.py
+        |       py_utils_p_01.py
+        |       train_model_p_01.ps1
+        |
+        \---visualizations
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> tree /a /f
+Folder PATH listing for volume OS
+Volume serial number is 8669-AC6F
+C:.
+|   .gitattributes
+|   .gitignore
+|   cmd_for_notebook_local_and_pre_aws_env.log
+|   environment_vanillacnn.yml
+|   LICENSE
+|   NOTWORKING_structure.bat
+|   Paper_Code_Prep_01-00-00_CNN_GradCAM_TF.ipynb
+|   README.md
+|   structure.ps1
+|   structure.sh
+|   validate_env.py
+|
++---dataset_preparation_examples
+|       actually_consistency_izing_the_files_2_2025-08-03.log
+|       actually_consistency_izing_the_files_3_1_2025-08-09.log
+|       all_filenames_replacement.txt
+|       bakscriptincase_consistency_Lab_Notebook_bballdave025_1753488168_2025-07-25T180248-0600_clean.log
+|       commands_for_consistency_checking_3lett_labels.txt
+|       complete_steps_complete_pdf_through_jpeg_all_io_with_mistakes_etc_and_ascii.log
+|       cygwin_saved_2023-08-14.txt
+|       folders_making_loops.txt
+|       guide_example_for_ensuring_filename_characters_are_okay.log
+|       in_cygwin_backup_2025-08-18T192300-0600.txt
+|       label_checking_01_Lab_Notebook_bballdave025_1753329287_2025-07-23T215447-0600_clean.log
+|       Lab_Notebook_bballdave025_1753740594_2025-07-28T160954-0600_clean.log
+|       Lab_Notebook_bballdave025_1753921922_2025-07-30T183202-0600_clean.log
+|       Lab_Notebook_bballdave025_1755369231_2025-08-16T123351-0600_clean.log
+|       Lab_Notebook_consistency_and_characters_in_fnames_2025-07-28.log
+|       steps_check_classificiations_are_consistent_-_regexes.md
+|       steps_check_well_behaved_ascii_only_fnames_-_regexes.md
+|       steps_grayscale_to_rgb_24_bit_ie_1_to_3_channel_jpeg.log
+|       steps_pdf_through_jpeg.log
+|       steps_pdf_through_jpeg.md
+|       steps_rename_utrecht.log
+|       steps_rename_utrecht.md
+|       steps_walkthrough_pdf_through_jpeg.log
+|       useful_fhtw_2025_aliases_regexes.log
+|
++---experiment_environment_examples
++---general_lab_notebooks_-_other_examples
+|       lab_notebook_1756385640_2025-08-28T125400-0600.md
+|       lab_notebook_bballdave025_1756554507_2025-08-30T124827-0500.docx
+|       lab_notebook_bballdave025_1756554507_2025-08-30T124827-0500.md
+|
++---img
+|       BW_post_from_905_col_terminal.png
+|       BW_pre_conv_from_903_col_terminal_-_Best.png
+|       consistentized_3331_dataset.txt
+|       fs_watermarks_etc_pre_conversion_1753209154_2025-07-22T123234-0600.out
+|       README.md
+|       seeofit1_edit.png
+|       seeofit1_edit_crop.png
+|       seeofit2_edit.png
+|       seeofit2_edit_crop.png
+|       WinFileExplorer_bitdepth_gs_post_conv.png
+|       WinFileExplorer_bitdepth_gs_pre_conv.png
+|
++---test_project
+|   \---p_01
+|       |   README_p_01.md
+|       |
+|       +---datasets
+|       +---logs
+|       +---models
+|       +---notebooks
+|       |       00_data_exploration_p_01.ipynb
+|       |       01_model_build_p_01.ipynb
+|       |       02_training_p_01.ipynb
+|       |       03_inference_quick_explore_p_01.ipynb
+|       |
+|       +---outputs
+|       |   +---csv_logs
+|       |   \---gradcam_images
+|       +---scripts
+|       |       build_model_p_01.ps1
+|       |       inference_p_01.ps1
+|       |       py_build_model_p_01.py
+|       |       py_inference_p_01.py
+|       |       py_touch.py
+|       |       py_train_model_p_01.py
+|       |       py_utils_p_01.py
+|       |       train_model_p_01.ps1
+|       |
+|       \---visualizations
+\---test_project_bash
+    +---p_01
+    |   |   README_p_01.md
+    |   |
+    |   +---datasets
+    |   +---logs
+    |   +---models
+    |   +---notebooks
+    |   |       00_data_exploration_p_01.ipynb
+    |   |       01_model_build_p_01.ipynb
+    |   |       02_training_p_01.ipynb
+    |   |       03_inference_quick_explore_p_01.ipynb
+    |   |
+    |   +---outputs
+    |   |   +---csv_logs
+    |   |   \---gradcam_images
+    |   +---scripts
+    |   |       py_build_model_p_01.py
+    |   |       py_inference_p_01.py
+    |   |       py_touch.py
+    |   |       py_train_model_p_01.py
+    |   |       py_utils_p_01.py
+    |   |
+    |   \---visualizations
+    \---p_02
+        |   README_p_02.md
+        |
+        +---datasets
+        +---logs
+        +---models
+        +---notebooks
+        |       00_data_exploration_p_02.ipynb
+        |       01_model_build_p_02.ipynb
+        |       02_training_p_02.ipynb
+        |       03_inference_quick_explore_p_02.ipynb
+        |
+        +---outputs
+        |   +---csv_logs
+        |   \---gradcam_images
+        +---scripts
+        |       py_build_model_p_02.py
+        |       py_inference_p_02.py
+        |       py_touch.py
+        |       py_train_model_p_02.py
+        |       py_utils_p_02.py
+        |
+        \---visualizations
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> Remove-Item -Recurse -Force .\test_project\
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> $RootTest = "$PWD/test_project"
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> powershell -ExecutionPolicy Bypass -File .\structure.ps1 -RootDir $RootTest -Tags "p_01" "p_02"
+  OS-agnostic helper,
+  C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project\p_01\scripts\py_touch.py
+  provided for tag, \$tag', in case it be desired.
+  On *NIX-type systems, I suggest using \       ouch(1)', unless it
+  be not installed, e.g. unless you have only the base installed.
+Project scaffolding with tags and subdirectories created at C:\David\my_repos_dwb\fhtw-paper-code-prep/test_project
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> Remove-Item -Recurse -Force .\test_project\
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> $RootTest = "$PWD/test_project_ps"
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> powershell -ExecutionPolicy Bypass -File .\structure.ps1 -RootDir $RootTest -Tags "p_01" "p_02"
+  OS-agnostic helper,
+  C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project_ps\p_01\scripts\py_touch.py
+  provided for tag, `p_01', in case it be desired.
+  On *NIX-type systems, I suggest using `touch(1)', unless it
+  be not installed, e.g. unless you have only the base installed.
+Project scaffolding with tags and subdirectories created at C:\David\my_repos_dwb\fhtw-paper-code-prep/test_project_ps
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> Remove-Item -Recurse -Force .\test_project_ps\
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> $RootTest = "$PWD/test_project_ps"
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> powershell -ExecutionPolicy Bypass -File .\structure.ps1 -RootDir $RootTest -Tags "p_01" "p_02"
+  OS-agnostic helper,
+  C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project_ps\p_01\scripts\py_touch.py
+  provided for tag, `p_01', in case it be desired.
+  On *NIX-type systems, I suggest using `touch(1)', unless it
+  be not installed, e.g. unless you have only the base installed.
+Project scaffolding with tags and subdirectories created at C:\David\my_repos_dwb\fhtw-paper-code-prep/test_project_ps
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> Remove-Item -Recurse -Force .\test_project_ps\
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> tree /a /f
+Folder PATH listing for volume OS
+Volume serial number is 8669-AC6F
+C:.
+|   .gitattributes
+|   .gitignore
+|   cmd_for_notebook_local_and_pre_aws_env.log
+|   environment_vanillacnn.yml
+|   LICENSE
+|   NOTWORKING_structure.bat
+|   Paper_Code_Prep_01-00-00_CNN_GradCAM_TF.ipynb
+|   README.md
+|   structure.ps1
+|   structure.sh
+|   validate_env.py
+|
++---dataset_preparation_examples
+|       actually_consistency_izing_the_files_2_2025-08-03.log
+|       actually_consistency_izing_the_files_3_1_2025-08-09.log
+|       all_filenames_replacement.txt
+|       bakscriptincase_consistency_Lab_Notebook_bballdave025_1753488168_2025-07-25T180248-0600_clean.log
+|       commands_for_consistency_checking_3lett_labels.txt
+|       complete_steps_complete_pdf_through_jpeg_all_io_with_mistakes_etc_and_ascii.log
+|       cygwin_saved_2023-08-14.txt
+|       folders_making_loops.txt
+|       guide_example_for_ensuring_filename_characters_are_okay.log
+|       in_cygwin_backup_2025-08-18T192300-0600.txt
+|       label_checking_01_Lab_Notebook_bballdave025_1753329287_2025-07-23T215447-0600_clean.log
+|       Lab_Notebook_bballdave025_1753740594_2025-07-28T160954-0600_clean.log
+|       Lab_Notebook_bballdave025_1753921922_2025-07-30T183202-0600_clean.log
+|       Lab_Notebook_bballdave025_1755369231_2025-08-16T123351-0600_clean.log
+|       Lab_Notebook_consistency_and_characters_in_fnames_2025-07-28.log
+|       steps_check_classificiations_are_consistent_-_regexes.md
+|       steps_check_well_behaved_ascii_only_fnames_-_regexes.md
+|       steps_grayscale_to_rgb_24_bit_ie_1_to_3_channel_jpeg.log
+|       steps_pdf_through_jpeg.log
+|       steps_pdf_through_jpeg.md
+|       steps_rename_utrecht.log
+|       steps_rename_utrecht.md
+|       steps_walkthrough_pdf_through_jpeg.log
+|       useful_fhtw_2025_aliases_regexes.log
+|
++---experiment_environment_examples
++---general_lab_notebooks_-_other_examples
+|       lab_notebook_1756385640_2025-08-28T125400-0600.md
+|       lab_notebook_bballdave025_1756554507_2025-08-30T124827-0500.docx
+|       lab_notebook_bballdave025_1756554507_2025-08-30T124827-0500.md
+|
++---img
+|       BW_post_from_905_col_terminal.png
+|       BW_pre_conv_from_903_col_terminal_-_Best.png
+|       consistentized_3331_dataset.txt
+|       fs_watermarks_etc_pre_conversion_1753209154_2025-07-22T123234-0600.out
+|       README.md
+|       seeofit1_edit.png
+|       seeofit1_edit_crop.png
+|       seeofit2_edit.png
+|       seeofit2_edit_crop.png
+|       WinFileExplorer_bitdepth_gs_post_conv.png
+|       WinFileExplorer_bitdepth_gs_pre_conv.png
+|
+\---test_project_bash
+    +---p_01
+    |   |   README_p_01.md
+    |   |
+    |   +---datasets
+    |   +---logs
+    |   +---models
+    |   +---notebooks
+    |   |       00_data_exploration_p_01.ipynb
+    |   |       01_model_build_p_01.ipynb
+    |   |       02_training_p_01.ipynb
+    |   |       03_inference_quick_explore_p_01.ipynb
+    |   |
+    |   +---outputs
+    |   |   +---csv_logs
+    |   |   \---gradcam_images
+    |   +---scripts
+    |   |       py_build_model_p_01.py
+    |   |       py_inference_p_01.py
+    |   |       py_touch.py
+    |   |       py_train_model_p_01.py
+    |   |       py_utils_p_01.py
+    |   |
+    |   \---visualizations
+    \---p_02
+        |   README_p_02.md
+        |
+        +---datasets
+        +---logs
+        +---models
+        +---notebooks
+        |       00_data_exploration_p_02.ipynb
+        |       01_model_build_p_02.ipynb
+        |       02_training_p_02.ipynb
+        |       03_inference_quick_explore_p_02.ipynb
+        |
+        +---outputs
+        |   +---csv_logs
+        |   \---gradcam_images
+        +---scripts
+        |       py_build_model_p_02.py
+        |       py_inference_p_02.py
+        |       py_touch.py
+        |       py_train_model_p_02.py
+        |       py_utils_p_02.py
+        |
+        \---visualizations
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> $RootTest = "$PWD/test_project_ps"
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> powershell -ExecutionPolicy Bypass -File .\structure.ps1 -RootDir $RootTest -Tags "p_01" "p_02"
+  ---------------------------------------------------------
+  OS-agnostic helper,
+  C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project_ps\p_01\scripts\py_touch.py
+  provided for tag, `p_01', in case it be desired.
+  This could prove immensely helpful for Windows users.
+  On *NIX-type systems, I suggest using `touch(1)', unless
+  it be not installed, e.g. unless you have only the base
+  installation.
+
+--------------------------------------------------------------------
+Project scaffolding with tags and subdirectories created at C:\David\my_repos_dwb\fhtw-paper-code-prep/test_project_ps
+--------------------------------------------------------------------
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> cat py_touch.py
+cat : Cannot find path 'C:\David\my_repos_dwb\fhtw-paper-code-prep\py_touch.py' because it does not
+exist.
+At line:1 char:1
++ cat py_touch.py
++ ~~~~~~~~~~~~~~~
+    + CategoryInfo          : ObjectNotFound: (C:\David\my_rep...rep\py_touch.py:String) [Get-Conten
+   t], ItemNotFoundException
+    + FullyQualifiedErrorId : PathNotFound,Microsoft.PowerShell.Commands.GetContentCommand
+
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> ls .\test_project_ps\
+
+
+    Directory: C:\David\my_repos_dwb\fhtw-paper-code-prep\test_project_ps
+
+
+Mode                 LastWriteTime         Length Name
+d-----         8/30/2025   4:33 PM                p_01
+
+
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> tree /a /f .\test_project_ps\
+C:\DAVID\MY_REPOS_DWB\FHTW-PAPER-CODE-PREP\TEST_PROJECT_PS
+\---p_01
+    |   README_p_01.md
+    |
+    +---datasets
+    +---logs
+    +---models
+    +---notebooks
+    |       00_data_exploration_p_01.ipynb
+    |       01_model_build_p_01.ipynb
+    |       02_training_p_01.ipynb
+    |       03_inference_quick_explore_p_01.ipynb
+    |
+    +---outputs
+    |   +---csv_logs
+    |   \---gradcam_images
+    +---scripts
+    |       build_model_p_01.ps1
+    |       inference_p_01.ps1
+    |       py_build_model_p_01.py
+    |       py_inference_p_01.py
+    |       py_touch.py
+    |       py_train_model_p_01.py
+    |       py_utils_p_01.py
+    |       train_model_p_01.ps1
+    |
+    \---visualizations
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep> cat .\test_project_ps\p_01\scripts\py_touch.py
+import sys
+from pathlib import Path
+for f in sys.argv[1:]: Path(f).touch(exist_ok=True)
+
+PS C:\David\my_repos_dwb\fhtw-paper-code-prep>

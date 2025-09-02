@@ -21,11 +21,12 @@ dependencies:
       ##+ comment out CPU version
       #- tensorflow-gpu==2.14.0
 
-      # PyTorch (CPU-only, for local experiments)
+      #  PyTorch (CPU-only, for local experiments)
       - torch==2.3.1
       - torchvision==0.18.1
       - torchaudio==2.3.1
-      #  If GPU/CUDA is available, uncomment below and comment out CPU version
+      ##  If GPU/CUDA is available, uncomment below and comment out 
+      ##+ CPU version
       #- torch==2.3.1+cu118
       #- torchvision==0.18.1+cu118
       #- torchaudio==2.3.1+cu118
