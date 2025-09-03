@@ -1,16 +1,29 @@
 #!/usr/bin/env bash
-# Usage: ./structure.sh <ROOT_DIR> <tag1> [tag2 ...]
+# Usage:                 ./structure.sh <ROOT_DIR> <tag1> [tag2 ...]
+#   OR
+#        WITH_NB_STUBS=1 ./structure.sh <ROOT_DIR> <tag1> [tag2 ...]
+#
 # Creates the structure shown in your example, including:
 # - README_<tag>.md
 # - notebooks/*_<tag>.ipynb
+#   - (Note that these are created idempotently, i.e. the are created
+#      only if they do not already exist. If  WITH_NB_STUBS=1  is
+#      included, minimal IPYNB files, i.e. those with enough JSON
+#      content to be recognized as IPYNB files, will be created,
+#      once again idempotently)
 # - scripts/{py_build_model,py_train_model,py_inference,py_utils}_<tag>.py
 # - scripts/{build_model,train_model,inference}_<tag>.cmd
 # - scripts/py_touch.py        # untagged (per tag directory)
-# - datasets/, models/, logs/, visualizations/, outputs/{csv_logs,gradcam_images}
+# - datasets/, models/, logs/, visualizations/, 
+#   outputs/{csv_logs,gradcam_images}
 
 set -euo pipefail
 
-ROOT_DIR="${1:?Usage: $0 <ROOT_DIR> <tag1> [tag2 ...]}"
+ROOT_DIR="${1:?Usage:"\
+"                                  $0 <ROOT_DIR> <tag1> [tag2 ...]\n"\
+" (optionally) run WITH_NB_STUBS=1 $0 <ROOT_DIR> <tag1> [tag2 ...]\n"\
+" The second creates minimal IPYNB files. Both create IPYNB idempotently i.e.\n"\
+" only if they do not exist.}"
 shift
 if [ $# -lt 1 ]; then
   echo "Need at least one tag (e.g., p_01 p_02)" >&2
@@ -22,6 +35,33 @@ touch_safe() {
   local path="$1"
   mkd "$(dirname -- "$path")"
   [ -f "$path" ] || : > "$path"
+}
+
+#@TODO : Use getopt to pass in the WITH_NB_STUBS option as well as other opts
+#
+#  Optional: export WITH_NB_STUBS=1 to write minimal *.ipynb files
+WITH_NB_STUBS="${WITH_NB_STUBS:-0}"
+emit_ipynb() {
+  local path="$1"
+  python - <<'PY' "$path"
+import json, sys, os
+nb = {
+  "cells":[{"cell_type":"code","execution_count":None,"metadata":{},"outputs":[],
+    "source":[
+      "import os, random, numpy as np, tensorflow as tf\n",
+      "os.environ[\"PYTHONHASHSEED\"]=\"137\";\n",
+      "random.seed(137);\n",
+      "np.random.seed(137);\n",
+      "tf.random.set_seed(137)\n"
+    ]}],
+  "metadata":{
+    "kernelspec":{"display_name":"Python 3 (ipykernel)","language":"python","name":"python3"},
+    "language_info":{"name":"python","version":"3.10"}
+  },
+  "nbformat":4,"nbformat_minor":5
+}
+open(sys.argv[1], "w", encoding="utf-8").write(json.dumps(nb, ensure_ascii=False, indent=1))
+PY
 }
 
 # Per-tag file stems (relative to the tag root)
@@ -113,7 +153,12 @@ for tag in "$@"; do
     base="$(basename -- "$f")"
     stem="${base%.*}"
     ext="${base##*.}"
-    touch_safe "$TAG_DIR/notebooks/${stem}_${tag}.${ext}"
+    dst="$TAG_DIR/notebooks/${stem}_${tag}.${ext}"
+    if [ "$WITH_NB_STUBS" = "1" ]; then
+      [ -f "$dst" ] || emit_ipynb "$dst"
+    else
+      touch_safe "$dst"
+    fi
   done
 
   # Python scripts with _<tag>.py

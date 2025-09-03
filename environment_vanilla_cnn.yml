@@ -1,4 +1,4 @@
-name: vanillacnn
+name: vanilla_cnn
 channels:
   - defaults
 dependencies:
@@ -35,7 +35,7 @@ dependencies:
       # -------------------------------
       # Data Handling
       # -------------------------------
-      - numpy==1.25.2
+      - numpy==1.25.2 # still, not all programs compiled against numpy 2
       - scikit-learn  # train_test_split, metrics, etc.
       - opencv-python
       - pillow

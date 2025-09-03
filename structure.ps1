@@ -1,6 +1,7 @@
 param(
   [string]$RootDir = "$PWD\new_experiment_dir",
-  [string[]]$Tags = @("default")
+  [string[]]$Tags = @("default"),
+  [switch]$WithNotebookStubs
 )
 
 # Normalize tags: accept space- or comma-separated, or explicit arrays.
@@ -37,13 +38,41 @@ if (-not (Test-Path $RootDir)) { New-Item -ItemType Directory -Path $RootDir | O
 #out#  '@ | Set-Content -LiteralPath $TouchScript -Encoding UTF8
 #out#}
 
+function Write-MinIpynb {
+  param([Parameter(Mandatory)][string]$Path)
+  $json = @"
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import os, random, numpy as np, tensorflow as tf\n",
+    "os.environ[\\"PYTHONHASHSEED\\"]=\\"137\\"; random.seed(137); np.random.seed(137); tf.random.set_seed(137)\n"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {"display_name":"Python 3 (ipykernel)","language":"python","name":"python3"},
+  "language_info": {"name":"python","version":"3.10"}
+ },
+ "nbformat": 4, "nbformat_minor": 5
+}
+"@
+  $dir = Split-Path -Parent $Path
+  if (-not (Test-Path $dir)) { New-Item -ItemType Directory -Path $dir -Force | Out-Null }
+  Set-Content -Path $Path -Value $json -Encoding UTF8
+}
+
 # Files to create
 $Files = @(
   "README.md",
-  "notebooks\00_data_exploration.ipynb",
-  "notebooks\01_model_build.ipynb",
-  "notebooks\02_training.ipynb",
-  "notebooks\03_inference_quick_explore.ipynb",
+#  "notebooks\00_data_exploration.ipynb",
+#  "notebooks\01_model_build.ipynb",
+#  "notebooks\02_training.ipynb",
+#  "notebooks\03_inference_quick_explore.ipynb",
   "scripts\py_build_model.py",
   "scripts\py_train_model.py",
   "scripts\py_inference.py",
@@ -58,6 +87,14 @@ $Files = @(
   "scripts\train_model.sh",
   "scripts\inference.sh"
 )
+
+$NbTargets = @(
+  "notebooks\00_data_exploration_$tag.ipynb",
+  "notebooks\01_model_build_$tag.ipynb",
+  "notebooks\02_training_$tag.ipynb",
+  "notebooks\03_inference_quick_explore_$tag.ipynb"
+)
+
 
 $UntaggedCommon = @(
   "scripts\py_touch.py"
@@ -78,7 +115,7 @@ foreach ($tag in $Tags) {
     $base    = [System.IO.Path]::GetFileNameWithoutExtension($f)
     $ext     = [System.IO.Path]::GetExtension($f)
     $tagged  = Join-Path -Path (Join-Path -Path $TagDir -ChildPath $relpath) -ChildPath "$base`_$tag$ext"
-    #$tagged  = Join-Path $TagDir "$relpath" "$base`_$tag$ext"
+    #before#$tagged  = Join-Path $TagDir "$relpath" "$base`_$tag$ext"
 
     $dir = Split-Path -Parent $tagged
     if (-not (Test-Path $dir)) {
@@ -86,6 +123,19 @@ foreach ($tag in $Tags) {
     }
     if (-not (Test-Path $tagged)) {
       New-Item -ItemType File -Path $tagged -Force | Out-Null
+    }
+  }
+  
+  #  Note this part is idempotent: notebooks are only written if they
+  #+ don't exist.
+  if ($WithNotebookStubs) {
+    foreach ($nb in $NbTargets) {
+      $nbRelpath = Split-Path -Path $nb -Parent
+      $nbBase    = [System.IO.Path]::GetFileNameWithoutExtension($nb)
+      $nbExt     = [System.IO.Path]::GetExtension($nb)
+      $nbTagged  = Join-Path -Path (Join-Path -Path $TagDir -ChildPath $nbRelpath) -ChildPath "$nbBase`_$tag$nbExt"
+      #before#$dst = Join-Path $TagDir $nb
+      if (-not (Test-Path $dst)) { Write-MinIpynb -Path $dst }
     }
   }
 
@@ -97,6 +147,12 @@ foreach ($tag in $Tags) {
   ##+ a helper-function-version of programs like dos2unix / unix2dos
   ##+ This allows cross-platform creation of an experimental
   ##+ directory very quickly.
+  ##
+  ##+ There's also a .gitattributes addition (something that gets
+  ##+ appended to .gitattributes if it exists or that gets put in
+  ##+ a newly-created .gitattributes if .gitattributes doesn't
+  ##+ already exist.
+  ##+ @TODO : create/append this in the root of the GitHub directory
   
   # Create (untagged common) py_touch.py if missing
   $PyTouchPath = Join-Path $TagDir "scripts\py_touch.py"
@@ -313,6 +369,14 @@ if __name__ == "__main__":
   Write-Host "  (Note that any files that should be excluded/ignored"
   Write-Host "   are covered in the Git repo's root .gitignore file.)"
   Write-Host ""
+  
+
+
+  
+  
+  
+  
+  
 }
 
 Write-Host "--------------------------------------------------------------------"
