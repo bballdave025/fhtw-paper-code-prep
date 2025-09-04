@@ -1,0 +1,1707 @@
+Script started on 2025-09-03 20:08:21-06:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="80" LINES="24"]
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h <=> conda environment, blank means none activated
+[38;5;48m[0m <=> git branch, blank means not in a git repo]0;~
+[32mbballdave025@MY-MACHINE [33m~[0m
+$ tput cols
+[?2004l80
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h <=> conda environment, blank means none activated
+[38;5;48m[0m <=> git branch, blank means not in a git repo]0;~
+[32mbballdave025@MY-MACHINE [33m~[0m
+$ checksituation
+[?2004lWed Sep  3 08:08:29 PM MDT 2025
+1756951709
+1756951709_2025-09-03T200829-0600
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h <=> conda environment, blank means none activated
+[38;5;48m[0m <=> git branch, blank means not in a git repo]0;~
+[32mbballdave025@MY-MACHINE [33m~[0m
+$ cat >/dev/null <<'EOF'
+[?2004l[?2004h>       HERE COMES THE SELF-TEST FOR .portable.bashrc
+[?2004l[?2004h> EOF
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h <=> conda environment, blank means none activated
+[38;5;48m[0m <=> git branch, blank means not in a git repo]0;~
+[32mbballdave025@MY-MACHINE [33m~[0m
+$ verify_portable_bashrc
+[?2004l[verify] rc: /home/bballdave025/vezde/.portable.bashrc
+[verify] syntax: OK
+[verify] isolated source: OK
+  OK alias/runner: rmi
+  OK alias/runner: cpi
+  OK alias/runner: mvi
+  OK alias/runner: lessraw
+  OK alias/runner: whence
+  OK alias/runner: grepcolor
+  OK alias/runner: cgrep
+  OK alias/runner: grepc
+  OK alias/runner: ll
+  OK alias/runner: la
+  OK alias/runner: l
+  OK alias/runner: dir
+  OK alias/runner: vdir
+  OK alias/runner: lsc
+  OK alias/runner: lscolor
+  OK alias/runner: lh
+  OK alias/runner: ls_name_and_size
+  OK alias/runner: runlog
+  OK alias/runner: catwithcontrol
+  OK alias/runner: atree
+  OK alias/runner: checksituation
+  OK alias/runner: dbldate
+  OK alias/runner: tripledate
+  OK alias/runner: ttdate
+  OK function: git_branch_func
+  OK function: git_trace_cmd_func
+  OK function: get2byteandunicode4char
+  OK function: definewithheredoc
+  OK function: cd_func
+  (opt) present: forcleaningterminallog
+  (opt) present: git_branch
+  (opt) present: gittracecmd
+  (opt) present: gittracecommand
+  (opt) present: get2bu4char
+  (opt) present: get24char
+  (opt) present: dhd
+  (opt) present: help_dhd
+  (opt) present: eg
+  (opt) present: fg
+  (opt) present: egcolor
+  (opt) present: fgcolor
+  (opt) present: ugrep
+  (opt) present: bgrep
+  (opt) present: gcolor
+  (opt) present: diffcolor
+  (opt) present: bdiff
+  (opt) present: ipcolor
+[verify] presence: OK
+  sample: catwithcontrol OK
+  sample: atree OK
+[verify] ALL OK
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h <=> conda environment, blank means none activated
+[38;5;48m[0m <=> git branch, blank means not in a git repo]0;~
+[32mbballdave025@MY-MACHINE [33m~[0m
+$ conda activate vanilla_cnn[K[Kn^C[?2004l[?2004h[?2004l
+[48;5;167m=====[0m``````````````````````````````````````````````````````````retval=0d00130```
+
+[?2004h <=> conda environment, blank means none activated
+[38;5;48m[0m <=> git branch, blank means not in a git repo]0;~
+[32mbballdave025@MY-MACHINE [33m~[0m
+$ conda activate vanilla_cnn
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[0m <=> git branch, blank means not in a git repo]0;~
+[32mbballdave025@MY-MACHINE [33m~[0m
+$ cd /[K~/my_repos_dwb/ftw[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K#  Thnk[K[Kinking that I'll copy in our beautiful .portable.bashrc, since it's[K[K was
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[0m <=> git branch, blank means not in a git repo]0;~
+[32mbballdave025@MY-MACHINE [33m~[0m
+$ # [K+ created during this project in this github repo. our [K[K[K[KOur commit and push
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[0m <=> git branch, blank means not in a git repo]0;~
+[32mbballdave025@MY-MACHINE [33m~[0m
+$ #+ wi[Kill make sure it gets saved.
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[0m <=> git branch, blank means not in a git repo]0;~
+[32mbballdave025@MY-MACHINE [33m~[0m
+$ cp[K[Kcd my_repos_dwb/fhtw-paper-code-prep/
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ cp ../vezd[K[K[K[K../vezde/.portable.bashrc .
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ #  That Prompt is working just right, too.[K, with the conda/git stuff.
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ git status
+[?2004lOn branch cifar10-vanilla-cnn
+Your branch is up to date with 'origin/cifar10-vanilla-cnn'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	[31m.portable.bashrc[m
+
+nothing added to commit but untracked files present (use "git add" to track)
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ ROOT[K[K[K[K[7mROOT="$PWD/test_project_bash"; TAG="p_01"; TAGDIR="$ROOT/$TAG"; export TAGDIR[27m[C[CROOT="$PWD/test_project_bash"; TAG="p_01"; TAGDIR="$ROOT/$TAG"; export TAGDIR
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ # s[K sCA[K[K[KScaffoli[Kding and [K[K[K[K[K - the directory structure and openable notebook stubs
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ #+ for a new experiment.
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ #  Let's do the EOL hygiene. Always a good idea, especially when we're
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ #+ going to commit.
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ [7mWITH_NB_STUBS=1 ./structure.sh "$ROOT" "$TAG"[27m[C[CWITH_NB_STUBS=1 ./structure.sh "$ROOT" "$TAG"
+[?2004lbash: ./structure.sh: Permission denied
+[48;5;167m=====[0m``````````````````````````````````````````````````````````retval=0d00126```
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ cj,p[K[K[Khmod a+x structure.sh 
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ chmod a+x structure.sh [C[CWITH_NB_STUBS=1 ./structure.sh "$ROOT" "$TAG"
+[?2004l./structure.sh: line 432: syntax error near unexpected token `done'
+[48;5;167m=====[0m``````````````````````````````````````````````````````````retval=0d00002```
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ #  Okay, do you w[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kcat >/dev/null <<'EOF'
+[?2004l[?2004h>   We got pretty far. I really like the red and green retval stuff.
+[?2004l[?2004h>   
+[?2004l[?2004h>   Let me know if you'd like me to send the whole `structure.sh` file or
+[?2004l[?2004h>   just a subset of lines. I'll be looking at the file, as well.
+[?2004l[?2004h> 
+[?2004l[?2004h> EOF
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ ex[prt $[[KS[R[K[KPRINT_START_TS=$(dat +$[K%s)e +%s)[C[C[C[C[C[1P[C[1@o[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[?2004lbash: export: `=1756952709': not a valid identifier
+[48;5;167m=====[0m``````````````````````````````````````````````````````````retval=0d00001```
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ export $SPRINT_START_TS=$(date +%s)[1P
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ [7melapsed() { printf "%s\n" "$(( $(date +%s) - SPRINT_START_TS ))s elapsed"; }[27m[C[Celapsed() { printf "%s\n" "$(( $(date +%s) - SPRINT_START_TS ))s elapsed"; }
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ [7mash -n ./structure.sh || echo "[syntax] bash flagged a problem"[27m[C[Cash -n ./structure.sh || echo "[syntax] bash flagged a problem"[C[C[1@b
+[?2004l./structure.sh: line 432: syntax error near unexpected token `done'
+./structure.sh: line 432: `done'
+[syntax] bash flagged a problem
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ [7mfile -b ./structure.sh[27m[C[Cfile -b ./structure.sh
+[?2004lBourne-Again shell script, ASCII text executable
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ [7mbash -n ./structure.sh && echo "[syntax] OK after EOL fix" || echo "[syntax] s[27m[7mt[27m[7mill failing"[27m[A[C[Cbash -n ./structure.sh && echo "[syntax] OK after EOL fix" || echo "[syntax] still failing"
+[?2004l./structure.sh: line 432: syntax error near unexpected token `done'
+./structure.sh: line 432: `done'
+[syntax] still failing
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ [7mnl -ba ./structure.sh | sed -n '420,450p' | cat -A[27m[C[Cnl -ba ./structure.sh | sed -n '420,450p' | cat -A
+[?2004l   420^I  echo "  $gitattr_path"$
+   421^I  echo "  provided for tag, '$tag'. This will allow everying"$
+   422^I  echo "  to be stress-free platform-agnostic. Only used"$
+   423^I  echo "  when things are done in a project where source"$
+   424^I  echo "  control is handled via Git, but it doesn't hurt to"$
+   425^I  echo "  have this in here."$
+   426^I  echo "  (Note that any files that should be excluded/ignored"$
+   427^I  echo "   are covered in the Git repo's root .gitignore file.)"$
+   428^I  echo$
+   429^I  $
+   430^I  $
+   431^I  $
+   432^Idone$
+   433^I$
+   434^Iecho "--------------------------------------------------------------------"$
+   435^Iecho "Project scaffolding with tags for files and tag-named subdirectories created at $ROOT_DIR"$
+   436^Iecho "--------------------------------------------------------------------"$
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ echo "        " | xxd
+[?2004l00000000: [1;33m09[0m[1;33m0a[0m                      [1;31m [0m[1;31m [0m[1;31m [0m[1;31m [0m[1;31m [0m[1;31m [0m[1;31m [0m[1;31m [0m[1;31m [0m[1;31m [0m[1;31m [0m[1;31m [0m[1;31m [0m[1;31m [0m [1;33m.[0m[1;33m.[0m
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ # That's a tab, I'm pretty sure.
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ # That's a tab, I'm pretty sure.[C[C[11Pecho "        " | xxd[C[Cnl -ba ./structure.sh | sed -n '420,450p' | cat -A[1P[C[1@0
+[?2004l   400^I  # Create (untagged-common) .gitattributes (or append if already exists)$
+   401^I  gitattr_path="$TAG_DIR/.gitattributes"$
+   402^I  if [ ! -f "$norm_eol_path" ]; then$
+   403^I    cat << 'EOGitAttrF' >> "$gitattr_path"$
+   404^I$
+   405^I#  .gitattributes addition (or creation) for ease in using$
+   406^I#+ platform-specific files (making it platform-agnostic)$
+   407^I*.sh              text eol=lf$
+   408^I*.ps1             text eol=crlf$
+   409^I*.cmd             text eol=crlf$
+   410^I*.py              text eol=lf$
+   411^I*.md              text eol=lf$
+   412^I*.ipynb           text eol=lf$
+   413^I.gitattributes    text eol=lf$
+   414^I$
+   415^IEOGitAttrF$
+   416^I$
+   417^I  # Info on the .gitattributes additions (creation)$
+   418^I  echo "  ---------------------------------------------------------"$
+   419^I  echo "  Helper to ensure correct EOL on OS-specific files,"$
+   420^I  echo "  $gitattr_path"$
+   421^I  echo "  provided for tag, '$tag'. This will allow everying"$
+   422^I  echo "  to be stress-free platform-agnostic. Only used"$
+   423^I  echo "  when things are done in a project where source"$
+   424^I  echo "  control is handled via Git, but it doesn't hurt to"$
+   425^I  echo "  have this in here."$
+   426^I  echo "  (Note that any files that should be excluded/ignored"$
+   427^I  echo "   are covered in the Git repo's root .gitignore file.)"$
+   428^I  echo$
+   429^I  $
+   430^I  $
+   431^I  $
+   432^Idone$
+   433^I$
+   434^Iecho "--------------------------------------------------------------------"$
+   435^Iecho "Project scaffolding with tags for files and tag-named subdirectories created at $ROOT_DIR"$
+   436^Iecho "--------------------------------------------------------------------"$
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ #  I'm pretty sure we're [K[K[K[K[K[Kthat `done' is sp[Kupposed to be after a very long
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ b[Kcat >/dev/null <<'EOF'
+[?2004l[?2004h>   I'm pretty sure that `done`[K' is supposed to be after a very long
+[?2004l[?2004h>   for tag in tags   [Kloop. Moving on to the next commands.
+[?2004l[?2004h>   Goodness, so many nice tricks that are  bash  only, balancing without
+[?2004l[?2004h>   needing something Python or Perl.
+[?2004l[?2004h> EOF
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ [7mprintf "do vs done: ";  (grep -nE '\b(do|done)\b'   -n ./structure.sh | wc -l;[27m[7m [27m[7mgrep -n '\bdone\b' ./structure.sh | wc -l) | paste -sd' ' -[27m[A[C[Cprintf "do vs done: ";  (grep -nE '\b(do|done)\b'   -n ./structure.sh | wc -l; grep -n '\bdone\b' ./structure.sh | wc -l) | paste -sd' ' -
+[?2004ldo vs done: 20 9
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ cat >/dev/null <<'EOF'
+[?2004l[?2004h>   I'm not sure what that means, so I'll have to aks [K[K[Ksk you. If there are 20
+[?2004l[?2004h>   instances of `do' vs 9 instances of `done', we have bigger problems than
+[?2004l[?2004h>   I thought ; ) I've never seen a `grep` with two -n flags. If you don't
+[?2004l[?2004h>   mine[Kd, I'll wait for your explanation.
+[?2004l[?2004h> EOF
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ [7mprintf "if vs fi:   ";  (grep -nE '(^|\s)if(\s|\[)' ./structure.sh | wc -l; gr[27m[7me[27m[7mp -n '\bfi\b' ./structure.sh | wc -l) | paste -sd' ' -[27m[A[C[Cprintf "if vs fi:   ";  (grep -nE '(^|\s)if(\s|\[)' ./structure.sh | wc -l; grep -n '\bfi\b' ./structure.sh | wc -l) | paste -sd' ' -
+[?2004lif vs fi:   25 4
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ [7mprintf "case/esac:  ";  (grep -n '\bcase\b'         ./structure.sh | wc -l; gr[27m[7me[27m[7mp -n '\besac\b' ./structure.sh | wc -l) | paste -sd' ' -[27m[A[C[Cprintf "case/esac:  ";  (grep -n '\bcase\b'         ./structure.sh | wc -l; grep -n '\besac\b' ./structure.sh | wc -l) | paste -sd' ' -
+[?2004lcase/esac:  2 0
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ [7mawk 'NR>=400 && NR<=470 {if($0~/(for|while|until|select|if|then|elif|else|fi|d[27m[7mo[27m[7m|done|case|esac)/)print NR": "$0}' ./structure.sh[27m[A[C[Cawk 'NR>=400 && NR<=470 {if($0~/(for|while|until|select|if|then|elif|else|fi|do|done|case|esac)/)print NR": "$0}' ./structure.sh
+[?2004l400:   # Create (untagged-common) .gitattributes (or append if already exists)
+402:   if [ ! -f "$norm_eol_path" ]; then
+405: #  .gitattributes addition (or creation) for ease in using
+406: #+ platform-specific files (making it platform-agnostic)
+419:   echo "  Helper to ensure correct EOL on OS-specific files,"
+421:   echo "  provided for tag, '$tag'. This will allow everying"
+422:   echo "  to be stress-free platform-agnostic. Only used"
+423:   echo "  when things are done in a project where source"
+424:   echo "  control is handled via Git, but it doesn't hurt to"
+426:   echo "  (Note that any files that should be excluded/ignored"
+427:   echo "   are covered in the Git repo's root .gitignore file.)"
+432: done
+435: echo "Project scaffolding with tags for files and tag-named subdirectories created at $ROOT_DIR"
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ cat >/dev/null <<'EOF'
+[?2004l[?2004h>   I'll send what we've got so far. I'm going to run that awk o[Kcommand
+[?2004l[?2004h>   from 300 to 470 to see what it turns up.
+[?2004l[?2004h>   I'm excited to learn exactly what those balancing lines do and what
+[?2004l[?2004h>   the outputs mean.
+[?2004l[?2004h> OF[K[KEOF
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ elapsed
+[?2004l840s elapsed
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ echo "840/60/[K" | bc
+[?2004l14
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ echo "840/60" | bc[C[C[C[11Plapsed[C[Ccat >/dev/null <<'EOF'
+  I'll send what we've got so far. I'm going to run that awk command
+  from 300 to 470 to see what it turns up.
+  I'm excited to learn exactly what those balancing lines do and what
+  the outputs mean.
+EOF
+[A[A[A[A[A[A[C[Cawk 'NR>=400 && NR<=470 {if($0~/(for|while|until|select|if|then|elif|else|fi|do[18P|done|case|esac)/)print NR": "$0}' ./structure.sh
+[K
+[K
+[K
+[K
+[K[A[A[A[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C00 && NR<=470 {if($0~/(for|while|until|select|if|then|elif|else|fi|do|[1P[A[C[C[C[C[C[C[C[C[C[C300 && NR<=470 {if($0~/(for|while|until|select|if|then|elif|else|fi|do[1@|[A[C[C[C[C[C[C[C[C[C[C
+
+[?2004l301:     if not part:
+305:     if not ext.startswith("."):
+312:   Walk root and apply per-extension modes. Returns count of modified files.
+315:   for p in root.rglob("*"):
+316:     if not p.is_file():
+318:     mode = extmap.get(p.suffix.lower())
+319:     if not mode:
+321:     if normalize_file(p, mode):
+331:   g.add_argument("--to-lf",   action="store_true", help="Force LF on listed files")
+332:   g.add_argument("--to-crlf", action="store_true", help="Force CRLF on listed files")
+335:   ap.add_argument("files", nargs="*", type=Path, help="Files to normalize (with --to-*)")
+338:   # Mode B: explicit files
+339:   if args.to_lf or args.to_crlf:
+340:     mode = "lf" if args.to_lf else "crlf"
+342:     for f in args.files:
+343:       if normalize_file(f, mode):
+345:     print(f"Changed {changed} files.")
+349:   if args.root and args.map:
+352:     print(f"Changed {changed} files under {args.root}.")
+355:   ap.error("Provide either (--to-lf|--to-crlf files...) or --root DIR --map ext=mode,...")
+357: if __name__ == "__main__":
+359:   Gets called if the module is called from command prompt, via
+369:   #+ return value of main to, say, retval, and then returning retval.
+375:   fi
+381:   echo "  provided for tag, '$tag'. IT WILL BE NECESSARY TO USE IT!"
+384:   echo "  allow the files to run from your repo, whether on your local"
+397:   echo "  \"$TAG_DIR\" in the Windows platform setup."
+400:   # Create (untagged-common) .gitattributes (or append if already exists)
+402:   if [ ! -f "$norm_eol_path" ]; then
+405: #  .gitattributes addition (or creation) for ease in using
+406: #+ platform-specific files (making it platform-agnostic)
+419:   echo "  Helper to ensure correct EOL on OS-specific files,"
+421:   echo "  provided for tag, '$tag'. This will allow everying"
+422:   echo "  to be stress-free platform-agnostic. Only used"
+423:   echo "  when things are done in a project where source"
+424:   echo "  control is handled via Git, but it doesn't hurt to"
+426:   echo "  (Note that any files that should be excluded/ignored"
+427:   echo "   are covered in the Git repo's root .gitignore file.)"
+432: done
+435: echo "Project scaffolding with tags for files and tag-named subdirectories created at $ROOT_DIR"
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ 
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ 
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ [7msed -i '431,434{/^[[:space:]]*done[[:space:]]*$/i\  fi}' ./structure.sh[27m[C[Csed -i '431,434{/^[[:space:]]*done[[:space:]]*$/i\  fi}' ./structure.sh
+[?2004lsed: -e expression #1, char 0: unmatched `{'
+[48;5;167m=====[0m``````````````````````````````````````````````````````````retval=0d00001```
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ cp -v ./structure.sh ./structure.sh.bak
+[?2004l'./structure.sh' -> './structure.sh.bak'
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ find . -mindepth 1 -maxdepth 1 -type d
+[?2004l./general_lab_notebooks_-_other_examples
+./img
+./.git
+./dataset_preparation_examples
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ #  Good, we didn't create any directories.
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ [7msed -i 's/\[ ! -f "\$norm_eol_path" \]/[ ! -f "\$gitattr_path" ]/' ./structure[27m[7m.[27m[7msh[27m[Ased -i 's/\[ ! -f "\$norm_eol_path" \]/[ ! -f "\$gitattr_path" ]/' ./structure.sh
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ [7msed -i '/EOGitAttrF/,/^[[:space:]]*done[[:space:]]*$/{[27m
+[7m  /^[[:space:]]*done[[:space:]]*$/i\[27m
+[7m  fi[27m
+[7m}' ./structure.sh[27m[A[A[A[C[Csed -i '/EOGitAttrF/,/^[[:space:]]*done[[:space:]]*$/{
+  /^[[:space:]]*done[[:space:]]*$/i\
+  fi
+}' ./structure.sh
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ [7mbash -n ./structure.sh && echo "[syntax] OK" || echo "[syntax] still failing"[27m[C[Cbash -n ./structure.sh && echo "[syntax] OK" || echo "[syntax] still failing"
+[?2004l[syntax] OK
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ [7mWITH_NB_STUBS=1 ./structure.sh "$ROOT" "$TAG"[27m[C[CWITH_NB_STUBS=1 ./structure.sh "$ROOT" "$TAG"[7mWITH_NB_STUBS=1 ./structure.sh "$[27m[7mR[27m[7mOOT" "$TAG"[27m[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[CWITH_NB_STUBS=1 ./structure.sh "$R[1POOT" "$TAG[K[K[K[K[K[K[K[K[K[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[?2004l./structure.sh: line 197: UNTAGGED_COMMON: unbound variable
+[48;5;167m=====[0m``````````````````````````````````````````````````````````retval=0d00001```
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ Oh, [K[K[K[K#  I was thinking that I just need e[K[Ked to change a variable. Earlier, I
+[?2004l[48;5;167m=====[0m``````````````````````````````````````````````````````````retval=0d00001```
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ #_[K+ wrote [K[K[K[K[K[K[K[K[Kgrep -i -A4 "UNTAGGED_COMMON_[^ }[K] | wc -l
+[?2004l[?2004h> ^C[?2004l[?2004h[?2004l
+[48;5;167m=====[0m``````````````````````````````````````````````````````````retval=0d00130```
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ grep -i -A4 "UNTAGGED_COMMON_[^ ] | wc -l[1@"[C[C[C[C[C[C[C[C  # Make sure we don't get 1B lini[Kes
+[?2004l^C
+[48;5;167m=====[0m``````````````````````````````````````````````````````````retval=0d00130```
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ Oh, and I should give it a filename.[1@#[1@ [1@ 
+[?2004l[48;5;167m=====[0m``````````````````````````````````````````````````````````retval=0d00130```
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ #  Oh, and I should give it a filename.[C[Cgrep -i -A4 "UNTAGGED_COMMON_[^ ]" | wc -l  # Make sure we don't get 1B liness| wc -l  # Make sure we don't get 1B lines [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ct| wc -l  # Make sure we don't get 1B lines[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cr| wc -l  # Make sure we don't get 1B lines[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cu| wc -l  # Make sure we don't get 1B lines[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cc| wc -l  # Make sure we don't get 1B lines[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ct| wc -l  # Make sure we don't get 1B lines[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cu| wc -l  # Make sure we don't get 1B lines[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cr| wc -l  # Make sure we don't get 1B lines[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ce| wc -l  # Make sure we don't get 1B lines[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C.| wc -l  # Make sure we don't get [1@1[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cs| wc -l  # Make sure we don't get[1@ [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ch| wc -l  # Make sure we don't ge[1@t[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C | wc -l  # Make sure we don't g[1@e[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+[?2004l5
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ grep -i -A4 "UNTAGGED_COMMON_[^ ]" structure.sh | wc -l  # Make sure we don't get 1B lines[K[K[K[K[K[K[K[K[K[K[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[?2004lUNTAGGED_COMMON_FILES=(
+  "scripts/py_touch.py"
+  "scripts/normalize_eol.py"
+  ".gitattributes"
+)
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ grep -i -A4 "UNTAGGED_COMMON_[^ ]" structure.sh[C[C[Kdiff structure.sh.bak structure.sh
+[?2004l197c197
+<   for f in "${UNTAGGED_COMMON}"; do
+---
+>   for f in "${UNTAGGED_COMMON_FILES}"; do
+236c236
+<   if [ ! -f "$norm_eol_path" ]; then
+---
+>   if [ ! -f "$gitattr_path" ]; then
+402c402
+<   if [ ! -f "$norm_eol_path" ]; then
+---
+>   if [ ! -f "$gitattr_path" ]; then
+431a432
+>   fi
+[48;5;167m=====[0m``````````````````````````````````````````````````````````retval=0d00001```
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ #[Kcat >/dev/null <<'EOF'
+[?2004l[?2004h>   Why do I get a return value of 1 while running diff?
+[?2004l[?2004h> EOF
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ bash -n ./structure.sh && echo ""["]"s]"y]"n]"t]"a]"x]"[C "O"K"[C || echo ""["s"y"n"t"a"x"]" "s"t"i"l"l" "f"a"i"l"i"n"g"
+[?2004l[syntax] OK
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ bash -n ./structure.sh && echo "[syntax] OK" || echo "[syntax] still failing"[C[Ccat >/dev/null <<'EOF'                                                       
+  Why do I get a return value of 1 while running diff?
+EOF
+[A[A[A[C[Cdiff structure.sh.bak structure.sh
+[K
+[K
+[K[A[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[13@grep -i -A4 "UNTAGGED_COMMON_[^ ]"[C[C[C[C[C[C[C[C[C[C[C[C[C | wc -l  # Make sure we don't get 1B lines[A[C[C[39P#  Oh, and I should give it a filename.
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cgrep -i -A4 "UNTAGGED_COMMON_[^ ]" | wc -l  # Make sure we don't get 1B lines[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C | wc -l[K[C[C#  I was thinking that I just needed to change a variable. Earlier, I[C[C[24PWITH_NB_STUBS=1 ./structure.sh "$ROOT" "$TAG"[C[Cbash -n ./structure.sh && echo "[syntax] OK" || echo "[syntax] still failing"[C[C[32PWITH_NB_STUBS=1 ./structure.sh "$ROOT" "$TAG"[C[Cbash -n ./structure.sh && echo "[syntax] OK" || echo "[syntax] still failing"[C[C[32PWITH_NB_STUBS=1 ./structure.sh "$ROOT" "$TAG"
+[?2004l  ---------------------------------------------------------
+  OS-agnostic helper,
+  /home/bballdave025/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01/scripts/py_touch.py
+  provided for tag, p_01', in case it be desired.
+  This could prove immensely helpful for Windows users.
+  On *NIX, prefer touch(1) when available; this is a fallback.
+
+./structure.sh: line 236: gitattr_path: unbound variable
+[48;5;167m=====[0m``````````````````````````````````````````````````````````retval=0d00001```
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ cp -v structure.sh structure.sh.bak 
+[?2004l'structure.sh' -> 'structure.sh.bak'
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ #  Using vim in another terminal.
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ diff structure.sh structure.sh.bak | wc -l
+[?2004l39
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ diff structure.sh structure.sh.bak | wc -l[C[C[9P#  Using vim in another terminal.[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kstat ~/temp
+[?2004lstat: cannot statx '/home/bballdave025/temp': No such file or directory
+[48;5;167m=====[0m``````````````````````````````````````````````````````````retval=0d00001```
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ mkdir -p ~/temp/
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ diff structure.sh structure.sh.bak > ~/temp/structure_diff_$t[K(ttdate).out
+[?2004l[48;5;167m=====[0m``````````````````````````````````````````````````````````retval=0d00001```
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ ls -1 ~/temp/structure_diff_1756958862_2025-09-03T220742-0600.out 
+[?2004l/home/bballdave025/temp/structure_diff_1756958862_2025-09-03T220742-0600.out
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ #  We can look at the[Kat if necessary to change things back.
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ #  We can look at that if necessary to change things back.[C[Cls -1 ~/temp/structure_diff_1756958862_2025-09-03T220742-0600.out [C[Cdiff structure.sh structure.sh.bak > ~/temp/structure_diff_$(ttdate).out[C[Cmkdir -p ~/temp/[K[C[C[5Pstat ~/temp[C[Cdiff structure.sh structure.sh.bak | wc -l[C[C[9P#  Using vim in another terminal.[C[Ccp -v structure.sh structure.sh.bak [C[CWITH_NB_STUBS=1 ./structure.sh "$ROOT" "$TAG"[C[Cbash -n ./structure.sh && echo "[syntax] OK" || echo "[syntax] still failing"[C[C[32PWITH_NB_STUBS=1 ./structure.sh "$ROOT" "$TAG"[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K
+[?2004l./structure.sh: line 26: 1: Usage:                                  ./structure.sh <ROOT_DIR> <tag1> [tag2 ...]n (optionally) run WITH_NB_STUBS=1 ./structure.sh <ROOT_DIR> <tag1> [tag2 ...]n The second creates minimal IPYNB files. Both create IPYNB idempotently i.e.n only if they do not exist.
+[48;5;167m=====[0m``````````````````````````````````````````````````````````retval=0d00001```
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ #  I decided to look at my USAGE[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kttdate
+[?2004l1756960018_2025-09-03T222658-0600
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ #  Checking incorrect usage and the Usage: message
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ [7mWITH_NB_STUBS=1 ./structure.sh[27m[C[CWITH_NB_STUBS=1 ./structure.sh
+[?2004lUsage:
+  ./structure.sh <ROOT_DIR> <tag1> [tag2 ...]
+
+Optionally:
+  WITH_NB_STUBS=1 ./structure.sh <ROOT_DIR> <tag1> [tag2 ...]
+
+Creates the scaffold; if WITH_NB_STUBS=1, also creates minimal .ipynb stubs.
+Idempotent (won’t clobber existing files).
+[48;5;167m=====[0m``````````````````````````````````````````````````````````retval=0d00001```
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ [7mbash -n ./structure.sh && echo "[syntax] OK"[27m[C[Cbash -n ./structure.sh && echo "[syntax] OK"
+[?2004l[syntax] OK
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ [7mWITH_NB_STUBS=1 ./structure.sh "$ROOT" "$TAG"[27m[C[CWITH_NB_STUBS=1 ./structure.sh "$ROOT" "$TAG"
+[?2004l[OK] ensured .gitattributes entries at /home/bballdave025/my_repos_dwb/fhtw-paper-code-prep/.gitattributes
+  ---------------------------------------------------------
+  OS-agnostic helper,
+  /home/bballdave025/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01/scripts/py_touch.py
+  provided for tag, p_01', in case it be desired.
+  This could prove immensely helpful for Windows users.
+  On *NIX, prefer touch(1) when available; this is a fallback.
+
+./structure.sh: line 295: gitattr_path: unbound variable
+[48;5;167m=====[0m``````````````````````````````````````````````````````````retval=0d00001```
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ WITH_NB_STUBS=1 ./structure.sh "$ROOT" "$TAG"
+[?2004l[OK] ensured .gitattributes entries at /home/bballdave025/my_repos_dwb/fhtw-paper-code-prep/.gitattributes
+  ---------------------------------------------------------
+  OS-agnostic helper,
+  /home/bballdave025/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01/scripts/py_touch.py
+  provided for tag, p_01', in case it be desired.
+  This could prove immensely helpful for Windows users.
+  On *NIX, prefer touch(1) when available; this is a fallback.
+
+  ---------------------------------------------------------
+  OS-agnostic helper,
+  /home/bballdave025/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01/scripts/normalize_eol.py
+  provided for tag, 'p_01'. IT WILL BE NECESSARY TO USE IT!
+  DO NOT MISS reading the pre-running instructions, in the p_01
+  README at Section: REQUIRED Pre-running Instructions, to allow
+  allow the files to run from your repo, whether on your local
+  machine or on any online/VPN/other machine.
+  THIS IS NECESSARY WHETHER ON WINDOWS OR *NIX!
+  DO NOT PROCEED FURTHER WITHOUT FOLLOWING THOSE INSTRUCTIONS!
+
+  From bash, usage should be
+    $ python "$TAG_DIR/scripts/normalize_eol.py \"
+         --root "$TAG_DIR" \"
+         --map 'sh=lf,ps1=crlf,cmd=crlf,py=lf,ipynb=lf,md=lf' 
+
+  From PowerShell, usage should be
+    PS> & python "<path-to-tagdir>\scripts\normalize_eol.py" --root <path-to-tagdir> --map "sh=lf,ps1=crlf,cmd=crlf,py=lf,ipynb=lf,md=lf"
+  where <path-to-tagdir> is analogous to
+  "/home/bballdave025/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01" in the Windows platform setup.
+
+  ---------------------------------------------------------
+  Helper to ensure correct EOL on OS-specific files,
+  /home/bballdave025/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01/.gitattributes
+  provided for tag, 'p_01'. This will allow everying
+  to be stress-free platform-agnostic. Only used
+  when things are done in a project where source
+  control is handled via Git, but it doesn't hurt to
+  have this in here.
+  (Note that any files that should be excluded/ignored
+   are covered in the Git repo's root .gitignore file.)
+
+--------------------------------------------------------------------
+Project scaffolding with tags for files and tag-named subdirectories created at /home/bballdave025/my_repos_dwb/fhtw-paper-code-prep/test_project_bash
+--------------------------------------------------------------------
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ # Verify scaffold
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ [7mtest -d "$TAGDIR"/{data,notebooks,scripts,outputs,csv_logs} && echo "[scaffold[27m[7m][27m[7m OK" || echo "[scaffold] missing dirs"[27m[A[C[Ctest -d "$TAGDIR"/{data,notebooks,scripts,outputs,csv_logs} && echo "[scaffold] OK" || echo "[scaffold] missing dirs"
+[?2004lbash: test: too many arguments
+[scaffold] missing dirs
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ atreea p[K[K[K[K[K[K[K[Kfind . -mindepth 1 -maxdepth 1 -type d
+[?2004l./general_lab_notebooks_-_other_examples
+./img
+./test_project_bash
+./.git
+./dataset_preparation_examples
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ atreea test-[K_project_bash
+[?2004l[01;34mtest_project_bash[0m
+`-- [01;34mp_01[0m
+    |-- [01;34mdatasets[0m
+    |-- .gitattributes
+    |-- [01;34mlogs[0m
+    |-- [01;34mmodels[0m
+    |-- [01;34mnotebooks[0m
+    |   |-- 00_data_exploration_p_01.ipynb
+    |   |-- 01_model_build_p_01.ipynb
+    |   |-- 02_training_p_01.ipynb
+    |   `-- 03_inference_quick_explore_p_01.ipynb
+    |-- [01;34moutputs[0m
+    |   |-- [01;34mcsv_logs[0m
+    |   `-- [01;34mgradcam_images[0m
+    |-- README_p_01.md
+    |-- [01;34mscripts[0m
+    |   |-- build_model_p_01.cmd
+    |   |-- build_model_p_01.ps1
+    |   |-- build_model_p_01.sh
+    |   |-- inference_p_01.cmd
+    |   |-- inference_p_01.ps1
+    |   |-- inference_p_01.sh
+    |   |-- normalize_eol.py
+    |   |-- py_build_model_p_01.py
+    |   |-- py_inference_p_01.py
+    |   |-- py_touch.py
+    |   |-- py_train_model_p_01.py
+    |   |-- py_utils_p_01.py
+    |   |-- train_model_p_01.cmd
+    |   |-- train_model_p_01.ps1
+    |   `-- train_model_p_01.sh
+    `-- [01;34mvisualizations[0m
+
+11 directories, 21 files
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ jupyter lab test_project_bash/
+[?2004l[32m[I 2025-09-03 22:40:59.580 ServerApp](B[m jupyter_lsp | extension was successfully linked.
+[32m[I 2025-09-03 22:40:59.592 ServerApp](B[m jupyter_server_terminals | extension was successfully linked.
+[32m[I 2025-09-03 22:40:59.604 ServerApp](B[m jupyterlab | extension was successfully linked.
+[32m[I 2025-09-03 22:40:59.607 ServerApp](B[m Writing Jupyter server cookie secret to /home/bballdave025/.local/share/jupyter/runtime/jupyter_cookie_secret
+[32m[I 2025-09-03 22:41:00.465 ServerApp](B[m notebook_shim | extension was successfully linked.
+[32m[I 2025-09-03 22:41:00.530 ServerApp](B[m notebook_shim | extension was successfully loaded.
+[32m[I 2025-09-03 22:41:00.538 ServerApp](B[m jupyter_lsp | extension was successfully loaded.
+[32m[I 2025-09-03 22:41:00.541 ServerApp](B[m jupyter_server_terminals | extension was successfully loaded.
+[32m[I 2025-09-03 22:41:00.559 LabApp](B[m JupyterLab extension loaded from /home/bballdave025/miniforge3/envs/vanilla_cnn/lib/python3.10/site-packages/jupyterlab
+[32m[I 2025-09-03 22:41:00.560 LabApp](B[m JupyterLab application directory is /home/bballdave025/miniforge3/envs/vanilla_cnn/share/jupyter/lab
+[32m[I 2025-09-03 22:41:00.560 LabApp](B[m Extension Manager is 'pypi'.
+[32m[I 2025-09-03 22:41:00.736 ServerApp](B[m jupyterlab | extension was successfully loaded.
+[32m[I 2025-09-03 22:41:00.737 ServerApp](B[m Serving notebooks from local directory: /home/bballdave025/my_repos_dwb/fhtw-paper-code-prep/test_project_bash
+[32m[I 2025-09-03 22:41:00.737 ServerApp](B[m Jupyter Server 2.17.0 is running at:
+[32m[I 2025-09-03 22:41:00.737 ServerApp](B[m http://localhost:8888/lab?token=33c8064261136993fefa8b8533a55ae5a7cd47a1f5fbeacd
+[32m[I 2025-09-03 22:41:00.738 ServerApp](B[m     http://127.0.0.1:8888/lab?token=33c8064261136993fefa8b8533a55ae5a7cd47a1f5fbeacd
+[32m[I 2025-09-03 22:41:00.738 ServerApp](B[m Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[35m[C 2025-09-03 22:41:00.906 ServerApp](B[m 
+    
+    To access the server, open this file in a browser:
+        file:///home/bballdave025/.local/share/jupyter/runtime/jpserver-39292-open.html
+    Or copy and paste one of these URLs:
+        http://localhost:8888/lab?token=33c8064261136993fefa8b8533a55ae5a7cd47a1f5fbeacd
+        http://127.0.0.1:8888/lab?token=33c8064261136993fefa8b8533a55ae5a7cd47a1f5fbeacd
+[32m[I 2025-09-03 22:41:00.972 ServerApp](B[m Skipped non-installed server(s): basedpyright, bash-language-server, dockerfile-language-server-nodejs, javascript-typescript-langserver, jedi-language-server, julia-language-server, pyrefly, pyright, python-language-server, python-lsp-server, r-languageserver, sql-language-server, texlab, typescript-language-server, unified-language-server, vscode-css-languageserver-bin, vscode-html-languageserver-bin, vscode-json-languageserver-bin, yaml-language-server
+[33m[W 2025-09-03 22:41:06.916 LabApp](B[m Could not determine jupyterlab build status without nodejs
+^C[32m[I 2025-09-03 22:45:47.255 ServerApp](B[m interrupted
+[32m[I 2025-09-03 22:45:47.256 ServerApp](B[m Serving notebooks from local directory: /home/bballdave025/my_repos_dwb/fhtw-paper-code-prep/test_project_bash
+    0 active kernels
+    Jupyter Server 2.17.0 is running at:
+    http://localhost:8888/lab?token=33c8064261136993fefa8b8533a55ae5a7cd47a1f5fbeacd
+        http://127.0.0.1:8888/lab?token=33c8064261136993fefa8b8533a55ae5a7cd47a1f5fbeacd
+Shut down this Jupyter server (y/[n])? ^C[35m[C 2025-09-03 22:45:47.399 ServerApp](B[m received signal 2, stopping
+[32m[I 2025-09-03 22:45:47.400 ServerApp](B[m Shutting down 4 extensions
+^C
+[48;5;167m=====[0m``````````````````````````````````````````````````````````retval=0d00130```
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ [7m# Update the list to what your scaffold actually created[27m[C[C# Update the list to what your scaffold actually created
+[?2004l[48;5;167m=====[0m``````````````````````````````````````````````````````````retval=0d00130```
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ [7mrequired=(notebooks scripts outputs outputs/csv_logs models logs datasets visu[27m[7ma[27m[7mlizations)[27m[A[C[Crequired=(notebooks scripts outputs outputs/csv_logs models logs datasets visualizations)
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ OK[K[Kok=1
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ for d in ""$"{"}"r}"e}"q}"u}"i}"r}"e}"d}"[}"]}"@}"[C[1P"[C[1P"[1P"@"]";" "d"o"[1P"[1P"[1P"[1P"[C; do [7m[ -d "$TAGDIR/$d" ] || { echo "MISS: $TAGDIR/$d";[27m[7m [27m[7mok=0; }[27m[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[ -d "$TAGDIR/$d" ] || { echo "MISS: $TAGDIR/$d"; ok=0; }; done
+[?2004l[?2004h> ^C[?2004l[?2004h[?2004l
+[48;5;167m=====[0m``````````````````````````````````````````````````````````retval=0d00130```
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ for d in "${required[@]"; do [ -d "$TAGDIR/$d" ] || { echo "MISS: $TAGDIR/$d"; ok=0; }; done[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C}"; do [ -d "$TAGDIR/$d" ] || { echo "MISS: $TAGDIR/$d";[1@ [A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ [7m((ok)) && echo "[scaffold] OK" || echo "[scaffold] missing"[27m[C[C((ok)) && echo "[scaffold] OK" || echo "[scaffold] missing"
+[?2004l[scaffold] OK
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ [7mrm -f "$TAGDIR/.gitattributes"[27m[C[Crm -f "$TAGDIR/.gitattributes"
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ [7m# (Re)normalize EOLs — safe to run anytime[27m[C[C# (Re)normalize EOLs — safe to run anytime
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ [7mpython "$TAGDIR/scripts/normalize_eol.py" \[27m
+[7m  --root "$TAGDIR" \[27m
+[7m  --map 'sh=lf,ps1=crlf,cmd=crlf,py=lf,ipynb=lf,md=lf'[27m[A[A[C[Cpython "$TAGDIR/scripts/normalize_eol.py" \
+  --root "$TAGDIR" \
+  --map 'sh=lf,ps1=crlf,cmd=crlf,py=lf,ipynb=lf,md=lf'
+[?2004lChanged 0 files under /home/bballdave025/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01.
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ [7mjupyter lab "$TAGDIR/notebooks/01_model_build_${TAG}.ipynb"[27m[C[Cjupyter lab "$TAGDIR/notebooks/01_model_build_${TAG}.ipynb"
+[?2004l[32m[I 2025-09-03 22:48:25.018 ServerApp](B[m jupyter_lsp | extension was successfully linked.
+[32m[I 2025-09-03 22:48:25.031 ServerApp](B[m jupyter_server_terminals | extension was successfully linked.
+[32m[I 2025-09-03 22:48:25.047 ServerApp](B[m jupyterlab | extension was successfully linked.
+[32m[I 2025-09-03 22:48:25.425 ServerApp](B[m notebook_shim | extension was successfully linked.
+[32m[I 2025-09-03 22:48:25.453 ServerApp](B[m notebook_shim | extension was successfully loaded.
+[32m[I 2025-09-03 22:48:25.457 ServerApp](B[m jupyter_lsp | extension was successfully loaded.
+[32m[I 2025-09-03 22:48:25.459 ServerApp](B[m jupyter_server_terminals | extension was successfully loaded.
+[32m[I 2025-09-03 22:48:25.463 LabApp](B[m JupyterLab extension loaded from /home/bballdave025/miniforge3/envs/vanilla_cnn/lib/python3.10/site-packages/jupyterlab
+[32m[I 2025-09-03 22:48:25.464 LabApp](B[m JupyterLab application directory is /home/bballdave025/miniforge3/envs/vanilla_cnn/share/jupyter/lab
+[32m[I 2025-09-03 22:48:25.464 LabApp](B[m Extension Manager is 'pypi'.
+[32m[I 2025-09-03 22:48:25.557 ServerApp](B[m jupyterlab | extension was successfully loaded.
+[32m[I 2025-09-03 22:48:25.559 ServerApp](B[m Serving notebooks from local directory: /home/bballdave025/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01/notebooks
+[32m[I 2025-09-03 22:48:25.559 ServerApp](B[m Jupyter Server 2.17.0 is running at:
+[32m[I 2025-09-03 22:48:25.559 ServerApp](B[m http://localhost:8888/lab?token=f303a168465b54a0ca90da4e7e2430e8b02c7e2d40c58a6a
+[32m[I 2025-09-03 22:48:25.560 ServerApp](B[m     http://127.0.0.1:8888/lab?token=f303a168465b54a0ca90da4e7e2430e8b02c7e2d40c58a6a
+[32m[I 2025-09-03 22:48:25.560 ServerApp](B[m Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[35m[C 2025-09-03 22:48:25.621 ServerApp](B[m 
+    
+    To access the server, open this file in a browser:
+        file:///home/bballdave025/.local/share/jupyter/runtime/jpserver-39885-open.html
+    Or copy and paste one of these URLs:
+        http://localhost:8888/lab?token=f303a168465b54a0ca90da4e7e2430e8b02c7e2d40c58a6a
+        http://127.0.0.1:8888/lab?token=f303a168465b54a0ca90da4e7e2430e8b02c7e2d40c58a6a
+[32m[I 2025-09-03 22:48:25.667 ServerApp](B[m Skipped non-installed server(s): basedpyright, bash-language-server, dockerfile-language-server-nodejs, javascript-typescript-langserver, jedi-language-server, julia-language-server, pyrefly, pyright, python-language-server, python-lsp-server, r-languageserver, sql-language-server, texlab, typescript-language-server, unified-language-server, vscode-css-languageserver-bin, vscode-html-languageserver-bin, vscode-json-languageserver-bin, yaml-language-server
+[33m[W 2025-09-03 22:48:29.437 LabApp](B[m Could not determine jupyterlab build status without nodejs
+/home/bballdave025/miniforge3/envs/vanilla_cnn/lib/python3.10/site-packages/nbformat/__init__.py:96: MissingIDFieldWarning: Cell is missing an id field, this will become a hard error in future nbformat versions. You may want to use `normalize()` on your notebooks before validations (available since nbformat 5.1.4). Previous versions of nbformat are fixing this issue transparently, and will stop doing so in the future.
+  validate(nb)
+[32m[I 2025-09-03 22:48:32.833 ServerApp](B[m Writing notebook-signing key to /home/bballdave025/.local/share/jupyter/notebook_secret
+[33m[W 2025-09-03 22:48:32.834 ServerApp](B[m Notebook 01_model_build_p_01.ipynb is not trusted
+[32m[I 2025-09-03 22:48:34.175 ServerApp](B[m Kernel started: ed4d97cf-c33b-4039-b116-033af2590581
+[32m[I 2025-09-03 22:48:35.765 ServerApp](B[m Connecting to kernel ed4d97cf-c33b-4039-b116-033af2590581.
+[33m[W 2025-09-03 22:48:35.770 ServerApp](B[m The websocket_ping_timeout (90000) cannot be longer than the websocket_ping_interval (30000).
+    Setting websocket_ping_timeout=30000
+[32m[I 2025-09-03 22:48:45.979 ServerApp](B[m Connecting to kernel ed4d97cf-c33b-4039-b116-033af2590581.
+2025-09-03 22:50:00.812238: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
+2025-09-03 22:50:02.463508: E tensorflow/compiler/xla/stream_executor/cuda/cuda_dnn.cc:9342] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2025-09-03 22:50:02.463574: E tensorflow/compiler/xla/stream_executor/cuda/cuda_fft.cc:609] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-09-03 22:50:02.470931: E tensorflow/compiler/xla/stream_executor/cuda/cuda_blas.cc:1518] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-09-03 22:50:03.439508: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
+2025-09-03 22:50:07.503792: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+[32m[I 2025-09-03 22:50:32.877 ServerApp](B[m Saving file at /01_model_build_p_01.ipynb
+[32m[I 2025-09-03 22:52:33.235 ServerApp](B[m Saving file at /01_model_build_p_01.ipynb
+[32m[I 2025-09-03 22:53:14.581 ServerApp](B[m Starting buffering for ed4d97cf-c33b-4039-b116-033af2590581:669a83de-5e57-4411-94da-d07eebbb7726
+^C[32m[I 2025-09-03 22:53:17.253 ServerApp](B[m interrupted
+[32m[I 2025-09-03 22:53:17.254 ServerApp](B[m Serving notebooks from local directory: /home/bballdave025/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01/notebooks
+    1 active kernel
+    Jupyter Server 2.17.0 is running at:
+    http://localhost:8888/lab?token=f303a168465b54a0ca90da4e7e2430e8b02c7e2d40c58a6a
+        http://127.0.0.1:8888/lab?token=f303a168465b54a0ca90da4e7e2430e8b02c7e2d40c58a6a
+Shut down this Jupyter server (y/[n])? ^C[35m[C 2025-09-03 22:53:17.429 ServerApp](B[m received signal 2, stopping
+[32m[I 2025-09-03 22:53:17.430 ServerApp](B[m Shutting down 4 extensions
+[32m[I 2025-09-03 22:53:17.431 ServerApp](B[m Shutting down 1 kernel
+[32m[I 2025-09-03 22:53:17.433 ServerApp](B[m Kernel shutdown: ed4d97cf-c33b-4039-b116-033af2590581
+^C[35m[C 2025-09-03 22:53:17.572 ServerApp](B[m received signal 2, stopping
+[32m[I 2025-09-03 22:53:17.573 ServerApp](B[m Shutting down 4 extensions
+[32m[I 2025-09-03 22:53:17.574 ServerApp](B[m Shutting down 1 kernel
+[32m[I 2025-09-03 22:53:17.575 ServerApp](B[m Kernel shutdown: ed4d97cf-c33b-4039-b116-033af2590581
+^C[35m[C 2025-09-03 22:53:17.861 ServerApp](B[m received signal 2, stopping
+[32m[I 2025-09-03 22:53:17.861 ServerApp](B[m Shutting down 4 extensions
+[32m[I 2025-09-03 22:53:17.862 ServerApp](B[m Shutting down 1 kernel
+[32m[I 2025-09-03 22:53:17.862 ServerApp](B[m Kernel shutdown: ed4d97cf-c33b-4039-b116-033af2590581
+^C[35m[C 2025-09-03 22:53:18.052 ServerApp](B[m received signal 2, stopping
+[32m[I 2025-09-03 22:53:18.053 ServerApp](B[m Shutting down 4 extensions
+[32m[I 2025-09-03 22:53:18.054 ServerApp](B[m Shutting down 1 kernel
+[32m[I 2025-09-03 22:53:18.054 ServerApp](B[m Kernel shutdown: ed4d97cf-c33b-4039-b116-033af2590581
+^C[35m[C 2025-09-03 22:53:18.196 ServerApp](B[m received signal 2, stopping
+[32m[I 2025-09-03 22:53:18.197 ServerApp](B[m Shutting down 4 extensions
+[32m[I 2025-09-03 22:53:18.198 ServerApp](B[m Shutting down 1 kernel
+[32m[I 2025-09-03 22:53:18.198 ServerApp](B[m Kernel shutdown: ed4d97cf-c33b-4039-b116-033af2590581
+^C[35m[C 2025-09-03 22:53:18.324 ServerApp](B[m received signal 2, stopping
+[32m[I 2025-09-03 22:53:18.325 ServerApp](B[m Shutting down 4 extensions
+[32m[I 2025-09-03 22:53:18.326 ServerApp](B[m Shutting down 1 kernel
+[32m[I 2025-09-03 22:53:18.326 ServerApp](B[m Kernel shutdown: ed4d97cf-c33b-4039-b116-033af2590581
+^C[35m[C 2025-09-03 22:53:18.453 ServerApp](B[m received signal 2, stopping
+[32m[I 2025-09-03 22:53:18.454 ServerApp](B[m Shutting down 4 extensions
+[32m[I 2025-09-03 22:53:18.455 ServerApp](B[m Shutting down 1 kernel
+[32m[I 2025-09-03 22:53:18.456 ServerApp](B[m Kernel shutdown: ed4d97cf-c33b-4039-b116-033af2590581
+^C
+[48;5;167m=====[0m``````````````````````````````````````````````````````````retval=0d00130```
+
+^C
+[48;5;167m=====[0m``````````````````````````````````````````````````````````retval=0d00130```
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ ^C[?2004l[?2004h[?2004l
+[48;5;167m=====[0m``````````````````````````````````````````````````````````retval=0d00130```
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ ^C[?2004l[?2004h[?2004l
+[48;5;167m=====[0m``````````````````````````````````````````````````````````retval=0d00130```
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ ^C[?2004l[?2004h[?2004l
+[48;5;167m=====[0m``````````````````````````````````````````````````````````retval=0d00130```
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ python -m pip[K[K[K[K[K[K[K[K[K[K[K[K[K#  Ensure ipyt[Kkernel is present
+[?2004l[48;5;167m=====[0m``````````````````````````````````````````````````````````retval=0d00130```
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ python -m pip install --upgrade ipykernal[K[Kel
+[?2004lRequirement already satisfied: ipykernel in /home/bballdave025/miniforge3/envs/vanilla_cnn/lib/python3.10/site-packages (6.30.1)
+Requirement already satisfied: comm>=0.1.1 in /home/bballdave025/miniforge3/envs/vanilla_cnn/lib/python3.10/site-packages (from ipykernel) (0.2.3)
+Requirement already satisfied: debugpy>=1.6.5 in /home/bballdave025/miniforge3/envs/vanilla_cnn/lib/python3.10/site-packages (from ipykernel) (1.8.16)
+Requirement already satisfied: ipython>=7.23.1 in /home/bballdave025/miniforge3/envs/vanilla_cnn/lib/python3.10/site-packages (from ipykernel) (8.37.0)
+Requirement already satisfied: jupyter-client>=8.0.0 in /home/bballdave025/miniforge3/envs/vanilla_cnn/lib/python3.10/site-packages (from ipykernel) (8.6.3)
+Requirement already satisfied: jupyter-core!=5.0.*,>=4.12 in /home/bballdave025/miniforge3/envs/vanilla_cnn/lib/python3.10/site-packages (from ipykernel) (5.8.1)
+Requirement already satisfied: matplotlib-inline>=0.1 in /home/bballdave025/miniforge3/envs/vanilla_cnn/lib/python3.10/site-packages (from ipykernel) (0.1.7)
+Requirement already satisfied: nest-asyncio>=1.4 in /home/bballdave025/miniforge3/envs/vanilla_cnn/lib/python3.10/site-packages (from ipykernel) (1.6.0)
+Requirement already satisfied: packaging>=22 in /home/bballdave025/miniforge3/envs/vanilla_cnn/lib/python3.10/site-packages (from ipykernel) (25.0)
+Requirement already satisfied: psutil>=5.7 in /home/bballdave025/miniforge3/envs/vanilla_cnn/lib/python3.10/site-packages (from ipykernel) (7.0.0)
+Requirement already satisfied: pyzmq>=25 in /home/bballdave025/miniforge3/envs/vanilla_cnn/lib/python3.10/site-packages (from ipykernel) (27.0.2)
+Requirement already satisfied: tornado>=6.2 in /home/bballdave025/miniforge3/envs/vanilla_cnn/lib/python3.10/site-packages (from ipykernel) (6.5.2)
+Requirement already satisfied: traitlets>=5.4.0 in /home/bballdave025/miniforge3/envs/vanilla_cnn/lib/python3.10/site-packages (from ipykernel) (5.14.3)
+Requirement already satisfied: decorator in /home/bballdave025/miniforge3/envs/vanilla_cnn/lib/python3.10/site-packages (from ipython>=7.23.1->ipykernel) (5.2.1)
+Requirement already satisfied: exceptiongroup in /home/bballdave025/miniforge3/envs/vanilla_cnn/lib/python3.10/site-packages (from ipython>=7.23.1->ipykernel) (1.3.0)
+Requirement already satisfied: jedi>=0.16 in /home/bballdave025/miniforge3/envs/vanilla_cnn/lib/python3.10/site-packages (from ipython>=7.23.1->ipykernel) (0.19.2)
+Requirement already satisfied: pexpect>4.3 in /home/bballdave025/miniforge3/envs/vanilla_cnn/lib/python3.10/site-packages (from ipython>=7.23.1->ipykernel) (4.9.0)
+Requirement already satisfied: prompt_toolkit<3.1.0,>=3.0.41 in /home/bballdave025/miniforge3/envs/vanilla_cnn/lib/python3.10/site-packages (from ipython>=7.23.1->ipykernel) (3.0.52)
+Requirement already satisfied: pygments>=2.4.0 in /home/bballdave025/miniforge3/envs/vanilla_cnn/lib/python3.10/site-packages (from ipython>=7.23.1->ipykernel) (2.19.2)
+Requirement already satisfied: stack_data in /home/bballdave025/miniforge3/envs/vanilla_cnn/lib/python3.10/site-packages (from ipython>=7.23.1->ipykernel) (0.6.3)
+Requirement already satisfied: typing_extensions>=4.6 in /home/bballdave025/miniforge3/envs/vanilla_cnn/lib/python3.10/site-packages (from ipython>=7.23.1->ipykernel) (4.15.0)
+Requirement already satisfied: wcwidth in /home/bballdave025/miniforge3/envs/vanilla_cnn/lib/python3.10/site-packages (from prompt_toolkit<3.1.0,>=3.0.41->ipython>=7.23.1->ipykernel) (0.2.13)
+Requirement already satisfied: parso<0.9.0,>=0.8.4 in /home/bballdave025/miniforge3/envs/vanilla_cnn/lib/python3.10/site-packages (from jedi>=0.16->ipython>=7.23.1->ipykernel) (0.8.5)
+Requirement already satisfied: python-dateutil>=2.8.2 in /home/bballdave025/miniforge3/envs/vanilla_cnn/lib/python3.10/site-packages (from jupyter-client>=8.0.0->ipykernel) (2.9.0.post0)
+Requirement already satisfied: platformdirs>=2.5 in /home/bballdave025/miniforge3/envs/vanilla_cnn/lib/python3.10/site-packages (from jupyter-core!=5.0.*,>=4.12->ipykernel) (4.4.0)
+Requirement already satisfied: ptyprocess>=0.5 in /home/bballdave025/miniforge3/envs/vanilla_cnn/lib/python3.10/site-packages (from pexpect>4.3->ipython>=7.23.1->ipykernel) (0.7.0)
+Requirement already satisfied: six>=1.5 in /home/bballdave025/miniforge3/envs/vanilla_cnn/lib/python3.10/site-packages (from python-dateutil>=2.8.2->jupyter-client>=8.0.0->ipykernel) (1.17.0)
+Requirement already satisfied: executing>=1.2.0 in /home/bballdave025/miniforge3/envs/vanilla_cnn/lib/python3.10/site-packages (from stack_data->ipython>=7.23.1->ipykernel) (2.2.1)
+Requirement already satisfied: asttokens>=2.1.0 in /home/bballdave025/miniforge3/envs/vanilla_cnn/lib/python3.10/site-packages (from stack_data->ipython>=7.23.1->ipykernel) (3.0.0)
+Requirement already satisfied: pure-eval in /home/bballdave025/miniforge3/envs/vanilla_cnn/lib/python3.10/site-packages (from stack_data->ipython>=7.23.1->ipykernel) (0.2.3)
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ pyt[K[K[K#  Register this env as a Jupyter kernel
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ [7mpython -m ipykernel install --user --name vanilla_cnn --display-name "Python ([27m[7mv[27m[7manilla_cnn)" [27m
+[A[A[C[Cpython -m ipykernel install --user --name vanilla_cnn --display-name "Python (vanilla_cnn)"
+[?2004lInstalled kernelspec vanilla_cnn in /home/bballdave025/.local/share/jupyter/kernels/vanilla_cnn
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ jupyter lab
+[?2004l[32m[I 2025-09-03 22:55:54.214 ServerApp](B[m jupyter_lsp | extension was successfully linked.
+[32m[I 2025-09-03 22:55:54.223 ServerApp](B[m jupyter_server_terminals | extension was successfully linked.
+[32m[I 2025-09-03 22:55:54.232 ServerApp](B[m jupyterlab | extension was successfully linked.
+[32m[I 2025-09-03 22:55:54.588 ServerApp](B[m notebook_shim | extension was successfully linked.
+[32m[I 2025-09-03 22:55:54.614 ServerApp](B[m notebook_shim | extension was successfully loaded.
+[32m[I 2025-09-03 22:55:54.618 ServerApp](B[m jupyter_lsp | extension was successfully loaded.
+[32m[I 2025-09-03 22:55:54.619 ServerApp](B[m jupyter_server_terminals | extension was successfully loaded.
+[32m[I 2025-09-03 22:55:54.625 LabApp](B[m JupyterLab extension loaded from /home/bballdave025/miniforge3/envs/vanilla_cnn/lib/python3.10/site-packages/jupyterlab
+[32m[I 2025-09-03 22:55:54.625 LabApp](B[m JupyterLab application directory is /home/bballdave025/miniforge3/envs/vanilla_cnn/share/jupyter/lab
+[32m[I 2025-09-03 22:55:54.625 LabApp](B[m Extension Manager is 'pypi'.
+[32m[I 2025-09-03 22:55:54.709 ServerApp](B[m jupyterlab | extension was successfully loaded.
+[32m[I 2025-09-03 22:55:54.710 ServerApp](B[m Serving notebooks from local directory: /home/bballdave025/my_repos_dwb/fhtw-paper-code-prep
+[32m[I 2025-09-03 22:55:54.710 ServerApp](B[m Jupyter Server 2.17.0 is running at:
+[32m[I 2025-09-03 22:55:54.710 ServerApp](B[m http://localhost:8888/lab?token=473c69ecc54b65a3e6c66f57868e1c0324bcb6762163b887
+[32m[I 2025-09-03 22:55:54.710 ServerApp](B[m     http://127.0.0.1:8888/lab?token=473c69ecc54b65a3e6c66f57868e1c0324bcb6762163b887
+[32m[I 2025-09-03 22:55:54.710 ServerApp](B[m Use Control-C to stop this server and shut down all kernels (twice to skip confirmation).
+[35m[C 2025-09-03 22:55:54.770 ServerApp](B[m 
+    
+    To access the server, open this file in a browser:
+        file:///home/bballdave025/.local/share/jupyter/runtime/jpserver-41819-open.html
+    Or copy and paste one of these URLs:
+        http://localhost:8888/lab?token=473c69ecc54b65a3e6c66f57868e1c0324bcb6762163b887
+        http://127.0.0.1:8888/lab?token=473c69ecc54b65a3e6c66f57868e1c0324bcb6762163b887
+[32m[I 2025-09-03 22:55:54.810 ServerApp](B[m Skipped non-installed server(s): basedpyright, bash-language-server, dockerfile-language-server-nodejs, javascript-typescript-langserver, jedi-language-server, julia-language-server, pyrefly, pyright, python-language-server, python-lsp-server, r-languageserver, sql-language-server, texlab, typescript-language-server, unified-language-server, vscode-css-languageserver-bin, vscode-html-languageserver-bin, vscode-json-languageserver-bin, yaml-language-server
+[33m[W 2025-09-03 22:56:01.220 LabApp](B[m Could not determine jupyterlab build status without nodejs
+[33m[W 2025-09-03 22:56:02.509 ServerApp](B[m 404 GET /api/contents/01_model_build_p_01.ipynb?content=0&hash=0&1756961762499 (f06fbefbd830411db5f3d1acf17991ac@127.0.0.1) 2.68ms referer=http://localhost:8888/lab
+[33m[W 2025-09-03 22:56:02.509 ServerApp](B[m 404 GET /api/contents/01_model_build_p_01.ipynb?content=0&hash=0&1756961762499 (127.0.0.1): No such file or directory: 01_model_build_p_01.ipynb
+[33m[W 2025-09-03 22:56:02.514 ServerApp](B[m 404 GET /api/contents/01_model_build_p_01.ipynb?content=0&hash=0&1756961762501 (f06fbefbd830411db5f3d1acf17991ac@127.0.0.1) 4.01ms referer=http://localhost:8888/lab
+[33m[W 2025-09-03 22:56:02.515 ServerApp](B[m 404 GET /api/contents/01_model_build_p_01.ipynb?content=0&hash=0&1756961762501 (127.0.0.1): No such file or directory: 01_model_build_p_01.ipynb
+[33m[W 2025-09-03 22:56:03.617 ServerApp](B[m 404 GET /api/contents/p_01?1756961763612 (f06fbefbd830411db5f3d1acf17991ac@127.0.0.1) 1.92ms referer=http://localhost:8888/lab
+[33m[W 2025-09-03 22:56:03.617 ServerApp](B[m 404 GET /api/contents/p_01?1756961763612 (127.0.0.1): No such file or directory: p_01
+[32m[I 2025-09-03 22:56:26.850 ServerApp](B[m Creating new notebook in 
+[32m[I 2025-09-03 22:56:28.367 ServerApp](B[m Kernel started: 6ddc6c22-400e-481f-bb3e-8f1025953900
+[32m[I 2025-09-03 22:56:29.633 ServerApp](B[m Connecting to kernel 6ddc6c22-400e-481f-bb3e-8f1025953900.
+[33m[W 2025-09-03 22:56:29.639 ServerApp](B[m The websocket_ping_timeout (90000) cannot be longer than the websocket_ping_interval (30000).
+    Setting websocket_ping_timeout=30000
+[32m[I 2025-09-03 22:56:29.656 ServerApp](B[m Connecting to kernel 6ddc6c22-400e-481f-bb3e-8f1025953900.
+[32m[I 2025-09-03 22:56:29.677 ServerApp](B[m Connecting to kernel 6ddc6c22-400e-481f-bb3e-8f1025953900.
+[32m[I 2025-09-03 22:57:49.788 ServerApp](B[m Kernel started: c8e8eeb9-e63e-47f8-a4df-6f5043f90e48
+[32m[I 2025-09-03 22:57:50.934 ServerApp](B[m Connecting to kernel c8e8eeb9-e63e-47f8-a4df-6f5043f90e48.
+[32m[I 2025-09-03 22:57:50.944 ServerApp](B[m Connecting to kernel c8e8eeb9-e63e-47f8-a4df-6f5043f90e48.
+[32m[I 2025-09-03 22:57:50.963 ServerApp](B[m Connecting to kernel c8e8eeb9-e63e-47f8-a4df-6f5043f90e48.
+2025-09-03 22:58:27.095669: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
+2025-09-03 22:58:27.159910: E tensorflow/compiler/xla/stream_executor/cuda/cuda_dnn.cc:9342] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2025-09-03 22:58:27.159957: E tensorflow/compiler/xla/stream_executor/cuda/cuda_fft.cc:609] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-09-03 22:58:27.160003: E tensorflow/compiler/xla/stream_executor/cuda/cuda_blas.cc:1518] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-09-03 22:58:27.171184: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
+[32m[I 2025-09-03 22:58:27.753 ServerApp](B[m Saving file at /Untitled.ipynb
+2025-09-03 22:58:28.940826: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+2025-09-03 22:59:41.984510: W tensorflow/tsl/framework/cpu_allocator_impl.cc:83] Allocation of 552960000 exceeds 10% of free system memory.
+[32m[I 2025-09-03 22:59:49.698 ServerApp](B[m Saving file at /test_project_bash/p_01/notebooks/01_model_build_p_01.ipynb
+2025-09-03 22:59:53.002038: W tensorflow/tsl/framework/cpu_allocator_impl.cc:83] Allocation of 21415680 exceeds 10% of free system memory.
+2025-09-03 22:59:53.042002: W tensorflow/tsl/framework/cpu_allocator_impl.cc:83] Allocation of 21415680 exceeds 10% of free system memory.
+2025-09-03 22:59:53.098970: W tensorflow/tsl/framework/cpu_allocator_impl.cc:83] Allocation of 20995200 exceeds 10% of free system memory.
+2025-09-03 22:59:53.099172: W tensorflow/tsl/framework/cpu_allocator_impl.cc:83] Allocation of 20995200 exceeds 10% of free system memory.
+[32m[I 2025-09-03 23:01:50.565 ServerApp](B[m Saving file at /test_project_bash/p_01/notebooks/01_model_build_p_01.ipynb
+[32m[I 2025-09-03 23:02:28.049 ServerApp](B[m Saving file at /Untitled.ipynb
+[32m[I 2025-09-03 23:03:50.941 ServerApp](B[m Saving file at /test_project_bash/p_01/notebooks/01_model_build_p_01.ipynb
+[32m[I 2025-09-03 23:05:51.359 ServerApp](B[m Saving file at /test_project_bash/p_01/notebooks/01_model_build_p_01.ipynb
+[32m[I 2025-09-03 23:11:51.666 ServerApp](B[m Saving file at /test_project_bash/p_01/notebooks/01_model_build_p_01.ipynb
+[32m[I 2025-09-03 23:13:51.964 ServerApp](B[m Saving file at /test_project_bash/p_01/notebooks/01_model_build_p_01.ipynb
+[32m[I 2025-09-03 23:20:43.505 ServerApp](B[m Starting buffering for 6ddc6c22-400e-481f-bb3e-8f1025953900:8ceeebc9-6e92-4408-8999-d9406ea5d252
+[32m[I 2025-09-03 23:20:48.051 ServerApp](B[m Saving file at /test_project_bash/p_01/notebooks/01_model_build_p_01.ipynb
+[32m[I 2025-09-03 23:20:54.702 ServerApp](B[m Saving file at /test_project_bash/p_01/notebooks/01_model_build_p_01.ipynb
+[32m[I 2025-09-03 23:21:05.171 ServerApp](B[m Saving file at /test_project_bash/p_01/notebooks/01_model_build_p_01.ipynb
+[32m[I 2025-09-03 23:22:49.677 ServerApp](B[m Starting buffering for c8e8eeb9-e63e-47f8-a4df-6f5043f90e48:5221c5a2-39b4-4608-9293-8038d78a532d
+^C[32m[I 2025-09-03 23:22:56.031 ServerApp](B[m interrupted
+[32m[I 2025-09-03 23:22:56.058 ServerApp](B[m Serving notebooks from local directory: /home/bballdave025/my_repos_dwb/fhtw-paper-code-prep
+    2 active kernels
+    Jupyter Server 2.17.0 is running at:
+    http://localhost:8888/lab?token=473c69ecc54b65a3e6c66f57868e1c0324bcb6762163b887
+        http://127.0.0.1:8888/lab?token=473c69ecc54b65a3e6c66f57868e1c0324bcb6762163b887
+Shut down this Jupyter server (y/[n])? ^C[35m[C 2025-09-03 23:22:56.111 ServerApp](B[m received signal 2, stopping
+[32m[I 2025-09-03 23:22:56.199 ServerApp](B[m Shutting down 4 extensions
+[32m[I 2025-09-03 23:22:56.207 ServerApp](B[m Shutting down 2 kernels
+^C[35m[C 2025-09-03 23:22:56.266 ServerApp](B[m received signal 2, stopping
+[32m[I 2025-09-03 23:22:56.267 ServerApp](B[m Kernel shutdown: 6ddc6c22-400e-481f-bb3e-8f1025953900
+[32m[I 2025-09-03 23:22:56.268 ServerApp](B[m Kernel shutdown: c8e8eeb9-e63e-47f8-a4df-6f5043f90e48
+[32m[I 2025-09-03 23:22:56.374 ServerApp](B[m Shutting down 4 extensions
+[32m[I 2025-09-03 23:22:56.379 ServerApp](B[m Shutting down 2 kernels
+[32m[I 2025-09-03 23:22:56.379 ServerApp](B[m Kernel shutdown: 6ddc6c22-400e-481f-bb3e-8f1025953900
+[32m[I 2025-09-03 23:22:56.380 ServerApp](B[m Kernel shutdown: c8e8eeb9-e63e-47f8-a4df-6f5043f90e48
+^C[35m[C 2025-09-03 23:22:56.390 ServerApp](B[m received signal 2, stopping
+[32m[I 2025-09-03 23:22:56.391 ServerApp](B[m Shutting down 4 extensions
+[32m[I 2025-09-03 23:22:56.392 ServerApp](B[m Shutting down 2 kernels
+[32m[I 2025-09-03 23:22:56.393 ServerApp](B[m Kernel shutdown: 6ddc6c22-400e-481f-bb3e-8f1025953900
+[32m[I 2025-09-03 23:22:56.393 ServerApp](B[m Kernel shutdown: c8e8eeb9-e63e-47f8-a4df-6f5043f90e48
+^C[35m[C 2025-09-03 23:22:56.511 ServerApp](B[m received signal 2, stopping
+[32m[I 2025-09-03 23:22:56.512 ServerApp](B[m Shutting down 4 extensions
+[32m[I 2025-09-03 23:22:56.512 ServerApp](B[m Shutting down 2 kernels
+[32m[I 2025-09-03 23:22:56.513 ServerApp](B[m Kernel shutdown: 6ddc6c22-400e-481f-bb3e-8f1025953900
+[32m[I 2025-09-03 23:22:56.513 ServerApp](B[m Kernel shutdown: c8e8eeb9-e63e-47f8-a4df-6f5043f90e48
+^C[35m[C 2025-09-03 23:22:56.623 ServerApp](B[m received signal 2, stopping
+[32m[I 2025-09-03 23:22:56.623 ServerApp](B[m Shutting down 4 extensions
+[32m[I 2025-09-03 23:22:56.624 ServerApp](B[m Shutting down 2 kernels
+[32m[I 2025-09-03 23:22:56.625 ServerApp](B[m Kernel shutdown: 6ddc6c22-400e-481f-bb3e-8f1025953900
+[32m[I 2025-09-03 23:22:56.625 ServerApp](B[m Kernel shutdown: c8e8eeb9-e63e-47f8-a4df-6f5043f90e48
+^C[35m[C 2025-09-03 23:22:56.767 ServerApp](B[m received signal 2, stopping
+[32m[I 2025-09-03 23:22:56.767 ServerApp](B[m Shutting down 4 extensions
+[32m[I 2025-09-03 23:22:56.768 ServerApp](B[m Shutting down 2 kernels
+[32m[I 2025-09-03 23:22:56.769 ServerApp](B[m Kernel shutdown: 6ddc6c22-400e-481f-bb3e-8f1025953900
+[32m[I 2025-09-03 23:22:56.769 ServerApp](B[m Kernel shutdown: c8e8eeb9-e63e-47f8-a4df-6f5043f90e48
+^C[35m[C 2025-09-03 23:22:56.911 ServerApp](B[m received signal 2, stopping
+[32m[I 2025-09-03 23:22:56.911 ServerApp](B[m Shutting down 4 extensions
+[32m[I 2025-09-03 23:22:56.912 ServerApp](B[m Shutting down 2 kernels
+[32m[I 2025-09-03 23:22:56.913 ServerApp](B[m Kernel shutdown: 6ddc6c22-400e-481f-bb3e-8f1025953900
+[32m[I 2025-09-03 23:22:56.913 ServerApp](B[m Kernel shutdown: c8e8eeb9-e63e-47f8-a4df-6f5043f90e48
+^C[35m[C 2025-09-03 23:22:57.935 ServerApp](B[m received signal 2, stopping
+[32m[I 2025-09-03 23:22:57.936 ServerApp](B[m Shutting down 4 extensions
+[32m[I 2025-09-03 23:22:57.937 ServerApp](B[m Shutting down 2 kernels
+[32m[I 2025-09-03 23:22:57.937 ServerApp](B[m Kernel shutdown: 6ddc6c22-400e-481f-bb3e-8f1025953900
+[32m[I 2025-09-03 23:22:57.938 ServerApp](B[m Kernel shutdown: c8e8eeb9-e63e-47f8-a4df-6f5043f90e48
+^C[35m[C 2025-09-03 23:22:58.064 ServerApp](B[m received signal 2, stopping
+[32m[I 2025-09-03 23:22:58.065 ServerApp](B[m Shutting down 4 extensions
+[32m[I 2025-09-03 23:22:58.066 ServerApp](B[m Shutting down 2 kernels
+[32m[I 2025-09-03 23:22:58.066 ServerApp](B[m Kernel shutdown: 6ddc6c22-400e-481f-bb3e-8f1025953900
+[32m[I 2025-09-03 23:22:58.066 ServerApp](B[m Kernel shutdown: c8e8eeb9-e63e-47f8-a4df-6f5043f90e48
+^C[35m[C 2025-09-03 23:22:58.207 ServerApp](B[m received signal 2, stopping
+[32m[I 2025-09-03 23:22:58.207 ServerApp](B[m Shutting down 4 extensions
+[32m[I 2025-09-03 23:22:58.209 ServerApp](B[m Shutting down 2 kernels
+[32m[I 2025-09-03 23:22:58.209 ServerApp](B[m Kernel shutdown: 6ddc6c22-400e-481f-bb3e-8f1025953900
+[32m[I 2025-09-03 23:22:58.210 ServerApp](B[m Kernel shutdown: c8e8eeb9-e63e-47f8-a4df-6f5043f90e48
+^C[35m[C 2025-09-03 23:22:58.303 ServerApp](B[m received signal 2, stopping
+[32m[I 2025-09-03 23:22:58.304 ServerApp](B[m Shutting down 4 extensions
+[32m[I 2025-09-03 23:22:58.305 ServerApp](B[m Shutting down 2 kernels
+[32m[I 2025-09-03 23:22:58.305 ServerApp](B[m Kernel shutdown: 6ddc6c22-400e-481f-bb3e-8f1025953900
+[32m[I 2025-09-03 23:22:58.305 ServerApp](B[m Kernel shutdown: c8e8eeb9-e63e-47f8-a4df-6f5043f90e48
+^C[35m[C 2025-09-03 23:22:58.432 ServerApp](B[m received signal 2, stopping
+[32m[I 2025-09-03 23:22:58.432 ServerApp](B[m Shutting down 4 extensions
+[32m[I 2025-09-03 23:22:58.434 ServerApp](B[m Shutting down 2 kernels
+[32m[I 2025-09-03 23:22:58.434 ServerApp](B[m Kernel shutdown: 6ddc6c22-400e-481f-bb3e-8f1025953900
+[32m[I 2025-09-03 23:22:58.434 ServerApp](B[m Kernel shutdown: c8e8eeb9-e63e-47f8-a4df-6f5043f90e48
+^C[35m[C 2025-09-03 23:22:58.544 ServerApp](B[m received signal 2, stopping
+[32m[I 2025-09-03 23:22:58.545 ServerApp](B[m Shutting down 4 extensions
+[32m[I 2025-09-03 23:22:58.546 ServerApp](B[m Shutting down 2 kernels
+[32m[I 2025-09-03 23:22:58.547 ServerApp](B[m Kernel shutdown: 6ddc6c22-400e-481f-bb3e-8f1025953900
+[32m[I 2025-09-03 23:22:58.547 ServerApp](B[m Kernel shutdown: c8e8eeb9-e63e-47f8-a4df-6f5043f90e48
+^C[35m[C 2025-09-03 23:22:58.672 ServerApp](B[m received signal 2, stopping
+[32m[I 2025-09-03 23:22:58.672 ServerApp](B[m Shutting down 4 extensions
+[32m[I 2025-09-03 23:22:58.673 ServerApp](B[m Shutting down 2 kernels
+[32m[I 2025-09-03 23:22:58.674 ServerApp](B[m Kernel shutdown: 6ddc6c22-400e-481f-bb3e-8f1025953900
+[32m[I 2025-09-03 23:22:58.674 ServerApp](B[m Kernel shutdown: c8e8eeb9-e63e-47f8-a4df-6f5043f90e48
+^C[35m[C 2025-09-03 23:22:58.783 ServerApp](B[m received signal 2, stopping
+[32m[I 2025-09-03 23:22:58.785 ServerApp](B[m Shutting down 4 extensions
+[32m[I 2025-09-03 23:22:58.786 ServerApp](B[m Shutting down 2 kernels
+[32m[I 2025-09-03 23:22:58.786 ServerApp](B[m Kernel shutdown: 6ddc6c22-400e-481f-bb3e-8f1025953900
+[32m[I 2025-09-03 23:22:58.787 ServerApp](B[m Kernel shutdown: c8e8eeb9-e63e-47f8-a4df-6f5043f90e48
+^C[35m[C 2025-09-03 23:22:58.917 ServerApp](B[m received signal 2, stopping
+[32m[I 2025-09-03 23:22:58.919 ServerApp](B[m Shutting down 4 extensions
+[32m[I 2025-09-03 23:22:58.919 ServerApp](B[m Shutting down 2 kernels
+[32m[I 2025-09-03 23:22:58.919 ServerApp](B[m Kernel shutdown: 6ddc6c22-400e-481f-bb3e-8f1025953900
+[32m[I 2025-09-03 23:22:58.920 ServerApp](B[m Kernel shutdown: c8e8eeb9-e63e-47f8-a4df-6f5043f90e48
+^C[35m[C 2025-09-03 23:22:59.028 ServerApp](B[m received signal 2, stopping
+^C
+[48;5;167m=====[0m``````````````````````````````````````````````````````````retval=0d00130```
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ ^C[?2004l[?2004h[?2004l
+[48;5;167m=====[0m``````````````````````````````````````````````````````````retval=0d00130```
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ ^C[?2004l[?2004h[?2004l
+[48;5;167m=====[0m``````````````````````````````````````````````````````````retval=0d00130```
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ conda env export --from-history > environment_vanilla_cnn.yml [K[K[K[K[K_completeLocal.yml
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ conda list --explicit > conda-linux-65[K4.loac[K[Kck
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ python -m pip freeze > requirements_completeLocal.txt
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ mv conda-linux-65[K=4[K[K4.lock conda-linux-64.lock [1@_[1@c[1@o[1@m[1@p[1@l[1@e[1@t[1@e[1@L[1@o[1@c[1@a[1@l
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ python - <<'PY' > system_info.json
+[?2004l[?2004h> import[K[K[K[K[K[K[7mimport platform, sys, json[27m
+[7minfo={"python":sys.version.split()[0],"platform":platform.platform(),"uname":pla[27m[7mt[27m[7mform.uname()._asdict()} [27m
+[7mtry:[27m
+[7mimport tensorflow as tf, numpy as np[27m
+[7minfo["tensorflow"]=tf.version; info["numpy"]=np.version[27m
+[7mexcept: pass[27m
+[7mprint(json.dumps(info, indent=2))[27m
+[7mPY[27m[A[A[A[A[A[A[A[Aimport platform, sys, json
+info={"python":sys.version.split()[0],"platform":platform.platform(),"uname":platform.uname()._asdict()}
+try:
+import tensorflow as tf, numpy as np
+info["tensorflow"]=tf.version; info["numpy"]=np.version
+except: pass
+print(json.dumps(info, indent=2))
+PY
+[?2004l  File "<stdin>", line 4
+    import tensorflow as tf, numpy as np
+    ^
+IndentationError: expected an indented block after 'try' statement on line 3
+[48;5;167m=====[0m``````````````````````````````````````````````````````````retval=0d00001```
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ python - <<'PY' > system_info.json
+import platform, sys, json
+info={"python":sys.version.split()[0],"platform":platform.platform(),"uname":platform.uname()._asdict()} 
+try:
+import tensorflow as tf, numpy as np
+info["tensorflow"]=tf.version; info["numpy"]=np.version
+except: pass
+print(json.dumps(info, indent=2))
+PY
+[A[C[C[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[A[C[C[C[C[C[C[C[C[C[C[C[C[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[A[C[C[C[C
+[1@ [1@ [A[A[A[A[A[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K[A[A[A[A[A[A[A[A[A[A[C[Cpython - <<'PY' > system_info.json
+import platform, sys, json
+info={"python":sys.version.split()[0],"platform":platform.platform(),"uname":platform.uname()._asdict()} 
+try:
+  import tensorflow as tf, numpy as np
+info["tensorflow"]=tf.version; info["numpy"]=np.version
+except: pass
+print(json.dumps(info, indent=2))
+PY
+[A[C[C[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[A[C[C[C[C[C[C[C[C[C[C[C[C[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1@ [1@ [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[C[C[C[C[C[C[C[C[C[C[C[C
+[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[C[C
+[A
+[?2004l2025-09-03 23:27:48.779015: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
+2025-09-03 23:27:48.846757: E tensorflow/compiler/xla/stream_executor/cuda/cuda_dnn.cc:9342] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2025-09-03 23:27:48.846817: E tensorflow/compiler/xla/stream_executor/cuda/cuda_fft.cc:609] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-09-03 23:27:48.846883: E tensorflow/compiler/xla/stream_executor/cuda/cuda_blas.cc:1518] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+2025-09-03 23:27:49.014889: I tensorflow/tsl/cuda/cudart_stub.cc:28] Could not find cuda drivers on your machine, GPU will not be used.
+2025-09-03 23:27:53.818722: W tensorflow/compiler/tf2tensorrt/utils/py_utils.cc:38] TF-TRT Warning: Could not find TensorRT
+Traceback (most recent call last):
+  File "<stdin>", line 7, in <module>
+  File "/home/bballdave025/miniforge3/envs/vanilla_cnn/lib/python3.10/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/home/bballdave025/miniforge3/envs/vanilla_cnn/lib/python3.10/json/encoder.py", line 201, in encode
+    chunks = list(chunks)
+  File "/home/bballdave025/miniforge3/envs/vanilla_cnn/lib/python3.10/json/encoder.py", line 431, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/home/bballdave025/miniforge3/envs/vanilla_cnn/lib/python3.10/json/encoder.py", line 405, in _iterencode_dict
+    yield from chunks
+  File "/home/bballdave025/miniforge3/envs/vanilla_cnn/lib/python3.10/json/encoder.py", line 438, in _iterencode
+    o = _default(o)
+  File "/home/bballdave025/miniforge3/envs/vanilla_cnn/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type module is not JSON serializable
+[48;5;167m=====[0m``````````````````````````````````````````````````````````retval=0d00001```
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ python - <<'PY' > system_info.json
+import platform, sys, json
+info={"python":sys.version.split()[0],"platform":platform.platform(),"uname":platform.uname()._asdict()} 
+try:
+  import tensorflow as tf, numpy as np
+  info["tensorflow"]=tf.version; info["numpy"]=np.version
+except: pass
+print(json.dumps(info, indent=2))
+PY
+[A[A[A[A[A[A[A[A[A[A[C[C[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K
+[K[A[A[A[A[A[A[A[A[A[A[C[Ccat[K[K[Kwc -l system[K[K[K[K[K[K< system_info.js[K[K[K_$(ttdate[K[K[K[K[K[K[K[K[K.json
+[?2004l0
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ vim [K test_project_bash/p_01/nto[K[Kotebook_cache_fallback_for_jupyter_cell.py
+[?2004l[?1049h[22;0;0t[>4;2m[?1h=[?2004h[?1004h[1;24r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[24;1H<notebook_cache_fallback_for_jupyter_cell.py" [New][2;1H▽[6n[2;1H  [3;1HPzz\[0%m[6n[3;1H           [1;1H[>c]10;?]11;?[2;1H[94m~                                                                               [3;1H~                                                                               [4;1H~                                                                               [5;1H~                                                                               [6;1H~                                                                               [7;1H~                                                                               [8;1H~                                                                               [9;1H~                                                                               [10;1H~                                                                               [11;1H~                                                                               [12;1H~                                                                               [13;1H~                                                                               [14;1H~                                                                               [15;1H~                                                                               [16;1H~                                                                               [17;1H~                                                                               [18;1H~                                                                               [19;1H~                                                                               [20;1H~                                                                               [21;1H~                                                                               [22;1H~                                                                               [23;1H~                                                                               [m[24;63H0,0-1[9CAll[1;1H[?25h[?4mP+q436f\P+q6b75\P+q6b64\P+q6b72\P+q6b6c\P+q2332\P+q2334\P+q2569\P+q2a37\P+q6b31\P$q q\[?12$p[?25l[24;53H0[1;1H[24;54H3[1;1H[24;55H0[1;1H[24;56H/[1;1H[24;57H0[1;1H[24;58Ha[1;1H[24;59H0[1;1H[24;60Ha[1;1H[24;61H/[1;1H[24;62H2[1;1H[24;53H          [1;1H[27m[23m[29m[m[H[2J[2;1H[94m~                                                                               [3;1H~                                                                               [4;1H~                                                                               [5;1H~                                                                               [6;1H~                                                                               [7;1H~                                                                               [8;1H~                                                                               [9;1H~                                                                               [10;1H~                                                                               [11;1H~                                                                               [12;1H~                                                                               [13;1H~                                                                               [14;1H~                                                                               [15;1H~                                                                               [16;1H~                                                                               [17;1H~                                                                               [18;1H~                                                                               [19;1H~                                                                               [20;1H~                                                                               [21;1H~                                                                               [22;1H~                                                                               [23;1H~                                                                               [m[24;63H0,0-1[9CAll<notebook_cache_fallback_for_jupyter_cell.py" [New][1;1H[?25h[?25l[24;1H[1m-- INSERT --[m[24;13H[K[24;63H0,1[11CAll[1;11Hdst = proj_cache / src.name
+          (shutil.c[2;20H[K[2;20H[?25h[?25l[24;1H[K[2;20Hopy2 [93mif[m[24;63H2,27[10CAll[2;27H[?25h[?25l[24;63H1[1;27H[?25h[?25l[24;53H~@k[1;27H[24;53H   [1;27H[?25h[?25l[24;53H~@k[1;27H[24;53H   [1;27H[?25h[?25l[24;53H~@k[1;27H[24;53H   [1;27H[?25h[?25l[24;53H~@k[1;27H[24;53H   [1;27H[?25h[?25l[24;53H~@k[1;27H[24;53H   [1;27H[?25h[?25l[24;53H~@k[1;27H[24;53H   [1;27H[?25h[?25l[24;53H~@k[1;27H[24;53H   [1;27H[?25h[?25l[24;53H~@k[1;27H[24;53H   [1;27H[?25h[?25l[24;53H~@k[1;27H[24;53H   [1;27H[?25h[?25l[24;53H~@k[1;27H[24;53H   [1;27H[?25h[?25l[24;53H~@k[1;27H[24;53H   [1;27H[?25h[?25l[24;53H~@k[1;27H[24;53H   [1;27H[?25h[?25l[24;63H2[2;27H[?25h[?25l[24;53H~@k[2;27H[24;53H   [2;27H[?25h[?25l[24;53H~@k[2;27H[24;53H   [2;27H[?25h[?25l[24;53H~@k[2;27H[24;53H   [2;27H[?25h[?25l[24;53H~@k[2;27H[24;53H   [2;27H[?25h[?25l[24;53H~@k[2;27H[24;53H   [2;27H[?25h[?25l[24;53H~@k[2;27H[24;53H   [2;27H[?25h[?25l[24;53H~@k[2;27H[24;53H   [2;27H[?25h[?25l[24;63H1[1;27H[?25h[?25l[24;53H~@k[1;27H[24;53H   [1;27H[?25h[?25l[24;53H~@k[1;27H[24;53H   [1;27H[?25h[?25l[24;53H~@k[1;27H[24;53H   [1;27H[?25h[?25l[24;53H~@k[1;27H[24;53H   [1;27H[?25h[?25l[24;53H~@k[1;27H[24;53H   [2;27H[24;63H2[2;27H[?25h[?25l[24;53H~@k[2;27H[24;53H   [2;27H[?25h[?25l[24;53H~@k[2;27H[24;53H   [2;27H[?25h[?25l[24;53H~@k[2;27H[24;53H   [2;26H[24;66H6[2;26H[?25h[?25l[24;53H~@k[2;26H[24;53H   [2;25H[24;66H5[2;25H[?25h[?25l[24;53H~@k[2;25H[24;53H   [2;24H[24;66H4[2;24H[?25h[?25l[24;53H~@k[2;24H[24;53H   [2;23H[24;66H3[2;23H[?25h[?25l[24;53H~@k[2;23H[24;53H   [2;22H[24;66H2[2;22H[?25h[?25l[24;53H~@k[2;22H[24;53H   [2;21H[24;66H1[2;21H[?25h[?25l[24;53H~@k[2;21H[24;53H   [2;20H[24;66H0[2;20H[?25h[?25l[24;53H~@k[2;20H[24;53H   [2;19H[24;65H19[2;19H[?25h[?25l[24;53H~@k[2;19H[24;53H   [2;18H[24;66H8[2;18H[?25h[?25l[24;53H~@k[2;18H[24;53H   [2;17H[24;66H7[2;17H[?25h[?25l[24;53H~@k[2;17H[24;53H   [2;16H[24;66H6[2;16H[?25h[?25l[24;53H~@k[2;16H[24;53H   [2;15H[24;66H5[2;15H[?25h[?25l[24;53H~@k[2;15H[24;53H   [2;14H[24;66H4[2;14H[?25h[?25l[24;53H~@k[2;14H[24;53H   [2;13H[24;66H3[2;13H[?25h[?25l[24;53H~@k[2;13H[24;53H   [1;13H[24;63H1[1;13H[?25h[?25l[24;53H~@k[1;13H[24;53H   [1;13H[?25h[?25l[24;53H~@k[1;13H[24;53H   [1;13H[?25h[?25l[24;53H~@k[1;13H[24;53H   [1;13H[?25h[?25l[24;53H~@k[1;13H[24;53H   [1;13H[?25h[?25l[24;53H~@k[1;13H[24;53H   [1;13H[?25h[?25l[24;53H~@k[1;13H[24;53H   [1;13H[?25h[?25l[24;53H~@k[1;13H[24;53H   [1;13H[?25h[?25l[24;53H~@k[1;13H[24;53H   [1;13H[?25h[?25l[24;53H~@k[1;13H[24;53H   [1;12H[24;66H2[1;12H[?25h[?25l[24;53H~@k[1;12H[24;53H   [2;12H[24;63H2[2;12H[?25h[?25l[24;53H~@k[2;12H[24;53H   [2;12H[?25h[?25l[24;53H~@k[2;12H[24;53H   [1;12H[24;63H1[1;12H[?25h[?25l[24;53H:[1;12H[24;53H[K[24;1H:[?25hu[?25l2 fewer lines; before #1  17 seconds ago[1;1H[1;11H[K[2;1H[94m~                                                                               [m[24;63H0,0-1[9CAll[24;63H[K[24;63H0,0-1[9CAll[1;1H[?25h[?25l[24;53Hi[1;1H[24;53H [1;1H[24;1H[1m-- INSERT --[m[24;13H[K[24;63H0,1[11CAll[1;1H[?25h[?25l[10Cdst = proj_cache / src.name
+          (shu[2;15H[K[2;15H[?25h[?25ltil.copy2 [93mif[m[24;63H2,28[2;28H[?25h[?25l`[24;66H9[2;29H[?25h[24;1H[K[2;28H[?25l[24;53H^[[2;28H[24;53H  [2;29H[24;63H2,28[10CAll[2;28H[?25h[?25l[24;53H:[2;28H[24;53H[K[24;1H:[?25hu[?25l2 fewer lines; before #2  7 seconds ago[1;1H[1;11H[K[2;1H[94m~                                                                               [m[24;63H0,0-1[9CAll[24;63H[K[24;63H0,0-1[9CAll[1;1H[?25h[?25l[24;1H[1m-- INSERT --[m[24;13H[K[24;63H0,1[11CAll[2;1H[96m# Notebook cache fallback (paste at very top)[m[2;46H[K[3;1HIf your notebook[3;17H[K[3;17H[?25h[?25l couldn’[3;25Ht see the fallback earlier, here’[3;58Hs the snippet again. P[?25h[?25loo[4;1Hp this [93min[m **before** importing TensorFlow:[4;43H[K[5;1H[K[6;1H```python[6;10H[K[7;1H[96m# --- CIF[m[7;10H[K[7;10H[?25h[?25l[96mAR-10 cache + quieter TF ---[m
+[38;5;81mimport[m os, shutil[8;18H[K[9;1H[38;5;81mfrom[m pathlib impo[9;18H[K[9;18H[?25h[?25l[38;5;81mimport[m Path[10;1H[K[11;1Hos.environ.setdefault([95m"TF_CPP_MIN_LOG_LEVEL"[m, [95m"2"[m)[11;51H[K[12;1Hos.e[12;5H[K[12;5H[?25h[?25lnviron.setdefault([95m"OMP_NUM_THREADS"[m, [95m"4"[m)
+os.environ.setdefault[13;22H[K[13;22H[?25h[?25l([95m"TF_NUM_INTEROP_THREADS"[m, [95m"2"[m)
+os.environ.setdefault([95m"TF_NUM_I[m[14;32H[K[14;32H[?25h[?25l[95mNTRAOP_THREADS"[m, [95m"4"[m)[15;1H[K[16;1Htagdir = Path(os.environ.get([95m"TAGDIR"[m, P[16;41H[K[16;41H[?25h[?25lath.cwd()))
+[93mif[m tagdir.name == [95m"notebooks"[m:[17;31H[K[18;1H  tagdir = tagdir.pa[18;21H[K[18;21H[?25h[?25lrent
+os.environ.setdefault([95m"KERAS_HOME"[m, [1m[96mstr[m(tagdir))  [96m# -> $TA[m[19;59H[K[19;59H[?25h[?25l[96mGDIR/datasets[m
+proj_cache = Path(os.environ[[95m"KERAS_HOME"[m]) / [95m"da[m[20;50H[K[20;50H[?25h[?25l[95mtasets"[m
+proj_cache.mkdir(parents=[1m[96mTrue[m, exist_ok=[1m[96mTrue[m)[21;46H[K[22;1H[K[23;1Hhome_cac[23;9H[K[23;9H[?25h[?25lhe = Path.home() / [95m".keras"[m / [95m"datasets"[23;23H[?25h[?25l[1;23r[m[23;1H
+[1;24r[23;1Hcandidates = [([95m"cifar-10-python.tar.gz"[m, [1m[96mTrue[m), ([95m"cifar-10-batches-py"[m, [1m[96mFalse[m)][24;11H[1m(paste) --[m[24;63H[K[23;6H[?25h[?25l[1;23r[23;1H
+[1;24r[23;1H[93mif[m home_cache.exists() [93mand[m [93mnot[m [1m[96many[m((proj_cache / name).exists() [93mfor[m [?25h[?25lname, _ [93min[m c[23;1H[94m@@@                                                                             [1;23r[m[1;1H[3M[1;24r[20;1H[93mif[m home_cache.exists() [93mand[m [93mnot[m [1m[96many[m((proj_cache / name).exists() [93mfor[m name, _ [93min[m cc[21;1Handidates):
+  [93mfor[m name, is_file [93min[m candidates:
+    [?25h[?25l  src = home_cache / name[23;15H[?25h[?25l[1;23r[1;1H[2M[1;24r[22;7H[93mif[m src.exists():[23;11Hdst = proj_cache / src.name  [?25h[?25l[24;1H[K[1;23r[1;1H[3M[1;24r[21;11H(shutil.copy2 [93mif[m is_file [93melse[m shutil.copytree)(src, dst, dirs_exist_okk[22;1H=[1m[96mTrue[m)[24;63H30,0-1[8CBot[23;1H[?25h[?25l[24;63H29,1  [21;1H[?25h[?25l[24;64H8[20;1H[?25h[?25l[24;53H~@k[20;1H[24;53H   [19;1H[24;64H7[19;1H[?25h[?25l[24;64H6[18;1H[?25h[?25l[24;64H5[17;1H[?25h[?25l[24;53H~@k[17;1H[24;53H   [15;1H[24;64H4[15;1H[?25h[?25l[24;64H3[14;1H[?25h[?25l[24;64H2[13;1H[?25h[?25l[24;53H~@k[13;1H[24;53H   [12;1H[24;64H1,0-1[12;1H[?25h[?25l[24;64H0,1  [11;1H[?25h[?25l[24;63H19[10;1H[?25h[?25l[24;53H~@k[10;1H[24;53H   [9;1H[24;64H8[9;1H[?25h[?25l[24;64H7[8;1H[?25h[?25l[24;64H6[7;1H[?25h[?25l[24;53H~@k[7;1H[24;53H   [6;1H[24;64H5[6;1H[?25h[?25l[1;23r[1;1H[L[1;24r[24;63H[K[24;63H14,0-1[8C88%[6;1H[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H[38;5;81mfrom[m pathlib [38;5;81mimport[m Path[23;1H[94m@@@                                                                             [m[24;63H[K[24;63H13,1[10C77%[6;1H[?25h[?25l[24;53H~@k[6;1H[24;53H   [6;1H[1;23r[1;1H[L[1;24r[1;1H[38;5;81mimport[m os, shutil[24;63H[K[24;63H12,1[10C75%[6;1H[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H[96m# --- CIFAR-10 cache + quieter TF ---[m[24;63H[K[24;63H11,1[10C62%[6;1H[?25h[?25l[1;23r[1;1H[L[1;24r[1;1H```python[24;63H[K[24;63H10,1[10C50%[6;1H[?25h[?25l[24;53H~@k[6;1H[24;53H   [6;1H[1;23r[1;1H[L[1;24r[24;63H[K[24;63H9,0-1[9C37%[6;1H[?25h[?25l[1;23r[1;1H[2L[1;24r[1;1HIf your notebook couldn’[1;25Ht see the fallback earlier, here’[1;58Hs the snippet again. Poo[2;1Hp this [93min[m **before** importing TensorFlow:[23;1H[94m@@@                                                                             [m[24;63H[K[24;63H8,1[11C22%[7;1H[?25h[?25l[24;63H7[6;1H[?25h[?25l[24;53H~@k[6;1H[24;53H   [6;1H[1;23r[1;1H[L[1;24r[1;1H[96m# Notebook cache fallback (paste at very top)[m[24;63H[K[24;63H6,1[11C12%[6;1H[?25h[?25l[1;23r[1;1H[L[1;24r[24;63H[K[24;63H5,1[11CTop[6;1H[?25h[?25l[24;63H4,0-1[5;1H[?25h[?25l[24;53H~@k[5;1H[24;53H   [3;1H[24;63H3,1  [3;1H[?25h[?25l[24;63H2[2;1H[?25h[?25l[24;63H1,0-1[1;1H[?25h[?25l[24;53H~@k[1;1H[24;53H   [1;1H[?25h[?25l[24;53H~@k[1;1H[24;53H   [1;1H[?25h[?25l[24;53H~@k[1;1H[24;53H   [1;1H[?25h[?25l[24;53H~@k[1;1H[24;53H   [1;1H[?25h[?25l[24;53H~@k[1;1H[24;53H   [1;1H[?25h[?25l[24;53H~@k[1;1H[24;53H   [1;1H[?25h[?25l[24;53H~@k[1;1H[24;53H   [1;1H[?25h[?25l[24;53H~@k[1;1H[24;53H   [1;1H[?25h[?25l[24;53H:[1;1H[24;53H[K[24;1H:[?25hwq[?25l[?2004l[>4;m<p_01/notebook_cache_fallback_for_jupyter_cell.py"<back_for_jupyter_cell.py" [New] 30L, 1190B written[23;2t[23;1t
+[?1004l[?2004l[?1l>[?1049l[23;0;0t[?25h[>4;m[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ cd tees[K[Kst_project_bash/p_01/
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01[0m
+$ [7mtar -tzf system_snapshot_1756964522.tar.gz | nl[27m[C[Ctar -tzf system_snapshot_1756964522.tar.gz | nl
+[?2004ltar (child): system_snapshot_1756964522.tar.gz: Cannot open: No such file or directory
+tar (child): Error is not recoverable: exiting now
+tar: Child returned status 2
+tar: Error is not recoverable: exiting now
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01[0m
+$ tar -tzf system_snapshot_1756964522.tar.gz | nl[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kcd notebooks/[K[K[K[K[K[K[K[K[K[K[K[K[K[7mshopt -s nullglob[27m
+[7mfiles=( *_info.txt *_list.txt *.lock uname.txt lsb_release.txt os_release.txt \[27m
+[7m        lscpu.txt nproc.txt free_h.txt df_h_here.txt which_python.txt \[27m
+[7m        python_version.txt jupyter_version.txt kernelspecs.txt \[27m
+[7m        locale.txt tf_env_knobs.txt nvidia_gpus.txt )[27m
+[7mtar -czf "system_snapshot_$(date +%s).tar.gz" "${files[@]}"[27m
+[A[A[A[A[A[A[C[Cshopt -s nullglob
+files=( *_info.txt *_list.txt *.lock uname.txt lsb_release.txt os_release.txt \
+        lscpu.txt nproc.txt free_h.txt df_h_here.txt which_python.txt \
+        python_version.txt jupyter_version.txt kernelspecs.txt \
+        locale.txt tf_env_knobs.txt nvidia_gpus.txt )
+tar -czf "system_snapshot_$(date +%s).tar.gz" "${files[@]}"
+[A
+[?2004ltar: uname.txt: Cannot stat: No such file or directory
+tar: lsb_release.txt: Cannot stat: No such file or directory
+tar: os_release.txt: Cannot stat: No such file or directory
+tar: lscpu.txt: Cannot stat: No such file or directory
+tar: nproc.txt: Cannot stat: No such file or directory
+tar: free_h.txt: Cannot stat: No such file or directory
+tar: df_h_here.txt: Cannot stat: No such file or directory
+tar: which_python.txt: Cannot stat: No such file or directory
+tar: python_version.txt: Cannot stat: No such file or directory
+tar: jupyter_version.txt: Cannot stat: No such file or directory
+tar: kernelspecs.txt: Cannot stat: No such file or directory
+tar: locale.txt: Cannot stat: No such file or directory
+tar: tf_env_knobs.txt: Cannot stat: No such file or directory
+tar: nvidia_gpus.txt: Cannot stat: No such file or directory
+tar: Exiting with failure status due to previous errors
+[48;5;167m=====[0m``````````````````````````````````````````````````````````retval=0d00002```
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01[0m
+$ ls *.sh
+[?2004l[0m[01;32msystem_info_bash_fallbacks.sh[0m
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01[0m
+$ ./[K[Kbash system_info_bash_fallbacks.sh 
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01[0m
+$ bash system_info_bash_fallbacks.sh [C[Cls *.sh[K[C[Ctar -czf "system_snapshot_$(date +%s).tar.gz" "${files[@]}"[C[Cfiles=( *_info.txt *_list.txt *.lock uname.txt lsb_release.txt os_release.txt         lscpu.txt nproc.txt free_h.txt df_h_here.txt which_python.txt         python_version.txt jupyter_version.txt kernelspecs.txt         locale.txt tf_env_knobs.txt nvidia_gpus.txt )[A[A[A[C[Cshopt -s nullglob[K
+[K
+[K
+[K[A[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01[0m
+$ shopt -s nullglob[C[Cbash system_info_bash_fallbacks.sh [C[Cls *.sh[K[C[Ctar -czf "system_snapshot_$(date +%s).tar.gz" "${files[@]}"[C[Cfiles=( *_info.txt *_list.txt *.lock uname.txt lsb_release.txt os_release.txt         lscpu.txt nproc.txt free_h.txt df_h_here.txt which_python.txt         python_version.txt jupyter_version.txt kernelspecs.txt         locale.txt tf_env_knobs.txt nvidia_gpus.txt )
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01[0m
+$ files=( *_info.txt *_list.txt *.lock uname.txt lsb_release.txt os_release.txt         lscpu.txt nproc.txt free_h.txt df_h_here.txt which_python.txt         python_version.txt jupyter_version.txt kernelspecs.txt         locale.txt tf_env_knobs.txt nvidia_gpus.txt )[A[A[A[C[Cshopt -s nullglob[K
+[K
+[K
+[K[A[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cbash system_info_bash_fallbacks.sh [C[Cls *.sh[K[C[Ctar -czf "system_snapshot_$(date +%s).tar.gz" "${files[@]}"
+[?2004ltar: os_release.txt: Cannot stat: No such file or directory
+tar: nvidia_gpus.txt: Cannot stat: No such file or directory
+tar: Exiting with failure status due to previous errors
+[48;5;167m=====[0m``````````````````````````````````````````````````````````retval=0d00002```
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01[0m
+$ cat system_[K[K[K[K[K[K[K[K[K[K[Kls
+[?2004lconda_info.txt                               [0m[01;34mnotebooks[0m
+conda-linux-64.lock                          nproc.txt
+conda_list.txt                               [01;34moutputs[0m
+[01;34mdatasets[0m                                     python_version.txt
+df_h_here.txt                                README_p_01.md
+free_h.txt                                   requirements.txt
+jupyter_version.txt                          [01;34mscripts[0m
+kernelspecs.txt                              [01;32msystem_info_bash_fallbacks.sh[0m
+locale.txt                                   [01;31msystem_snapshot_1756964880.tar.gz[0m
+[01;34mlogs[0m                                         [01;31msystem_snapshot_1756964940.tar.gz[0m
+lsb_release.txt                              tf_env_knobs.txt
+lscpu.txt                                    uname.txt
+[01;34mmodels[0m                                       [01;34mvisualizations[0m
+notebook_cache_fallback_for_jupyter_cell.py  which_python.txt
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01[0m
+$ lstar -czf "system_snapshot_$(date +%s).tar.gz" "${files[@]}"[C[Cfiles=( *_info.txt *_list.txt *.lock uname.txt lsb_release.txt os_release.txt         lscpu.txt nproc.txt free_h.txt df_h_here.txt which_python.txt         python_version.txt jupyter_version.txt kernelspecs.txt         locale.txt tf_env_knobs.txt nvidia_gpus.txt )[A[A[A[C[Cshopt -s nullglob[K
+[K
+[K
+[K[A[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cbash system_info_bash_fallbacks.sh [C[C[18Pshopt -s nullglob[C[Cfiles=( *_info.txt *_list.txt *.lock uname.txt lsb_release.txt os_release.txt         lscpu.txt nproc.txt free_h.txt df_h_here.txt which_python.txt         python_version.txt jupyter_version.txt kernelspecs.txt         locale.txt tf_env_knobs.txt nvidia_gpus.txt )[A[A[A[C[C[19Ptar -czf "system_snapshot_$(date +%s).tar.gz" "${files[@]}"
+[K
+[K
+[K[A[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cls[K[Kcat system_info_bash_fallbacks.sh 
+[?2004l# Env / package managers
+conda info > conda_info.txt
+conda list > conda_list.txt
+conda list --explicit > conda-linux-64.lock  # exact builds
+command -v pip >/dev/null && pip freeze > requirements.txt
+
+# OS + kernel
+uname -a > uname.txt
+( command -v lsb_release >/dev/null && lsb_release -a ) > lsb_release.txt 2>/dev/null || \
+  cat /etc/os-release > os_release.txt
+
+# CPU / memory / disk
+lscpu > lscpu.txt
+nproc > nproc.txt
+free -h > free_h.txt
+df -h . > df_h_here.txt
+
+# Python / Jupyter
+which python > which_python.txt
+python -V > python_version.txt
+command -v jupyter >/dev/null && jupyter --version > jupyter_version.txt
+command -v jupyter >/dev/null && jupyter kernelspec list > kernelspecs.txt
+
+# Locale (helps with encoding quirks)
+locale > locale.txt
+
+# TF / Keras relevant env knobs (if any are set)
+( printenv | grep -E '^(KERAS_HOME|TF_CPP_MIN_LOG_LEVEL|OMP_NUM_THREADS|TF_NUM_(INTRA|INTER)OP_THREADS)=' ) \
+  > tf_env_knobs.txt
+
+# GPU (only if present)
+command -v nvidia-smi >/dev/null && nvidia-smi -L > nvidia_gpus.txt || true
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01[0m
+$ [7m# Rebuild the list, filtering to existing files only[27m[C[C# Rebuild the list, filtering to existing files only
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01[0m
+$ [7mcandidates=( *_info.txt *_list.txt *.lock uname.txt lsb_release.txt os_release[27m[7m.[27m[7mtxt \ [27m
+[7m             lscpu.txt nproc.txt free_h.txt df_h_here.txt which_python.txt \[27m
+[7m             python_version.txt jupyter_version.txt kernelspecs.txt \[27m
+[7m             locale.txt tf_env_knobs.txt nvidia_gpus.txt )[27m[A[A[A[A[C[Ccandidates=( *_info.txt *_list.txt *.lock uname.txt lsb_release.txt os_release.txt \
+             lscpu.txt nproc.txt free_h.txt df_h_here.txt which_python.txt \
+             python_version.txt jupyter_version.txt kernelspecs.txt \
+             locale.txt tf_env_knobs.txt nvidia_gpus.txt )
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01[0m
+$ [7mfiles=()[27m[C[Cfiles=()
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01[0m
+$ [7mfor f in "${candidates[@]}"; do[27m[C[Cfor f in "${candidates[@]}"; do
+[?2004l[?2004h> [7m  [[ -e "$f" ]] && files+=("$f")[27m[C[C  [[ -e "$f" ]] && files+=("$f")
+[?2004l[?2004h> done
+[?2004l[48;5;167m=====[0m``````````````````````````````````````````````````````````retval=0d00001```
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01[0m
+$ [7msnap="system_snapshot_$(date +%s).tar.gz"[27m[C[Csnap="system_snapshot_$(date +%s).tar.gz"
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01[0m
+$ [7mtar -czf "$snap" "${files[@]}"[27m[C[Ctar -czf "$snap" "${files[@]}"
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01[0m
+$ [7mecho "Wrote $snap with ${#files[@]} entries"[27m[C[Cecho "Wrote $snap with ${#files[@]} entries"
+[?2004lWrote system_snapshot_1756965227.tar.gz with 15 entries
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01[0m
+$ [7mtar -tzf "$snap" | nl[27m[C[Ctar -tzf "$snap" | nl
+[?2004l     1	conda_info.txt
+     2	conda_list.txt
+     3	conda-linux-64.lock
+     4	uname.txt
+     5	lsb_release.txt
+     6	lscpu.txt
+     7	nproc.txt
+     8	free_h.txt
+     9	df_h_here.txt
+    10	which_python.txt
+    11	python_version.txt
+    12	jupyter_version.txt
+    13	kernelspecs.txt
+    14	locale.txt
+    15	tf_env_knobs.txt
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h(vanilla_cnn)  <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_01[0m
+$ exit
+[?2004lexit
+
+Script done on 2025-09-03 23:58:32-06:00 [COMMAND_EXIT_CODE="0"]

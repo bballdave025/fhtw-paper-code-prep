@@ -252,3 +252,7 @@ cython_debug/
 .cursorindexingignore
 
 ## >>>>>>>>>>>>>>>>>>> ENDOF: .gitignore template from Github >>>>>>>
+# Local artifacts
+*.tar.gz
+**/datasets/
+**/outputs/

@@ -1,0 +1,3 @@
+Available kernels:
+  python3        /home/bballdave025/miniforge3/envs/vanilla_cnn/share/jupyter/kernels/python3
+  vanilla_cnn    /home/bballdave025/.local/share/jupyter/kernels/vanilla_cnn

@@ -1,0 +1,14 @@
+Selected Jupyter core packages...
+IPython          : 8.37.0
+ipykernel        : 6.30.1
+ipywidgets       : not installed
+jupyter_client   : 8.6.3
+jupyter_core     : 5.8.1
+jupyter_server   : 2.17.0
+jupyterlab       : 4.4.6
+nbclient         : 0.10.2
+nbconvert        : 7.16.6
+nbformat         : 5.10.4
+notebook         : not installed
+qtconsole        : not installed
+traitlets        : 5.14.3

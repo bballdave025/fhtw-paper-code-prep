@@ -139,3 +139,10 @@
 ## The following extensions exist on files inside the .git directory.
 ## I assume that, with the 'auto', git will take care of them.
 # *.sample ; *.pack ; *.idx
+*.sh              text eol=lf
+*.ps1             text eol=crlf
+*.cmd             text eol=crlf
+*.py              text eol=lf
+*.md              text eol=lf
+*.ipynb           text eol=lf
+.gitattributes    text eol=lf

@@ -1,0 +1,92 @@
+Script started on 2025-09-04 00:01:37-06:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="80" LINES="24"]
+=====``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h <=> conda environment, blank means none activated
+[cifar10-vanilla-cnn] <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+bballdave025@MY-MACHINE ~/my_repos_dwb/fhtw-paper-code-prep
+$ # Rebuild with reqs included
+[?2004l=====``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h <=> conda environment, blank means none activated
+[cifar10-vanilla-cnn] <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+bballdave025@MY-MACHINE ~/my_repos_dwb/fhtw-paper-code-prep
+$ snapecho ""$"{"}"f}"i}"l}"e}"s}"[}"@}"]}"
+[?2004l
+=====``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h <=> conda environment, blank means none activated
+[cifar10-vanilla-cnn] <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+bballdave025@MY-MACHINE ~/my_repos_dwb/fhtw-paper-code-prep
+$ git status
+[?2004lOn branch cifar10-vanilla-cnn
+Your branch is up to date with 'origin/cifar10-vanilla-cnn'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   .gitattributes
+	modified:   structure.sh
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	.portable.bashrc
+	Untitled.ipynb
+	conda-linux-64_completeLocal.lock
+	environment_vanilla_cnn_completeLocal.yml
+	requirements_completeLocal.txt
+	structure.sh.bak
+	system_info.json
+	test_project_bash/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+=====``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h <=> conda environment, blank means none activated
+[cifar10-vanilla-cnn] <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+bballdave025@MY-MACHINE ~/my_repos_dwb/fhtw-paper-code-prep
+$ # 3) (Optional) keep big stuff out of git
+#    Append these if you haven't already:# 3) (Optional) keep big stuff out of git
+#    Append these if you haven't already:
+[?2004l=====``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h <=> conda environment, blank means none activated
+[cifar10-vanilla-cnn] <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+bballdave025@MY-MACHINE ~/my_repos_dwb/fhtw-paper-code-prep
+$ printf '\n# Local artifacts\n*.tar.gz\n**/datasets/\n**/outputs/\n' >> .gitignoreprintf '\n# Local artifacts\n*.tar.gz\n**/datasets/\n**/outputs/\n' >> .gitignore
+[?2004l=====``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h <=> conda environment, blank means none activated
+[cifar10-vanilla-cnn] <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+bballdave025@MY-MACHINE ~/my_repos_dwb/fhtw-paper-code-prep
+$ git status
+[?2004lOn branch cifar10-vanilla-cnn
+Your branch is up to date with 'origin/cifar10-vanilla-cnn'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	modified:   .gitattributes
+	modified:   .gitignore
+	modified:   structure.sh
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	.portable.bashrc
+	Untitled.ipynb
+	conda-linux-64_completeLocal.lock
+	environment_vanilla_cnn_completeLocal.yml
+	requirements_completeLocal.txt
+	structure.sh.bak
+	system_info.json
+	test_project_bash/
+
+no changes added to commit (use "git add" and/or "git commit -a")
+=====``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h <=> conda environment, blank means none activated
+[cifar10-vanilla-cnn] <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+bballdave025@MY-MACHINE ~/my_repos_dwb/fhtw-paper-code-prep
+$ exit
+[?2004lexit
+
+Script done on 2025-09-04 00:04:26-06:00 [COMMAND_EXIT_CODE="0"]

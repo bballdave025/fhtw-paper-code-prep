@@ -1,0 +1,1 @@
+/home/bballdave025/miniforge3/envs/vanilla_cnn/bin/python

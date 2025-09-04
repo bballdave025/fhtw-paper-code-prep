@@ -19,75 +19,16 @@
 
 set -euo pipefail
 
-# ---- usage/help (robust, multi-line) ----
-usage() {
-  cat <<EOF
-Usage:
-  $0 <ROOT_DIR> <tag1> [tag2 ...]
-
-Optionally:
-  WITH_NB_STUBS=1 $0 <ROOT_DIR> <tag1> [tag2 ...]
-
-Creates the scaffold; if WITH_NB_STUBS=1, also creates minimal .ipynb stubs.
-Idempotent (won’t clobber existing files).
-EOF
-}
-
-#old#ROOT_DIR="${1:?Usage:"\
-#old#"                                  $0 <ROOT_DIR> <tag1> [tag2 ...]\n"\
-#old#" (optionally) run WITH_NB_STUBS=1 $0 <ROOT_DIR> <tag1> [tag2 ...]\n"\
-#old#" The second creates minimal IPYNB files. Both create IPYNB idempotently i.e.\n"\
-#old#" only if they do not exist.}"
-
-if (( $# < 2 )); then usage >&2; exit 1; fi
-
-# ---- args/derived ----
-ROOT_DIR=$1; shift
+ROOT_DIR="${1:?Usage:"\
+"                                  $0 <ROOT_DIR> <tag1> [tag2 ...]\n"\
+" (optionally) run WITH_NB_STUBS=1 $0 <ROOT_DIR> <tag1> [tag2 ...]\n"\
+" The second creates minimal IPYNB files. Both create IPYNB idempotently i.e.\n"\
+" only if they do not exist.}"
+shift
 if [ $# -lt 1 ]; then
   echo "Need at least one tag (e.g., p_01 p_02)" >&2
   exit 2
 fi
-TAGS=("$@")
-
-#  Untagged/common base (defaults to ROOT_DIR, can be overridden by env
-: "${UNTAGGED_COMMON:="$ROOT_DIR"}"
-
-# Common per-tag untagged helper
-UNTAGGED_COMMON_FILES=(
-  "scripts/py_touch.py"
-  "scripts/normalize_eol.py"
-  #".gitattributes"
-)
-
-#  Put EOL entries in for platform-specific files,
-#+  thus ensuring platform independence
-ensure_gitattributes_entries() {
-  local base="${1:-$ROOT_DIR}"
-  local repo_root
-  repo_root=$(git -C "$base" rev-parse --show-toplevel 2>/dev/null || echo "$base")
-
-  local f="$repo_root/.gitattributes"
-  local -a lines=(
-    "*.sh              text eol=lf"
-    "*.ps1             text eol=crlf"
-    "*.cmd             text eol=crlf"
-    "*.py              text eol=lf"
-    "*.md              text eol=lf"
-    "*.ipynb           text eol=lf"
-    ".gitattributes    text eol=lf"
-  )
-
-  mkdir -p "$repo_root"
-  touch "$f"
-  chmod 0644 "$f" 2>/dev/null || true
-  # ensure file ends with newline
-  tail -c1 "$f" 2>/dev/null | grep -q $'\n' || echo >> "$f"
-
-  for line in "${lines[@]}"; do
-    grep -Fqx -- "$line" "$f" || echo "$line" >> "$f"
-  done
-  echo "[OK] ensured .gitattributes entries at $f"
-}
 
 mkd() { mkdir -p -- "$1"; }
 touch_safe() {
@@ -122,13 +63,6 @@ nb = {
 open(sys.argv[1], "w", encoding="utf-8").write(json.dumps(nb, ensure_ascii=False, indent=1))
 PY
 }
-
-## Added 1756960018_2025-09-03T222658-0600, just barely
-if [ ! -d "$ROOT_DIR" ]; then
-  mkd "$ROOT_DIR"
-fi
-
-ensure_gitattributes_entries "$ROOT_DIR"
 
 # Per-tag file stems (relative to the tag root)
 README_STEM="README.md"
@@ -182,6 +116,13 @@ CMD_FILES=(
   "scripts/build_model.cmd"
   "scripts/train_model.cmd"
   "scripts/inference.cmd"
+)
+
+# Common per-tag untagged helper
+UNTAGGED_COMMON_FILES=(
+  "scripts/py_touch.py"
+  "scripts/normalize_eol.py"
+  ".gitattributes"
 )
 
 # Fixed directory set under each tag
@@ -292,7 +233,7 @@ EOF
   
   # Create (untagged-common) normalize_eol.py if missing
   norm_eol_path="$TAG_DIR/scripts/normalize_eol.py"
-  if [ ! -f "$norm_eol_path" ]; then
+  if [ ! -f "$gitattr_path" ]; then
     cat << 'EONormF' > "$norm_eol_path"
 """
 Normalize line endings (EOL) for text files.

@@ -1,0 +1,7 @@
+name: vanilla_cnn
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+prefix: /home/bballdave025/miniforge3/envs/vanilla_cnn

@@ -1,0 +1,92 @@
+Script started on 2025-09-04 00:01:37-06:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="80" LINES="24"]
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ # Rebuild with reqs included
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ snap[K[K[K[Kecho ""$"{"}"f}"i}"l}"e}"s}"[}"@}"]}"
+[?2004l
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ git status
+[?2004lOn branch cifar10-vanilla-cnn
+Your branch is up to date with 'origin/cifar10-vanilla-cnn'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	[31mmodified:   .gitattributes[m
+	[31mmodified:   structure.sh[m
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	[31m.portable.bashrc[m
+	[31mUntitled.ipynb[m
+	[31mconda-linux-64_completeLocal.lock[m
+	[31menvironment_vanilla_cnn_completeLocal.yml[m
+	[31mrequirements_completeLocal.txt[m
+	[31mstructure.sh.bak[m
+	[31msystem_info.json[m
+	[31mtest_project_bash/[m
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ [7m# 3) (Optional) keep big stuff out of git[27m
+[7m#    Append these if you haven't already:[27m[A[C[C# 3) (Optional) keep big stuff out of git
+#    Append these if you haven't already:
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ [7mprintf '\n# Local artifacts\n*.tar.gz\n**/datasets/\n**/outputs/\n' >> .gitign[27m[7mo[27m[7mre[27m[Aprintf '\n# Local artifacts\n*.tar.gz\n**/datasets/\n**/outputs/\n' >> .gitignore
+[?2004l[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ git status
+[?2004lOn branch cifar10-vanilla-cnn
+Your branch is up to date with 'origin/cifar10-vanilla-cnn'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+	[31mmodified:   .gitattributes[m
+	[31mmodified:   .gitignore[m
+	[31mmodified:   structure.sh[m
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+	[31m.portable.bashrc[m
+	[31mUntitled.ipynb[m
+	[31mconda-linux-64_completeLocal.lock[m
+	[31menvironment_vanilla_cnn_completeLocal.yml[m
+	[31mrequirements_completeLocal.txt[m
+	[31mstructure.sh.bak[m
+	[31msystem_info.json[m
+	[31mtest_project_bash/[m
+
+no changes added to commit (use "git add" and/or "git commit -a")
+[48;5;22m=====[0m``````````````````````````````````````````````````````````retval=0`````````
+
+[?2004h <=> conda environment, blank means none activated
+[38;5;48m[cifar10-vanilla-cnn][0m <=> git branch, blank means not in a git repo]0;~/my_repos_dwb/fhtw-paper-code-prep
+[32mbballdave025@MY-MACHINE [33m~/my_repos_dwb/fhtw-paper-code-prep[0m
+$ exit
+[?2004lexit
+
+Script done on 2025-09-04 00:04:26-06:00 [COMMAND_EXIT_CODE="0"]
