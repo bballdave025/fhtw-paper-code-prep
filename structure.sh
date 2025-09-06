@@ -16,6 +16,23 @@
 # - scripts/py_touch.py        # untagged (per tag directory)
 # - datasets/, models/, logs/, visualizations/, 
 #   outputs/{csv_logs,gradcam_images}
+#
+#
+#
+#
+# As far as the backup subcommand, some examples follow
+#
+# # Back up a single tag (tight)
+# ./structure.sh backup "$HOME/my_repos_dwb/fhtw-paper-code-prep" test_project_bash/p_01
+#
+# # Expanded + apply firstline fixes (after audit)
+# ./structure.sh backup "$HOME/my_repos_dwb/fhtw-paper-code-prep" test_project_bash/p_01 --expanded --fix-firstline
+#
+# # Multiple tags, expanded, no system snapshot
+# ./structure.sh backup "$HOME/my_repos_dwb/fhtw-paper-code-prep" test_project_bash/p_01 test_project_bash/p_03_e2e --expanded --skip-sys
+#
+#
+
 
 set -euo pipefail
 
@@ -30,7 +47,46 @@ Optionally:
 
 Creates the scaffold; if WITH_NB_STUBS=1, also creates minimal .ipynb stubs.
 Idempotent (won’t clobber existing files).
+
+Subcommands:
+  $0 backup <ROOT_DIR> <tag1> [tag2 ...] [--expanded] [--fix-firstline] [--skip-sys] [--skip-nbs]
+    Runs bin/backup_everything.sh for each tag. Leaves scaffolding untouched.
 EOF
+}
+
+# ---- backup subcommand passthrough ----
+do_backup_subcommand() {
+  # Usage: structure.sh backup <ROOT_DIR> <tag1> [tag2 ...] [flags...]
+  # Flags are forwarded to bin/backup_everything.sh
+  local _args=("$@")
+  if (( ${#_args[@]} < 2 )); then
+    echo "Usage: $0 backup <ROOT_DIR> <tag1> [tag2 ...] [--expanded] [--fix-firstline] [--skip-sys] [--skip-nbs]" >&2
+    exit 2
+  fi
+
+  local _root="${_args[0]}"; shift || true
+  # collect tags until a flag (starts with --)
+  local _tags=()
+  while (( $# )) && [[ "${1}" != --* ]]; do
+    _tags+=("$1"); shift
+  done
+  local _flags=("$@")
+
+  # Ensure backup script exists
+  local _bkpsh="$_root/bin/backup_everything.sh"
+  if [[ ! -x "$_bkpsh" ]]; then
+    echo "[ERR] Not found or not executable: $_bkpsh" >&2
+    echo "      Please place backup_everything.sh in \$_ROOT/bin and chmod +x." >&2
+    exit 1
+  fi
+
+  # Run for each tag
+  for t in "${_tags[@]}"; do
+    echo "==> Backing up tag: $t"
+    "$_bkpsh" "$_root" "$t" "${_flags[@]}"
+    echo
+  done
+  exit 0
 }
 
 #old#ROOT_DIR="${1:?Usage:"\
@@ -40,6 +96,12 @@ EOF
 #old#" only if they do not exist.}"
 
 if (( $# < 2 )); then usage >&2; exit 1; fi
+
+# Subcommand: backup
+if [[ "${1:-}" == "backup" ]]; then
+  shift
+  do_backup_subcommand "$@"
+fi
 
 # ---- args/derived ----
 ROOT_DIR=$1; shift
@@ -130,8 +192,28 @@ fi
 
 ensure_gitattributes_entries "$ROOT_DIR"
 
+# Info on the .gitattributes additions (creation)
+echo "  ---------------------------------------------------------"
+echo "  Helper for git repos, ensure right EOL on OS,"
+echo "  $gitattr_path"
+echo "  provided for tag, '$tag'. This will allow everying"
+echo "  to be stress-free platform-agnostic. Only used"
+echo "  when things are done in a project where source"
+echo "  control is handled via Git, but it doesn't hurt to"
+echo "  have this in here."
+echo "  (Note that any files that should be excluded/ignored"
+echo "   are covered in the Git repo's root .gitignore file.)"
+echo
+
 # Per-tag file stems (relative to the tag root)
 README_STEM="README.md"
+
+#  Per-tag enabling import of tag-dir  and its script dir as packages
+#+ tag is NOT part of filename
+PACKAGE_FILES=(
+  "__init__.py"
+  "scripts/__init__.py"
+)
 
 # Notebooks (placed under notebooks/, with tag suffix)
 NB_FILES=(
@@ -162,6 +244,7 @@ THE_SH_FILES=(
   "scripts/build_model.sh"
   "scripts/train_model.sh"
   "scripts/inference.sh"
+  "scripts/py_utils.sh"
 )
 
 #  Scripts (tag-suffixed SH placeholders)
@@ -206,6 +289,20 @@ for tag in "$@"; do
 
   # README_<tag>.md at tag root
   touch_safe "$TAG_DIR/${README_STEM%.md}_${tag}.md"
+  
+  #  __init__.py files needed for import (create proper packages out of dirs)
+  #+ tag is NOT part of filename
+  for f in "${PACKAGE_FILES[@]}"; do
+    touch_safe "$TAG_DIR/$f"
+    # Info on the __init__.py helper
+    echo "  ---------------------------------------------------------"
+    echo "  First OS-agnostic Python helper, __init__.py"
+    echo "  provided for tag, ``tag' at"
+    echo "  '$TAG_DIR/$f'"
+    echo "  to allow the directory name to serve as a package name,"
+    echo "  simplifying imports."
+    echo
+  done
 
   # Notebooks with _<tag>.ipynb inside notebooks/
   for f in "${NB_FILES[@]}"; do
@@ -281,7 +378,7 @@ EOF
 
   fi
   
-  #Info on the py_touch helper
+  # Info on the py_touch helper
   echo "  ---------------------------------------------------------"
   echo "  OS-agnostic helper,"
   echo "  $py_touch_path"
@@ -456,39 +553,42 @@ EONormF
   echo "  \"$TAG_DIR\" in the Windows platform setup."
   echo 
   
-  # Create (untagged-common) .gitattributes (or append if already exists)
-  gitattr_path="$TAG_DIR/.gitattributes"
-  if [ ! -f "$gitattr_path" ]; then
-    cat << 'EOGitAttrF' >> "$gitattr_path"
 
-#  .gitattributes addition (or creation) for ease in using
-#+ platform-specific files (making it platform-agnostic)
-*.sh              text eol=lf
-*.ps1             text eol=crlf
-*.cmd             text eol=crlf
-*.py              text eol=lf
-*.md              text eol=lf
-*.ipynb           text eol=lf
-.gitattributes    text eol=lf
+  ##  .gitattributes content now added with ensure_gitattributes_entries
+  ##+ function, where it is created/appended at the root of the git repo
+  ##+ (if there is a git repo)
+#b4#  # Create (untagged-common) .gitattributes (or append if already exists)
+#b4#  gitattr_path="$TAG_DIR/.gitattributes"
+#b4#  if [ ! -f "$gitattr_path" ]; then
+#b4#    cat << 'EOGitAttrF' >> "$gitattr_path"
+#b4#
+#b4#    #  .gitattributes addition (or creation) for ease in using
+#b4#    #+ platform-specific files (making it platform-agnostic)
+#b4#*.sh              text eol=lf
+#b4#*.ps1             text eol=crlf
+#b4#*.cmd             text eol=crlf
+#b4#*.py              text eol=lf
+#b4#*.md              text eol=lf
+#b4#*.ipynb           text eol=lf
+#b4#.gitattributes    text eol=lf
+#b4#
+#b4#EOGitAttrF
+#b4#
+#b4#    # Info on the .gitattributes additions (creation)
+#b4#    echo "  ---------------------------------------------------------"
+#b4#    echo "  Helper to ensure correct EOL on OS-specific files,"
+#b4#    echo "  $gitattr_path"
+#b4#    echo "  provided for tag, '$tag'. This will allow everying"
+#b4#    echo "  to be stress-free platform-agnostic. Only used"
+#b4#    echo "  when things are done in a project where source"
+#b4#    echo "  control is handled via Git, but it doesn't hurt to"
+#b4#    echo "  have this in here."
+#b4#    echo "  (Note that any files that should be excluded/ignored"
+#b4#    echo "   are covered in the Git repo's root .gitignore file.)"
+#b4#    echo
+#b4#  
+#b4#  fi
 
-EOGitAttrF
-
-  # Info on the .gitattributes additions (creation)
-  echo "  ---------------------------------------------------------"
-  echo "  Helper to ensure correct EOL on OS-specific files,"
-  echo "  $gitattr_path"
-  echo "  provided for tag, '$tag'. This will allow everying"
-  echo "  to be stress-free platform-agnostic. Only used"
-  echo "  when things are done in a project where source"
-  echo "  control is handled via Git, but it doesn't hurt to"
-  echo "  have this in here."
-  echo "  (Note that any files that should be excluded/ignored"
-  echo "   are covered in the Git repo's root .gitignore file.)"
-  echo
-  
-  
-  
-  fi
 done
 
 echo "--------------------------------------------------------------------"
