@@ -1,0 +1,27 @@
+=== Inclusion audit for test_project_bash_p_01_plus_env_and_bin_1757194637_2025-09-06T153717-0600 ===
+Timestamp: 1757194637_2025-09-06T153717-0600
+
+[Expect] Tag root: test_project_bash/p_01
+  - README_<tag>.md present?
+    WARN: not found
+  - notebooks/*.ipynb present?
+    WARN: none found
+  - scripts/*.py present?
+    WARN: none found
+  - __init__.py at tag root?
+    WARN: not found
+  - scripts/__init__.py?
+    WARN: not found
+  - environment_specifications/?
+    WARN: not included
+  - bin/?
+    WARN: not included
+  - validate_env output in backup_meta/?
+    INFO: validate_env not run or produced no files
+  - firstline audit (before)?
+    WARN: not included
+  - firstline audit (after)?
+    INFO: not run
+  - sys_capture status?
+    INFO: sys_capture not run
+

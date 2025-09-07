@@ -127,26 +127,66 @@ sha256sum "$OUT" | tee "$OUT.sha256" >/dev/null
 echo "[ok] Backup written: $OUT"
 echo "[ok] SHA256 saved:   $OUT.sha256"
 
-# 8) Inclusion audit
+# 8) Inclusion audit (tolerant patterns)
 AUDIT_LOG="$BKP_DIR/${OUT_NAME}.audit.txt"
+LIST="$(tar -tzf "$OUT")"
+
+has() { echo "$LIST" | grep -Eq "$1"; }
+
 {
   echo "=== Inclusion audit for $OUT_NAME ==="
   echo "Timestamp: $TS"
   echo
   echo "[Expect] Tag root: $TAG"
-  echo "  - README_<tag>.md present?";         tar -tzf "$OUT" | grep -qE "^$TAG/README_.*\.md$" && echo "    OK" || echo "    WARN: not found"
-  echo "  - notebooks/*.ipynb present?";       tar -tzf "$OUT" | grep -qE "^$TAG/notebooks/.*\.ipynb$" && echo "    OK" || echo "    WARN: none found"
-  echo "  - scripts/*.py present?";            tar -tzf "$OUT" | grep -qE "^$TAG/scripts/.*\.py$" && echo "    OK" || echo "    WARN: none found"
-  echo "  - __init__.py at tag root?";         tar -tzf "$OUT" | grep -qE "^$TAG/__init__\.py$" && echo "    OK" || echo "    WARN: not found"
-  echo "  - scripts/__init__.py?";             tar -tzf "$OUT" | grep -qE "^$TAG/scripts/__init__\.py$" && echo "    OK" || echo "    WARN: not found"
+
+  # Allow optional ./ prefix and be resilient
+  has "(^|.*/)${TAG}/README_.*\\.md$" \
+    && echo "  - README_<tag>.md present?    OK" \
+    || echo "  - README_<tag>.md present?    WARN: not found"
+
+  has "(^|.*/)${TAG}/notebooks/.*\\.ipynb$" \
+    && echo "  - notebooks/*.ipynb present?  OK" \
+    || echo "  - notebooks/*.ipynb present?  WARN: none found"
+
+  has "(^|.*/)${TAG}/scripts/.*\\.py$" \
+    && echo "  - scripts/*.py present?       OK" \
+    || echo "  - scripts/*.py present?       WARN: none found"
+
+  has "(^|.*/)${TAG}/__init__\\.py$" \
+    && echo "  - __init__.py at tag root?    OK" \
+    || echo "  - __init__.py at tag root?    WARN: not found"
+
+  has "(^|.*/)${TAG}/scripts/__init__\\.py$" \
+    && echo "  - scripts/__init__.py?        OK" \
+    || echo "  - scripts/__init__.py?        WARN: not found"
+
   if (( EXPANDED )); then
-    echo "  - environment_specifications/?";    tar -tzf "$OUT" | grep -qE "^environment_specifications/" && echo "    OK" || echo "    WARN: not included"
-    echo "  - bin/?";                           tar -tzf "$OUT" | grep -qE "^bin/" && echo "    OK" || echo "    WARN: not included"
-    echo "  - validate_env output in backup_meta/?"; tar -tzf "$OUT" | grep -qE "^_staging_.*/backup_meta/validate_env_.*\.txt$" && echo "    OK" || echo "    INFO: validate_env not run or produced no files"
+    has "(^|.*/)environment_specifications(/|$)" \
+      && echo "  - environment_specifications/? OK" \
+      || echo "  - environment_specifications/? WARN: not included"
+
+    has "(^|.*/)bin(/|$)" \
+      && echo "  - bin/?                       OK" \
+      || echo "  - bin/?                       WARN: not included"
+
+    # Staging meta (handle absolute-to-relative path strip by tar)
+    has "(^|.*/)_staging_[^/]+/backup_meta/validate_env_.*\\.txt$" \
+      && echo "  - validate_env output in backup_meta/? OK" \
+      || echo "  - validate_env output in backup_meta/? INFO: validate_env not run or produced no files"
   fi
-  echo "  - firstline audit (before)?";        tar -tzf "$OUT" | grep -qE "^_staging_.*/backup_meta/firstline_before\.txt$" && echo "    OK" || echo "    WARN: not included"
-  echo "  - firstline audit (after)?";         tar -tzf "$OUT" | grep -qE "^_staging_.*/backup_meta/firstline_after\.txt$" && echo "    OK" || echo "    INFO: not run"
-  echo "  - sys_capture status?";               tar -tzf "$OUT" | grep -qE "^_staging_.*/backup_meta/sys_capture_status\.txt$" && echo "    OK" || echo "    INFO: sys_capture not run"
+
+  has "(^|.*/)_staging_[^/]+/backup_meta/firstline_before\\.txt$" \
+    && echo "  - firstline audit (before)?   OK" \
+    || echo "  - firstline audit (before)?   WARN: not included"
+
+  has "(^|.*/)_staging_[^/]+/backup_meta/firstline_after\\.txt$" \
+    && echo "  - firstline audit (after)?    OK" \
+    || echo "  - firstline audit (after)?    INFO: not run"
+
+  has "(^|.*/)_staging_[^/]+/backup_meta/sys_capture_status\\.txt$" \
+    && echo "  - sys_capture status?         OK" \
+    || echo "  - sys_capture status?         INFO: sys_capture not run"
+
   echo
 } > "$AUDIT_LOG"
 echo "[ok] Wrote audit: $AUDIT_LOG"

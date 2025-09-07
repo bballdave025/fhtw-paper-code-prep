@@ -87,9 +87,13 @@ BACKUP_PATH=""
 if (( DO_BACKUP )); then
   TS="$(timestamp)"
   mkdir -p "$ROOT/backups"
-  BACKUP_PATH="$ROOT/backups/fix_firstline_glitches_$TS.tar.gz"
+  BACKUP_BASENAME="fix_firstline_glitches_${TS}.tar.gz"
+  BACKUP_PATH="$ROOT/backups/$BACKUP_BASENAME"
   echo "Backing up to $BACKUP_PATH"
+  # Exclude the backups dir (and this file), and suppress 'file changed as we read it' exits
   tar --create --gzip --file "$BACKUP_PATH" \
+      --exclude='./backups/*' \
+      --exclude="./backups/$BACKUP_BASENAME" \
       --exclude='*/outputs/*' \
       --exclude='*/datasets/*' \
       --exclude='*/models/*' \
@@ -98,7 +102,9 @@ if (( DO_BACKUP )); then
       --exclude='*/__pycache__/*' \
       --exclude='*/bash_terminal_io_lab_notebooks/*' \
       --exclude='*/.DS_Store' \
-      .
+      --warning=no-file-changed \
+      --ignore-failed-read \
+      . || true
   sha256sum "$BACKUP_PATH" | tee "$BACKUP_PATH.sha256" >/dev/null || true
   echo "Done backing up"
   echo
@@ -250,3 +256,5 @@ fi
 if (( DRY_RUN && CHANGES > 0 )); then
   exit 3
 fi
+
+exit 0

@@ -1,0 +1,30 @@
+
+     active environment : vanilla_cnn
+    active env location : /home/bballdave025/miniforge3/envs/vanilla_cnn
+            shell level : 2
+       user config file : /home/bballdave025/.condarc
+ populated config files : /home/bballdave025/miniforge3/.condarc
+          conda version : 25.3.1
+    conda-build version : not installed
+         python version : 3.12.11.final.0
+                 solver : libmamba (default)
+       virtual packages : __archspec=1=sandybridge
+                          __conda=25.3.1=0
+                          __glibc=2.39=0
+                          __linux=6.11.0=0
+                          __unix=0=0
+       base environment : /home/bballdave025/miniforge3  (writable)
+      conda av data dir : /home/bballdave025/miniforge3/etc/conda
+  conda av metadata url : None
+           channel URLs : https://conda.anaconda.org/conda-forge/linux-64
+                          https://conda.anaconda.org/conda-forge/noarch
+          package cache : /home/bballdave025/miniforge3/pkgs
+                          /home/bballdave025/.conda/pkgs
+       envs directories : /home/bballdave025/miniforge3/envs
+                          /home/bballdave025/.conda/envs
+               platform : linux-64
+             user-agent : conda/25.3.1 requests/2.32.4 CPython/3.12.11 Linux/6.11.0-21-generic ubuntu/24.04.3 glibc/2.39 solver/libmamba conda-libmamba-solver/25.3.0 libmambapy/2.1.1
+                UID:GID : 1000:1000
+             netrc file : None
+           offline mode : False
+

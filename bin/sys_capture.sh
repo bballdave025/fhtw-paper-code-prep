@@ -1,4 +1,3 @@
-\
 #!/usr/bin/env bash
 # sys_capture.sh
 # Capture env + system + git state for a run.

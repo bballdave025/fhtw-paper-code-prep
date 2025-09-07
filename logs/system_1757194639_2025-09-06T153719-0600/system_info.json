@@ -1,0 +1,16 @@
+{
+  "python": "Python 3.10.18",
+  "platform": "Linux-6.11.0-21-generic-x86_64-with-glibc2.39",
+  "uname": {
+    "system": "Linux",
+    "node": "black-family-ubuntu",
+    "release": "6.11.0-21-generic",
+    "version": "#21~24.04.1-Ubuntu SMP PREEMPT_DYNAMIC Mon Feb 24 16:52:15 UTC 2",
+    "machine": "x86_64",
+    "processor": "x86_64"
+  },
+  "conda_prefix": "/home/bballdave025/miniforge3/envs/vanilla_cnn",
+  "git_commit": "e8ddcd9483f7b160fbffe9d0ce5e630771c6a2c9",
+  "tensorflow": "2.14.0",
+  "numpy": "1.25.2"
+}
