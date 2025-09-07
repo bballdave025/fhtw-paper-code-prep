@@ -1,4 +1,24 @@
 #!/usr/bin/env bash
+
+# --- ALF_EARLY_CHECK_HOOK: inserted by apply_local_fixes.sh ---
+if [ "${1:-}" = "--check" ]; then
+  set -euo pipefail
+  ROOT="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
+  TAGDIR_LOCAL="${TAGDIR:-$ROOT}"
+  TAG_LOCAL="${TAG:-$(basename "$TAGDIR_LOCAL")}"
+  missing=0
+  cd "$ROOT"
+  say(){ printf "%s\n" "$*"; }
+  for p in datasets outputs outputs/csv_logs scripts notebooks; do
+    [ -e "$p" ] || { say "MISSING: $p"; missing=1; }
+  done
+  PY_UTIL="scripts/py_utils_${TAG_LOCAL}.py"
+  NB="notebooks/02_training_${TAG_LOCAL}.ipynb"
+  [ -e "$PY_UTIL" ] || { say "MISSING: $PY_UTIL"; missing=1; }
+  [ -e "$NB" ] || { say "MISSING: $NB"; missing=1; }
+  exit $missing
+fi
+# --- end ALF_EARLY_CHECK_HOOK ---
 # Usage:                 ./structure.sh <ROOT_DIR> <tag1> [tag2 ...]
 #   OR
 #        WITH_NB_STUBS=1 ./structure.sh <ROOT_DIR> <tag1> [tag2 ...]
@@ -374,7 +394,6 @@ EOF
   echo "  ---------------------------------------------------------"
   echo "  OS-agnostic helper,"
   echo "  $py_touch_path"
-  echo "  provided for tag, ``$tag', in case it be desired."
   echo "  This could prove immensely helpful for Windows users."
   echo "  On *NIX, prefer touch(1) when available; this is a fallback."
   echo
@@ -526,7 +545,6 @@ EONormF
   echo "  ---------------------------------------------------------"
   echo "  OS-agnostic helper,"
   echo "  $norm_eol_path"
-  echo "  provided for tag, '$tag'. IT WILL BE NECESSARY TO USE IT!"
   echo "  DO NOT MISS reading the pre-running instructions, in the $tag"
   echo "  README at Section: REQUIRED Pre-running Instructions, to allow"
   echo "  allow the files to run from your repo, whether on your local"
@@ -550,9 +568,6 @@ EONormF
   ##+ function, where it is created/appended at the root of the git repo
   ##+ (if there is a git repo)
 #b4#  # Create (untagged-common) .gitattributes (or append if already exists)
-#b4#  gitattr_path="$TAG_DIR/.gitattributes"
-#b4#  if [ ! -f "$gitattr_path" ]; then
-#b4#    cat << 'EOGitAttrF' >> "$gitattr_path"
 #b4#
 #b4#    #  .gitattributes addition (or creation) for ease in using
 #b4#    #+ platform-specific files (making it platform-agnostic)
@@ -569,8 +584,6 @@ EONormF
 #b4#    # Info on the .gitattributes additions (creation)
 #b4#    echo "  ---------------------------------------------------------"
 #b4#    echo "  Helper to ensure correct EOL on OS-specific files,"
-#b4#    echo "  $gitattr_path"
-#b4#    echo "  provided for tag, '$tag'. This will allow everying"
 #b4#    echo "  to be stress-free platform-agnostic. Only used"
 #b4#    echo "  when things are done in a project where source"
 #b4#    echo "  control is handled via Git, but it doesn't hurt to"
@@ -586,3 +599,23 @@ done
 echo "--------------------------------------------------------------------"
 echo "Project scaffolding with tags for files and tag-named subdirectories created at $ROOT_DIR"
 echo "--------------------------------------------------------------------"
+
+# --- injected by apply_local_fixes.sh ---
+if [ "${1:-}" = "--check" ]; then
+  missing=0
+  say() { printf "%s\n" "$*"; }
+  TAGDIR_LOCAL="${TAGDIR:-$PWD}"
+  TAG_LOCAL="${TAG:-$(basename "$TAGDIR_LOCAL")}"
+
+  for p in "datasets" "outputs" "outputs/csv_logs" "scripts" "notebooks"; do
+    [ -e "$p" ] || { say "MISSING: $p"; missing=1; }
+  done
+
+  PY_UTIL="scripts/py_utils_${TAG_LOCAL}.py"
+  NB="notebooks/02_training_${TAG_LOCAL}.ipynb"
+  [ -e "$PY_UTIL" ] || { say "MISSING: $PY_UTIL"; missing=1; }
+  [ -e "$NB" ] || { say "MISSING: $NB"; missing=1; }
+
+  exit $missing
+fi
+# --- end injected ---

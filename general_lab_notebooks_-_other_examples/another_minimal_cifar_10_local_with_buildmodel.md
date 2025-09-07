@@ -100,3 +100,99 @@ git push
 
 
 Scaffolder tweak so that every new tag auto-drops an empty __init__.py in its own directory as well as in its `scripts`, also putting un a py_utils_<tag>.py skeleton.
+
+
+
+# CIFAR-10 E2E Baseline → Local or AWS
+_Date: 2025-09-06_
+
+## Modes & Paths
+- Choose one: E2E_LOCAL or AWS_TRY_1
+- Repo root: ~/my_repos_dwb/fhtw-paper-code-prep/
+- Tag dir (E2E Local): test_project_bash/p_03_e2e/
+- Tag dir (AWS Try 1): aws_s3_cifar/transfer_try_1/
+
+## TL;DR (Q&R)
+Produce:
+- Notebook prints: [DONE] test_acc=...
+- Files under outputs/:
+  - csv_logs/train_history_seed137_<ts>.csv
+  - test_summary_seed137_<ts>.json
+
+## Environment
+- Conda env: vanilla_cnn   Kernel: Python (vanilla_cnn)
+- Threads/env (before TF import):
+  OMP_NUM_THREADS=4
+  TF_NUM_INTEROP_THREADS=2
+  TF_NUM_INTRAOP_THREADS=4
+  CUDA_VISIBLE_DEVICES=""  (CPU acceptable)
+
+## Dataset Cache Fallback
+- Project-scoped Keras cache: $TAGDIR/datasets
+- If empty, seed from ~/.keras/datasets
+
+## Pathing in Notebooks (imports work both ways)
+
+```python
+import sys, os
+from pathlib import Path
+tagdir = Path(os.environ["TAGDIR"])
+pkg_parent = tagdir.parent
+for p in (tagdir, pkg_parent):
+  sp = str(p)
+  if sp not in sys.path:
+  sys.path.insert(0, sp)
+```
+
+## Run Checklist
+1. JupyterLab at tag dir
+   - Local: cd ~/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_03_e2e
+   - AWS:   cd ~/my_repos_dwb/fhtw-paper-code-prep/aws_s3_cifar/transfer_try_1
+   - Launch: start_cifar_lab.sh -e vanilla_cnn -k
+2. Notebook: open notebooks/02_training.ipynb
+3. Bootstrap cell: set env, TAGDIR, outputs/, include log_test_summary
+4. Train → Eval → Log
+
+```python
+test_loss, test_acc = model.evaluate(test_ds, verbose=0)
+from scripts.py_utils_<tag> import log_test_summary
+log_test_summary(test_acc, loss=float(test_loss), seed=137, tagdir=os.environ["TAGDIR"])
+```
+
+5. Verify artifacts: [DONE] printed, CSV+JSON in outputs/
+
+## Notes
+- If JSON/CSV land under notebooks/outputs/, pass tagdir explicitly.
+- Jupyter tip: --ServerApp.default_url='/lab/tree/notebooks/' lands you in the right folder.
+
+## AWS Scaffolding (bash for structure.sh)
+
+```bash
+scaffold_tag () {
+local EXP="${1:?experiment required}"
+local TAG="${2:?tag required}"
+local ROOT="${ROOT_DIR:-$HOME/my_repos_dwb/fhtw-paper-code-prep}"
+local TAGDIR="$ROOT/$EXP/$TAG"
+mkdir -p "$TAGDIR"/{notebooks,scripts,outputs/{csv_logs,gradcam_images},datasets,models,logs,visualizations}
+: > "$TAGDIR/init.py"
+: > "$TAGDIR/scripts/init.py"
+local UTILS="$TAGDIR/scripts/py_utils_${TAG}.py"
+if [[ ! -f "$UTILS" ]]; then
+echo '"""Per-tag utils."""' > "$UTILS"
+fi
+echo "Scaffolded: $TAGDIR"
+}
+```
+
+Usage:
+
+```
+export ROOT_DIR="$HOME/my_repos_dwb/fhtw-paper-code-prep"
+scaffold_tag aws_s3_cifar transfer_try_1
+scaffold_tag test_project_bash p_03_e2e
+```
+
+---
+
+FIRST PROMPT FOR NEW CHAT:
+"Let’s start from this CIFAR-10 E2E baseline context. Goal: run a local dry-run in tag p_03_e2e with guardrails {Timebox 60–90 min, Reuse only, Deliverables = [DONE] test_acc=..., CSV+JSON in outputs/, Exit if blocker >15 min}. Then prepare AWS scaffolding for transfer_try_1."

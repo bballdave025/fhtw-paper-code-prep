@@ -1,0 +1,59 @@
+# 0) Verify artifacts
+cd ~/my_repos_dwb/fhtw-paper-code-prep/test_project_bash/p_03_e2e
+ls -1 outputs/ outputs/csv_logs/
+
+# 1) Patch structure.sh (remove bad banner)
+cd ~/my_repos_dwb/fhtw-paper-code-prep
+sed -i.bak_fix_banner '195,201d' structure.sh
+sed -n '190,205p' structure.sh
+
+# 2) Ensure logger exists
+cd test_project_bash/p_03_e2e
+cat > scripts/py_utils_p_03_e2e.py <<'PY'
+from __future__ import annotations
+import json, csv, os, time
+from pathlib import Path
+def _ts(): return time.strftime("%Y%m%d_%H%M%S")
+def log_test_summary(acc, loss, seed, tagdir=None):
+    td = Path(tagdir or os.environ["TAGDIR"]).resolve()
+    out = td / "outputs"; out.mkdir(parents=True, exist_ok=True)
+    ts = _ts()
+    js = {"timestamp": ts, "seed": seed, "test_acc": float(acc), "loss": float(loss)}
+    (out / f"test_summary_seed{seed}_{ts}.json").write_text(json.dumps(js, indent=2), "utf-8")
+    csv_path = out / f"csv_logs/train_history_seed{seed}_{ts}.csv"
+    csv_path.parent.mkdir(parents=True, exist_ok=True)
+    with open(csv_path, "w", newline="", encoding="utf-8") as f:
+        w = csv.writer(f); w.writerow(["timestamp","seed","metric","value"])
+        w.writerow([ts, seed, "test_acc", float(acc)])
+        w.writerow([ts, seed, "loss", float(loss)])
+    print(f"[DONE] test_acc={acc:.4f} | JSON+CSV written")
+PY
+
+# 3) Minimal bootstrap snippet
+mkdir -p notebooks/snippets
+cat > notebooks/snippets/minimal_bootstrap.py <<'PY'
+import os, sys
+from pathlib import Path
+tagdir = Path(os.environ.get("TAGDIR", Path.cwd().parent)).resolve()
+os.environ["TAGDIR"] = str(tagdir)
+(tagdir/"outputs"/"csv_logs").mkdir(parents=True, exist_ok=True)
+for p in (tagdir, tagdir.parent):
+    sp = str(p)
+    if sp not in sys.path: sys.path.insert(0, sp)
+os.environ.setdefault("OMP_NUM_THREADS","4")
+os.environ.setdefault("TF_NUM_INTEROP_THREADS","2")
+os.environ.setdefault("TF_NUM_INTRAOP_THREADS","4")
+os.environ.setdefault("CUDA_VISIBLE_DEVICES","")
+print("TAGDIR =", tagdir)
+PY
+
+# 4) EOL normalization (optional)
+python scripts/normalize_eol.py --root "$TAGDIR" \
+  --map "sh=lf,ps1=crlf,cmd=crlf,py=lf,ipynb=lf,md=lf"
+
+# 5) Commit & push
+cd ~/my_repos_dwb/fhtw-paper-code-prep
+git add structure.sh test_project_bash/p_03_e2e/scripts/py_utils_p_03_e2e.py \
+        test_project_bash/p_03_e2e/notebooks/snippets/minimal_bootstrap.py
+git commit -m "Local fixes: remove banner; add log_test_summary; add minimal_bootstrap snippet"
+git push
