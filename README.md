@@ -10,7 +10,7 @@ For now, I'm putting in `README`s for the models to be used, analyzed, and perha
 # Zeroth Step: Very Quick-and-<strike>Dirty</strike>Reckless Bare-Bones CNN.
 
 Just doing some review and geting something running on Google Colab,
-specifically with [this notebook (in this repo]()
+specifically with [this notebook (in this repo]() or one of what I believe are exact copies (with differences in whether output is included or not) in my rib-wrist-in-bin-din repository, [Paper_Code_Prep_01.ipynb]() and []
 
 # First Step: Local E2E CIFAR-10 Baseline (Local & AWS) Nicely Automated
 
