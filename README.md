@@ -7,6 +7,11 @@ You might want to go down to the discussion of models, Jupyter Notebooks, drafts
 
 For now, I'm putting in `README`s for the models to be used, analyzed, and perhaps voted on by a much later ensemble model. They're somewhat in the order of complexity, but don't quote me on that.
 
+# Zeroth Step: Very Quick-and-<strike>Dirty</strike>Reckless Bare-Bones CNN.
+
+Just doing some review and geting something running on Google Colab,
+specifically with [this notebook (in this repo]()
+
 # First Step: Local E2E CIFAR-10 Baseline (Local & AWS) Nicely Automated
 
 ## Guardrails (Q&R) to prevent scope drift and work only on this stepping stone
