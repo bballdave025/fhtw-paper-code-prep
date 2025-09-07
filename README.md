@@ -7,15 +7,124 @@ You might want to go down to the discussion of models, Jupyter Notebooks, drafts
 
 For now, I'm putting in `README`s for the models to be used, analyzed, and perhaps voted on by a much later ensemble model. They're somewhat in the order of complexity, but don't quote me on that.
 
-# First Step: Local E2E C
+# First Step: Local E2E CIFAR-10 Baseline (Local & AWS) Nicely Automated
 
-## Discussion of Models, Jupyter Notebooks, Paper-draft PDFs, etc.
+## Guardrails (Q&R) to prevent scope drift and work only on this stepping stone
+- **Timebox:** 30–45 min, stop if any single blocker >15 min.
+- **Reuse-only:** Minimal glue only; no net-new features.
+- **Deliverables:** printed `[DONE] test_acc=…` + two artifacts in `outputs/`:
+  - `outputs/test_summary_seed137_<ts>.json`
+  - `outputs/csv_logs/train_history_seed137_<ts>.csv`
+
+## Prereqs
+- The file, `requirements_vanilla_cnn.yml` for the `conda` environment
+- Conda env: `vanilla_cnn` (kernel registered or pass `-k`).
+- Repo: `~/my_repos_dwb/fhtw-paper-code-prep/`
+- Scripts: `structure.sh`, `bin/start_cifar_lab.sh`
+- **Run once per machine:** `python ~/my_repos_dwb/fhtw-paper-code-prep/verify_env.py`
+
+## Quickstart — Local E2E
+```bash
+# 1) Scaffold tag
+WITH_NB_STUBS=1 ./structure.sh test_project_bash p_03_e2e
+
+# 2) Activate env & runtime vars
+cd test_project_bash/p_03_e2e
+conda activate vanilla_cnn
+export OMP_NUM_THREADS=4
+export TF_NUM_INTEROP_THREADS=2
+export TF_NUM_INTRAOP_THREADS=4
+export CUDA_VISIBLE_DEVICES=""
+export TAGDIR="$(pwd)"
+
+# (optional) seed project cache
+[ -z "$(ls -A "$TAGDIR/datasets" 2>/dev/null)" ] && [ -d "$HOME/.keras/datasets" ] && cp -r "$HOME/.keras/datasets"/ "$TAGDIR/datasets"/
+```
+
+```bash
+# 3) Launch JupyterLab
+cd ~/my_repos_dwb/fhtw-paper-code-prep
+bin/start_cifar_lab.sh -p "$TAGDIR" -e vanilla_cnn -k
+# open: test_project_bash/p_03_e2e/notebooks/02_training_p_03_e2e.ipynb
+```
+
+### First Notebook Cell — Minimal Robust Bootstrap
+```python
+import os, sys
+from pathlib import Path
+tagdir = Path(os.environ.get("TAGDIR", Path.cwd().parent)).resolve()
+os.environ["TAGDIR"] = str(tagdir)
+(tagdir / "outputs" / "csv_logs").mkdir(parents=True, exist_ok=True)
+for p in (tagdir, tagdir.parent):
+    sp = str(p)
+    if sp not in sys.path:
+        sys.path.insert(0, sp)
+os.environ.setdefault("OMP_NUM_THREADS","4")
+os.environ.setdefault("TF_NUM_INTEROP_THREADS","2")
+os.environ.setdefault("TF_NUM_INTRAOP_THREADS","4")
+os.environ.setdefault("CUDA_VISIBLE_DEVICES","")
+print("TAGDIR =", tagdir)
+```
+
+### Train → Evaluate → Log
+```python
+import tensorflow as tf
+(x_train, y_train), (x_test, y_test) = tf.keras.datasets.cifar10.load_data()
+x_train = x_train.astype("float32")/255.0
+x_test  = x_test.astype("float32")/255.0
+
+from tensorflow.keras import layers, models
+m = models.Sequential([
+    layers.Input((32,32,3)),
+    layers.Conv2D(32,3,activation="relu"),
+    layers.Conv2D(32,3,activation="relu"),
+    layers.MaxPooling2D(),
+    layers.Conv2D(64,3,activation="relu"),
+    layers.Conv2D(64,3,activation="relu"),
+    layers.MaxPooling2D(),
+    layers.Flatten(),
+    layers.Dense(128, activation="relu"),
+    layers.Dense(10, activation="softmax"),
+])
+m.compile(optimizer="adam", loss="sparse_categorical_crossentropy", metrics=["accuracy"])
+m.fit(x_train, y_train, epochs=5, batch_size=128, validation_split=0.1, verbose=1)
+
+loss, acc = m.evaluate(x_test, y_test, verbose=0)
+print(f"[DONE] test_acc={acc:.4f}")
+
+from scripts.py_utils_p_03_e2e import log_test_summary  # ensure this function exists
+import os
+log_test_summary(acc, loss=float(loss), seed=137, tagdir=os.environ["TAGDIR"])
+```
+
+## AWS / SageMaker Notes
+- Mirror env `vanilla_cnn` on the instance or SageMaker Studio.
+- Use tag: `aws_s3_cifar/transfer_try_1`
+- Dataset on S3 (example): `s3://<bucket>/datasets/cifar10/`
+- Minimal S3 download snippet (boto3) before loading:
+```python
+import boto3, os
+from pathlib import Path
+s3 = boto3.client('s3')
+cache = Path(os.environ.get('TAGDIR', '.'))/ 'datasets'
+cache.mkdir(parents=True, exist_ok=True)
+s3.download_file('<bucket>', 'datasets/cifar10/cifar-10-batches-py.tar.gz', str(cache/'cifar-10-batches-py.tar.gz'))
+# proceed with keras CIFAR-10 load or your own loader
+```
+
+## Cross-Platform EOL Normalization
+```bash
+python scripts/normalize_eol.py --root "$TAGDIR"   --map "sh=lf,ps1=crlf,cmd=crlf,py=lf,ipynb=lf,md=lf"
+```
+
+
+# Discussion of Models, Jupyter Notebooks, Paper-draft PDFs, etc.
 
 Coming soon!
 
 <br/>
 
-## Useful Commands for Dave
+# Useful Commands for Dave
 
 ### Convert Commands
 
