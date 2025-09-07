@@ -192,6 +192,13 @@ fi
 
 ensure_gitattributes_entries "$ROOT_DIR"
 
+# Info on the .gitattributes additions (creation)
+echo "  ---------------------------------------------------------"
+echo "  Helper for git repos, ensure right EOL on OS,"
+echo "  provided for tag, '$tag'. This will allow everying"
+echo "  to be stress-free platform-agnostic. Only used"
+echo "  when things are done in a project where source"
+echo "  control is handled via Git, but it doesn't hurt to"
 echo "  have this in here."
 echo "  (Note that any files that should be excluded/ignored"
 echo "   are covered in the Git repo's root .gitignore file.)"
