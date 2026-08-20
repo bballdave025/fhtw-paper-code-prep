@@ -153,6 +153,8 @@ Later code was already beginning to detect `notebooks/` and move upward. For RMR
 
 Before changing anything, inspect whether `p_03_e2e` already solved this.
 
+**Edit**: `p_03_e2e` did indeed fix this issue. Details may be found in _§ `p_03_e2e` comparison: resolved_, below.
+
 ## Keep notebooks minimal
 
 Populate only the notebooks an experiment needs. Split stages only when separation has a concrete benefit: expensive training versus cheap inference, reusable data prep, independent attribution, or checkpointed AWS stages.
