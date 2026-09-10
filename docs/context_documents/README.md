@@ -345,4 +345,73 @@ idea be implemented.
 For the current paper work, a useful scope rule is:
 
 > **Capture the branch. Stay on the trunk.**
-> 
+
+Interesting extensions can be preserved as future work without expanding
+the current minimum-publishable implementation.
+
+------------------------------------------------------------------------
+
+# Experiment Continuation
+
+RMMFB context documents should make it possible to distinguish:
+
+-   experiments already run,
+-   experiments currently being implemented,
+-   experiments selected as near-term next steps,
+-   optional experiments that are allowed only if time permits,
+-   and interesting branches deliberately deferred.
+
+When recording an experiment, capture enough information to answer:
+
+1.  What question or hypothesis is being tested?
+2.  What dataset/subset and labels are used?
+3.  What preprocessing and resolution are used?
+4.  What model state is used (pretrained, frozen, fine-tuned, etc.)?
+5.  What result or artifact will count as completion?
+6.  How will success be measured?
+7.  Is this **evaluation**, **retrieval/discovery**, or exploratory
+    work?
+8.  Is the added complexity justified for the current paper?
+
+This distinction is especially important for higher-resolution models,
+additional architecture families, ensembles, remote-sensing-inspired
+models, large-scale FamilySearch inference, gaze/attention experiments,
+and other future extensions. Such ideas may be worth preserving without
+belonging in the current lean paper.
+
+------------------------------------------------------------------------
+
+# Scope
+
+These documents are intended to bridge work across:
+
+-   multiple ChatGPT conversations,
+-   multiple development sessions,
+-   different machines,
+-   local development and AWS / SageMaker environments,
+-   paper-writing and experimental sessions,
+-   and interruptions lasting days or months.
+
+They are written primarily for the future maintainer of the project,
+which is usually the author.
+
+For interactive experiment work, continuation state should favor small,
+executable next-step batches rather than long procedural plans. The goal
+is to preserve both:
+
+-   enough research and engineering reasoning to avoid re-derivation,
+-   and enough scope discipline to resume useful experiments quickly.
+
+------------------------------------------------------------------------
+
+# Retrieval Tip
+
+1.  Sort by filename.
+2.  Open the newest `LN_rmmfb_*`.
+3.  Resume from **Immediate Next Steps** (or equivalent).
+4.  Check any **Scope / Deferred Work** section before promoting a
+    captured branch into current work.
+
+------------------------------------------------------------------------
+
+*End of README*
