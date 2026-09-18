@@ -198,6 +198,45 @@ These may contain useful implementation patterns, examples, and experiment histo
 
 The mature `p_03_e2e` work is particularly valuable as a source for proven patterns such as experiment-root handling and result logging. Those patterns may be copied or adapted later without promoting the whole experiment directory.
 
+## Cross-platform access and democratization — intentionally deferred, not abandoned
+
+The MVP uses Bash/Linux because the publication experiments are expected to run through AWS/SageMaker/EC2. This is a scope decision, not a decision that cross-platform support is unimportant.
+
+Earlier infrastructure on `cifar10-vanilla-cnn` includes:
+
+```text
+py_touch.py
+normalize_eol.py
+PowerShell scaffolding
+explicit EOL-handling logic
+```
+
+These were built to make experiment setup portable across Windows and Unix-like systems.
+
+That portability matters to the larger RMMFB goal. Scholars, archives, volunteers, students, and small institutions should not need a single preferred workstation environment in order to inspect, adapt, or reproduce the workflow.
+
+For the MVP, the Linux-first path wins because it is the shortest path to a real, reproducible scientific result. After the MVP, reconsider:
+
+- restoring PowerShell (`.ps1`) experiment support;
+- restoring `py_touch.py` as an OS-independent file-creation helper;
+- restoring `normalize_eol.py` and explicit line-ending normalization;
+- testing Windows/Linux portability of the released workflow;
+- adding macOS compatibility if a contributor wants to help validate and maintain it.
+
+CMD/batch support should remain lower priority and should return only if a concrete user environment requires it.
+
+Do not interpret removal from the MVP as deprecation. These are deferred accessibility/reproducibility features.
+
+A personal note from the current Linux-biased maintainer:
+
+> I would have loved to make this macOS-compatible from the start, but it would have been cheaper to buy a small orchard than to rent a Mac EC2 instance for one unit test. Walled gardens not included or scaled.
+
+That joke should not be mistaken for a platform policy. I am, admittedly, a Linux snob; macOS-using digital humanists are very much invited to prove me needlessly dramatic by contributing a clean compatibility path, tests, or documentation.
+
+The goal is not “Linux forever.” The goal is “Linux now, broader access when it no longer delays the paper.”
+
+---
+
 ## Branch policy
 
 Long-term intended roles:
@@ -238,3 +277,34 @@ If the answer to (1) is unclear, leave it deferred.
 > Capture the branch. Stay on the trunk.
 
 Deferred does not mean discarded. It means **preserved without allowing infrastructure work to delay the RMMFB MVP**.
+
+---
+
+## Audit
+
+Public-repository exposure audit: locate all copies of the 3,331-image labeled manifest, class-bearing filenames, and source/provenance-bearing logs across current files, Git history, branches, and related repositories; decide the intended public/private boundary; then sanitize and, if necessary, rewrite Git history before public release.
+
+For the later audit, I’d want to search three layers:
+
+```bash
+# current working tree
+grep -RInE '_(abg|cwa|fko|fmr|gni|iac|mbr|mcl|mmx|nbr|oic|orc|scg|spr|suh|tbr|ucr)(_|\.jpg|\.jpeg|\.png)' .
+
+# all reachable Git history for suspicious filenames / class codes
+git log --all --name-only --pretty=format: |
+  grep -Ei 'consistentized_3331|dataset|label|classification|filename'
+
+# inspect history content more aggressively
+git rev-list --all |
+while read c; do
+  git grep -nE '_(abg|cwa|fko|fmr|gni|iac|mbr|mcl|mmx|nbr|oic|orc|scg|spr|suh|tbr|ucr)(_|\.jpg|\.jpeg|\.png)' "$c" -- 2>/dev/null
+done
+```
+
+That last one is intentionally brute-force and may be noisy, but it answers the actual question: where in reachable history do these labels appear?
+
+Then we do the same across your other likely repos. Only after we know the footprint should we decide whether to use git filter-repo to rewrite history.
+
+---
+
+The preparation logs themselves are valuable and should not be casually deleted. They sound like they belong in the scientific record, probably near the annotation / dataset-lineage / QA documentation. The likely resolution is preserve the procedural information while separating or sanitizing any artifacts that expose the labeled manifest more directly than you intend.
