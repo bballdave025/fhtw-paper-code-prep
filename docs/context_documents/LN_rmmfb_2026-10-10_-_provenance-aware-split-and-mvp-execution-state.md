@@ -30,7 +30,7 @@ date +'%s_%Y-%m-%dT%H:%M:%S%z'
 (Boston, MA time)
 
 **Continued from chat:**  
-{{Exact current chat title}}
+RMMFB Ruthless MVP live-split
 
 **Also involving:**
 - provenance-aware train/validation/test grouping
