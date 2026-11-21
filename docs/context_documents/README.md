@@ -111,11 +111,20 @@ paper preparation.
 **Prepared at:**
 {{ssssssssss_YYYY-mm-ddTHH:MM:SS±ZZZZ}}
 
-Generated via:
+**IANA timezone:**
+{{DAVE_IANA_TIMEZONE}}
 
-date +'%s_%Y-%m-%dT%H:%M:%S%z'
+Generated via (Unix-like shell, after confirming Dave's current timezone):
 
-(Boston, MA time)
+TZ={{DAVE_IANA_TIMEZONE}} date +'%s_%Y-%m-%dT%H:%M:%S%z'
+
+Use Dave's **current local timezone at document-creation time**. Record both
+the IANA timezone name and the numeric UTC offset. **Do not infer Dave's
+timezone from the execution host.** If Dave's current timezone is unknown,
+ask him before generating authoritative timestamp metadata.
+
+For example, `America/Denver` applied while Dave lived in Utah in
+November 2026; it is **not** a permanent default.
 
 **Continued from chat:**
 {{Exact chat title}}
