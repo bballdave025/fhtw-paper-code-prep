@@ -4,6 +4,18 @@ This directory contains **continuation-ready context documents** (Lab
 Notebook / LN files) for the **RMMFB / Reused Manuscript Fragments in
 Bindings** work in `fhtw-paper-code-prep`.
 
+
+## Latest continuation — November 26, 2026
+
+- [Lab Notebook: ontology baseline and duplicate review](LN_rmmfb_2026-11-26_ctx01_-_ontology-baseline-and-duplicate-review.md)
+- [Pre-Context-Document Prompt (PCDP)](PCDP_rmmfb_2026-11-26_-_ontology-baseline-and-duplicate-review.md)
+
+Ontology PR #14 is merged and the publication tag is verified. EG003 is
+reconciled; EG004 is next. The new LN records Dave's seven-step sprint
+sequence, the distinction between recorded decisions and executed work,
+and links to the current private audit checkpoint and ledger.
+Use this handoff for current status; older LNs remain historical evidence.
+
 > **Repository customization**
 >
 > This README has been customized for the RMMFB work. The project marker
