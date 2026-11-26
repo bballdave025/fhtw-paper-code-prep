@@ -16,7 +16,7 @@
 
 Preparation timestamp generated with `TZ=America/Denver date +'%s_%Y-%m-%dT%H:%M:%S%z'`. The execution host's timezone is not Dave's timezone.
 
-**Continued from chat:** The ongoing RMMFB conversation covering ontology PR #14 closeout and resumption of duplicate review. The exact current UI chat title was not independently available; this descriptive identifier is not an invented exact title.
+**Continued from chat:** “RMMFB_Utah_2026_Halloween+_Fragmentology_studies_and_paper_prep”, the ongoing RMMFB conversation covering ontology PR #14 closeout and resumption of duplicate review.
 
 **Also involving:** Publication ontology tag; private audit ledger; Keith's historical experiment; AWS/SageMaker; usage review; attribution; bounded follow-up documentation.
 
