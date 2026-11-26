@@ -14,7 +14,7 @@ The next message will be:
 
 Repository location: [fhtw-paper-code-prep/docs/context_documents/LN_rmmfb_2026-11-26_ctx01_-_ontology-baseline-and-duplicate-review.md](https://github.com/bballdave025/fhtw-paper-code-prep/blob/main/docs/context_documents/LN_rmmfb_2026-11-26_ctx01_-_ontology-baseline-and-duplicate-review.md).
 
-It continues the RMMFB conversation covering ontology closeout and duplicate review; the exact prior UI title was not independently verified.
+It continues the RMMFB conversation covering ontology closeout and duplicate review. This chat serves as a continuation of the chat, RMMFB_Utah_2026_Halloween+_Fragmentology_studies_and_paper_prep.
 
 ## Timing
 
